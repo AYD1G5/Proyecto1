@@ -7,6 +7,7 @@ use App\User;
 use App\Ciclo;
 use App\Asignacion;
 use App\Curso;
+use App\Http\Requests\CursoAsignacionTempFormRequest;
 use App\Asignacion_temporal;
 use App\Curso_pensum;
 use App\Curso_asignacion_temporal;
@@ -17,7 +18,11 @@ use Illuminate\Support\Facades\Redirect;
 class AsignacionTempController extends Controller
 {
 
-    function crearAsignacionTmpSiNoExiste($pensumestudiante){
+    function crearAsignacionTmpSiNoExiste(){
+        $pensumestudiante=DB::table('pensum_estudiante')
+        ->where('estudiante_id', '=', Auth::id())
+        ->first(); // los multipensum se implementaras despues
+
         $id_asignacion_temporal = null;
         $listado_asignacion_temporal = null;    
         if(Asignacion_temporal::where('estudiante_id', Auth::id())->count() == 0){            
@@ -30,14 +35,16 @@ class AsignacionTempController extends Controller
             
             $listado_asignacion_temporal = DB::table('curso as c')
             ->join('curso_pensum as cp', 'c.codigo_curso', '=', 'cp.codigo_curso')
-            ->join('pensum as p', 'c.codigo_pensum', '=', 'p.codigo_pensum')
+            ->join('pensum as p', 'cp.codigo_pensum', '=', 'p.codigo_pensum')
             ->join('curso_asignacion_temporal as cat', 'cat.id_curso_pensum', '=', 'cp.id')
-            ->select('c.codigo_curso as codigo_curso', 'c.nombre_curso as nombre_curso',
+            ->select('cp.id as id_curso_p, c.codigo_curso as codigo_curso', 'c.nombre_curso as nombre_curso',
                 'cp.categoria as categoria, cp.creditos as creditos', 'cp.restriccion as restriccion')
-            ->where('cat.asig_t_id', '=', $id_asignacion_temporal);
+            ->where('cat.asig_t_id', '=', $id_asignacion_temporal)
+            ->get();
         }
         $salida['id_asignacion_temporal'] = $id_asignacion_temporal;
         $salida['listado_asignacion_temporal'] = $listado_asignacion_temporal;
+        $salida['pensumestudiante'] = $pensumestudiante;
         return $salida;
     }
 
@@ -48,22 +55,19 @@ class AsignacionTempController extends Controller
      */
     public function index()
     {
-        $pensumestudiante=DB::table('pensum_estudiante')
-        ->where('estudiante_id', '=', Auth::id())
-        ->first(); // los multipensum se implementaras despues
+        $atc = new AsignacionTempController();
+        $data = $atc->crearAsignacionTmpSiNoExiste();
 
         $cursos=DB::table('curso as c')
         ->join('curso_pensum as cp', 'c.codigo_curso', '=', 'cp.codigo_curso')
         ->join('pensum as p', 'cp.codigo_pensum', '=', 'p.codigo_pensum')
-        ->select('c.codigo_curso as codigo_curso', 'c.nombre_curso as nombre_curso',
+        ->select('cp.id as id_curso_p', 'c.codigo_curso as codigo_curso', 'c.nombre_curso as nombre_curso',
                'cp.categoria as categoria', 'cp.creditos as creditos', 'cp.restriccion as restriccion')
-        ->where('cp.codigo_pensum', '=', $pensumestudiante->codigo_pensum)
+        ->where('cp.codigo_pensum', '=', $data['pensumestudiante']->codigo_pensum)
         ->paginate(7);
 
-        $atc = new AsignacionTempController();
-        $data = $atc->crearAsignacionTmpSiNoExiste($pensumestudiante);
-
-        return View('asignaciones.index', ["cursos"=>$cursos, "pensumestudiante"=>$pensumestudiante->codigo_pensum, 
+        return View('asignaciones.index', ["cursos"=>$cursos, 
+        "pensumestudiante"=>$data['pensumestudiante']->codigo_pensum, 
         "id_asignacion_temporal"=>$data['id_asignacion_temporal'], 
         "listado_asignacion_temporal"=>$data['listado_asignacion_temporal']]);
     }
@@ -73,18 +77,24 @@ class AsignacionTempController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create($id)
     {
-        $catedraticos=DB::table('users')
-        ->where('rol', '=', 'docente')
-        ->ge();
-        $asignacion = new Asignacion();
-        $estudiantes = User::all();
-        $ciclos = Ciclo::all();
-        return View('asignaciones.save')
-            ->with('asignacion', $asignacion)
-            ->with('ciclos', $ciclos)
-            ->with('method', 'POST');
+        $catedraticos=DB::table('users as u')
+        ->join('curso_catedratico as cc', 'u.id', '=', 'cc.codigo_catedratico')
+        ->where('cc.curso_pensum', '=', $id)
+        ->get();
+        $atc = new AsignacionTempController();
+        $data = $atc->crearAsignacionTmpSiNoExiste();
+        
+        $curso_pensum = Curso_pensum::findOrFail($id);
+        $curso = Curso::findOrFail($curso_pensum->codigo_curso);
+    
+        return View('asignaciones.create', [
+            "catedraticos" => $catedraticos,
+            "id_asignacion_temporal" => $data['id_asignacion_temporal'],
+            "curso_pensum" => $curso_pensum, 
+            "curso" => $curso,
+            ]);
     }
 
     /**
@@ -93,14 +103,17 @@ class AsignacionTempController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(CursoAsignacionTempFormRequest $request)
     {
-        $asignaciones = new Asignacion();
-        $asignaciones->estudiante_id = $request->estudiante_id;
-        $asignaciones->ciclo_id = $request->ciclo_id;
-        $asignaciones->anio = $request->anio;
-        $asignaciones->save();
-        return Redirect::to('asignaciones')->with('notice', 'Tarea guardada correctamente.');
+        $atc = new AsignacionTempController();
+        $data = $atc->crearAsignacionTmpSiNoExiste();
+
+        $asignaciontemp = new Curso_Asignacion_temporal;
+        $asignaciontemp->id_curso_pensum = $request->get('id_curso_pensum');
+        $asignaciontemp->catedratico_id = $request->get('catedratico_id');
+        $asignaciontemp->asig_t_id = $data['id_asignacion_temporal']->id;
+        $asignaciontemp->save();
+        return Redirect::to('asignaciontemporal')->with('notice', 'Tarea guardada correctamente.');
     }
 
     /**
@@ -111,9 +124,8 @@ class AsignacionTempController extends Controller
      */
     public function show($id)
     {
-        $asignaciones = Asignacion::find($id);
-        return View('asignaciones.show')
-            ->with('asignaciones', $asignaciones);
+        $asignaciontemp = Curso_Asignacion_temporal::find($id);
+        return View('asignaciones.show', ['asignaciontemp'=> $asignaciontemp]);
     }
 
     /**
@@ -124,13 +136,25 @@ class AsignacionTempController extends Controller
      */
     public function edit($id)
     {
-        $asignaciones = Asignacion::find($id);
-        $estudiantes = User::all();
-        $ciclos = Ciclo::all();
-        return View('asignaciones.save')
-            ->with('asignacion', $asignacion)
-            ->with('ciclos', $ciclos)
-            ->with('method', 'PUT');
+        $catedraticos=DB::table('users as u')
+        ->join('curso_catedratico as cc', 'u.id', '=', 'cc.codigo_catedratico')
+        ->where('cc.curso_pensum', '=', $id)
+        ->get();
+        $atc = new AsignacionTempController();
+        $data = $atc->crearAsignacionTmpSiNoExiste();
+        
+        $curso_pensum = Curso_pensum::findOrFail($id);
+        $curso = Curso::findOrFail($curso_pensum->codigo_curso);
+
+        $asignacion_temporal=Curso_asignacion_temporal::findOrFail($id);
+
+        return View('asignaciones.edit', [
+            'asignacion_temporal'=>$asignacion_temporal,
+            'catedraticos'=>$catedraticos, 
+            'id_asignacion_temporal'=>$data['id_asignacion_temporal'],
+            'curso_pensum'=>$curso_pensum, 
+            'method'=>'PUT'
+        ]);
     }
 
     public function quitar($id)
@@ -153,12 +177,15 @@ class AsignacionTempController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $asignaciones = Asignacion::find($id);
-        $asignaciones->estudiante_id = $request->estudiante_id;
-        $asignaciones->ciclo_id = $request->ciclo_id;
-        $asignaciones->anio = $request->anio;
-        $asignaciones->save();
-        return Redirect::to('asignaciones')->with('notice', 'Tarea guardada correctamente.');
+        $atc = new AsignacionTempController();
+        $data = $atc->crearAsignacionTmpSiNoExiste();
+
+        $asignaciontemp = Curso_Asignacion_temporal::find($id);
+        $asignaciontemp->id_curso_pensum = $request->get('id_curso_pensum');
+        $asignaciontemp->catedratico_id = $request->get('catedratico_id');
+        $asignaciontemp->asig_t_id = $data['id_asignacion_temporal']->id;
+        $asignaciontemp->save();
+        return Redirect::to('asignaciontemporal')->with('notice', 'Tarea guardada correctamente.');
     }
 
     /**

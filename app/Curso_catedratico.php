@@ -10,6 +10,7 @@ class Curso_catedratico extends Model
 
     protected $primaryKey=['codigo_curso', 'codigo_catedratico'];
     
+    
     protected $fillable = [
         'codigo_curso',
         'codigo_catedratico',

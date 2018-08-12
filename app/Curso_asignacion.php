@@ -10,6 +10,7 @@ class Curso_asignacion extends Model
 
     protected $primaryKey=['id_curso_pensum', 'asignacion_id'];
 
+
     protected $fillable = [
         'id_curso_pensum', 
         'asignacion_id',

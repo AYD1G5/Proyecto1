@@ -10,6 +10,8 @@ class Asignacion_temporal extends Model
 
     protected $primaryKey='id';
     
+    public $timestamps=false;
+    
     protected $fillable = [
         'estudiante_id',
         'codigo_pensum',

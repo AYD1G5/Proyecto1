@@ -8,7 +8,7 @@
        </div>
        <hr />
        <div class="col-lg-12">
-          {!! link_to('asignaciones', 'Volver', ['class' => 'btn btn-danger']) !!}
+          {!! link_to('asignaciontemporal', 'Volver', ['class' => 'btn btn-danger']) !!}
        </div>
     </div>
  </div>
