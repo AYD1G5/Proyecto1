@@ -1,0 +1,14 @@
+Descripción de las columnas del Archivo de Excel:
+
+CODIGO: Representa el Identificador unico que la facultada de ingeneniería a asignada a cada curso, es unico y no esta repetido con otro curso.
+NOMBRE:	Es el nombre con que Control Academico a llamado a cada curso.
+CREDITOS: Las carrera de ingeneniería exige cierta cantidad de creditos para poder cerrar por lo que se le ha asignado una fraccion de esos crédito a cada curso.
+ESCUELA: Es la encarga de administrar la dirección de cada curso.
+AREA: Además cada escuela se subdivide en Áreas, que coordinana cada curso.
+PREREQUISITOS: para poer llevar ciertos cursos se exige haber ganado otros previamente
+POSTREQUISITOS:	son los curso que se poderían llevar despues de haber ganada un curso.
+CATEGORIA: Un curso puede tener una categoria obligatoria u opcional.
+LABORATORIO: es una subdivisión de la clase, donde se ponen en practica la teroría aprendida durante el curso.
+RESTRICCION: para poer llevar ciertos cursos se exige haber ganado cierta cantidad de créditos
+SEMESTRE: es al semestre que se llevaría un curso un estudiante que cumpla con la distribución de cursos programada por el pensum.
+CARRERA: Existen diferentes carreras en la facultada de ingeneniería, por ejemplo la Carrera de ingeneniería Industrial es la No. 5.
