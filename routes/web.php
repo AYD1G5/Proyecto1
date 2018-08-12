@@ -119,6 +119,7 @@ Route::get('/prueba/{id_curso}/{id_carrera}/{id_usuario}', function($id_curso, $
 Route::group( ['middleware' => 'auth' ], function()
 {
     Route::resource('/asignaciontemporal', 'AsignacionTempController');
+    Route::get('asignaciontemporal/{id}/quitar/', 'AsignacionTempController@quitar');
 });
 
 Auth::routes();

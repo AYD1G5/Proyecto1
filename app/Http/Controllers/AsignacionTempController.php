@@ -16,25 +16,8 @@ use Illuminate\Support\Facades\Redirect;
 
 class AsignacionTempController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
-    {
-        $pensumestudiante=DB::table('pensum_estudiante')
-        ->where('estudiante_id', '=', Auth::id())
-        ->first(); // los multipensum se implementaras despues
 
-        $cursos=DB::table('curso as c')
-        ->join('curso_pensum as cp', 'c.codigo_curso', '=', 'cp.codigo_curso')
-        ->join('pensum as p', 'cp.codigo_pensum', '=', 'p.codigo_pensum')
-        ->select('c.codigo_curso as codigo_curso', 'c.nombre_curso as nombre_curso',
-               'cp.categoria as categoria', 'cp.creditos as creditos', 'cp.restriccion as restriccion')
-        ->where('cp.codigo_pensum', '=', $pensumestudiante->codigo_pensum)
-        ->get();
-        //->paginate(7);
+    function crearAsignacionTmpSiNoExiste($pensumestudiante){
         $id_asignacion_temporal = null;
         $listado_asignacion_temporal = null;    
         if(Asignacion_temporal::where('estudiante_id', Auth::id())->count() == 0){            
@@ -53,9 +36,36 @@ class AsignacionTempController extends Controller
                 'cp.categoria as categoria, cp.creditos as creditos', 'cp.restriccion as restriccion')
             ->where('cat.asig_t_id', '=', $id_asignacion_temporal);
         }
+        $salida['id_asignacion_temporal'] = $id_asignacion_temporal;
+        $salida['listado_asignacion_temporal'] = $listado_asignacion_temporal;
+        return $salida;
+    }
+
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function index()
+    {
+        $pensumestudiante=DB::table('pensum_estudiante')
+        ->where('estudiante_id', '=', Auth::id())
+        ->first(); // los multipensum se implementaras despues
+
+        $cursos=DB::table('curso as c')
+        ->join('curso_pensum as cp', 'c.codigo_curso', '=', 'cp.codigo_curso')
+        ->join('pensum as p', 'cp.codigo_pensum', '=', 'p.codigo_pensum')
+        ->select('c.codigo_curso as codigo_curso', 'c.nombre_curso as nombre_curso',
+               'cp.categoria as categoria', 'cp.creditos as creditos', 'cp.restriccion as restriccion')
+        ->where('cp.codigo_pensum', '=', $pensumestudiante->codigo_pensum)
+        ->paginate(7);
+
+        $atc = new AsignacionTempController();
+        $data = $atc->crearAsignacionTmpSiNoExiste($pensumestudiante);
 
         return View('asignaciones.index', ["cursos"=>$cursos, "pensumestudiante"=>$pensumestudiante->codigo_pensum, 
-        "id_asignacion_temporal"=>$id_asignacion_temporal, "listado_asignacion_temporal"=>$listado_asignacion_temporal]);
+        "id_asignacion_temporal"=>$data['id_asignacion_temporal'], 
+        "listado_asignacion_temporal"=>$data['listado_asignacion_temporal']]);
     }
 
     /**
@@ -65,6 +75,9 @@ class AsignacionTempController extends Controller
      */
     public function create()
     {
+        $catedraticos=DB::table('users')
+        ->where('rol', '=', 'docente')
+        ->ge();
         $asignacion = new Asignacion();
         $estudiantes = User::all();
         $ciclos = Ciclo::all();
@@ -110,6 +123,17 @@ class AsignacionTempController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
+    {
+        $asignaciones = Asignacion::find($id);
+        $estudiantes = User::all();
+        $ciclos = Ciclo::all();
+        return View('asignaciones.save')
+            ->with('asignacion', $asignacion)
+            ->with('ciclos', $ciclos)
+            ->with('method', 'PUT');
+    }
+
+    public function quitar($id)
     {
         $asignaciones = Asignacion::find($id);
         $estudiantes = User::all();

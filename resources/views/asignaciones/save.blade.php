@@ -1,7 +1,7 @@
 @extends('layouts.app')
 @section('content')
  <div class="container">
-    <h1> Guardar Asignacion </h1>
+    <h1>  </h1>
     {!! Form::open(array('url' => 'asignaciones/' . $asignacion->id, 'method' => $method)) !!}
       <!-- <div class="form-group">
           {!! Form::label('titulo', 'Título') !!}
