@@ -20,19 +20,42 @@
 			<div class="full-box dashboard-sideBar-UserInfo">
 				<figure class="full-box">
 					<img src="{{ URL::asset('img/avatar.jpg') }}" alt="UserIcon">
-					<figcaption class="text-center text-titles">User Name</figcaption>
+						<figcaption class="text-center text-titles">User Name</figcaption>
 				</figure>
 				<ul class="full-box list-unstyled text-center">
+					@guest
+					
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+                            </li>
+							<li>
+								<a href="#!" class="btn-exit-system">
+									<i class="zmdi zmdi-power"></i>
+								</a>
+							</li>
+                    @else
 					<li>
 						<a href="#!">
 							<i class="zmdi zmdi-settings"></i>
 						</a>
 					</li>
 					<li>
-						<a href="#!" class="btn-exit-system">
-							<i class="zmdi zmdi-power"></i>
-						</a>
+			           <a class="zmdi zmdi-power" href="{{ route('logout') }}"
+                            onclick="event.preventDefault();
+                                      document.getElementById('logout-form').submit();">
+                        </a>
+
+                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                           @csrf
+                      </form>
+
 					</li>
+    
+                    @endguest
+					
 				</ul>
 			</div>
             

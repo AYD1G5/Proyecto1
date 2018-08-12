@@ -110,3 +110,12 @@ Route::get('/carga/{archivo}', function ($archivo) {
     }
     dd("completado");
 }});
+
+
+Route::get('/prueba/{id_curso}/{id_carrera}/{id_usuario}', function($id_curso, $id_carrera, $id_usuario){
+    return 'Hola mundo'.$id_curso.$id_carrera.$id_usuario;
+});
+
+
+Auth::routes();
+Route::get('/home', 'HomeController@index')->name('home');
