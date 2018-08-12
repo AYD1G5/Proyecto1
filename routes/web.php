@@ -116,6 +116,10 @@ Route::get('/prueba/{id_curso}/{id_carrera}/{id_usuario}', function($id_curso, $
     return 'Hola mundo'.$id_curso.$id_carrera.$id_usuario;
 });
 
+Route::group( ['middleware' => 'auth' ], function()
+{
+    Route::resource('/asignaciontemporal', 'AsignacionTempController');
+});
 
 Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
