@@ -121,6 +121,7 @@ Route::group( ['middleware' => 'auth' ], function()
     Route::resource('/asignaciontemporal', 'AsignacionTempController');
     Route::get('asignaciontemporal/{id}/quitar/', 'AsignacionTempController@quitar');
     Route::get('asignaciontemporal/{id}/create', 'AsignacionTempController@create');
+    Route::get('mostrarasignaciontemporal/', 'AsignacionTempController@revision');
 });
 
 Auth::routes();

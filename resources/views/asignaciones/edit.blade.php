@@ -14,7 +14,7 @@
 			</div>
 			@endif
 
-			{!!Form::model($asignacion_temporal,['method'=>'PUT','route'=>['asignaciontemporal.update', $asignacion_temporal->id]])!!}
+			{!!Form::model($asignacion_temporal,['method'=>'PATCH','route'=>['asignaciontemporal.update', $asignacion_temporal->id]])!!}
             {{Form::token()}}
             <div class="form-group">
             	<label for="id_curso">Curso</label>
@@ -25,7 +25,7 @@
 				<label>Escoja catedratico</label>
 				<select name="catedratico_id" class="form-control">
 					@foreach ($catedraticos as $ca)
-						@if($ca->id == $asignacion_temporal->id)
+						@if($ca->id == $asignacion_temporal->catedratico_id)
 							<option value="{{$ca->id}}" selected>{{$ca->nombre}}</option>
 						@else
 							<option value="{{$ca->id}}">{{$ca->nombre}}</option>

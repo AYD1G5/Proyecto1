@@ -8,8 +8,11 @@
     @endif
     <h1> Listado de cursos disponibles </h1>
     <div class="row">
-       <div class="col-lg-12">
+       <div class="col-lg-2">
           {!! link_to('asignaciones/create', 'Crear', ['class' => 'btn btn-primary']) !!}
+       </div>
+       <div class="col-lg-3">
+          {!! link_to('mostrarasignaciontemporal', 'Mostrar Cursos Asignados', ['class' => 'btn btn-primary']) !!}
        </div>
     </div>
     
@@ -23,44 +26,47 @@
              <th style="width: 10%"> Restriccion </th>
              <th style="width: 10%"> Ver </th>
              <th style="width: 10%"> Editar </th>
-             <th style="width: 10%"> Quitar </th>
+             <th style="width: 10%"> Agregar/Quitar </th>
             </tr>
        </thead>
        <tbody>
           @foreach ($cursos as $curso)
-             <tr>
-                <td> {{ $curso->codigo_curso }} </td>
-                <td> {{ $curso->nombre_curso }} </td>
-                <td> {{ $curso->categoria }} </td>
-                <td> {{ $curso->creditos }} </td>
-                <td> {{ $curso->restriccion }} </td>
-                <td>
-                   {!! link_to('asignaciontemporal/'.$curso->id_curso_p.'/sho', 'Mostrar', ['class' => 'btn btn-primary']) !!}
+
+                {{ $verdadomentira = false }}
+                @foreach ($listado_asignacion_temporal as $asigt)
+                  @if($asigt->id_curso_p == $curso->id_curso_p)
+                    {{ $verdadomentira = true }}
+                  @endif
+                @endforeach
+            <tr class="bg-success">
+              <td> {{ $curso->codigo_curso }} </td>
+              <td> {{ $curso->nombre_curso }} </td>
+              <td> {{ $curso->categoria }} </td>
+              <td> {{ $curso->creditos }} </td>
+              <td> {{ $curso->restriccion }} </td>
+              <td>
+                   {!! link_to('asignaciontemporal/'.$curso->id_curso_p.'/show', 'Mostrar', ['class' => 'btn btn-primary']) !!}
                 </td>
                 <td>
                    {!! link_to('asignaciontemporal/'.$curso->id_curso_p.'/edit', 'Editar', ['class' => 'btn btn-primary']) !!}
                 </td>
 
-                {{ $verdadomentira = false }}
-                @foreach ($listado_asignacion_temporal as $asigt)
-                  @if($asigt == null && $asigt->codigo_curso != $curso->id_curso_p)
-                    {{ $verdadomentira = true }}
-                  @endif
-                @endforeach
-
                 @if($verdadomentira)
                   <td>
-                  {!! link_to('asignaciontemporal/'.$curso->id_curso_p.'/quitar', 'Quitar', ['class' => 'btn btn-danger']) !!}
-                    <!--
-                    {!! Form::open(array('url' => 'asignaciontemporal/' . $curso->codigo_curso, 'method' => 'DELETE')) !!}
+                  <!--{!! link_to('asignaciontemporal/'.$curso->id_curso_p.'/delete', 'Quitar', ['class' => 'btn btn-danger']) !!}
+                    {!! Form::open(array('url' => 'asignaciontemporal/' . $curso->id_curso_p, 'method' => 'DELETE')) !!}
                     {!! Form::submit('Eliminar', ['class' => 'btn btn-danger']) !!}
                     {!! Form::close() !!}
-                    -->
+                  -->
+                    {!! Form::open(array('url' => 'asignaciontemporal/' . $curso->id_curso_p, 'method' => 'DELETE')) !!}
+                    {!! Form::submit('Eliminar', ['class' => 'btn btn-danger']) !!}
+                    {!! Form::close() !!}
                   </td>
-                  @else
+                @else
                   <td>
                     {!! link_to('asignaciontemporal/'.$curso->id_curso_p.'/create', 'Agregar', ['class' => 'btn btn-primary']) !!}                    
                   </td>
+                  
                   @endif
              </tr>
           @endforeach

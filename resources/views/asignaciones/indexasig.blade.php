@@ -6,7 +6,7 @@
           {{ Session::get('notice') }}
        </div>
     @endif
-    <h1> Listado de cursos disponibles </h1>
+    <h1> Asignacion Actual </h1>
     <div class="row">
        <div class="col-lg-12">
           {!! link_to('asignaciones/create', 'Crear', ['class' => 'btn btn-primary']) !!}
@@ -23,7 +23,7 @@
              <th style="width: 10%"> Restriccion </th>
              <th style="width: 10%"> Ver </th>
              <th style="width: 10%"> Editar </th>
-             <th style="width: 10%"> Quitar </th>
+             <th style="width: 10%"> Agregar </th>
             </tr>
        </thead>
        <tbody>
@@ -34,34 +34,19 @@
                 <td> {{ $curso->categoria }} </td>
                 <td> {{ $curso->creditos }} </td>
                 <td> {{ $curso->restriccion }} </td>
+
                 <td>
                    {!! link_to('asignaciontemporal/'.$curso->id_curso_p.'/sho', 'Mostrar', ['class' => 'btn btn-primary']) !!}
                 </td>
                 <td>
                    {!! link_to('asignaciontemporal/'.$curso->id_curso_p.'/edit', 'Editar', ['class' => 'btn btn-primary']) !!}
                 </td>
-
-                {{ $verdadomentira = false }}
-                @foreach ($listado_asignacion_temporal as $asigt)
-                  @if($asigt == null && $asigt->codigo_curso != $curso->id_curso_p)
-                    {{ $verdadomentira = true }}
-                  @endif
-                @endforeach
-
-                @if($verdadomentira)
-                  <td>
-                  {!! link_to('asignaciontemporal/'.$curso->id_curso_p.'/quitar', 'Quitar', ['class' => 'btn btn-danger']) !!}
-                    <!--
-                    {!! Form::open(array('url' => 'asignaciontemporal/' . $curso->codigo_curso, 'method' => 'DELETE')) !!}
+                <td>
+                  {!! Form::open(array('url' => 'asignaciontemporal/' . $curso->id_curso_p, 'method' => 'DELETE')) !!}
                     {!! Form::submit('Eliminar', ['class' => 'btn btn-danger']) !!}
                     {!! Form::close() !!}
-                    -->
-                  </td>
-                  @else
-                  <td>
-                    {!! link_to('asignaciontemporal/'.$curso->id_curso_p.'/create', 'Agregar', ['class' => 'btn btn-primary']) !!}                    
-                  </td>
-                  @endif
+                </td>
+
              </tr>
           @endforeach
        </tbody>
