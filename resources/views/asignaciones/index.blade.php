@@ -31,11 +31,18 @@
        </thead>
        <tbody>
           @foreach ($cursos as $curso)
+                @php 
+                  $verdadomentira = false;
+                  $idcursoasignaciontemp = 0;
+                @endphp
 
-                {{ $verdadomentira = false }}
                 @foreach ($listado_asignacion_temporal as $asigt)
-                  @if($asigt->id_curso_p == $curso->id_curso_p)
-                    {{ $verdadomentira = true }}
+                  @if($asigt->id_curso_pensum == $curso->id_curso_pensum)
+                    @php 
+                      $verdadomentira = true;
+                      $idcursoasignaciontemp = $asigt->id_curso_asig_temp;
+                    @endphp
+                    @break
                   @endif
                 @endforeach
             <tr class="bg-success">
@@ -45,26 +52,26 @@
               <td> {{ $curso->creditos }} </td>
               <td> {{ $curso->restriccion }} </td>
               <td>
-                   {!! link_to('asignaciontemporal/'.$curso->id_curso_p.'/show', 'Mostrar', ['class' => 'btn btn-primary']) !!}
+                   {!! link_to('asignaciontemporal/'.$curso->id_curso_pensum.'/show', 'Mostrar', ['class' => 'btn btn-primary']) !!}
                 </td>
                 <td>
-                   {!! link_to('asignaciontemporal/'.$curso->id_curso_p.'/edit', 'Editar', ['class' => 'btn btn-primary']) !!}
+                   {!! link_to('asignaciontemporal/'.$curso->id_curso_pensum.'/edit', 'Editar', ['class' => 'btn btn-primary']) !!}
                 </td>
 
                 @if($verdadomentira)
                   <td>
-                  <!--{!! link_to('asignaciontemporal/'.$curso->id_curso_p.'/delete', 'Quitar', ['class' => 'btn btn-danger']) !!}
-                    {!! Form::open(array('url' => 'asignaciontemporal/' . $curso->id_curso_p, 'method' => 'DELETE')) !!}
+                  <!--{!! link_to('asignaciontemporal/'.$curso->id_curso_pensum.'/delete', 'Quitar', ['class' => 'btn btn-danger']) !!}
+                    {!! Form::open(array('url' => 'asignaciontemporal/' . $curso->id_curso_pensum, 'method' => 'DELETE')) !!}
                     {!! Form::submit('Eliminar', ['class' => 'btn btn-danger']) !!}
                     {!! Form::close() !!}
                   -->
-                    {!! Form::open(array('url' => 'asignaciontemporal/' . $curso->id_curso_p, 'method' => 'DELETE')) !!}
+                    {!! Form::open(array('url' => 'asignaciontemporal/' . $idcursoasignaciontemp, 'method' => 'DELETE')) !!}
                     {!! Form::submit('Eliminar', ['class' => 'btn btn-danger']) !!}
                     {!! Form::close() !!}
                   </td>
                 @else
                   <td>
-                    {!! link_to('asignaciontemporal/'.$curso->id_curso_p.'/create', 'Agregar', ['class' => 'btn btn-primary']) !!}                    
+                    {!! link_to('asignaciontemporal/'.$curso->id_curso_pensum.'/create', 'Agregar', ['class' => 'btn btn-primary']) !!}                    
                   </td>
                   
                   @endif

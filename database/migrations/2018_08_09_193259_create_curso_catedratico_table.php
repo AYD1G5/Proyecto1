@@ -14,11 +14,11 @@ class CreateCursoCatedraticoTable extends Migration
     public function up()
     {
         Schema::create('curso_catedratico', function (Blueprint $table) {
-            $table->integer('curso_pensum')->unsigned();
-            $table->foreign('curso_pensum')->references('id')->on('curso_pensum'); 
-            $table->integer('codigo_catedratico')->unsigned();
-            $table->foreign('codigo_catedratico')->references('id')->on('users'); 
-            $table->primary(['curso_pensum', 'codigo_catedratico']);
+            $table->increments('id_curso_catedratico');
+            $table->integer('id_curso_pensum')->unsigned();
+            $table->foreign('id_curso_pensum')->references('id_curso_pensum')->on('curso_pensum'); 
+            $table->integer('id_catedratico')->unsigned();
+            $table->foreign('id_catedratico')->references('id')->on('users'); 
             $table->timestamps();
         });
     }

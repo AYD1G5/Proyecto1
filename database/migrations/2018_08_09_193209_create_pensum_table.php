@@ -14,12 +14,11 @@ class CreatePensumTable extends Migration
     public function up()
     {
         Schema::create('pensum', function (Blueprint $table) {
-            //$table->increments('id');
+            $table->increments('id_pensum');
             $table->integer('codigo_pensum')->unsigned();
-            $table->primary(['codigo_pensum']);
             $table->string('nombre_pensum');
-            $table->integer('codigo_carrera')->unsigned();
-            $table->foreign('codigo_carrera')->references('codigo_carrera')->on('carrera'); 
+            $table->integer('id_carrera')->unsigned();
+            $table->foreign('id_carrera')->references('id_carrera')->on('carrera'); 
             $table->timestamps();
         });
     }

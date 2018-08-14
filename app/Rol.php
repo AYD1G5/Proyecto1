@@ -4,15 +4,14 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Area extends Model
+class Rol extends Model
 {
-    protected $table = 'area';
+    protected $table = 'rol';
 
-    protected $primaryKey='id_area';
-
+    protected $primaryKey='id_rol';
+    
     protected $fillable = [
-        'codigo_area',
-        'nombre_area'
+        'nombre_rol'
     ];
 
     protected $guarded = [

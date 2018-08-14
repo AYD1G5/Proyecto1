@@ -14,11 +14,11 @@ class CreateCursoPensumTable extends Migration
     public function up()
     {
         Schema::create('curso_pensum', function (Blueprint $table) {
-            $table->increments('id');
-            $table->integer('codigo_curso')->unsigned();
-            $table->foreign('codigo_curso')->references('codigo_curso')->on('curso'); 
-            $table->integer('codigo_pensum')->unsigned();
-            $table->foreign('codigo_pensum')->references('codigo_pensum')->on('pensum'); 
+            $table->increments('id_curso_pensum');
+            $table->integer('id_curso')->unsigned();
+            $table->foreign('id_curso')->references('id_curso')->on('curso'); 
+            $table->integer('id_pensum')->unsigned();
+            $table->foreign('id_pensum')->references('id_pensum')->on('pensum'); 
             $table->string('categoria');
             $table->integer('creditos');
             $table->string('laboratorioboolean');

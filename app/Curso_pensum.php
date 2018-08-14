@@ -8,11 +8,11 @@ class Curso_pensum extends Model
 {
     protected $table = 'curso_pensum';
  
-    protected $primaryKey='id';
+    protected $primaryKey='id_curso_pensum';
 
     protected $fillable = [
-        'codigo_curso',
-        'codigo_pensum',
+        'id_curso',
+        'id_pensum',
         'categoria',
         'creditos',
         'laboratorioboolean',

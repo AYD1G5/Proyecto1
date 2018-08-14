@@ -8,7 +8,7 @@ class Carrera extends Model
 {
     protected $table = 'carrera';
 
-    protected $primaryKey='codigo_carrera';
+    protected $primaryKey='id_carrera';
     
     protected $fillable = [
         'codigo_carrera', 

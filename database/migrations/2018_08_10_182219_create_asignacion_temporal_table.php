@@ -14,11 +14,11 @@ class CreateAsignacionTemporalTable extends Migration
     public function up()
     {
         Schema::create('asignacion_temporal', function (Blueprint $table) {
-            $table->increments('id');
-            $table->integer('estudiante_id')->unsigned();
-            $table->foreign('estudiante_id')->references('id')->on('users'); 
-            $table->integer('codigo_pensum')->unsigned();
-            $table->foreign('codigo_pensum')->references('codigo_pensum')->on('pensum'); 
+            $table->increments('id_asignacion_temporal');
+            $table->integer('id_estudiante')->unsigned();
+            $table->foreign('id_estudiante')->references('id')->on('users'); 
+            $table->integer('id_pensum')->unsigned();
+            $table->foreign('id_pensum')->references('id_pensum')->on('pensum'); 
             $table->timestamps();
         });
     }

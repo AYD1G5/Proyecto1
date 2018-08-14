@@ -25,7 +25,7 @@ class CursoAsignacionTempFormRequest extends FormRequest
     {
         return [
             'id_curso_pensum'=>'required',
-            'catedratico_id'=>'required'
+            'id_catedratico'=>'required'
         ];
     }
 }

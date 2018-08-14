@@ -8,13 +8,13 @@ class Curso extends Model
 {
     protected $table = 'curso';
 
-    protected $primaryKey='codigo_curso';
+    protected $primaryKey='id_curso';
     
     protected $fillable = [
         'codigo_curso',
         'nombre_curso',
-        'codigo_escuela',
-        'codigo_area',
+        'id_escuela',
+        'id_area',
     ];
 
     protected $guarded = [

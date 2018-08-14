@@ -8,13 +8,12 @@ class Curso_asignacion extends Model
 {
     protected $table = 'curso_asignacion';
 
-    protected $primaryKey=['id_curso_pensum', 'asignacion_id'];
-
+    protected $primaryKey='id_curso_asignacion';
 
     protected $fillable = [
         'id_curso_pensum', 
-        'asignacion_id',
-        'catedratico_id'
+        'id_asignacion',
+        'id_catedratico'
     ];
 
     protected $guarded = [

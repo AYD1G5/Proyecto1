@@ -14,11 +14,11 @@ class CreateCursoPostrequisitoTable extends Migration
     public function up()
     {
         Schema::create('curso_postrequisito', function (Blueprint $table) {
-            $table->integer('curso_pensum')->unsigned();
-            $table->foreign('curso_pensum')->references('id')->on('curso_pensum');
-            $table->integer('codigo_curso')->unsigned();
-            $table->foreign('codigo_curso')->references('codigo_curso')->on('curso');
-            $table->primary(['curso_pensum', 'codigo_curso']);
+            $table->increments('id_curso_postrequisito');
+            $table->integer('id_curso_pensum')->unsigned();
+            $table->foreign('id_curso_pensum')->references('id_curso_pensum')->on('curso_pensum');
+            $table->integer('id_curso')->unsigned();
+            $table->foreign('id_curso')->references('id_curso')->on('curso');
             $table->timestamps();
         });
     }

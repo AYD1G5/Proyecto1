@@ -8,13 +8,11 @@ class Asignacion_temporal extends Model
 {
     protected $table = 'asignacion_temporal';
 
-    protected $primaryKey='id';
-    
-    public $timestamps=false;
+    protected $primaryKey='id_asignacion_temporal';
     
     protected $fillable = [
-        'estudiante_id',
-        'codigo_pensum',
+        'id_estudiante',
+        'id_pensum',
     ];
 
     protected $guarded = [

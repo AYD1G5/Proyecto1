@@ -14,8 +14,8 @@ class CreateCicloTable extends Migration
     public function up()
     {
         Schema::create('ciclo', function (Blueprint $table) {
+            $table->increments('id_ciclo');
             $table->integer('codigo_ciclo')->unsigned();
-            $table->primary(['codigo_ciclo']);
             $table->string('nombre_ciclo');
             $table->timestamps();
         });

@@ -8,11 +8,11 @@ class Pensum_estudiante extends Model
 {
     protected $table = 'pensum_estudiante';
 
-    protected $primaryKey=['estudiante_id', 'codigo_pensum'];
+    protected $primaryKey='id_pensum_estudiante';
     
     protected $fillable = [
-        'codigo_pensum',
-        'estudiante_id',
+        'id_pensum',
+        'id_estudiante',
     ];
 
     protected $guarded = [

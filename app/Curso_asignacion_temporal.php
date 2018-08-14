@@ -8,14 +8,12 @@ class Curso_asignacion_temporal extends Model
 {
     protected $table = 'curso_asignacion_temporal';
 
-    protected $primaryKey='id_curso_pensum';
-
-    public $timestamps=false;
+    protected $primaryKey='id_curso_asig_temp';
 
     protected $fillable = [
         'id_curso_pensum', 
-        'asig_t_id',
-        'catedratico_id'
+        'id_asignacion_temporal',
+        'id_catedratico' 
     ];
 
     protected $guarded = [

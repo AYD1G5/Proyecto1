@@ -8,11 +8,11 @@ class Curso_postrequisito extends Model
 {
     protected $table = 'curso_postrequisito';
     
-    protected $primaryKey=['curso_pensum', 'codigo_curso'];
+    protected $primaryKey='id_curso_postrequisito';
     
     protected $fillable = [
-        'curso_pensum', 
-        'codigo_curso',
+        'id_curso_pensum', 
+        'id_curso',
     ];
 
     protected $guarded = [

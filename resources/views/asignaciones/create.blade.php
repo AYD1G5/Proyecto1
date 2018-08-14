@@ -18,12 +18,12 @@
             {{Form::token()}}
             <div class="form-group">
             	<label for="id_curso">Curso</label>
-            	<input type="number" id="id_curso_pensum" name="id_curso_pensum" required value="{{ $curso_pensum->id }}" class="form-control" readonly>
+            	<input type="number" id="id_curso_pensum" name="id_curso_pensum" required value="{{ $curso_pensum->id_curso_pensum }}" class="form-control" readonly>
 
 			</div>
 			<div class="form-group">
 				<label>Escoja catedratico</label>
-				<select name="catedratico_id" class="form-control">
+				<select name="id_catedratico" class="form-control">
 					@foreach ($catedraticos as $ca)
 						<option value="{{$ca->id}}">{{$ca->nombre}}</option>
 					@endforeach

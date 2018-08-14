@@ -8,9 +8,7 @@ class Ciclo extends Model
 {
     protected $table = 'ciclo';
 
-    protected $primaryKey='codigo_ciclo';
-    
-    public $timestamps=false;
+    protected $primaryKey='id_ciclo';
     
     protected $fillable = [
         'codigo_ciclo', 

@@ -8,11 +8,11 @@ class Asignacion extends Model
 {
     protected $table = 'asignacion';
 
-    protected $primaryKey='id';
+    protected $primaryKey='id_asignacion';
     
     protected $fillable = [
-        'estudiante_id', 
-        'codigo_ciclo',
+        'id_estudiante', 
+        'id_ciclo',
         'anio',
     ];
 

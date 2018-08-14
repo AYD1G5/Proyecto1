@@ -8,7 +8,7 @@ class Escuela extends Model
 {
     protected $table = 'escuela';
     
-    protected $primaryKey='codigo_escuela';
+    protected $primaryKey='id_escuela';
     
     protected $fillable = [
         'codigo_escuela', 

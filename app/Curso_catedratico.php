@@ -8,12 +8,12 @@ class Curso_catedratico extends Model
 {
     protected $table = 'curso_catedratico';
 
-    protected $primaryKey=['codigo_curso', 'codigo_catedratico'];
+    protected $primaryKey= 'id_curso_catedratico';
     
     
     protected $fillable = [
-        'codigo_curso',
-        'codigo_catedratico',
+        'id_curso',
+        'id_catedratico',
     ];
 
     protected $guarded = [

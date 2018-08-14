@@ -14,13 +14,13 @@ class CreateCursoTable extends Migration
     public function up()
     {
         Schema::create('curso', function (Blueprint $table) {
+            $table->increments('id_curso');
             $table->integer('codigo_curso')->unsigned();
-            $table->primary(['codigo_curso']);
             $table->string('nombre_curso');
-            $table->integer('codigo_escuela')->unsigned();
-            $table->foreign('codigo_escuela')->references('codigo_escuela')->on('escuela');
-            $table->integer('codigo_area')->unsigned();
-            $table->foreign('codigo_area')->references('codigo_area')->on('area'); 
+            $table->integer('id_escuela')->unsigned();
+            $table->foreign('id_escuela')->references('id_escuela')->on('escuela');
+            $table->integer('id_area')->unsigned();
+            $table->foreign('id_area')->references('id_area')->on('area'); 
             $table->timestamps();
         });
     }

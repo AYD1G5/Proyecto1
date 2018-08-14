@@ -8,7 +8,7 @@ class Pensum extends Model
 {
     protected $table = 'pensum';
 
-    protected $primaryKey='codigo_pensum';
+    protected $primaryKey='id_pensum';
     
     protected $fillable = [
         'codigo_pensum',

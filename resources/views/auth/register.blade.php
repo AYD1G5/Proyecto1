@@ -47,14 +47,35 @@
                                 @endif
                             </div>
 
-                            <label for="rol" class="col-md-4 col-form-label text-md-right">{{ __('Rol') }}</label>
+                            <label for="id_rol" class="col-md-4 col-form-label text-md-right">{{ __('Rol') }}</label>
 
                             <div class="col-md-6">
-                                <input id="rol" type="text" class="form-control{{ $errors->has('rol') ? ' is-invalid' : '' }}" name="rol" value="{{ old('rol') }}" required>
+                                <select id="id_rol" class="form-control{{ $errors->has('id_rol') ? ' is-invalid' : '' }}" name="id_rol" value="{{ old('id_rol') }}" required>
+					                @foreach ($roles as $rol)
+						                <option value="{{$rol->id_rol}}">{{$rol->nombre_rol}}</option>
+					                @endforeach
+				                </select>
 
-                                @if ($errors->has('rol'))
+                                @if ($errors->has('id_rol'))
                                     <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $errors->first('rol') }}</strong>
+                                        <strong>{{ $errors->first('id_rol') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+
+                            <label for="pensum_estudiante" class="col-md-4 col-form-label text-md-right">{{ __('Carrera - Pensum') }}</label>
+
+                            <div class="col-md-6">
+                                <select id="pensum_estudiante" class="form-control{{ $errors->has('pensum_estudiante') ? ' is-invalid' : '' }}" 
+                                    name="pensum_estudiante" value="{{ old('pensum_estudiante') }}" required>
+                                    @foreach ($pensums as $pensum)
+                                        <option value="{{$pensum->id_pensum}}">{{$pensum->nombre_pensum}}</option>
+                                    @endforeach
+                                </select>
+
+                                @if ($errors->has('pensum_estudiante'))
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $errors->first('pensum_estudiante') }}</strong>
                                     </span>
                                 @endif
                             </div>
