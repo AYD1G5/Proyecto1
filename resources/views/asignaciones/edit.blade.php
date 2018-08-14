@@ -14,18 +14,18 @@
 			</div>
 			@endif
 
-			{!!Form::model($asignacion_temporal,['method'=>'PATCH','route'=>['asignaciontemporal.update', $asignacion_temporal->id]])!!}
+			{!!Form::model($asignacion_temporal,['method'=>'PATCH','route'=>['asignaciontemporal.update', $asignacion_temporal]])!!}
             {{Form::token()}}
-            <div class="form-group">
-            	<label for="id_curso">Curso</label>
-            	<input type="number" id="id_curso_pensum" name="id_curso_pensum" required value="{{ $curso_pensum->id }}" class="form-control" readonly>
-
+			<div class="invisible">
+            	<input type="number" id="id_curso_pensum" name="id_curso_pensum" required value="{{ $curso_pensum->id_curso_pensum }}" readonly>
 			</div>
+			<h3>Codigo: {{ $curso->codigo_curso }}</h3>
+			<h4>Nombre: {{ $curso->nombre_curso }}</h4>
 			<div class="form-group">
 				<label>Escoja catedratico</label>
-				<select name="catedratico_id" class="form-control">
+				<select name="id_catedratico" class="form-control" id="id_catedratico">
 					@foreach ($catedraticos as $ca)
-						@if($ca->id == $asignacion_temporal->catedratico_id)
+						@if($ca->id == $asignacion_temporal->id_catedratico)
 							<option value="{{$ca->id}}" selected>{{$ca->nombre}}</option>
 						@else
 							<option value="{{$ca->id}}">{{$ca->nombre}}</option>
@@ -37,6 +37,7 @@
             	<button class="btn btn-primary" type="submit">Guardar</button>
             	<button class="btn btn-danger" type="reset">Reset</button>
             </div>
+
             {!!Form::close()!!}		
                 <div class="row">
                     <div class="col-lg-2 col-sm-2 col-md-2 col-xs-12">

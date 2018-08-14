@@ -16,11 +16,11 @@
 
 			{!!Form::open(array('url'=>'asignaciontemporal','method'=>'POST','autocomplete'=>'off'))!!}
             {{Form::token()}}
-            <div class="form-group">
-            	<label for="id_curso">Curso</label>
-            	<input type="number" id="id_curso_pensum" name="id_curso_pensum" required value="{{ $curso_pensum->id_curso_pensum }}" class="form-control" readonly>
-
+            <div class="invisible">	
+            	<input type="number" id="id_curso_pensum" name="id_curso_pensum" required value="{{ $curso_pensum->id_curso_pensum }}">
 			</div>
+			<h3>Codigo: {{ $curso->codigo_curso }}</h3>
+			<h4>Nombre: {{ $curso->nombre_curso }}</h4>
 			<div class="form-group">
 				<label>Escoja catedratico</label>
 				<select name="id_catedratico" class="form-control">

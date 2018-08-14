@@ -18,7 +18,7 @@ class CreateCursoPostrequisitoTable extends Migration
             $table->integer('id_curso_pensum')->unsigned();
             $table->foreign('id_curso_pensum')->references('id_curso_pensum')->on('curso_pensum');
             $table->integer('id_curso')->unsigned();
-            $table->foreign('id_curso')->references('id_curso')->on('curso');
+            $table->foreign('id_curso')->references('id_curso_pensum')->on('curso_pensum');
             $table->timestamps();
         });
     }

@@ -9,7 +9,7 @@
     <h1> Listado de cursos disponibles </h1>
     <div class="row">
        <div class="col-lg-2">
-          {!! link_to('asignaciones/create', 'Crear', ['class' => 'btn btn-primary']) !!}
+          {!! link_to('asignaciones/create', 'Limpiar', ['class' => 'btn btn-primary']) !!}
        </div>
        <div class="col-lg-3">
           {!! link_to('mostrarasignaciontemporal', 'Mostrar Cursos Asignados', ['class' => 'btn btn-primary']) !!}
@@ -32,14 +32,14 @@
        <tbody>
           @foreach ($cursos as $curso)
                 @php 
-                  $verdadomentira = false;
+                  $estaasignado = false;
                   $idcursoasignaciontemp = 0;
                 @endphp
 
                 @foreach ($listado_asignacion_temporal as $asigt)
                   @if($asigt->id_curso_pensum == $curso->id_curso_pensum)
                     @php 
-                      $verdadomentira = true;
+                      $estaasignado = true;
                       $idcursoasignaciontemp = $asigt->id_curso_asig_temp;
                     @endphp
                     @break
@@ -52,13 +52,13 @@
               <td> {{ $curso->creditos }} </td>
               <td> {{ $curso->restriccion }} </td>
               <td>
-                   {!! link_to('asignaciontemporal/'.$curso->id_curso_pensum.'/show', 'Mostrar', ['class' => 'btn btn-primary']) !!}
-                </td>
-                <td>
-                   {!! link_to('asignaciontemporal/'.$curso->id_curso_pensum.'/edit', 'Editar', ['class' => 'btn btn-primary']) !!}
+                   {!! link_to('asignaciontemporal/'.$curso->id_curso_pensum.'/mostrar', 'Mostrar', ['class' => 'btn btn-primary']) !!}
                 </td>
 
-                @if($verdadomentira)
+                @if($estaasignado)
+                  <td>
+                    {!! link_to('asignaciontemporal/'.$idcursoasignaciontemp.'/editar', 'Editar', ['class' => 'btn btn-primary']) !!}
+                  </td> 
                   <td>
                   <!--{!! link_to('asignaciontemporal/'.$curso->id_curso_pensum.'/delete', 'Quitar', ['class' => 'btn btn-danger']) !!}
                     {!! Form::open(array('url' => 'asignaciontemporal/' . $curso->id_curso_pensum, 'method' => 'DELETE')) !!}
@@ -70,6 +70,8 @@
                     {!! Form::close() !!}
                   </td>
                 @else
+                  <td>
+                  </td>
                   <td>
                     {!! link_to('asignaciontemporal/'.$curso->id_curso_pensum.'/create', 'Agregar', ['class' => 'btn btn-primary']) !!}                    
                   </td>

@@ -20,21 +20,12 @@ class AsignacionTempController extends Controller
 
     function cursosAgregadosAsignacionTmp(){
         $id_asignacion_temporal = Asignacion_temporal::where('id_estudiante', Auth::id())->first();
-            
-        $listado_asignacion_temporal = DB::table('curso as c')
-        ->join('curso_pensum as cupe', 'cupe.id_curso', '=', 'c.id_curso')
-        ->join('pensum as pe', 'cupe.id_pensum', '=', 'pe.id_pensum')
-        ->join('curso_asignacion_temporal as catmp', 'catmp.id_curso_pensum', '=', 'cupe.id_curso_pensum')
-        ->select('cupe.id_curso_pensum as id_curso_pensum', 'c.codigo_curso as codigo_curso', 'c.nombre_curso as nombre_curso',
-                'cupe.categoria as categoria', 'cupe.creditos as creditos', 'cupe.restriccion as restriccion')
-        ->where('catmp.id_asignacion_temporal', '=', $id_asignacion_temporal);
 
         $pensumestudiante=DB::table('pensum_estudiante')
         ->where('id_estudiante', '=', Auth::id())
         ->first(); // los multipensum se implementaras despues
         
         $salida['id_asignacion_temporal'] = $id_asignacion_temporal;
-        $salida['listado_asignacion_temporal'] = $listado_asignacion_temporal;
         $salida['pensumestudiante'] = $pensumestudiante;
         return $salida;
     }
@@ -125,8 +116,13 @@ class AsignacionTempController extends Controller
      */
     public function show($id)
     {
-        $asignaciontemp = Curso_Asignacion_temporal::find($id);
-        return View('asignaciones.show', ['asignaciontemp'=> $asignaciontemp]);
+        $curso = DB::table('curso as c')
+        ->join('curso_pensum as cupe', 'cupe.id_curso', '=', 'c.id_curso')
+        ->select('cupe.id_curso_pensum as id_curso_pensum', 'c.codigo_curso as codigo_curso', 'c.nombre_curso as nombre_curso',
+                'cupe.categoria as categoria', 'cupe.creditos as creditos', 'cupe.restriccion as restriccion')
+        ->where('cupe.id_curso_pensum', '=', $id)
+        ->first();
+        return View('asignaciones.show', ['curso'=> $curso]);
     }
 
     /**
@@ -137,23 +133,23 @@ class AsignacionTempController extends Controller
      */
     public function edit($id)
     {
+        $asignacion_temporal=Curso_asignacion_temporal::find($id);
         $catedraticos=DB::table('users as u')
-        ->join('curso_catedratico as cc', 'u.id', '=', 'cc.codigo_catedratico')
-        ->where('cc.curso_pensum', '=', $id)
+        ->join('curso_catedratico as ccat', 'u.id', '=', 'ccat.id_catedratico')
+        ->where('ccat.id_curso_pensum', '=', $asignacion_temporal->id_curso_pensum)
         ->get();
         $atc = new AsignacionTempController();
-        $data = $atc->crearAsignacionTmpSiNoExiste();
+        $data = $atc->cursosAgregadosAsignacionTmp();
         
-        $curso_pensum = Curso_pensum::findOrFail($id);
-        $curso = Curso::findOrFail($curso_pensum->codigo_curso);
-
-        $asignacion_temporal=Curso_asignacion_temporal::findOrFail($id);
-
+        $curso_pensum = Curso_pensum::findOrFail($asignacion_temporal->id_curso_pensum);
+        $curso = Curso::findOrFail($curso_pensum->id_curso);
+    
         return View('asignaciones.edit', [
             'asignacion_temporal'=>$asignacion_temporal,
             'catedraticos'=>$catedraticos, 
             'id_asignacion_temporal'=>$data['id_asignacion_temporal'],
             'curso_pensum'=>$curso_pensum, 
+            "curso" => $curso,
             'method'=>'PUT'
         ]);
     }
@@ -176,17 +172,16 @@ class AsignacionTempController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(CursoAsignacionTempFormRequest $request, $id)
     {
         $atc = new AsignacionTempController();
-        $data = $atc->crearAsignacionTmpSiNoExiste();
+        $data = $atc->cursosAgregadosAsignacionTmp();
 
-        $asignaciontemp = Curso_Asignacion_temporal::findOrFail($id);
-        //$asignaciontemp->id_curso_pensum = $request->get('id_curso_pensum');
-        $asignaciontemp->catedratico_id = $request->get('catedratico_id');
+        $asignaciontemp = Curso_asignacion_temporal::findOrFail($id);
+        $asignaciontemp->id_catedratico = $request->get('id_catedratico');
         //$asignaciontemp->asig_t_id = $data['id_asignacion_temporal']->id;
         $asignaciontemp->update();
-        return Redirect::to('asignaciontemporal')->with('notice', 'Tarea modificada correctamente.');
+        return Redirect::to('asignaciontemporal')->with('notice', 'Asignacion modificada correctamente.');
     }
 
     /**
@@ -199,7 +194,7 @@ class AsignacionTempController extends Controller
     {
         $asignaciontemp = Curso_asignacion_temporal::find($id);
         $asignaciontemp->delete();
-        return Redirect::to('asignaciontemporal')->with('notice', 'Tarea elmiminada correctamente.');
+        return Redirect::to('asignaciontemporal')->with('notice', 'Curso eliminado correctamente.');
     }
 
     /**
@@ -218,7 +213,8 @@ class AsignacionTempController extends Controller
         ->join('pensum as pe', 'cupe.id_pensum', '=', 'pe.id_pensum')
         ->join('curso_asignacion_temporal as catmp', 'catmp.id_curso_pensum', '=', 'cupe.id_curso_pensum')
         ->select('cupe.id_curso_pensum as id_curso_pensum', 'c.codigo_curso as codigo_curso', 'c.nombre_curso as nombre_curso',
-                'cupe.categoria as categoria', 'cupe.creditos as creditos', 'cupe.restriccion as restriccion')
+                'cupe.categoria as categoria', 'cupe.creditos as creditos', 'cupe.restriccion as restriccion',
+                'catmp.id_curso_asig_temp as id_curso_asig_temp')
         ->where('catmp.id_asignacion_temporal', '=', $data['id_asignacion_temporal']->id_asignacion_temporal)
         ->paginate(7);
 

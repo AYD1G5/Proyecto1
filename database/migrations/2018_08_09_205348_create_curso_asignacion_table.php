@@ -19,8 +19,8 @@ class CreateCursoAsignacionTable extends Migration
             $table->foreign('id_curso_pensum')->references('id_curso_pensum')->on('curso_pensum'); 
             $table->integer('id_asignacion')->unsigned();
             $table->foreign('id_asignacion')->references('id_asignacion')->on('asignacion'); 
-            $table->integer('catedratico_id')->unsigned();
-            $table->foreign('catedratico_id')->references('id')->on('users'); 
+            $table->integer('id_catedratico')->unsigned();
+            $table->foreign('id_catedratico')->references('id')->on('users')->onUpdate('cascade'); 
             $table->timestamps();
         });
     }

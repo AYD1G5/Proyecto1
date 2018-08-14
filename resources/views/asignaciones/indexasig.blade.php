@@ -36,13 +36,13 @@
                 <td> {{ $curso->restriccion }} </td>
 
                 <td>
-                   {!! link_to('asignaciontemporal/'.$curso->id_curso_pensum.'/show', 'Mostrar', ['class' => 'btn btn-primary']) !!}
+                   {!! link_to('asignaciontemporal/'.$curso->id_curso_asig_temp.'/show', 'Mostrar', ['class' => 'btn btn-primary']) !!}
                 </td>
                 <td>
-                   {!! link_to('asignaciontemporal/'.$curso->id_curso_pensum.'/edit', 'Editar', ['class' => 'btn btn-primary']) !!}
+                   {!! link_to('asignaciontemporal/'. $curso->id_curso_asig_temp .'/edit', 'Editar', ['class' => 'btn btn-primary']) !!}
                 </td>
                 <td>
-                  {!! Form::open(array('url' => 'asignaciontemporal/' . $curso->id_curso_pensum, 'method' => 'DELETE')) !!}
+                  {!! Form::open(array('url' => 'asignaciontemporal/' . $curso->id_curso_asig_temp, 'method' => 'DELETE')) !!}
                     {!! Form::submit('Eliminar', ['class' => 'btn btn-danger']) !!}
                     {!! Form::close() !!}
                 </td>
