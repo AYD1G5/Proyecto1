@@ -125,7 +125,7 @@ Route::group( ['middleware' => 'auth' ], function()
     Route::get('mostrarasignaciontemporal/', 'AsignacionTempController@revision');
 
     Route::resource('/cursosporsemestre', 'CursosPorSemestreController');
-    Route::get('/cursosporsemestre/{id}/semestre', 'CursosPorSemestreController@semestre');
+    Route::get('/cursosporsemestre/{id}/semestre', 'AsignacionTempController@semestre');
 });
 
 Auth::routes();

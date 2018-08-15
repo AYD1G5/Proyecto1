@@ -76,7 +76,7 @@ class CursosPorSemestreController extends Controller
 
         /** INICIALIZAR LA COLECCION DE SALIDA */
         $cursosCollection = new Collection();
-        $str = '';
+        $str = ''; 
 
         /** BUSCAR TODOS LOS CURSOS DEL SEMESTRE */
         foreach ($cursos as &$curso) {

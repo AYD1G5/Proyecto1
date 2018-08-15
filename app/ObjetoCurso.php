@@ -14,6 +14,7 @@ class ObjetoCurso extends Model
     protected $creditos; 
     protected $laboratorioboolean; 
     protected $restriccion;
+    protected $idcursoasignaciontemp;
 
     public function getPrerequisitos(){
         return $this->attributes['prerequisitos'];

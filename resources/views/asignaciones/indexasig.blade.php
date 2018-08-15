@@ -52,6 +52,5 @@
        </tbody>
     </table>
 
-    {{$cursos->render()}}
  </div>
  @endsection
