@@ -13,7 +13,8 @@ class Curso_asignacion extends Model
     protected $fillable = [
         'id_curso_pensum', 
         'id_asignacion',
-        'id_catedratico'
+        'id_catedratico',
+        'nota'
     ];
 
     protected $guarded = [

@@ -15,6 +15,7 @@ class CreateCursoAsignacionTable extends Migration
     {
         Schema::create('curso_asignacion', function (Blueprint $table) {
             $table->increments('id_curso_asignacion');
+            $table->integer('nota')->unsigned();
             $table->integer('id_curso_pensum')->unsigned();
             $table->foreign('id_curso_pensum')->references('id_curso_pensum')->on('curso_pensum'); 
             $table->integer('id_asignacion')->unsigned();
