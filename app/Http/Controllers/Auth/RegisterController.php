@@ -4,6 +4,10 @@ namespace App\Http\Controllers\Auth;
 
 use App\User;
 use App\Http\Controllers\Controller;
+use App\Pensum;
+use App\Asignacion_temporal;
+use App\Pensum_estudiante;
+use App\Rol;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
@@ -28,7 +32,7 @@ class RegisterController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/home';
+    protected $redirectTo = '/welcome';
 
     /**
      * Create a new controller instance.
@@ -49,8 +53,13 @@ class RegisterController extends Controller
     protected function validator(array $data)
     {
         return Validator::make($data, [
-            'name' => 'required|string|max:255',
+            'registro_academico' => 'required|string|max:255|unique:users',
+            'nombre' => 'required|string|max:255',
+            'apellido' => 'required|string|max:255',
             'email' => 'required|string|email|max:255|unique:users',
+            'id_rol' => 'required|string|max:255',
+            'pensum_estudiante' => 'required|string|max:255',
+            'direccion' => 'string|max:255',
             'password' => 'required|string|min:6|confirmed',
         ]);
     }
@@ -63,10 +72,38 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        return User::create([
-            'name' => $data['name'],
+        $salida = User::create([
+            'registro_academico' => $data['registro_academico'],
+            'nombre' => $data['nombre'],
+            'apellido' => $data['apellido'],
             'email' => $data['email'],
+            'id_rol' => $data['id_rol'],
+            'direccion' => $data['direccion'],      
             'password' => Hash::make($data['password']),
         ]);
+        if(!$salida->errors){
+            Pensum_estudiante::create([
+                'id_pensum' => $data['pensum_estudiante'],
+                'id_estudiante' =>$salida->id,
+            ]);
+            Asignacion_temporal::create([
+                'id_pensum' => $data['pensum_estudiante'],
+                'id_estudiante' =>$salida->id,
+            ]);
+        }
+        return $salida;
+    }
+
+
+    /**
+     * Show the application registration form.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function showRegistrationForm()
+    {
+        $pensums=Pensum::all();
+        $roles=Rol::all();
+        return view('auth.register', ['pensums'=>$pensums, 'roles'=>$roles]);
     }
 }

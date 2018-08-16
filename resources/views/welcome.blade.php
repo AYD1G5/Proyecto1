@@ -43,8 +43,8 @@
 											<td>100</td>
 											<td>Mathematics</td>
 											<td>Active</td>
-											<td><a  href="#!" class="btn btn-success btn-raised btn-xs"><i class="zmdi zmdi-refresh"></i></a></td>
-											<td><a disabled ="" href="#!" class="btn btn-success btn-raised btn-xs disable"><i class="zmdi zmdi-delete"></i></a></td>
+											<td><a  href="{{ URL('prueba/1/2/3')}}" class="btn btn-success btn-raised btn-xs"><i class="zmdi zmdi-refresh"></i></a></td>
+											<td><a disabled ="" href="#" class="btn btn-success btn-raised btn-xs disable"><i class="zmdi zmdi-delete"></i></a></td>
 										</tr>
 										<tr>
 											<td>2</td>

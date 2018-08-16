@@ -110,3 +110,23 @@ Route::get('/carga/{archivo}', function ($archivo) {
     }
     dd("completado");
 }});
+
+
+Route::get('/prueba/{id_curso}/{id_carrera}/{id_usuario}', function($id_curso, $id_carrera, $id_usuario){
+    return 'Hola mundo'.$id_curso.$id_carrera.$id_usuario;
+});
+
+Route::group( ['middleware' => 'auth' ], function()
+{
+    Route::resource('/asignaciontemporal', 'AsignacionTempController');
+    Route::get('asignaciontemporal/{id}/create', 'AsignacionTempController@create');
+    Route::get('asignaciontemporal/{id}/mostrar', 'AsignacionTempController@show');
+    Route::get('asignaciontemporal/{id}/editar', 'AsignacionTempController@edit');
+    Route::get('mostrarasignaciontemporal/', 'AsignacionTempController@revision');
+
+    Route::resource('/cursosporsemestre', 'CursosPorSemestreController');
+    Route::get('/cursosporsemestre/{id}/semestre', 'AsignacionTempController@semestre');
+});
+
+Auth::routes();
+Route::get('/home', 'HomeController@index')->name('home');
