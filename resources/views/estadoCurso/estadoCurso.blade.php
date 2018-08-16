@@ -3,7 +3,7 @@
 <!-- Content page -->
 <div class="container-fluid">
 			<div class="page-header">
-			  <h1 class="text-titles"><i class="zmdi zmdi-book zmdi-hc-fw"></i> PRIMER <small>SEMESTRE</small></h1>
+			  <h1 class="text-titles"><i class="zmdi zmdi-book zmdi-hc-fw"></i> {{$semestre}} <small>SEMESTRE</small></h1>
 			</div>
             <center><p class="lead">36 Creditos, 8 Obligatorios, 3 Opcionales</p></center>
             <div style="float:left">
@@ -20,11 +20,7 @@
             <a href="{{url('/cursosporsemestre/'.$semestreSiguiente.'/semestre')}}" class="btn btn-success btn-raised btn"><i class="zmdi zmdi-long-arrow-right"></i></a>
             @endif
             </div>
-<<<<<<< HEAD
-	
-=======
 
->>>>>>> 38aef39a58caf41f54800c23f0bbb597f7019a06
 		</div>
 
         
