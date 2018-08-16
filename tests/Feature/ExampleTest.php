@@ -18,4 +18,9 @@ class ExampleTest extends TestCase
 
         $response->assertStatus(200);
     }
+
+    public function testUsuariosCursosCarrera(){
+      $response = $this->get('/pruebaUsuariosCursoCarrera/1/1/1');
+      $response->assertStatus(200)->assertSee('Usuario: 1 Curso: 1 Carrera: 1');
+    }
 }
