@@ -35,6 +35,9 @@ class AsignacionTempController extends Controller
 
     public function semestre($id)
     {
+        $semestreAnterior =$id-1;
+        $semestreSiguiente=$id+1;
+
         $atc = new AsignacionTempController();
         $data = $atc->datosDeAsignacionTemporal();
 
@@ -148,7 +151,7 @@ class AsignacionTempController extends Controller
             }
         }
  //              return $cursosCollection;
-        return view('estadoCurso.estadoCurso')->with("elementos",$cursosCollection);
+        return view('estadoCurso.estadoCurso')->with("elementos",$cursosCollection)->with("semestreSiguiente",$semestreSiguiente)->with("semestreAnterior",$semestreAnterior);
 
 
 

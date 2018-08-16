@@ -7,13 +7,23 @@
 			</div>
             <center><p class="lead">36 Creditos, 8 Obligatorios, 3 Opcionales</p></center>
             <div style="float:left">
+            @if($semestreAnterior==0)
             <a href="#!" disabled ="" class="btn btn-success btn-raised btn"><i class="zmdi zmdi-long-arrow-left"></i></a>
+            @else
+            <a href="{{url('/cursosporsemestre/'.$semestreAnterior.'/semestre')}}" class="btn btn-success btn-raised btn"><i class="zmdi zmdi-long-arrow-left"></i></a>
+            @endif
             </div>
             <div style="float:right">
-            <a href="#!" class="btn btn-success btn-raised btn"><i class="zmdi zmdi-long-arrow-right"></i></a>
+            @if($semestreSiguiente==11)
+            <a href="#!" disabled ="" class="btn btn-success btn-raised btn"><i class="zmdi zmdi-long-arrow-right"></i></a>
+            @else
+            <a href="{{url('/cursosporsemestre/'.$semestreSiguiente.'/semestre')}}" class="btn btn-success btn-raised btn"><i class="zmdi zmdi-long-arrow-right"></i></a>
+            @endif
             </div>
-            		
+	
 		</div>
+
+        
 		<div class="container-fluid">
 			<div class="row">
 				<div class="col-xs-12">
