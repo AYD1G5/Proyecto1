@@ -12,7 +12,7 @@
             <div style="float:right">
             <a href="#!" class="btn btn-success btn-raised btn"><i class="zmdi zmdi-long-arrow-right"></i></a>
             </div>
-            		
+
 		</div>
 		<div class="container-fluid">
 			<div class="row">
@@ -23,7 +23,7 @@
                         <li><a href="#list2" data-toggle="tab">No Aprobados</a></li>
 					</ul>
 					<div id="myTabContent" class="tab-content">
-						
+
 					  	<div class="tab-pane fade active in" id="list">
 							<div class="table-responsive">
 								<table class="table table-hover text-center">
@@ -45,7 +45,7 @@
                                         <tr bgcolor="#7CD1FB">
                                         @elseif($elemento->estado=="ASIGNADO")
                                         <tr bgcolor="#FFC300">
-                                        @else 
+                                        @else
                                         <tr bgcolor="#FE913C">
                                         @endif
                                             <td>{{$elemento->codigo_curso}}</td>
@@ -93,9 +93,9 @@
 											<td><a href="#!" class="btn btn-danger btn-raised btn-xs"><i class="zmdi zmdi-delete"></i></a></td>
 										</tr>
                                         @endif
-                                            
+
                                     @endforeach
-										
+
 									</tbody>
 								</table>
 								<ul class="pagination pagination-sm">
@@ -123,22 +123,28 @@
 										</tr>
 									</thead>
 									<tbody>
-										<tr>
-											<td>3</td>
-											<td>300</td>
-											<td>Social</td>
-											<td>Active</td>
-											<td><a href="#!" class="btn btn-success btn-raised btn-xs"><i class="zmdi zmdi-refresh"></i></a></td>
-											<td><a href="#!" class="btn btn-danger btn-raised btn-xs"><i class="zmdi zmdi-delete"></i></a></td>
-										</tr>
-										<tr>
-											<td>4</td>
-											<td>700</td>
-											<td>English</td>
-											<td>Active</td>
-											<td><a href="#!" class="btn btn-success btn-raised btn-xs"><i class="zmdi zmdi-refresh"></i></a></td>
-											<td><a href="#!" class="btn btn-danger btn-raised btn-xs"><i class="zmdi zmdi-delete"></i></a></td>
-										</tr>
+										@foreach ($elementos as $elemento)
+																					@if($elemento->estado=="BLOQUEADO")
+																					<tr bgcolor="#FE913C">
+											<td>{{$elemento->codigo_curso}}</td>
+													<td>{{$elemento->nombre_curso}}</td>
+												<td>{{$elemento->estado}}</td>
+												<td><a href="#!" class="btn btn-success btn-raised btn-xs"><i class="zmdi zmdi-refresh"></i></a></td>
+												<td><a href="#!" class="btn btn-danger btn-raised btn-xs"><i class="zmdi zmdi-delete"></i></a></td>
+											</tr>
+																					@endif
+
+																					@if($elemento->estado=="DESBLOQUEADO")
+																					<tr bgcolor="#7CD1FB">
+											<td>{{$elemento->codigo_curso}}</td>
+													<td>{{$elemento->nombre_curso}}</td>
+												<td>{{$elemento->estado}}</td>
+												<td><a href="#!" class="btn btn-success btn-raised btn-xs"><i class="zmdi zmdi-refresh"></i></a></td>
+												<td><a href="#!" class="btn btn-danger btn-raised btn-xs"><i class="zmdi zmdi-delete"></i></a></td>
+											</tr>
+																					@endif
+
+																			@endforeach
 									</tbody>
 								</table>
 								<ul class="pagination pagination-sm">
