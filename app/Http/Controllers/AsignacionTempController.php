@@ -133,13 +133,15 @@ class AsignacionTempController extends Controller
                 }else{
                     /** DESBLOQUEADO */
                     $idcursoasignaciontemp = -1;
+                    $objetoCurso->estado = $curso->estado = 'DESBLOQUEADO';
                     foreach ($cursosEnLaAsignacion as &$cursoAsignado){
                         if($cursoAsignado->id_curso_pensum == $curso->id_curso_pensum){
                             $idcursoasignaciontemp = $cursoAsignado->id_curso_asig_temp;
+                            $objetoCurso->estado = $curso->estado = 'ASIGNADO';
                             break;
                         }
                     }
-                    $objetoCurso->estado = $curso->estado = 'DESBLOQUEADO';
+                    
                     $objetoCurso->idcursoasignaciontemp = $idcursoasignaciontemp;
                     $cursosCollection->push($objetoCurso);
                 }
