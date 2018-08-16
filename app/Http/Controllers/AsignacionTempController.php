@@ -145,7 +145,11 @@ class AsignacionTempController extends Controller
                 }
             }
         }
-        return $cursosCollection;
+ //              return $cursosCollection;
+        return view('estadoCurso.estadoCurso')->with("elementos",$cursosCollection);
+
+
+
     }
 
 
