@@ -41,7 +41,11 @@
 										@foreach ($elementos as $elemento)
                                         @if($elemento->estado=="GANADO")
                                         <tr bgcolor="#46B652">
-                                        @else
+                                        @elseif($elemento->estado=="DESBLOQUEADO")
+                                        <tr bgcolor="#7CD1FB">
+                                        @elseif($elemento->estado=="ASIGNADO")
+                                        <tr bgcolor="#FFC300">
+                                        @else 
                                         <tr bgcolor="#FE913C">
                                         @endif
                                             <td>{{$elemento->codigo_curso}}</td>
