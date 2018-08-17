@@ -39,11 +39,11 @@
 								<table class="table table-hover text-center">
 									<thead>
 										<tr>
-											<th class="text-center">#</th>
-											<th class="text-center">Code</th>
-											<th class="text-center">Name</th>
-											<th class="text-center">Status</th>
-											<th class="text-center">Ir a Perfil</th>
+											<th class="text-center">Codigo</th>
+											<th class="text-center">Nombre</th>
+											<th class="text-center">Estado</th>
+											<th class="text-center">Ver informacion</th>
+											<th class="text-center">Accion</th>
 											<th class="text-center">Asignar</th>
 										</tr>
 									</thead>
@@ -61,7 +61,16 @@
                                             <td>{{$elemento->codigo_curso}}</td>
 	  										<td>{{$elemento->nombre_curso}}</td>
 											<td>{{$elemento->estado}}</td>
-											<td><a href="#!" class="btn btn-success btn-raised btn-xs"><i class="zmdi zmdi-refresh"></i></a></td>
+											<td><a href="{{url('/asignaciontemporal/'.$elemento->codigo_curso.'/mostrar')}}" class="btn btn-success btn-raised btn-xs"><i class="zmdi zmdi-refresh"></i></a></td>
+											@if($elemento->estado=="GANADO")
+											<td></td>
+											@elseif($elemento->estado=="DESBLOQUEADO")
+											<td><a href="{{url('/asignaciontemporal/'.$elemento->codigo_curso.'/create')}}" class="btn btn-success btn-raised btn-xs"><i class="zmdi zmdi-refresh">Asignar</a></td>
+											@elseif($elemento->estado=="ASIGNADO")
+											<td><a href="{{url('/asignaciontemporal')}}" class="btn btn-success btn-raised btn-xs"><i class="zmdi zmdi-refresh">Desasignar</a></td>
+											@else
+											<td></td>
+											@endif
 											<td><a href="#!" class="btn btn-danger btn-raised btn-xs"><i class="zmdi zmdi-delete"></i></a></td>
 										</tr>
 
