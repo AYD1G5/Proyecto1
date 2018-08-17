@@ -83,23 +83,18 @@
 										</tr>
 									</thead>
 									<tbody>
-										<tr>
-											<td>1</td>
-											<td>100</td>
-											<td>Mathematics</td>
-											<td>Active</td>
+									@foreach ($elementos as $elemento)
+                                        @if($elemento->estado=="GANADO")
+                                        <tr bgcolor="#46B652">
+										<td>{{$elemento->codigo_curso}}</td>
+	  										<td>{{$elemento->nombre_curso}}</td>
+											<td>{{$elemento->estado}}</td>
 											<td><a href="#!" class="btn btn-success btn-raised btn-xs"><i class="zmdi zmdi-refresh"></i></a></td>
-											<td><a disabled ="" href="#!" class="btn btn-danger btn-raised btn-xs"><i class="zmdi zmdi-delete"></i></a></td>
+											<td><a href="#!" class="btn btn-danger btn-raised btn-xs"><i class="zmdi zmdi-delete"></i></a></td>
 										</tr>
-										<tr>
-											<td>2</td>
-											<td>500</td>
-											<td>Science</td>
-											<td>Active</td>
-											<td><a href="#!" class="btn btn-success btn-raised btn-xs"><i class="zmdi zmdi-refresh"></i></a></td>
-											<td><a disabled ="" href="#!" class="btn btn-danger btn-raised btn-xs"><i class="zmdi zmdi-delete"></i></a></td>
-										</tr>
-                                        
+                                        @endif
+                                            
+                                    @endforeach
 										
 									</tbody>
 								</table>
