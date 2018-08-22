@@ -105,11 +105,11 @@
 				</li>
 				<li>
 					<a href="#!" class="btn-sideBar-SubMenu">
-						<i class="zmdi zmdi-account-add zmdi-hc-fw"></i> Users <i class="zmdi zmdi-caret-down pull-right"></i>
+						<i class="zmdi zmdi-account-add zmdi-hc-fw"></i> Reportes <i class="zmdi zmdi-caret-down pull-right"></i>
 					</a>
 					<ul class="list-unstyled full-box">
 						<li>
-							<a href="admin.html"><i class="zmdi zmdi-account zmdi-hc-fw"></i> Admin</a>
+							<a href="{{url('/ReporteCursosGanados')}}"><i class="zmdi zmdi-account zmdi-hc-fw"></i> Cursos Aprobados</a>
 						</li>
 						<li>
 							<a href="teacher.html"><i class="zmdi zmdi-male-alt zmdi-hc-fw"></i> Teacher</a>
@@ -145,6 +145,8 @@
 						</li>
 					</ul>
 				</li>
+				
+
 			</ul>
 		</div>
 	</section>

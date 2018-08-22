@@ -3,23 +3,22 @@
 <!-- Content page -->
 <div class="container-fluid">
 			<div class="page-header">
-			  <h1 class="text-titles"><i class="zmdi zmdi-book zmdi-hc-fw"></i> {{$semestre}} <small>SEMESTRE</small></h1>
+
+				<ul  class="nav nav-tabs" style="margin-bottom: 15px;">
+						@foreach($Estados as $temp)
+						@if($temp->color=="VERDE")
+						<li><a href="{{url('/cursosporsemestre/'.$temp->numero.'/semestre')}}"><button  class=" btn-success btn-raised btn-sm"><i class="zmdi zmdi-graduation-cap zmdi-hc-fw"></i>{{$temp->nombreSemetre}}</button></a></li>
+						@endif
+						@if($temp->color=="AMARILLO")
+						<li><a href="{{url('/cursosporsemestre/'.$temp->numero.'/semestre')}}"><button class="btn-warning btn-raised btn-sm"><i class="zmdi zmdi-graduation-cap zmdi-hc-fw"></i>{{$temp->nombreSemetre}}</button></a></li>
+						@endif
+						@if($temp->color=="ROJO")
+						<li><a href="{{url('/cursosporsemestre/'.$temp->numero.'/semestre')}}"><button class="btn-danger btn-raised btn-sm"><i class="zmdi zmdi-graduation-cap zmdi-hc-fw"></i>{{$temp->nombreSemetre}}</button></a></li>
+						@endif
+						@endforeach
+						</ul>
 			</div>
-            <center><p class="lead">36 Creditos, 8 Obligatorios, 3 Opcionales</p></center>
-            <div style="float:left">
-            @if($semestreAnterior==0)
-            <a href="#!" disabled ="" class="btn btn-success btn-raised btn"><i class="zmdi zmdi-long-arrow-left"></i></a>
-            @else
-            <a href="{{url('/cursosporsemestre/'.$semestreAnterior.'/semestre')}}" class="btn btn-success btn-raised btn"><i class="zmdi zmdi-long-arrow-left"></i></a>
-            @endif
-            </div>
-            <div style="float:right">
-            @if($semestreSiguiente==11)
-            <a href="#!" disabled ="" class="btn btn-success btn-raised btn"><i class="zmdi zmdi-long-arrow-right"></i></a>
-            @else
-            <a href="{{url('/cursosporsemestre/'.$semestreSiguiente.'/semestre')}}" class="btn btn-success btn-raised btn"><i class="zmdi zmdi-long-arrow-right"></i></a>
-            @endif
-            </div>
+            <center><p class="lead">{{$semestre}} SEMESTRE</p></center>
 
 		</div>
 
