@@ -1,0 +1,93 @@
+CODIGO;NOMBRE;CREDITOS;ESCUELA;AREA;PREREQUISITOS;POSTREQUISITOS;CATEGORIA;LABORATORIO;RESTRICCION;SEMESTRE;CARRERA
+348;Qu¡mica General;3;Ciencias;Qu¡mica General;0;352,368;Obligatoria;Si;0;1;5
+101;Mate Basica 1;7;Ciencias;Mat‚matica B sica;0;103,147,352;Obligatoria;No;0;1;5
+69;T‚cnica Complementaria 1;3;Ciencias;T‚cnica Complementaria;0;73;Obligatoria;No;0;1;5
+39;Deportes 1;1;Ciencias;Deportes;0;0;Opcional;No;0;1;5
+17;Social Humanistica 1;4;Ciencias;Social Humanistica;0;19;Obligatoria;No;0;1;5
+6;Idioma T‚cnico 1;2;Ciencias;Idioma T‚cnico;0;8;Obligatoria;No;0;1;5
+5;T‚cnicas de Estudio y de Investigaci¢n;3;Ciencias;Planificaci¢n;0;732;Obligatoria;No;0;2;5
+103;Mate Basica 2;7;Ciencias;Mat‚matica B sica;101;107,150,2025;Obligatoria;No;0;2;5
+147;F¡sica B sica;5;Ciencias;F¡sica;101;352,150;Obligatoria;Si;0;2;5
+40;Deportes 2;1;Ciencias;Deportes;39;0;Opcional;No;0;2;5
+19;Social Humanistica 2;4;Ciencias;Social Humanistica;17;18;Obligatoria;No;0;2;5
+8;Idioma T‚cnico 2;2;Ciencias;Idioma T‚cnico;6;9;Obligatoria;No;0;2;5
+352;Qu¡mica 2;4;Ciencias;Qu¡mica General;101,147,348;0;Opcional;Si;0;3;5
+107;Mate Intermedia 1;10;Ciencias;Departamento de Matem tica ;103;608,732,170,112,114,152,474;Obligatoria;No;0;3;5
+150;F¡sica 1;6;Ciencias;Depto. de F¡sica;103,147;170,152,474;Obligatoria;Si;0;3;5
+18;Filosof¡a de la Ciencia;3;Ciencias;Social Humanistica;19;0;Opcional;No;0;3;5
+9;Idioma T‚cnico 3;2;Ciencias;Idioma T‚cnico;8;11;Obligatoria;No;0;3;5
+2025;Pr ctica Inicial;0;Industrial;EPS;103;0;Obligatoria;No;0;3;5
+608;Introducci¢n a Proyectos Gerenciales;6;Mec nica Industrial;M‚todos Cuantitativos;107;0;Opcional;No;0;4;5
+73;Dibujo T‚cnico Mec nico;3;Ingenier¡a M‚canica;Complementaria;69;0;Obligatoria;Si;60;4;5
+732;Estad¡stica 1;5;Ciencias;Estadistica;107,5;368,90,734,700;Obligatoria;No;0;4;5
+170;Mec nica Anal¡tica 1;5;Ciencias;Depto. de F¡sica;107,150;250,300,172;Obligatoria;Si;0;4;5
+112;Mate Intermedia 2;5;Ciencias;Departamento de Matem tica;107;116,118;Obligatoria;No;0;4;5
+114;Mate Intermedia 3;5;Ciencias;Departamento de Matem tica;107;90,250,300,172,116,118,200;Obligatoria;No;0;4;5
+152;F¡sica 2;6;Ciencias;Depto. de F¡sica;107,150;3684,52,200;Obligatoria;Si;0;4;5
+11;Idioma T‚cnico 4;2;Ciencias;Idioma T‚cnico;9;0;Obligatoria;No;0;4;5
+22;Psicolog¡a Industrial;3;Mec nica Industrial;Administrativa;0;658;Obligatoria;No;90;5;5
+650;Contabilidad 1;3;Mec nica Industrial;Administrativa;0;652,632;Obligatoria;Si;90;5;5
+662;Legislaci¢n 1;3;Mec nica Industrial;Administrativa;0;664;Obligatoria;No;90;5;5
+368;Principios de Metrolog¡a;3;Ingenier¡a Qu¡mica;Qu¡mica;732,152,348;0;Opcional;No;0;5;5
+90;Programaci¢n de Computadoras 1;3;Ciencias y Systemas;Programaci¢n;114,732;92;Obligatoria;No;0;5;5
+734;Estad¡stica 2;5;Ciencias;Estadistica;732;737,638,660,668;Obligatoria;No;0;5;5
+474;Introducci¢n a la Ingenier¡a Petrolera;3;CESEM;Pregrado;107,150;0;Opcional;No;90;5;5
+250;Mec nica de Fluidos;6;Ingenier¡a Civil;Hidra£lica;114,170;0;Obligatoria;No;0;5;5
+300;Resistencia de Materiales;5;Ingenier¡a Civil;Estructuras;114,170;302;Obligatoria;Si;0;5;5
+452;Ciencia de los Materiales;5;Ingenier¡a Mec nica;Materiales;152;520,454;Obligatoria;No;0;5;5
+172;Mec nica Anal¡tica 2;5;Ciencias;F¡sica;114,170;0;Opcional;No;0;5;5
+116;Mate Aplicada 3;5;Ciencias;Departamento de Matem tica;112,114;;Obligatoria;No;0;5;5
+118;Mate Aplicada 1;6;Ciencias;Departamento de Matem tica;112,114;122;Opcional;No;0;5;5
+28;Ecolog¡a;3;Ingenier¡a Qu¡mica;Qu¡mica;0;;Obligatoria;No;90;5;5
+700;Ingenier¡a Econ¢mica 1;5;Ingenier¡a Civil;Planeamiento;732;702;Obligatoria;No;0;5;5
+200;Ing. El‚ctrica 1;5;EIME;Ciencias Basicas y El‚ctronica;114,152;202;Obligatoria;Si;0;5;5
+660;Mercadotecnia 1;3;Industrial;Administrativa;732;0;Obligatoria;No;0;6;5
+658;Administraci¢n de Personal;3;Industrial;Administrativa;22;0;Obligatoria;Si;0;6;5
+652;Contabilidad 2;3;Industrial;Administrativa;650;654,665;Obligatoria;Si;0;6;5
+664;Legislacion 2;3;Industrial;Administrativa;662;0;Obligatoria;No;0;6;5
+632;Ingenieria de Plantas;5;Industrial;Producci¢n;650,732;634;Obligatoria;Si;0;6;5
+601;Investigaci¢n de Operaciones 1;5;Industrial;M‚todos Cuantitativos;90;602;Obligatoria;Si;0;6;5
+92;Programaci¢n de Computadoras 2 ;4;Ciencias y Sistemas;Programaci¢n;90;0;Obligatoria;Si;0;6;5
+390;Termodinamica 1;5;Ingenieria Mecanica;Termica;250;292;Obligatoria;Si;0;6;5
+520;Procesos de Manufactura 1;3;Ingenieria Mecanica;Materiales para Ingenieria;452;522;Obligatoria;Si;0;6;5
+202;Ingenieria Electrica 2;6;Ingenieria Mecanica;Ciencias B sicas y Electrotecnia;200;0;Obligatoria;Si;0;6;5
+454;Metalurgia y Metalografia;6;Ingenieria Mecanica;Materiales para Ingenieria;452;0;Opcional;Si;0;6;5
+14;Econom¡a 1 ;4;Ciencias y Sistemas;Metodolog¡a de Sistemas;732;0;Opcional;No;0;6;5
+302;Resistencia de Materiales 2;5;Ingenieria Civil;Estructuras;300;0;Opcional;Si;0;6;5
+122;Matematica Aplicada 4;4;Ciencias ;Departamento de Matem tica;118;0;Opcional;No;0;6;5
+702;Ingenieria Economica 2;5;Ingenieria Civil;Planeamiento;200;0;Opcional;Si;0;6;5
+669;Economia Industrial;3;Industrial;Administrativa;665;0;Opcional;No;0;6;5
+661;Mercadotecnia 2;3;Industrial;Administrativa;660;0;Opcional;Si;0;7;5
+656;Administraci¢n de Empresas 1;5;Industrial;Administrativa;0;657;Obligatoria;Si;150;7;5
+665;Microeconomia;3;Industrial;Administrativa;632,650,700;669;Obligatoria;Si;0;7;5
+654;Contabilidad 3;3;Industrial;Administrativa;652;0;Obligatoria;Si;0;7;5
+634;Ingenieria de Metodos;6;Industrial;Administrativa;632,734;636,638;Obligatoria;Si;0;7;5
+642;Seguridad e Higiene Industrial;3;Industrial;Producci¢n;202;0;Obligatoria;Si;0;7;5
+603;Investigaci¢n de Operaciones 2;5;Industrial;Metodos Cuantitativos y Econom¡a;601;606;Obligatoria;Si;0;7;5
+667;Programaci¢n Comercial 1;3;Ciencias y Sistemas;Programaci¢n Comercial 1;90,632;0;Obligatoria;Si;0;7;5
+522;Procesos de Manufactura 2;3;Ingenieria Mecanica;Dise¤o;520;0;Opcional;Si;0;7;5
+508;Montaje y Mantenimiento de Equipo;5;Ingenieria Mecanica;Complementaria ;520;0;Opcional;No;0;7;5
+335;Gesti¢n de Desastres;3;Ingenieria Civil;C.E.S.E.M;632;0;Opcional;No;0;7;5
+392;Termodinamica 2;5;Ingenieria Mecanica;Termica;390;504,506;Opcional;No;0;7;5
+524;Dise¤o de Maquinas 1;6;Ingenieria Mecanica;Dise¤o;302,452;0;Opcional;No;0;7;5
+2036;Practica Intermedia ;0;Ciencias;Ninguna;658,664,632,2025;2005;Obligatoria;No;150;7;5
+606;Analisis de Sistemas Industriales;0;Industrial;Metodos Cuantitativos y Econom¡a;603;0;Opcional;No;0;7;5
+657;Administraci¢n de Empresas 2;3;Industrial;Administrativa;656;0;Obligatoria;No ;0;8;5
+636;Dise¤o para la Producci¢n;5;Industrial;Producci¢n;634;0;Obligatoria;No;0;8;5
+644;Ingenieria Textil;4;Industrial;Producci¢n;634;0;Opcional;No;0;8;5
+638;Controles Industriales;6;Industrial;Producci¢n;634,734;640;Obligatoria;No;0;8;5
+668;Econometria;5;Industrial;Metodos Cuantitativos y Econom¡a ;734;0;Opcional;No;0;8;5
+604;Investigaci¢n de Operaciones 3;5;Industrial;Metodos Cuantitativos y Econom¡a ;603;0;Opcional;Si;0;8;5
+737;Estadistica 3 ;5;Ciencias;Estadistica;734;0;Opcional;No;0;8;5
+506;Plantas de Vapor;5;Ingenieria Mecanica;Materiales para Ingenieria;392;0;Opcional;No;0;8;5
+504;Motores de Combusti¢n Interna;5;Ingenieria Mecanica;Potencia;392;0;Opcional;Si;0;8;5
+1;Etica Profesional;4;Ciencias;Humanistica;0;0;Opcional;No;200;8;5
+7995;Seminario de Investigaci¢n;4;Ciencias y Sistemas;Metodolog¡a de Sistemas;0;0;Obligatoria;No;200;9;5
+706;Preparci¢n y evaluaci¢n de proyectos;4;Ingenieria Civil;Planeamiento;700;708;Obligatoria;Si;0;9;5
+640;Control de Producci¢n;6;Industrial;Producci¢n;638;0;Obligatoria;Si;0;9;5
+439;Ingenieria Textil 2;4;Industrial;Producci¢n;644;0;Opcional;No;0;9;5
+288;Introducci¢n a la Evaluaci¢n de Impacto Ambiental;4;Ingenieria Civil;Planeamiento;0;0;Opcional;No;190;9;5
+7990;Seminario de Investigaci¢n EPS;4;;EPS;0;0;Obligatoria;No;225;9;5
+2005;Practica Final;;;EPS;2036;0;Obligatoria;No;200;9;5
+3710;Planeamiento;6;Ingenieria Civil;Planeamiento;0;0;Opcional;No;190;9;5
+708;Preparci¢n y evaluaci¢n de proyectos 2;4;Industrial;Administrativa;706;0;Obligatoria;No;0;10;5
