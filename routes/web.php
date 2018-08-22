@@ -131,6 +131,8 @@ Route::group( ['middleware' => 'auth' ], function()
     Route::resource('/cursosporsemestre', 'CursosPorSemestreController');
     Route::get('/cursosporsemestre/{id}/semestre', 'AsignacionTempController@semestre');
     Route::get('/ReporteCursosGanados', 'CursosPorSemestreController@cursosganados');
+    Route::get('/ReporteCursosObligaPendientes', 'CursosPorSemestreController@pendientesobligatorios');
+    
 
 });
 
