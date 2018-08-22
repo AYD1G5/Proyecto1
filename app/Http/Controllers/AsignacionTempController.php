@@ -35,6 +35,9 @@ class AsignacionTempController extends Controller
 
     public function semestre($id)
     {
+        $semestreAnterior =$id-1;
+        $semestreSiguiente=$id+1;
+
         $atc = new AsignacionTempController();
         $data = $atc->datosDeAsignacionTemporal();
 
@@ -133,19 +136,25 @@ class AsignacionTempController extends Controller
                 }else{
                     /** DESBLOQUEADO */
                     $idcursoasignaciontemp = -1;
+                    $objetoCurso->estado = $curso->estado = 'DESBLOQUEADO';
                     foreach ($cursosEnLaAsignacion as &$cursoAsignado){
                         if($cursoAsignado->id_curso_pensum == $curso->id_curso_pensum){
                             $idcursoasignaciontemp = $cursoAsignado->id_curso_asig_temp;
+                            $objetoCurso->estado = $curso->estado = 'ASIGNADO';
                             break;
                         }
                     }
-                    $objetoCurso->estado = $curso->estado = 'DESBLOQUEADO';
+                    
                     $objetoCurso->idcursoasignaciontemp = $idcursoasignaciontemp;
                     $cursosCollection->push($objetoCurso);
                 }
             }
         }
-        return $cursosCollection;
+ //              return $cursosCollection;
+        return view('estadoCurso.estadoCurso')->with("semestre",$id)->with("elementos",$cursosCollection)->with("semestreSiguiente",$semestreSiguiente)->with("semestreAnterior",$semestreAnterior);
+
+
+
     }
 
 

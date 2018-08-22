@@ -14,7 +14,7 @@
 		<div class="full-box dashboard-sideBar-ct">
 			<!--SideBar Title -->
 			<div class="full-box text-uppercase text-center text-titles dashboard-sideBar-title">
-				CHOCOPENSUM <i class="zmdi zmdi-close btn-menu-dashboard visible-xs"></i>
+				CHOCOPENSUM X<i class="zmdi zmdi-close btn-menu-dashboard visible-xs"></i>
 			</div>
 			<!-- SideBar User info -->
 			<div class="full-box dashboard-sideBar-UserInfo">
@@ -24,7 +24,7 @@
 				</figure>
 				<ul class="full-box list-unstyled text-center">
 					@guest
-					
+
                             <li class="nav-item">
                                 <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
                             </li>
@@ -53,35 +53,53 @@
                       </form>
 
 					</li>
-    
+
                     @endguest
-					
+
 				</ul>
 			</div>
-            
+
 			<!-- SideBar Menu -->
 			<ul class="list-unstyled full-box dashboard-sideBar-Menu">
 				<li>
-					<a href="home.html">
-						<i class="zmdi zmdi-view-dashboard zmdi-hc-fw"></i> Dashboard
+					<a href="{{url('/mostrarasignaciontemporal')}}">
+						<i class="zmdi zmdi-view-dashboard zmdi-hc-fw"></i> VER CURSOS ASIGNADOS
 					</a>
 				</li>
 				<li>
 					<a href="#!" class="btn-sideBar-SubMenu">
-						<i class="zmdi zmdi-case zmdi-hc-fw"></i> Administration <i class="zmdi zmdi-caret-down pull-right"></i>
+						<i class="zmdi zmdi-case zmdi-hc-fw"></i> SEMESTRES <i class="zmdi zmdi-caret-down pull-right"></i>
 					</a>
 					<ul class="list-unstyled full-box">
 						<li>
-							<a href="period.html"><i class="zmdi zmdi-timer zmdi-hc-fw"></i> Period</a>
+							<a href="{{url('/cursosporsemestre/1/semestre')}}"><i class="zmdi zmdi-timer zmdi-hc-fw"></i>PRIMER SEMESTRE</a>
 						</li>
 						<li>
-							<a href="subject.html"><i class="zmdi zmdi-book zmdi-hc-fw"></i> Subject</a>
+							<a href="{{url('/cursosporsemestre/2/semestre')}}"><i class="zmdi zmdi-book zmdi-hc-fw"></i>SEGUNDO SEMESTRE</a>
 						</li>
 						<li>
-							<a href="section.html"><i class="zmdi zmdi-graduation-cap zmdi-hc-fw"></i> Section</a>
+							<a href="{{url('/cursosporsemestre/3/semestre')}}"><i class="zmdi zmdi-graduation-cap zmdi-hc-fw"></i>TERCER SEMESTRE</a>
 						</li>
 						<li>
-							<a href="salon.html"><i class="zmdi zmdi-font zmdi-hc-fw"></i> Salon</a>
+							<a href="{{url('/cursosporsemestre/4/semestre')}}"><i class="zmdi zmdi-font zmdi-hc-fw"></i>CUARTO SEMESTRE</a>
+						</li>
+						<li>
+							<a href="{{url('/cursosporsemestre/5/semestre')}}"><i class="zmdi zmdi-font zmdi-hc-fw"></i>QUINTO SEMESTRE</a>
+						</li>
+						<li>
+							<a href="{{url('/cursosporsemestre/6/semestre')}}"><i class="zmdi zmdi-font zmdi-hc-fw"></i>SEXTO SEMESTRE</a>
+						</li>
+						<li>
+							<a href="{{url('/cursosporsemestre/7/semestre')}}"><i class="zmdi zmdi-font zmdi-hc-fw"></i>SEPTIMO SEMESTRE</a>
+						</li>
+						<li>
+							<a href="{{url('/cursosporsemestre/8/semestre')}}"><i class="zmdi zmdi-font zmdi-hc-fw"></i>OCTAVO SEMESTRE</a>
+						</li>
+						<li>
+							<a href="{{url('/cursosporsemestre/9/semestre')}}"><i class="zmdi zmdi-font zmdi-hc-fw"></i>NOVENO SEMESTRE</a>
+						</li>
+						<li>
+							<a href="{{url('/cursosporsemestre/10/semestre')}}"><i class="zmdi zmdi-font zmdi-hc-fw"></i>DECIMO SEMESTRE</a>
 						</li>
 					</ul>
 				</li>

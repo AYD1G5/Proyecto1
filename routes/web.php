@@ -15,6 +15,10 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get("/MiguelRuano", function(){
+  return 'Hola';
+});
+
 Route::get('/cargamasiva', function (){
     return view('subir');
 });
@@ -112,8 +116,8 @@ Route::get('/carga/{archivo}', function ($archivo) {
 }});
 
 
-Route::get('/prueba/{id_curso}/{id_carrera}/{id_usuario}', function($id_curso, $id_carrera, $id_usuario){
-    return 'Hola mundo'.$id_curso.$id_carrera.$id_usuario;
+Route::get('/pruebaUsuariosCursoCarrera/{id_curso}/{id_carrera}/{id_usuario}', function($id_curso, $id_carrera, $id_usuario){
+    return 'Usuario: '.$id_usuario.' Curso: '.$id_curso.' Carrera: '.$id_carrera;
 });
 
 Route::group( ['middleware' => 'auth' ], function()
