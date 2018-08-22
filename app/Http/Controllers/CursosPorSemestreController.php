@@ -14,9 +14,53 @@ use App\Pensum_estudiante;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
 use App\ObjetoCurso;
+use App\ObjetoSemestre;
 
 class CursosPorSemestreController extends Controller
 {
+
+
+  public function ColleccionSemestres(){
+      $semestresCollection = new Collection();
+      for($i = 1;$i<=10;$i++)
+      {
+          $obj = new ObjetoSemestre();
+          $obj->nombreSemetre =$i." SEM";
+          $obj->numero = $i;
+          $obj->color=$this->EstadoSemestre($i);
+         $semestresCollection->push($obj);
+      }
+      //die($semestresCollection);
+      return $semestresCollection;
+  }
+
+  public function EstadoSemestre($id){
+      $cursos = $this->semestre($id);
+      $totalCursos = 0;
+      $cursosGanados =0;
+      $cursosPendientes = 0;
+      foreach ($cursos as $curso){
+          // Code Here
+          if($curso->estado=="GANADO"){
+              $cursosGanados++;
+          }else{
+              $cursosPendientes ++;
+          }
+          $totalCursos++;
+      }
+      $tipo="";
+      if($cursosGanados>0){
+          if($cursosPendientes==0){
+              $tipo="VERDE"; //Verde No hay pendientes
+          }else{
+              $tipo="AMARILLO"; //Amarillo Faltan
+          }
+      }else{
+          $tipo = "ROJO"; //Rojo
+      }
+    //  die($cursos);
+    return $tipo;
+  }
     /**
      * Display a listing of the resource.
      *
@@ -76,18 +120,18 @@ class CursosPorSemestreController extends Controller
 
         /** INICIALIZAR LA COLECCION DE SALIDA */
         $cursosCollection = new Collection();
-        $str = ''; 
+        $str = '';
 
         /** BUSCAR TODOS LOS CURSOS DEL SEMESTRE */
         foreach ($cursos as &$curso) {
-            /*** VER TODAS LAS ASIGNACIONES DEL USUARIO DE ESE CURSO PARA SABER LAS NOTAS */            
+            /*** VER TODAS LAS ASIGNACIONES DEL USUARIO DE ESE CURSO PARA SABER LAS NOTAS */
             $asignaciones=DB::table('curso_asignacion as cuasig')
                 ->join('asignacion as asig', 'cuasig.id_asignacion', '=', 'asig.id_asignacion')
                 ->select('cuasig.nota as nota')
                 ->where('cuasig.id_curso_pensum', '=', $curso->id_curso_pensum)
                 ->where('asig.id_estudiante', '=', Auth::id())
                 ->get();
-            
+
             $cursoganado = false;
             /*** SI LA NOTA DE ALGUNA ASIGNACION ES 61 YA LO GANÓ */
             foreach ($asignaciones as &$asignac){
@@ -120,7 +164,7 @@ class CursosPorSemestreController extends Controller
                     ->where('cuasig.id_curso_pensum', '=', $prerequisito->id_curso_pre)
                     ->where('asig.id_estudiante', '=', Auth::id())
                     ->get();
-                    
+
                     /*** BUSCAR SI GANÓ O PERDIÓ EN LAS ASIGNACIONES */
                     $str .= $prerequisito->id_curso_pre;
                     $prereqganado = false;
