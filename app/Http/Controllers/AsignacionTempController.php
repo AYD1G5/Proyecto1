@@ -153,9 +153,6 @@ class AsignacionTempController extends Controller
  //              return $cursosCollection;
         $objeto1 = New CursosPorSemestreController();
         return view('estadoCurso.estadoCurso')->with("semestre",$id)->with("elementos",$cursosCollection)->with("semestre",$semestre)->with("Estados",$objeto1->ColleccionSemestres());
-
-
-
     }
 
 
