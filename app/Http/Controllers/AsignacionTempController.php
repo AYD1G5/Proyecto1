@@ -152,9 +152,6 @@ class AsignacionTempController extends Controller
         }
  //              return $cursosCollection;
         return view('estadoCurso.estadoCurso')->with("semestre",$id)->with("elementos",$cursosCollection)->with("semestreSiguiente",$semestreSiguiente)->with("semestreAnterior",$semestreAnterior);
-
-
-
     }
 
 

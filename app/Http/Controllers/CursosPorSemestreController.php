@@ -168,6 +168,59 @@ class CursosPorSemestreController extends Controller
         return $cursosCollection;
     }
 
+    public function cursosganados()
+    {
+        $pensumestudiante=DB::table('pensum_estudiante')
+        ->where('id_estudiante', '=', Auth::id())
+        ->first(); // los multipensum se implementaras despues
+
+        $cursos=DB::table('curso as c')
+        ->join('curso_pensum as cupe', 'cupe.id_curso', '=', 'c.id_curso')
+        ->join('pensum as pe', 'cupe.id_pensum', '=', 'pe.id_pensum')
+        ->select('cupe.id_curso_pensum as id_curso_pensum', 'c.codigo_curso as codigo_curso', 'c.nombre_curso as nombre_curso',
+                'cupe.categoria as categoria', 'cupe.creditos as creditos', 'cupe.restriccion as restriccion')
+        ->where('cupe.id_pensum', '=', $pensumestudiante->id_pensum)
+        ->get();
+
+        /** INICIALIZAR LA COLECCION DE SALIDA */
+        $cursosCollection = new Collection();
+        $str = ''; 
+
+        /** BUSCAR TODOS LOS CURSOS DEL SEMESTRE */
+        foreach ($cursos as &$curso) {
+            /*** VER TODAS LAS ASIGNACIONES DEL USUARIO DE ESE CURSO PARA SABER LAS NOTAS */            
+            $asignaciones=DB::table('curso_asignacion as cuasig')
+                ->join('asignacion as asig', 'cuasig.id_asignacion', '=', 'asig.id_asignacion')
+                ->select('cuasig.nota as nota')
+                ->where('cuasig.id_curso_pensum', '=', $curso->id_curso_pensum)
+                ->where('asig.id_estudiante', '=', Auth::id())
+                ->get();
+            
+            $cursoganado = false;
+            $nota = 0;
+            
+            /*** SI LA NOTA DE ALGUNA ASIGNACION ES 61 YA LO GANÓ */
+            foreach ($asignaciones as &$asignac){
+                if($asignac->nota >= 61){
+                    $cursoganado = true;
+                    $nota= $asignac->nota;
+                    break;
+                }
+            }
+            if($cursoganado){
+                /** GANADO ***/
+                $objetoCurso = new ObjetoCurso();
+                $objetoCurso->nombre_curso = $curso->nombre_curso;
+                $objetoCurso->codigo_curso = $curso->codigo_curso;
+                $objetoCurso->creditos = $curso->creditos;
+                $objetoCurso->estado = $curso->estado = 'GANADO';
+                $objetoCurso->nota = $nota;
+                $cursosCollection->push($objetoCurso);
+            }
+        }
+        return view('Reportes.reporte1')->with("arreglo",$cursosCollection);
+    }
+
     /**
      * Show the form for editing the specified resource.
      *
@@ -201,4 +254,7 @@ class CursosPorSemestreController extends Controller
     {
         //
     }
+
+
+
 }
