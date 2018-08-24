@@ -15,6 +15,7 @@ class ObjetoCurso extends Model
     protected $laboratorioboolean; 
     protected $restriccion;
     protected $nota;
+    protected $no_estrellas;
     protected $idcursoasignaciontemp;
 
     public function getPrerequisitos(){
