@@ -123,17 +123,23 @@ Route::get('/pruebaUsuariosCursoCarrera/{id_curso}/{id_carrera}/{id_usuario}', f
 Route::group( ['middleware' => 'auth' ], function()
 {
     Route::resource('/asignaciontemporal', 'AsignacionTempController');
-    Route::get('asignaciontemporal/{id}/create', 'AsignacionTempController@create');
+    Route::get('asignaciontemporal/{id}/{idsemestre}/create', 'AsignacionTempController@create');
+    Route::get('asignaciontemporal/guardar', 'AsignacionTempController@guardar');
     Route::get('asignaciontemporal/{id}/mostrar', 'AsignacionTempController@show');
-    Route::get('asignaciontemporal/{id}/editar', 'AsignacionTempController@edit');
-    Route::get('mostrarasignaciontemporal/', 'AsignacionTempController@revision');
+    Route::get('editar/{idsemestre}/{id}', 'AsignacionTempController@edit');
+    Route::get('revisarasignacion/{id}', 'AsignacionTempController@revision');
+    Route::get('finalizarasignacion/', 'AsignacionTempController@finalizar');
 
     Route::resource('/cursosporsemestre', 'CursosPorSemestreController');
     Route::get('/cursosporsemestre/{id}/semestre', 'AsignacionTempController@semestre');
     Route::get('/ReporteCursosGanados', 'CursosPorSemestreController@cursosganados');
     Route::get('/ReporteCursosObligaPendientes', 'CursosPorSemestreController@pendientesobligatorios');
+    Route::get('/eliminar/{id}/{id1}', 'AsignacionTempController@desasignar');    
+    Route::get('/puntearcurso/{idcurso}/{noestrellas}', 'AsignacionTempController@puntear');    
+    Route::get('/punteocurso/{idcurso}/{nota}', 'AsignacionTempController@punteocurso');    
+    Route::post('/notacurso/{id}', 'AsignacionTempController@notacurso')->name('notacurso');
+    Route::post('/terminarasignacion', 'AsignacionTempController@terminarasignacion');    
     
-
 });
 
 Auth::routes();
