@@ -377,7 +377,7 @@ class AsignacionTempController extends Controller
         ->select('cupe.id_curso_pensum as id_curso_pensum', 'c.codigo_curso as codigo_curso', 'c.nombre_curso as nombre_curso',
                 'cupe.categoria as categoria', 'cupe.creditos as creditos', 'cupe.restriccion as restriccion',
                 'catmp.id_curso_asig_temp as id_curso_asig_temp', 
-                'usr.nombre as nombre_catedratico', 
+                'usr.nombre as nombre_catedratico', 'usr.id as id_catedratico',
                 'catmp.no_estrellas as no_estrellas', 'catmp.nota as nota')
         ->where('catmp.id_asignacion_temporal', '=', $data['id_asignacion_temporal']->id_asignacion_temporal)
         ->get();
