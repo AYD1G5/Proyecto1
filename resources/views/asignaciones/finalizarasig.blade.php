@@ -94,7 +94,7 @@
                   </td>
                   <td> {{ $curso->nombre_catedratico }} </td>
                   <td>
-                  {!! link_to('editar/1/'.$curso->id_curso_asig_temp, 'Realizar', ['class' => 'btn btn-success btn-raised btn-md']) !!}
+                  {!! link_to('encuesta/'.$curso->id_curso_pensum.'/'.$curso->id_catedratico, 'Realizar', ['class' => 'btn btn-success btn-raised btn-md']) !!}
                   </td>
 
 

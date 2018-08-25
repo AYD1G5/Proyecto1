@@ -47,7 +47,7 @@
                   <td> {{ $curso->restriccion }} </td>
                   <td> {{ $curso->nombre_catedratico }} </td>
                   <td>
-                    {!! link_to('asignaciontemporal/'.$curso->id_curso_asig_temp.'/mostrar', 'Mostrar', ['class' => 'btn btn-success btn-raised btn-md']) !!}
+                  {!! link_to('asignaciontemporal/'.$curso->id_curso_pensum.'/mostrar', 'Mostrar', ['class' => 'btn btn-info btn-raised btn-md']) !!}
                   </td>
                   <td>
                   {!! link_to('editar/'.$semestre.'/'.$curso->id_curso_asig_temp, 'Editar', ['class' => 'btn btn-success btn-raised btn-md']) !!}
