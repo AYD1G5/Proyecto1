@@ -18,8 +18,13 @@
             {{Form::token()}}
 			<div class="invisible">
             	<input type="number" id="id_curso_pensum" name="id_curso_pensum" required value="{{ $curso_pensum->id_curso_pensum }}" readonly>
+				<input type="number" id="id_semestre" name="id_semestre" required value="{{ $id_semestre }}" readonly>
 			</div>
-			<h3>Codigo: {{ $curso->codigo_curso }}</h3>
+			<ul class="nav nav-tabs" style="margin-bottom: 15px;">
+					  	<li class="active"><a href="#list" data-toggle="tab">Editar Curso</a></li>
+			</ul>
+			<h3 style="color:green">Codigo: {{ $curso->codigo_curso }}</h3>
+			
 			<h4>Nombre: {{ $curso->nombre_curso }}</h4>
 			<div class="form-group">
 				<label>Escoja catedratico</label>
@@ -34,15 +39,14 @@
 				</select>
             </div>
             <div class="form-group">
-            	<button class="btn btn-primary" type="submit">Guardar</button>
-            	<button class="btn btn-danger" type="reset">Reset</button>
+				<button  class="btn-success btn-raised btn-md" type="submit">Guardar</button>
             </div>
 
             {!!Form::close()!!}		
                 <div class="row">
-                    <div class="col-lg-2 col-sm-2 col-md-2 col-xs-12">
-                        <a href="{{ url('asignaciontemporal') }}">
-                            <button class="btn btn-info"> Volver al Listado </button>
+                    <div class="col-lg-12 col-sm-12 col-md-12 col-xs-12">
+						<a href="{{url('cursosporsemestre/'.$id_semestre.'/semestre')}}">
+                            <button class="btn-warning btn-raised btn-xl"> Volver al Listado </button>
                         </a>
                     </div>
                 </div>

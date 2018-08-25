@@ -19,7 +19,7 @@ class CreateAsignacionTable extends Migration
             $table->foreign('id_estudiante')->references('id')->on('users'); 
             $table->integer('id_ciclo')->unsigned();
             $table->foreign('id_ciclo')->references('id_ciclo')->on('ciclo'); 
-            $table->year('anio');
+            $table->integer('anio')->unsigned();
             $table->timestamps();
         });
     }

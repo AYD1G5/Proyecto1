@@ -10,7 +10,8 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-
+use Illuminate\Http\Request;
+use App\Encuesta;
 Route::get('/', function () {
     return view('welcome');
 });
@@ -120,16 +121,83 @@ Route::get('/pruebaUsuariosCursoCarrera/{id_curso}/{id_carrera}/{id_usuario}', f
     return 'Usuario: '.$id_usuario.' Curso: '.$id_curso.' Carrera: '.$id_carrera;
 });
 
+Route::post('/encuesta/{curso}/{catedratico}', function(Request $request,$curso, $catedratico){
+    // $apellidos =$request->editList;
+    $puntual = $request->input('puntual');
+    $preparacion = $request->input('preparacion');
+    $manejo = $request->input('manejo');
+    $entendible = $request->input('entendible');
+    $accesible = $request->input('accesible');
+    $responsable = $request->input('responsable');
+
+    $objeto=new Encuesta();
+    $objeto->pregunta=1;
+    $objeto->respuesta=$puntual;
+    $objeto->curso = $curso;
+    $objeto->catedratico=$catedratico;
+    $objeto->save();
+
+    $objeto=new Encuesta();
+    $objeto->pregunta=2;
+    $objeto->respuesta=$preparacion;
+    $objeto->curso = $curso;
+    $objeto->catedratico=$catedratico;
+    $objeto->save();
+
+    $objeto=new Encuesta();
+    $objeto->pregunta=3;
+    $objeto->respuesta=$manejo;
+    $objeto->curso = $curso;
+    $objeto->catedratico=$catedratico;
+    $objeto->save();
+
+    $objeto=new Encuesta();
+    $objeto->pregunta=4;
+    $objeto->respuesta=$entendible;
+    $objeto->curso = $curso;
+    $objeto->catedratico=$catedratico;
+    $objeto->save();
+
+    $objeto=new Encuesta();
+    $objeto->pregunta=5;
+    $objeto->respuesta=$accesible;
+    $objeto->curso = $curso;
+    $objeto->catedratico=$catedratico;
+    $objeto->save();
+
+    $objeto=new Encuesta();
+    $objeto->pregunta=6;
+    $objeto->respuesta=$responsable;
+    $objeto->curso = $curso;
+    $objeto->catedratico=$catedratico;
+    $objeto->save();
+    dd("siguiente vista");
+ });
+ 
+ Route::get('/encuesta/{curso}/{catedratico}', function($curso, $catedratico){
+     return view("encuesta")
+     ;
+ });
 Route::group( ['middleware' => 'auth' ], function()
 {
     Route::resource('/asignaciontemporal', 'AsignacionTempController');
-    Route::get('asignaciontemporal/{id}/create', 'AsignacionTempController@create');
+    Route::get('asignaciontemporal/{id}/{idsemestre}/create', 'AsignacionTempController@create');
+    Route::get('asignaciontemporal/guardar', 'AsignacionTempController@guardar');
     Route::get('asignaciontemporal/{id}/mostrar', 'AsignacionTempController@show');
-    Route::get('asignaciontemporal/{id}/editar', 'AsignacionTempController@edit');
-    Route::get('mostrarasignaciontemporal/', 'AsignacionTempController@revision');
+    Route::get('editar/{idsemestre}/{id}', 'AsignacionTempController@edit');
+    Route::get('revisarasignacion/{id}', 'AsignacionTempController@revision');
+    Route::get('finalizarasignacion/', 'AsignacionTempController@finalizar');
 
     Route::resource('/cursosporsemestre', 'CursosPorSemestreController');
     Route::get('/cursosporsemestre/{id}/semestre', 'AsignacionTempController@semestre');
+    Route::get('/ReporteCursosGanados', 'CursosPorSemestreController@cursosganados');
+    Route::get('/ReporteCursosObligaPendientes', 'CursosPorSemestreController@pendientesobligatorios');
+    Route::get('/eliminar/{id}/{id1}', 'AsignacionTempController@desasignar');    
+    Route::get('/puntearcurso/{idcurso}/{noestrellas}', 'AsignacionTempController@puntear');    
+    Route::get('/punteocurso/{idcurso}/{nota}', 'AsignacionTempController@punteocurso');    
+    Route::post('/notacurso/{id}', 'AsignacionTempController@notacurso')->name('notacurso');
+    Route::post('/terminarasignacion', 'AsignacionTempController@terminarasignacion');    
+    
 });
 
 Auth::routes();

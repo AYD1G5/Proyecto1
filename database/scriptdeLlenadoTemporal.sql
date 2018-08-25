@@ -114,7 +114,4 @@ select * from curso_catedratico;
 select * from asignacion_temporal;
 select * from asignacion;
 select * from curso_asignacion_temporal;
-select * from `curso_asignacion_temporal` as `ctmp` where `ctmp`.`id_codigo_pensum` = 1;
-
-
 

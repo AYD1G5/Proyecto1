@@ -14,7 +14,8 @@ class Curso_asignacion extends Model
         'id_curso_pensum', 
         'id_asignacion',
         'id_catedratico',
-        'nota'
+        'nota',
+        'no_estrellas'
     ];
 
     protected $guarded = [
