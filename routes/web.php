@@ -197,8 +197,10 @@ Route::group( ['middleware' => 'auth' ], function()
     Route::get('/punteocurso/{idcurso}/{nota}', 'AsignacionTempController@punteocurso');    
     Route::post('/notacurso/{id}', 'AsignacionTempController@notacurso')->name('notacurso');
     Route::post('/terminarasignacion', 'AsignacionTempController@terminarasignacion');    
-    
+
+    Route::get('/PefilTema', 'PerfilTemaController@PerfilTema');
+
 });
 
 Auth::routes();
-Route::get('/home', 'HomeController@index')->name('home');
+
