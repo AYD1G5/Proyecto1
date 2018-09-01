@@ -24,7 +24,7 @@ class ExampleTest extends TestCase
             'email' => 'willyslider@gmail.com'
         ]);
     }
-
+    
     public function testArea()
     { 
         $this->assertDatabaseHas('area', [
@@ -63,7 +63,7 @@ class ExampleTest extends TestCase
     public function testCursoAsignacion()
     { 
         $this->assertDatabaseHas('curso_asignacion', [
-            'nota' => '67'
+            'nota' => '64'
         ]);
     }
 
