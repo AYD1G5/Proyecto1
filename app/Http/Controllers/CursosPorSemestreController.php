@@ -212,6 +212,11 @@ class CursosPorSemestreController extends Controller
         return $cursosCollection;
     }
 
+    public function encuestacatedraticos()
+    {
+      return view('Reportes.reporte3');
+    }
+
     public function cursosganados()
     {
         $pensumestudiante=DB::table('pensum_estudiante')
@@ -228,21 +233,21 @@ class CursosPorSemestreController extends Controller
 
         /** INICIALIZAR LA COLECCION DE SALIDA */
         $cursosCollection = new Collection();
-        $str = ''; 
+        $str = '';
 
         /** BUSCAR TODOS LOS CURSOS DEL SEMESTRE */
         foreach ($cursos as &$curso) {
-            /*** VER TODAS LAS ASIGNACIONES DEL USUARIO DE ESE CURSO PARA SABER LAS NOTAS */            
+            /*** VER TODAS LAS ASIGNACIONES DEL USUARIO DE ESE CURSO PARA SABER LAS NOTAS */
             $asignaciones=DB::table('curso_asignacion as cuasig')
                 ->join('asignacion as asig', 'cuasig.id_asignacion', '=', 'asig.id_asignacion')
                 ->select('cuasig.nota as nota')
                 ->where('cuasig.id_curso_pensum', '=', $curso->id_curso_pensum)
                 ->where('asig.id_estudiante', '=', Auth::id())
                 ->get();
-            
+
             $cursoganado = false;
             $nota = 0;
-            
+
             /*** SI LA NOTA DE ALGUNA ASIGNACION ES 61 YA LO GANÓ */
             foreach ($asignaciones as &$asignac){
                 if($asignac->nota >= 61){
@@ -281,18 +286,18 @@ class CursosPorSemestreController extends Controller
 
         /** INICIALIZAR LA COLECCION DE SALIDA */
         $cursosCollection = new Collection();
-        $str = ''; 
+        $str = '';
 
         /** BUSCAR TODOS LOS CURSOS DEL SEMESTRE */
         foreach ($cursos as &$curso) {
-            /*** VER TODAS LAS ASIGNACIONES DEL USUARIO DE ESE CURSO PARA SABER LAS NOTAS */            
+            /*** VER TODAS LAS ASIGNACIONES DEL USUARIO DE ESE CURSO PARA SABER LAS NOTAS */
             $asignaciones=DB::table('curso_asignacion as cuasig')
                 ->join('asignacion as asig', 'cuasig.id_asignacion', '=', 'asig.id_asignacion')
                 ->select('cuasig.nota as nota')
                 ->where('cuasig.id_curso_pensum', '=', $curso->id_curso_pensum)
                 ->where('asig.id_estudiante', '=', Auth::id())
                 ->get();
-            
+
             $cursoganado = false;
             /*** SI LA NOTA DE ALGUNA ASIGNACION ES 61 YA LO GANÓ */
             foreach ($asignaciones as &$asignac){
@@ -302,7 +307,7 @@ class CursosPorSemestreController extends Controller
                 }
             }
             if($cursoganado){
-                
+
             }else{
                 /*** VER TODOS LOS PREREQUISITOS DEL CURSO BUSCAR SUS ASUGNACIONES Y VER SI ESTAN GANADOS */
                 $lprerequisitos=DB::table('curso_prerequisito as cpre')
@@ -320,7 +325,7 @@ class CursosPorSemestreController extends Controller
                     ->where('cuasig.id_curso_pensum', '=', $prerequisito->id_curso_pre)
                     ->where('asig.id_estudiante', '=', Auth::id())
                     ->get();
-                    
+
                     /*** BUSCAR SI GANÓ O PERDIÓ EN LAS ASIGNACIONES */
                     $str .= $prerequisito->id_curso_pre;
                     $prereqganado = false;
@@ -358,7 +363,7 @@ class CursosPorSemestreController extends Controller
                     if($curso->categoria == 'Obligatorio'){
                         $cursosCollection->push($objetoCurso);
                     }
-                    
+
                 }else{
                     /** DESBLOQUEADO */
                     $objetoCurso = new ObjetoCurso();
@@ -372,7 +377,7 @@ class CursosPorSemestreController extends Controller
                 }
             }
         }
-        return view('Reportes.reporte2')->with("arreglo",$cursosCollection); 
+        return view('Reportes.reporte2')->with("arreglo",$cursosCollection);
     }
     /**
      * Show the form for editing the specified resource.

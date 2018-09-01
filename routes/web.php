@@ -173,7 +173,7 @@ Route::post('/encuesta/{curso}/{catedratico}', function(Request $request,$curso,
     $objeto->save();
     dd("siguiente vista");
  });
- 
+
  Route::get('/encuesta/{curso}/{catedratico}', function($curso, $catedratico){
      return view("encuesta")
      ;
@@ -192,12 +192,13 @@ Route::group( ['middleware' => 'auth' ], function()
     Route::get('/cursosporsemestre/{id}/semestre', 'AsignacionTempController@semestre');
     Route::get('/ReporteCursosGanados', 'CursosPorSemestreController@cursosganados');
     Route::get('/ReporteCursosObligaPendientes', 'CursosPorSemestreController@pendientesobligatorios');
-    Route::get('/eliminar/{id}/{id1}', 'AsignacionTempController@desasignar');    
-    Route::get('/puntearcurso/{idcurso}/{noestrellas}', 'AsignacionTempController@puntear');    
-    Route::get('/punteocurso/{idcurso}/{nota}', 'AsignacionTempController@punteocurso');    
+    Route::get('/ReporteEncuestaCatedraticos', 'CursosPorSemestreController@encuestacatedraticos');    
+    Route::get('/eliminar/{id}/{id1}', 'AsignacionTempController@desasignar');
+    Route::get('/puntearcurso/{idcurso}/{noestrellas}', 'AsignacionTempController@puntear');
+    Route::get('/punteocurso/{idcurso}/{nota}', 'AsignacionTempController@punteocurso');
     Route::post('/notacurso/{id}', 'AsignacionTempController@notacurso')->name('notacurso');
-    Route::post('/terminarasignacion', 'AsignacionTempController@terminarasignacion');    
-    
+    Route::post('/terminarasignacion', 'AsignacionTempController@terminarasignacion');
+
 });
 
 Auth::routes();
