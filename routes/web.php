@@ -198,6 +198,8 @@ Route::group( ['middleware' => 'auth' ], function()
     Route::post('/notacurso/{id}', 'AsignacionTempController@notacurso')->name('notacurso');
     Route::post('/terminarasignacion', 'AsignacionTempController@terminarasignacion');    
     
+    Route::get('/PerfilGrupo', 'PerfilGrupoController@PerfilGrupo');
+    
 });
 
 Auth::routes();
