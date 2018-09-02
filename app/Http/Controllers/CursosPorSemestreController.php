@@ -214,6 +214,14 @@ class CursosPorSemestreController extends Controller
 
     public function encuestacatedraticos()
     {
+      $pensumestudiante=DB::table('pensum_estudiante')
+      ->where('id_estudiante', '=', Auth::id())
+      ->first()//pendiente realizar esta funcionalidad
+
+      $EncuestaCatedratico = DB::table('encuestas')
+      ->where('catedratico', '=', '1')
+      ->first;//pendiente recibir el parametro
+
       return view('Reportes.reporte3');
     }
 
