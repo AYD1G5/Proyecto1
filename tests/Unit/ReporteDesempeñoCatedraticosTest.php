@@ -18,7 +18,7 @@ class ReporteDesempeñoCatedraticosTest extends TestCase
         $this->assertTrue(true);
     }
 
-    public function testPerfilGrupo(){
+    public function testEncuestaCatedraticos(){
         $response = $this->call('POST', '/login', [
         'email' => 'willyslider@gmail.com',
         'password' => '12345678',
@@ -26,5 +26,26 @@ class ReporteDesempeñoCatedraticosTest extends TestCase
     ]);
     $response = $this->get('/ReporteEncuestaCatedraticos');
         $this->assertEquals(200, $response->getStatusCode());
+    }
+
+
+    public function testBD(){
+        $response = $this->call('POST', '/login', [
+        'email' => 'willyslider@gmail.com',
+        'password' => '12345678',
+        '_token' => csrf_token()
+    ]);
+
+      $response = $this->visit('/encuesta/1/1')
+                       ->type('5', 'puntual')
+                       ->type('5', 'preparacion')
+                       ->type('4', 'manejo')
+                       ->type('4', 'entendible')
+                       ->type('3', 'accesible')
+                       ->type('1', 'responsable')
+                       ->press('button')
+                       ->seePageIs('/cursosporsemestre/1/semestre')
+                       ->click('PrimerSemestre')
+                       ->see('Se ha evaluado a un catedratico');
     }
 }
