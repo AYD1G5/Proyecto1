@@ -30,4 +30,24 @@ class PerfilCursoTest extends TestCase
             'nota' => '67'
         ]);
     }
+    
+    public function testAsignaciontemporalMostrar(){
+        $response = $this->call('POST', '/login', [
+        'email' => 'willyslider@gmail.com',
+        'password' => '12345678',
+        '_token' => csrf_token()
+    ]);
+    $response = $this->get('asignaciontemporal/1/mostrar');
+        $this->assertEquals(200, $response->getStatusCode());
+    }
+
+    public function testAsignaciontemporal(){
+        $response = $this->call('POST', '/login', [
+        'email' => 'willyslider@gmail.com',
+        'password' => '12345678',
+        '_token' => csrf_token()
+    ]);
+    $response = $this->get('/asignaciontemporal');
+        $this->assertEquals(200, $response->getStatusCode());
+    }
 }
