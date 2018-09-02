@@ -6,3 +6,6 @@ vendor\bin\phpunit
 
 *** CREAR TABLAS ****
 php artisan make:migration create_tareas_table
+
+*** CREAR CONTROLADORES ***
+php artisan make:controller UploadFileController --resource
