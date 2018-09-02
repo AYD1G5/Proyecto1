@@ -46,6 +46,6 @@ class ReporteDesempeñoCatedraticosTest extends TestCase
                        ->press('button')
                        ->seePageIs('/cursosporsemestre/1/semestre')
                        ->click('PrimerSemestre')
-                       ->see('Se ha evaluado a un catedratico');
+                       ->see('Se ha evaluado a un catedratico de manera exitosa');
     }
 }
