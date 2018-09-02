@@ -28,10 +28,17 @@ class PerfilGrupoTest extends TestCase
         $this->assertEquals(200, $response->getStatusCode());
     }
 
-    public function testPerfilGrupoDB()
+    public function testTemaDB()
     { 
-        $this->assertDatabaseHas('perfil_grupo', [
+        $this->assertDatabaseHas('tema', [
             'curso' => '1'
+        ]);
+    }
+
+    public function testComentarioTemaDB()
+    { 
+        $this->assertDatabaseHas('comentario_tema', [
+            'id_tema' => '1'
         ]);
     }
 
