@@ -1,0 +1,8 @@
+*** HACER UNA PRUEBA ***
+php artisan make:test MaterialDeApoyo --unit
+
+*** PROBAR TODAS LAS PRUEBAS ****
+vendor\bin\phpunit
+
+*** CREAR TABLAS ****
+php artisan make:migration create_tareas_table
