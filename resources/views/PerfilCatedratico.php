@@ -5,7 +5,7 @@
 			<div class="page-header">
 			  <h1 class="text-titles"><i class="zmdi zmdi-book zmdi-hc-fw"></i> <small>SEMESTRE</small></h1>
 			</div>
-            <center><p class="lead">Reporte Cursos Ganados</p></center>
+            <center><p class="lead">Perfil de Catedratico</p></center>
 		</div>
 
         <?php $variable = 0; ?>
