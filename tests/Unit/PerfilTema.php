@@ -17,7 +17,7 @@ class PerfilTema extends TestCase
     {
         $this->assertTrue(true);
     }
-
+//-------- Prueba Vista Perfil Tema -------
     public function testPerfilTemaView(){
         $response = $this->call('POST', '/login', [
         'email' => 'willyslider@gmail.com',
@@ -27,6 +27,5 @@ class PerfilTema extends TestCase
     $response = $this->get('/PerfilTema');
         $this->assertEquals(200, $response->getStatusCode());
     }
-
-
+//-------------------------------------------
 }

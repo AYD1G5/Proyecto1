@@ -173,7 +173,12 @@ Route::post('/encuesta/{curso}/{catedratico}', function(Request $request,$curso,
     $objeto->save();
     dd("siguiente vista");
  });
- 
+ //------------------ Rutas Perfil Tema ------------
+Route::group( ['middleware' => 'auth' ], function()
+{
+Route::get('/PefilTema', 'PerfilTemaController@PerfilTema');
+});
+//------------------------------------------
  Route::get('/encuesta/{curso}/{catedratico}', function($curso, $catedratico){
      return view("encuesta")
      ;
@@ -198,9 +203,7 @@ Route::group( ['middleware' => 'auth' ], function()
     Route::post('/notacurso/{id}', 'AsignacionTempController@notacurso')->name('notacurso');
     Route::post('/terminarasignacion', 'AsignacionTempController@terminarasignacion');    
 
-    Route::get('/PefilTema', 'PerfilTemaController@PerfilTema');
-
 });
 
-Auth::routes();
 
+Auth::routes();
