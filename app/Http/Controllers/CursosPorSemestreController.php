@@ -222,6 +222,11 @@ class CursosPorSemestreController extends Controller
       ->where('catedratico', '=', '1')
       ->first;//pendiente recibir el parametro
 
+      $cursosCollection = new Collection();// en esta collecion añadiremos el contenido de nuestra consulta
+      $str = '';
+
+
+
       return view('Reportes.reporte3');
     }
 

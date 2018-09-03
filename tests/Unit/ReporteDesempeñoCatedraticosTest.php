@@ -48,4 +48,26 @@ class ReporteDesempeñoCatedraticosTest extends TestCase
                        ->click('PrimerSemestre')
                        ->see('Se ha evaluado a un catedratico de manera exitosa');
     }
+
+
+    public function testVista1(){
+        $response = $this->call('POST', '/login', [
+        'email' => 'willyslider@gmail.com',
+        'password' => '12345678',
+        '_token' => csrf_token()
+    ]);//esto es la autenticacion
+    $response = $this->get('/ReporteEncuestaCatedraticos/1'); // falta añadirlo a las rutas
+        $this->assertEquals(200, $response->getStatusCode());
+    }
+
+    public function testVista2(){
+        $response = $this->call('POST', '/login', [
+        'email' => 'willyslider@gmail.com',
+        'password' => '12345678',
+        '_token' => csrf_token()
+    ]);//esto es la autenticacion
+    $response = $this->get('/ReporteEncuestaCatedraticos/1/2'); // falta añadirlo a las rutas
+        $this->assertEquals(200, $response->getStatusCode());
+    }
+
 }
