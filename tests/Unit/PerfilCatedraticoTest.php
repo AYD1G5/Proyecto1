@@ -21,7 +21,15 @@ class PerfilCatedraticoTest extends TestCase
      * Prueba para la vista de perfil de catedratico.
      * Se verifica que la respuesta de la vista 
      * sea de 200, que significa que se abrió correctamente.
+     * 
+     * 
+     * 
      */
+
+     /**
+      * @group test_vista
+      */
+
     public function testAsignaciontemporalMostrar(){
         $response = $this->call('POST', '/login', [
         'email' => 'danielgarcia0976@gmail.com',

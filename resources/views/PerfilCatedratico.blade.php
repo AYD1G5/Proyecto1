@@ -5,7 +5,7 @@
 			<div class="page-header">
 			  <h1 class="text-titles"><i class="zmdi zmdi-book zmdi-hc-fw"></i> <small>SEMESTRE</small></h1>
 			</div>
-            <center><p class="lead">Perfil de Catedratico</p></center>
+            <center><p class="lead">PERFIL DE CATEDRATICO</p></center>
 		</div>
 
         <?php $variable = 0; ?>
@@ -33,16 +33,7 @@
 									<tbody>
                                     
                                     
-										@foreach ($arreglo as $elemento)
-                                            <td>{{$elemento->codigo_curso}}</td>
-                                            <td>{{$elemento->creditos}}</td>
-	  										<td>{{$elemento->nombre_curso}}</td>
-											<td>{{$elemento->estado}}</td>
-                                            <td>{{$elemento->nota}}</td>
-                                            <?php $variable = $variable + $elemento->creditos; ?>
-                                            
-										</tr>
-                                        @endforeach
+										
 
                                     
 									</tbody>
@@ -53,10 +44,7 @@
 							<div class="table-responsive">
 							</div>
 					  	</div>
-                        <ul class="nav nav-tabs" style="margin-bottom: 15px;">
-					  	    <li class="active"><a href="#list" data-toggle="tab">Cursos Ganados: {{@count($arreglo)}}</a></li>
-                              <li class="active"><a href="#list" data-toggle="tab">Creditos: {{$variable}}</a></li>
-					    </ul>
+                        
                           
                           <div class="tab-pane fade" id="list2">
 							<div class="table-responsive">

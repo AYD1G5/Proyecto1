@@ -15,9 +15,9 @@ class PerfilCatController extends Controller
      */
 
 
-    public function PerfilCatedratico()
+    public function datosCatedratico()
     {
-        return view('PerfilCatedratico/')->with("arreglo",$cursosCollection);
+        return view('PerfilCatedratico');
     }
 
 
