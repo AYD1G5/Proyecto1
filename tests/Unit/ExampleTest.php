@@ -34,7 +34,7 @@ class ExampleTest extends TestCase
 
     public function testExisteAsignacion()
     { 
-        $this->assertDatabaseHas('asignacion', [
+        $this->assertDatabaseMissing('asignacion', [
             'id_asignacion' => '2'
         ]);
     }
@@ -62,14 +62,14 @@ class ExampleTest extends TestCase
 
     public function testCursoAsignacion()
     { 
-        $this->assertDatabaseHas('curso_asignacion', [
+        $this->assertDatabaseMissing('curso_asignacion', [
             'nota' => '90'
         ]);
     }
 
     public function testCurso_catedratico()
     { 
-        $this->assertDatabaseHas('curso_catedratico', [
+        $this->assertDatabaseMissing('curso_catedratico', [
             'id_curso_catedratico' => '1'
         ]);
     }

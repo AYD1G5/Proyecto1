@@ -29,9 +29,9 @@ class PerfilTema extends TestCase
     }
 //-------------------------------------------
     //---------- Prueba Tabla PerfilTema -------
-    public function testTablaTemaVacia()
+    public function testTablaTema()
     { 
-        $this->assertDatabaseHas('tema', [
+        $this->assertDatabaseHas('temas', [
             'nombre_tema' => 'Tema1'
         ]);
     }
