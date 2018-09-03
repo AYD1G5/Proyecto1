@@ -87,6 +87,7 @@ insert into curso_prerequisito(id_curso_pensum, id_curso) values (12, 5);
 
 -- crear un usuario con la pagina
 
+use proyectoayd1;   
 insert into asignacion(id_estudiante, id_ciclo, anio) values (3, 1, 2018);
 
 insert into curso_asignacion(id_curso_pensum, nota, id_asignacion, id_catedratico) values (1, 61, 1, 1);
@@ -116,3 +117,13 @@ select * from `curso_asignacion_temporal` as `ctmp` where `ctmp`.`id_codigo_pens
 
 
 
+
+
+
+
+--Script Willy
+use proyectoayd1;   
+insert into tema(id_curso, id_estudiante, titulo,texto,created_at) values (1, 3,'Tema1: Factorización', 'En este Grupo se atenderan temas referentes al tema de factorización perteneciente al curs de Matemáticas 1','2018/09/02 22:10:02');
+
+insert into comentario(id_tema, id_estudiante, texto,created_at) values (1, 3, 'Gracias por apoyarnos con este tema, mi pregutna es: ¿Cual es la fórmula de Trinomio Cuadrado Perfect?','2018/09/02 22:10:05');
+insert into comentario(id_tema, id_estudiante, texto,created_at) values (1, 3, 'Gracias por apoyarnos con este tema, mi pregutna es: ¿Cual es la fórmula de Trinomio Cuadrado Perfect?','2018/09/02 22:10:15');

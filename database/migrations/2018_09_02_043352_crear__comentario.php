@@ -23,6 +23,7 @@ class CrearComentario extends Migration
             $table->foreign('id_estudiante')->references('id')->on('users'); 
        
             $table->string('Texto');
+            $table->timestamps();
 
         });
     }

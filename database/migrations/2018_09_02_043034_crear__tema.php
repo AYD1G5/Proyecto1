@@ -22,8 +22,9 @@ class CrearTema extends Migration
             $table->integer('id_estudiante')->unsigned();
             $table->foreign('id_estudiante')->references('id')->on('users'); 
        
+            $table->string('titulo');
             $table->string('texto');
-
+            $table->timestamps();
 
         });
     }

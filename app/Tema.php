@@ -14,6 +14,7 @@ class Tema extends Model
     protected $fillable = [
         'id_curso',
         'id_estudiante',
+        'titulo',
         'texto'
     ];
 
