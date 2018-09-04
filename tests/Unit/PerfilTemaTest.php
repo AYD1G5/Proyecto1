@@ -32,7 +32,7 @@ class PerfilTema extends TestCase
     public function testTablaTema()
     { 
         $this->assertDatabaseHas('temas', [
-            'nombre_tema' => 'Tema1'
+            'tema' => '1'
         ]);
     }
     //-----------------------------------------

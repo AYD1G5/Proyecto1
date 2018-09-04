@@ -176,7 +176,7 @@ Route::post('/encuesta/{curso}/{catedratico}', function(Request $request,$curso,
  //------------------ Rutas Perfil Tema ------------
 Route::group( ['middleware' => 'auth' ], function()
 {
-Route::get('/PerfilTema', 'PerfilTemaController@PerfilTema');
+Route::get('/PerfilTema/{tema_id}', 'PerfilTemaController@PerfilTema');
 });
 //------------------------------------------
  Route::get('/encuesta/{curso}/{catedratico}', function($curso, $catedratico){
