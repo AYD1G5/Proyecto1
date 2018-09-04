@@ -16,6 +16,7 @@ class Temas extends Migration
         Schema::create('temas', function (Blueprint $table) {
             $table->increments('tema');
             $table->string('nombre_tema');
+            $table->string('descripcion');
             $table->timestamps();
         });    }
 

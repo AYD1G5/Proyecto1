@@ -5,6 +5,10 @@ namespace Tests\Unit;
 use Tests\TestCase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Illuminate\Foundation\Testing\RefreshDatabase;
+use Illuminate\Foundation\Testing\WithoutMiddleware;
+use Illuminate\Foundation\Testing\DatabaseTransactions;
+use Tests\DuskTestCase;
+use Laravel\Dusk\Chrome;
 
 class PerfilTema extends TestCase
 {
@@ -32,7 +36,7 @@ class PerfilTema extends TestCase
     public function testTablaTema()
     { 
         $this->assertDatabaseHas('temas', [
-            'tema' => '1'
+            'tema' => '1',
         ]);
     }
     //-----------------------------------------
