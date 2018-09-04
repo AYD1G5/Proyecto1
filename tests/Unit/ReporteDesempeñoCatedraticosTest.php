@@ -70,4 +70,48 @@ class ReporteDesempeñoCatedraticosTest extends TestCase
         $this->assertEquals(200, $response->getStatusCode());
     }
 
+
+
+    public function testVista1(){
+        $response = $this->call('POST', '/login', [
+        'email' => 'willyslider@gmail.com',
+        'password' => '12345678',
+        '_token' => csrf_token()
+    ]);
+
+      $response = $this->visit('/encuesta/2/2')
+                       ->type('5', 'puntual')
+                       ->type('5', 'preparacion')
+                       ->type('4', 'manejo')
+                       ->type('4', 'entendible')
+                       ->type('3', 'accesible')
+                       ->type('1', 'responsable')
+                       ->press('button')
+                       ->seePageIs('/cursosporsemestre/2/semestre')
+                       ->click('SegundoSemestre')
+                       ->see('Se ha evaluado a un catedratico de manera exitosa');
+    }
+
+
+
+    public function testVista2(){
+        $response = $this->call('POST', '/login', [
+        'email' => 'willyslider@gmail.com',
+        'password' => '12345678',
+        '_token' => csrf_token()
+    ]);
+
+      $response = $this->visit('/encuesta/3/3')
+                       ->type('5', 'puntual')
+                       ->type('5', 'preparacion')
+                       ->type('4', 'manejo')
+                       ->type('4', 'entendible')
+                       ->type('3', 'accesible')
+                       ->type('1', 'responsable')
+                       ->press('button')
+                       ->seePageIs('/cursosporsemestre/3/semestre')
+                       ->click('TercerSemestre')
+                       ->see('Se ha evaluado a un catedratico de manera exitosa');
+    }
+
 }
