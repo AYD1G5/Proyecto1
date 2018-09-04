@@ -28,17 +28,40 @@ class PerfilGrupoTest extends TestCase
         $this->assertEquals(200, $response->getStatusCode());
     }
 
-    public function testTemaDB()
+    public function testTemaGrupo(){
+        $response = $this->call('POST', '/login', [
+        'email' => 'willyslider@gmail.com',
+        'password' => '12345678',
+        '_token' => csrf_token()
+    ]);
+    $response = $this->get('/TemaGrupo');
+        $this->assertEquals(200, $response->getStatusCode());
+    }
+
+    public function testGrupoDB()
     { 
-        $this->assertDatabaseHas('tema', [
-            'id_curso' => '1'
+        $this->assertDatabaseHas('grupo', [
+            'nombre' => 'Grupo1'
+        ]);
+    }
+
+    public function testEstudianteGrupoDB()
+    { 
+        $this->assertDatabaseHas('grupo', [
+            'id_Estudiante_Grupo' => '1'
+        ]);
+    }
+    public function testTemaGrupoDB()
+    { 
+        $this->assertDatabaseHas('Tema_Grupo', [
+            'id_Tema_Grupo' => '1'
         ]);
     }
 
     public function testComentarioTemaDB()
     { 
         $this->assertDatabaseHas('Comentario', [
-            'id_tema' => '1'
+            'id_Tema_Grupo' => '1'
         ]);
     }
 

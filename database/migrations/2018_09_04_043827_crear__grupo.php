@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CrearTema extends Migration
+class CrearGrupo extends Migration
 {
     /**
      * Run the migrations.
@@ -13,19 +13,16 @@ class CrearTema extends Migration
      */
     public function up()
     {
-        Schema::create('Tema', function (Blueprint $table) {
-            $table->increments('id_tema');
-
+        Schema::create('Grupo', function (Blueprint $table) {
+            $table->increments('id_Grupo');
             $table->integer('id_curso')->unsigned();
             $table->foreign('id_curso')->references('id_curso')->on('curso'); 
-       
-            $table->integer('id_estudiante')->unsigned();
-            $table->foreign('id_estudiante')->references('id')->on('users'); 
-       
-            $table->string('titulo');
-            $table->string('texto');
-            $table->timestamps();
 
+            $table->integer('id_Creador_Grupo')->unsigned();
+            $table->foreign('id_Creador_Grupo')->references('id')->on('users'); 
+            
+            $table->string('nombre');
+            $table->timestamps();
         });
     }
 
@@ -36,6 +33,6 @@ class CrearTema extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('Tema');
+        Schema::dropIfExists('Grupo');
     }
 }
