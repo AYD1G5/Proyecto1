@@ -32,7 +32,16 @@
 									</thead>
 									<tbody>
                                     
-                                    
+                                    @foreach ($arreglo as $elemento)
+                                            <td>{{$elemento->id}}</td>
+                                            <td>{{$elemento->registro_academico}}</td>
+	  										<td>{{$elemento->nombre_catedratico}}</td>
+											<td>{{$elemento->apellido_catedratico}}</td>
+                                            <td>{{$elemento->direccion_catedratico}}</td>
+                                            
+                                            
+										</tr>
+                                        @endforeach
 										
 
                                     
