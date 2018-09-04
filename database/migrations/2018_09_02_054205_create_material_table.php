@@ -19,7 +19,7 @@ class CreateMaterialTable extends Migration
             $table->string('extension_archivo');
             $table->string('ruta_real_archivo');
             $table->string('tamano_archivo');
-            $table->string('descripcion_archivo');
+            $table->string('descripcion_archivo')->nullable();
             $table->timestamps();
         });
     }
