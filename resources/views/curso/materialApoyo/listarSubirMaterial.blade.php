@@ -11,6 +11,7 @@
             <center>
                 <div class="p-3 mb-2 bg-info text-white">
                         <h3>Subir nuevo material</h3>
+                        
                 </div>
             </center>
         <div class="row" style="margin-bottom: 15px;">
