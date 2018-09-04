@@ -50,4 +50,16 @@ class PerfilCursoTest extends TestCase
     $response = $this->get('/asignaciontemporal');
         $this->assertEquals(200, $response->getStatusCode());
     }
+
+    public function testAsignaciontemporalCreate(){
+        $response = $this->call('POST', '/login', [
+        'email' => 'willyslider@gmail.com',
+        'password' => '12345678',
+        '_token' => csrf_token()
+    ]);
+    $response = $this->get('/asignaciontemporal/1/1/create');
+        $this->assertEquals(200, $response->getStatusCode());
+    }
+
+    
 }
