@@ -27,7 +27,7 @@ class PerfilCursoTest extends TestCase
     public function testCursoAsignacion()
     { 
         $this->assertDatabaseHas('curso_asignacion', [
-            'nota' => '67'
+            'nota' => '61'
         ]);
     }
     
