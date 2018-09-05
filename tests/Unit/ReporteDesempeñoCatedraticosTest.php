@@ -114,4 +114,31 @@ class ReporteDesempeñoCatedraticosTest extends TestCase
                        ->see('Se ha evaluado a un catedratico de manera exitosa');
     }
 
+    public function testConsulta1(){
+        $response = $this->call('POST', '/login', [
+        'email' => 'willyslider@gmail.com',
+        'password' => '12345678',
+        '_token' => csrf_token()
+    ]);
+    $response = $this->get('/testConsulta1');
+        $this->assertEquals(200, $response->getStatusCode());
+    }
+    public function testConsulta2(){
+        $response = $this->call('POST', '/login', [
+        'email' => 'willyslider@gmail.com',
+        'password' => '12345678',
+        '_token' => csrf_token()
+    ]);
+    $response = $this->get('/testConsulta2');
+        $this->assertEquals(200, $response->getStatusCode());
+    }
+    public function testConsulta3(){
+        $response = $this->call('POST', '/login', [
+        'email' => 'willyslider@gmail.com',
+        'password' => '12345678',
+        '_token' => csrf_token()
+    ]);
+    $response = $this->get('/testConsulta3');
+        $this->assertEquals(200, $response->getStatusCode());
+    }
 }

@@ -214,6 +214,14 @@ class CursosPorSemestreController extends Controller
 
     public function encuestacatedraticos()
     {
+      $cursos=DB::table('encuestas')
+      ->join('curso_pensum as cupe', 'cupe.id_curso', '=', 'c.id_curso')
+      ->join('pensum as pe', 'cupe.id_pensum', '=', 'pe.id_pensum')
+      ->select('cupe.id_curso_pensum as id_curso_pensum', 'c.codigo_curso as codigo_curso', 'c.nombre_curso as nombre_curso',
+              'cupe.categoria as categoria', 'cupe.creditos as creditos', 'cupe.restriccion as restriccion')
+      ->where('cupe.id_pensum', '=', $pensumestudiante->id_pensum)
+      ->get();
+      
       $pensumestudiante=DB::table('pensum_estudiante')
       ->where('id_estudiante', '=', Auth::id())
       ->first()//pendiente realizar esta funcionalidad

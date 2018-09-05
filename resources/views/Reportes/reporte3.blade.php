@@ -23,7 +23,7 @@
 									<thead>
 										<tr>
 											<th class="text-center">ID</th>
-                                            <th class="text-center">PROMEDIO</th>
+                      <th class="text-center">PROMEDIO</th>
 											<th class="text-center">NOMBRE</th>
 											<th class="text-center">APELLIDO</th>
 
@@ -31,8 +31,10 @@
 									</thead>
 									<tbody>
                     <tr>
-                        <td>January</td>
-                        <td>$100</td>
+                        <td>1</td>
+                        <td>61</td>
+                        <td>ESTUDIANTES1</td>
+                        <td>ESTUDIANTES1</td>
                     </tr>
 
 
