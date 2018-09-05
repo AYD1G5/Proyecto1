@@ -123,7 +123,9 @@ select * from `curso_asignacion_temporal` as `ctmp` where `ctmp`.`id_codigo_pens
 
 --Script Willy
 use proyectoayd1;   
-insert into tema(id_curso, id_estudiante, titulo,texto,created_at) values (1, 3,'Tema1: Factorización', 'En este Grupo se atenderan temas referentes al tema de factorización perteneciente al curs de Matemáticas 1','2018/09/02 22:10:02');
+insert into Grupo(id_Creador_Grupo, nombre) values (3,'Grupo1');
+insert into Grupo(id_Estudiante, id_Grupo) values (3,'1');
+insert into Tema_Grupo(id_CreadorTema, id_Grupo,Titulo,Texto) values (3,'1','Tema1','Esta es una preuba de un tema');
 
-insert into comentario(id_tema, id_estudiante, texto,created_at) values (1, 3, 'Gracias por apoyarnos con este tema, mi pregutna es: ¿Cual es la fórmula de Trinomio Cuadrado Perfect?','2018/09/02 22:10:05');
-insert into comentario(id_tema, id_estudiante, texto,created_at) values (1, 3, 'Gracias por apoyarnos con este tema, mi pregutna es: ¿Cual es la fórmula de Trinomio Cuadrado Perfect?','2018/09/02 22:10:15');
+insert into Tema_Grupo(id_Tema_Grupo, id_estudiante,Texto) values (1,'2',,'Esta es una prueba de un comentario');
+

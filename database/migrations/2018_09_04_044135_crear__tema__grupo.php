@@ -15,6 +15,16 @@ class CrearTemaGrupo extends Migration
     {
         Schema::create('Tema_Grupo', function (Blueprint $table) {
             $table->increments('id_Tema_Grupo');
+
+            $table->integer('id_CreadorTema')->unsigned();
+            $table->foreign('id_CreadorTema')->references('id')->on('users'); 
+
+            $table->integer('id_Grupo')->unsigned();
+            $table->foreign('id_Grupo')->references('id_Grupo')->on('Grupo'); 
+
+            $table->string('Titulo');
+            $table->string('Texto');
+
             $table->timestamps();
         });
     }

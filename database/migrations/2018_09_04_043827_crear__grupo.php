@@ -15,9 +15,7 @@ class CrearGrupo extends Migration
     {
         Schema::create('Grupo', function (Blueprint $table) {
             $table->increments('id_Grupo');
-            $table->integer('id_curso')->unsigned();
-            $table->foreign('id_curso')->references('id_curso')->on('curso'); 
-
+            
             $table->integer('id_Creador_Grupo')->unsigned();
             $table->foreign('id_Creador_Grupo')->references('id')->on('users'); 
             

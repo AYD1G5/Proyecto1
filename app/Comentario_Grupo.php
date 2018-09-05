@@ -4,23 +4,19 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Tema extends Model
+class Comentario_Grupo extends Model
 {
-    //
-    protected $table = 'Tema';
- 
-    protected $primaryKey='id_tema';
-
+    protected $table = 'Comentario_Grupo';
+    
+    protected $primaryKey='id_Comentario';
+    
     protected $fillable = [
-        'id_curso',
+        'id_Tema_Grupo', 
         'id_estudiante',
-        'titulo',
         'texto'
     ];
 
     protected $guarded = [
 
     ];
-
-
 }

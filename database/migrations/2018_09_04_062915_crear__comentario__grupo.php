@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CrearComentario extends Migration
+class CrearComentarioGrupo extends Migration
 {
     /**
      * Run the migrations.
@@ -13,18 +13,18 @@ class CrearComentario extends Migration
      */
     public function up()
     {
-        Schema::create('Comentario', function (Blueprint $table) {
+        Schema::create('Comentario_Grupo', function (Blueprint $table) {
             $table->increments('id_Comentario');
 
-            $table->integer('id_tema')->unsigned();
-            $table->foreign('id_tema')->references('id_tema')->on('Tema'); 
-       
+            $table->integer('id_Tema_Grupo')->unsigned();
+            $table->foreign('id_Tema_Grupo')->references('id_Tema_Grupo')->on('Tema_Grupo'); 
+        
             $table->integer('id_estudiante')->unsigned();
             $table->foreign('id_estudiante')->references('id')->on('users'); 
-       
+        
             $table->string('Texto');
             $table->timestamps();
-
+        
         });
     }
 
@@ -35,6 +35,6 @@ class CrearComentario extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('Comentario');
+        Schema::dropIfExists('Comentario_Grupo');
     }
 }

@@ -15,6 +15,13 @@ class CrearEstudianteGrupo extends Migration
     {
         Schema::create('Estudiante_Grupo', function (Blueprint $table) {
             $table->increments('id_Estudiante_Grupo');
+            
+            $table->integer('id_Estudiante')->unsigned();
+            $table->foreign('id_Estudiante')->references('id')->on('users'); 
+
+            $table->integer('id_Grupo')->unsigned();
+            $table->foreign('id_Grupo')->references('id_Grupo')->on('Grupo'); 
+            
             $table->timestamps();
         });
     }

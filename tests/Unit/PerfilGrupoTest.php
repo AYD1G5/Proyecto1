@@ -48,7 +48,7 @@ class PerfilGrupoTest extends TestCase
     public function testEstudianteGrupoDB()
     { 
         $this->assertDatabaseHas('grupo', [
-            'id_Estudiante_Grupo' => '1'
+            'id_Estudiante' => '3'
         ]);
     }
     public function testTemaGrupoDB()
