@@ -30,7 +30,7 @@ class PerfilCatedraticoTest extends TestCase
       * @group test_vista
       */
 
-    public function testAsignaciontemporalMostrar(){
+    public function testVistaCatedratico(){
         $response = $this->call('POST', '/login', [
         'email' => 'danielgarcia0976@gmail.com',
         'password' => 'informatica10',
@@ -39,4 +39,34 @@ class PerfilCatedraticoTest extends TestCase
     $response = $this->get('/PerfilCatedratico');
         $this->assertEquals(200, $response->getStatusCode());
     }
+
+    /**
+     * Prueba unitaria utilizada para verificar la información del catedratico 
+     * en la base de datos.
+     */
+
+    /**
+     * @group test_bd
+     */
+
+    public function testCatedratico()
+    { 
+        $this->assertDatabaseHas('users', [
+            'registro_academico' => '201504480'
+        ]);
+    }
+
+    /**
+     * @group test_bd
+     */
+    
+    public function testRolCatedratico()
+    { 
+        $this->assertDatabaseHas('rol', [
+            'id_rol' => '1'
+        ]);
+    }
+
+
+
 }
