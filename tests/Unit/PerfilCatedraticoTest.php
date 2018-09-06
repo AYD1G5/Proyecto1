@@ -68,5 +68,38 @@ class PerfilCatedraticoTest extends TestCase
     }
 
 
+    /**
+     * Prueba unitaria hacia la base de datos para
+     * verificar la relación entre la tabla de catedratico
+     * y la tabla de curso.
+     */
+    /**
+     * @group test_bd
+     */
+    public function testCursoCatedratico1()
+    { 
+        $this->assertDatabaseHas('curso_catedratico', [
+            'id_catedratico' => '1'
+        ]);
+    }
+
+
+    /**
+     * Prueba unitaria hacia la base de datos para
+     * verificar la relación entre la tabla de catedratico
+     * y la tabla de curso. (Se verifican los dos catedraticos existentes hasta el momento)
+     */
+
+    /**
+     * @group test_bd
+     */
+    public function testCursoCatedratico2()
+    { 
+        $this->assertDatabaseHas('curso_catedratico', [
+            'id_catedratico' => '2'
+        ]);
+    }
+
+
 
 }

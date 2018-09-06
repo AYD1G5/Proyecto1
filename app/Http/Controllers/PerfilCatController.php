@@ -37,9 +37,24 @@ class PerfilCatController extends Controller
         ->join('rol as r', 'r.id_rol', '=', 'u.id_rol')
         ->select('u.id as id', 'u.registro_academico as registro', 'u.nombre as nombre_catedratico',
                 'u.apellido as apellido_catedratico', 'u.direccion as direccion_catedratico', 'u.email as email_catedratico')
+        ->first();
+
+        /** BUSCAR TODOS LOS CURSOS DEL SEMESTRE */
+        foreach ($catedraticos as &$catedratico) {
+            /*** VER TODAS LAS ASIGNACIONES DEL USUARIO DE ESE CURSO PARA SABER LAS NOTAS */
+            $asignaciones=DB::table('curso_catedratico as c')
+                ->select('c.id_curso_catedratico as id_curso_catedratico','c.id_pensum as id_pensum')
+                ->where('c.id_catedratico', '=', $catedratico->id)
+                ->get();
+        }
+
+        $cursos_catedratico = DB::table('curso_catedratico as c')
+        ->join(' as r', 'r.id_rol', '=', 'u.id_rol')
+        ->select('u.id as id', 'u.registro_academico as registro', 'u.nombre as nombre_catedratico',
+                'u.apellido as apellido_catedratico', 'u.direccion as direccion_catedratico', 'u.email as email_catedratico')
         ->get();
 
-        /** INICIALIZAR LA COLECCION DE SALIDA */
+        /*
         $catedraticosCollection = new Collection();
         $str = ''; 
 
@@ -54,6 +69,7 @@ class PerfilCatController extends Controller
             $objetoCatedratico->email_catedratico = $catedratico->email_catedratico;
             $catedraticosCollection->push($objetoCatedratico);
         }
+        */
 
         return view('PerfilCatedratico')->with("arreglo",$catedraticosCollection);
     }
