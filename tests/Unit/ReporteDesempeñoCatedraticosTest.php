@@ -141,4 +141,47 @@ class ReporteDesempeñoCatedraticosTest extends TestCase
     $response = $this->get('/testConsulta3');
         $this->assertEquals(200, $response->getStatusCode());
     }
+
+    public function testConsulta4(){
+        $response = $this->call('POST', '/login', [
+        'email' => 'willyslider@gmail.com',
+        'password' => '12345678',
+        '_token' => csrf_token()
+    ]);
+    $response = $this->get('/TestReporteEncuesta1/{id}');
+        $this->assertEquals(200, $response->getStatusCode());
+    }
+
+        public function testConsulta5(){
+            $response = $this->call('POST', '/login', [
+            'email' => 'willyslider@gmail.com',
+            'password' => '12345678',
+            '_token' => csrf_token()
+        ]);
+        $response = $this->get('/TestReporteEncuesta2/{id}/{semestre}');
+            $this->assertEquals(200, $response->getStatusCode());
+        }
+
+
+        public function testConsulta5(){
+            $response = $this->call('POST', '/login', [
+            'email' => 'willyslider@gmail.com',
+            'password' => '12345678',
+            '_token' => csrf_token()
+        ]);
+        $response = $this->get('/TestReporteEncuesta3/{id}/{semestre}/{catedratico}');
+            $this->assertEquals(200, $response->getStatusCode());
+        }
+
+
+        public function testConsulta5(){
+                $response = $this->call('POST', '/login', [
+                'email' => 'willyslider@gmail.com',
+                'password' => '12345678',
+                '_token' => csrf_token()
+            ]);
+            $response = $this->get('/TestReporteEncuesta3/{id}/{semestre}/{catedratico}/{anio}');
+                $this->assertEquals(200, $response->getStatusCode());
+        }
+
 }

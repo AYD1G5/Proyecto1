@@ -221,7 +221,12 @@ class CursosPorSemestreController extends Controller
               'cupe.categoria as categoria', 'cupe.creditos as creditos', 'cupe.restriccion as restriccion')
       ->where('cupe.id_pensum', '=', $pensumestudiante->id_pensum)
       ->get();
-      
+
+      $pensumestudiante=DB::table('cursosganados')
+      ->where('id_curso', '=', Auth::id())
+      ->first()//pendiente realizar esta funcionalidad
+
+
       $pensumestudiante=DB::table('pensum_estudiante')
       ->where('id_estudiante', '=', Auth::id())
       ->first()//pendiente realizar esta funcionalidad

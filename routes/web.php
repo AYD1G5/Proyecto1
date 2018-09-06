@@ -192,7 +192,16 @@ Route::group( ['middleware' => 'auth' ], function()
     Route::get('/cursosporsemestre/{id}/semestre', 'AsignacionTempController@semestre');
     Route::get('/ReporteCursosGanados', 'CursosPorSemestreController@cursosganados');
     Route::get('/ReporteCursosObligaPendientes', 'CursosPorSemestreController@pendientesobligatorios');
-    Route::get('/ReporteEncuestaCatedraticos', 'CursosPorSemestreController@encuestacatedraticos');    
+
+
+    Route::get('/ReporteEncuestaCatedraticos', 'CursosPorSemestreController@encuestacatedraticos');
+    Route::get('/TestReporteEncuesta1/{id}', 'CursosPorSemestreController@encuestacatedraticos');
+    Route::get('/TestReporteEncuesta2/{id}/{semestre}', 'CursosPorSemestreController@encuestacatedraticos');
+    Route::get('/TestReporteEncuesta3/{id}/{semestre}/{catedratico}', 'CursosPorSemestreController@encuestacatedraticos');
+    Route::get('/TestReporteEncuesta4/{id}/{semestre}/{catedratico}/{anio}', 'CursosPorSemestreController@encuestacatedraticos');     
+
+
+
     Route::get('/eliminar/{id}/{id1}', 'AsignacionTempController@desasignar');
     Route::get('/puntearcurso/{idcurso}/{noestrellas}', 'AsignacionTempController@puntear');
     Route::get('/punteocurso/{idcurso}/{nota}', 'AsignacionTempController@punteocurso');
