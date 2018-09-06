@@ -3,9 +3,9 @@
 <!-- Content page -->
 <div class="container-fluid">
 			<div class="page-header">
-			  <h1 class="text-titles"><i class="zmdi zmdi-book zmdi-hc-fw"></i> <small>SEMESTRE</small></h1>
+			  <h1 class="text-titles"><i class="zmdi zmdi-book zmdi-hc-fw"></i> <small>CATEDRATICO</small></h1>
 			</div>
-            <center><p class="lead">PERFIL DE CATEDRATICO</p></center>
+            <center><p class="lead">INFORMACIÓN DE CATEDRATICO</p></center>
 		</div>
 
         <?php $variable = 0; ?>
@@ -19,33 +19,18 @@
 					<div id="myTabContent" class="tab-content">
 					  	<div class="tab-pane fade active in" id="list">
 							<div class="table-responsive">
-								<table class="table table-hover text-center">
-									<thead>
-										<tr>
-											<th class="text-center">Codigo</th>
-                                            <th class="text-center">Creditos</th>
-											<th class="text-center">Nombre</th>
-											<th class="text-center">Estado</th>
-											<th class="text-center">Nota</th>
-											
-										</tr>
-									</thead>
-									<tbody>
-                                    
+							<table class="table table-hover">
+						
                                     @foreach ($datosCatedratico as $elemento)
-                                            <td>{{$elemento->id_catedratico}}</td>
-                                            <td>{{$elemento->registro_catedratico}}</td>
-	  										<td>{{$elemento->nombre_catedratico}}</td>
-											<td>{{$elemento->apellido_catedratico}}</td>
-                                            <td>{{$elemento->direccion_catedratico}}</td>
-  
-									</tr>
-									@endforeach
-										
+									<tr><td><h2>Id</h2></td><td><h2> {{$elemento->id_catedratico}}</h2></td></tr>
+									<tr><td><h2>Registro:</h2></td><td><h2> {{$elemento->registro_catedratico}}</h2></td></tr>
+									<tr><td><h2>Nombre:</h2></td><td><h2> {{$elemento->nombre_catedratico}}</h2></td></tr>
+									<tr><td><h2>Apellido:</h2></td><td><h2> {{$elemento->apellido_catedratico}}</h2></td></tr>
+									<tr><td><h2>Direccion:</h2></td><td><h2> {{$elemento->direccion_catedratico}}</h2></td></tr>
+									<tr><td><h2>Email:</h2></td><td><h2> {{$elemento->email_catedratico}}</h2></td></tr>
 
-                                    
-									</tbody>
-								</table>
+									@endforeach
+							</table>		
 							</div>
 					  	</div>
                           <div class="tab-pane fade" id="list1">
