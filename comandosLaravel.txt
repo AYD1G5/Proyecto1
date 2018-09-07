@@ -11,8 +11,6 @@ php artisan make:migration create_tareas_table
 php artisan make:controller UploadFileController --resource
 
 
-
-
 ****************** CONFIGURAR CHAT *****************
 https://pusher.com/tutorials/chat-laravel/
 
@@ -70,3 +68,5 @@ window.Echo = new Echo({
     cluster: 'us2',
     encrypted: true
 });
+
+
