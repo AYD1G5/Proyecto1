@@ -20,8 +20,8 @@ class ChatTest extends TestCase
 
     public function testExisteMensaje()
     { 
-        $this->assertDatabaseHas('mensaje_estudiante', [
-            'id_mensaje_estudiante' => '1'
+        $this->assertDatabaseHas('messages', [
+            'id' => '1'
         ]);
     }
 

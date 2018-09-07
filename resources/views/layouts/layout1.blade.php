@@ -5,20 +5,7 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <link rel="stylesheet" href="{{ URL::asset('css/main.css') }}" />
-	
-	<!-- Styles -->
-	<link href="{{ asset('css/app.css') }}" rel="stylesheet">
-    <script>
-        window.Laravel = {!! json_encode([
-            'csrfToken'=> csrf_token(),
-            'user'=> [
-                'authenticated' => auth()->check(),
-                'id' => auth()->check() ? auth()->user()->id : null,
-                'name' => auth()->check() ? auth()->user()->nombre : null, 
-                ]
-            ])
-        !!};
-    </script>
+
 </head>
 <body>
     <main class="py-4">
