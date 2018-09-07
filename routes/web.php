@@ -29,7 +29,7 @@ Route::group( ['middleware' => 'auth' ], function()
     Route::resource('/asignaciontemporal', 'AsignacionTempController');
     Route::get('asignaciontemporal/{id}/{idsemestre}/create', 'AsignacionTempController@create');
     Route::get('asignaciontemporal/guardar', 'AsignacionTempController@guardar');
-    Route::get('asignaciontemporal/{id}/mostrar', 'AsignacionTempController@show');
+    Route::get('asignaciontemporal/{id}/mostrar', 'CursoController@mostrarcurso');
     Route::get('editar/{idsemestre}/{id}', 'AsignacionTempController@edit');
     Route::get('revisarasignacion/{id}', 'AsignacionTempController@revision');
     Route::get('finalizarasignacion/', 'AsignacionTempController@finalizar');

@@ -61,5 +61,15 @@ class PerfilCursoTest extends TestCase
         $this->assertEquals(200, $response->getStatusCode());
     }
 
+    public function testPreYPost(){
+        $response = $this->call('POST', '/login', [
+        'email' => 'willyslider@gmail.com',
+        'password' => '12345678',
+        '_token' => csrf_token()
+    ]);
+    $response = $this->get('/asignaciontemporal/2/mostrar');
+        $this->assertEquals(200, $response->getStatusCode());
+    }
+
     
 }
