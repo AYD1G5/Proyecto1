@@ -27,7 +27,7 @@ we first need to register the
 // App\Providers\BroadcastServiceProvider
 
 composer require pusher/pusher-php-server
-
+composer require pusher/pusher-php-server "~3.0"
 
 // Don't add your credentials here!
 // config/broadcasting.php
@@ -38,7 +38,7 @@ composer require pusher/pusher-php-server
       'secret' => env('PUSHER_APP_SECRET'),
       'app_id' => env('PUSHER_APP_ID'),
       'options' => [
-          'cluster' => env('PUSHER_CLUSTER'),
+          'cluster' => 'us2',
           'encrypted' => true,
       ],
   ],
@@ -48,13 +48,15 @@ If you don't have one already, create a free Pusher account at https://pusher.co
 
 // .env
 
-PUSHER_APP_ID="593404"
-PUSHER_APP_KEY="3c3e632dd53194ed62c0"
-PUSHER_APP_SECRET="012073c866538b570086"
-PUSHER_APP_CLUSTER="us2"
+PUSHER_APP_ID=593404
+PUSHER_APP_KEY=3c3e632dd53194ed62c0
+PUSHER_APP_SECRET=012073c866538b570086
+PUSHER_APP_CLUSTER=us2
 
 
 npm install
+npm i ajv
+npm i imagemin
 npm install --save laravel-echo pusher-js
 
 
