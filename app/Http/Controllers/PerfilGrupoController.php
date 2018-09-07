@@ -19,7 +19,20 @@ class PerfilGrupoController extends Controller
         
     }
 
+    public function TemaGrupo($id)
+    {
 
+        return view('TemaGrupo');
+        
+    }
+
+    public function ComentarioGrupo($id)
+    {
+        
+
+        return view('ComentarioGrupo');
+        
+    }
 
 
 

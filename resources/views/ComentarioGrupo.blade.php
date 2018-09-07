@@ -5,7 +5,7 @@
 			<div class="page-header">
 			  <h1 class="text-titles"><i class="zmdi zmdi-book zmdi-hc-fw"></i> <small>Grupo</small></h1>
 			</div>
-            <center><p class="lead">PERFIL GRUPO</p></center>
+            <center><p class="lead">COMENTARIO GRUPO</p></center>
 		</div>
 
         <?php $variable = 0; ?>
@@ -20,6 +20,8 @@
 					  	<div class="tab-pane fade active in" id="list">
 							<div class="table-responsive">
 							</div>
+							<center><p class="lead">Grupo:</p></center>
+							<center><p class="lead">Tema:</p></center>
 							<br>
 							<br>
 							<br>

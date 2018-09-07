@@ -199,6 +199,8 @@ Route::group( ['middleware' => 'auth' ], function()
     Route::post('/terminarasignacion', 'AsignacionTempController@terminarasignacion');    
     
     Route::get('/PerfilGrupo', 'PerfilGrupoController@PerfilGrupo');
+    Route::get('/TemaGrupo/{id}', 'PerfilGrupoController@TemaGrupo');
+    Route::get('/ComentarioGrupo/{id}', 'PerfilGrupoController@ComentarioGrupo');
     
 });
 

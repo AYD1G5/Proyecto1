@@ -18,7 +18,9 @@ class PerfilGrupoTest extends TestCase
     {
         $this->assertTrue(true);
     }
-
+    /**
+     * Prueba creada para probar si esta retornando correctamente la vista \PerfilGrupo
+     */
     public function testPerfilGrupo(){
         $response = $this->call('POST', '/login', [
         'email' => 'willyslider@gmail.com',
@@ -29,6 +31,9 @@ class PerfilGrupoTest extends TestCase
         $this->assertEquals(200, $response->getStatusCode());
     }
 
+    /**
+     * Prueba creada para probar si esta retornando correctamente la vista \TemaGrupo
+     */
     public function testTemaGrupo(){
         $response = $this->call('POST', '/login', [
         'email' => 'willyslider@gmail.com',
@@ -38,7 +43,9 @@ class PerfilGrupoTest extends TestCase
     $response = $this->get('/TemaGrupo');
         $this->assertEquals(200, $response->getStatusCode());
     }
-
+    /**
+     * Prueba creada para probar si esta retornando correctamente la vista \ComentarioGrupo
+     */
     public function testComentarioGrupo(){
         $response = $this->call('POST', '/login', [
         'email' => 'willyslider@gmail.com',
@@ -49,6 +56,10 @@ class PerfilGrupoTest extends TestCase
         $this->assertEquals(200, $response->getStatusCode());
     }
 
+    /**
+     * Prueba creada para probar la respueta de la base de datos de la tabla: Grupo
+     * y la columna: Nombre
+     */
     public function testGrupoDB()
     { 
         $this->assertDatabaseHas('grupo', [
@@ -56,12 +67,21 @@ class PerfilGrupoTest extends TestCase
         ]);
     }
 
+    /**
+     * Prueba creada para probar la respueta de la base de datos de la tabla: Grupo
+     * y la columna: id_Creador_Grupo
+     */
     public function testEstudianteGrupoDB()
     { 
         $this->assertDatabaseHas('grupo', [
             'id_Creador_Grupo' => '3'
         ]);
     }
+
+    /**
+     * Prueba creada para probar la respueta de la base de datos de la tabla: Tema_Grupo
+     * y la columna: id_Tema_Grupo
+     */
     public function testTemaGrupoDB()
     { 
         $this->assertDatabaseHas('Tema_Grupo', [
@@ -69,6 +89,10 @@ class PerfilGrupoTest extends TestCase
         ]);
     }
 
+    /**
+     * Prueba creada para probar la respueta de la base de datos de la tabla: Tema_Grupo
+     * y la columna: id_Tema_Grupo
+     */
     public function testComentarioTemaDB()
     { 
         $this->assertDatabaseHas('Comentario_Grupo', [
@@ -76,13 +100,22 @@ class PerfilGrupoTest extends TestCase
         ]);
     }
 
-    
+
+    /**
+     * TDD Prueba creada antes de diseñar el Metodo: ExisteTema 
+     * en el controlador: PerfilGrupoController
+     */
     public function testTemaExiste()
     {
         $controladorGrupo=new PerfilGrupoController(); 
         $this->assertTrue($controladorGrupo->ExisteTema(1));
     }
 
+
+    /**
+     * TDD Prueba creada antes de diseñar el Metodo: ExisteComentario
+     * en el controlador: PerfilGrupoController
+     */
     public function testComentarioExiste()
     {
         $controladorGrupo=new PerfilGrupoController(); 
