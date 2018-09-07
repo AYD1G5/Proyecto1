@@ -1,16 +1,43 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- CSRF Token -->
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+
     <title>{{ config('app.name', 'Laravel') }}</title>
-	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <link rel="stylesheet" href="{{ URL::asset('css/main.css') }}" />
+	
+    <!-- Scripts -->
+    <script src="{{ asset('js/app.js') }}" defer></script>
+
+    <!-- Fonts -->
+    <link rel="dns-prefetch" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet" type="text/css">
+
+    <!-- Styles -->
+    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <script>
+        window.Laravel = {!! json_encode([
+            'csrfToken'=> csrf_token(),
+            'user'=> [
+                'authenticated' => auth()->check(),
+                'id' => auth()->check() ? auth()->user()->id : null,
+                'name' => auth()->check() ? auth()->user()->name : null, 
+                ]
+            ])
+        !!};
+    </script>
 
 </head>
 <body>
-    <main class="py-4">
-    <!-- SideBar -->
-<section class="full-box cover dashboard-sideBar">
+    <div id="app">
+
+        <main class="py-4">
+        <section class="full-box cover dashboard-sideBar">
 		<div class="full-box dashboard-sideBar-bg btn-menu-dashboard"></div>
 		<div class="full-box dashboard-sideBar-ct">
 			<!--SideBar Title -->
@@ -63,7 +90,7 @@
 			<!-- SideBar Menu -->
 			<ul class="list-unstyled full-box dashboard-sideBar-Menu">
 				<li>
-					<a href="{{url('/cursosporsemestre/1/semestre')}}">
+					<a href="{{url('/mostrarasignaciontemporal')}}">
 						<i class="zmdi zmdi-view-dashboard zmdi-hc-fw"></i> VER CURSOS ASIGNADOS
 					</a>
 				</li>
@@ -179,8 +206,9 @@
 		</nav>
         @yield('content')
 	</section>
+    </div>
 
-	<!-- Notifications area -->
+    <!-- Notifications area -->
 	<section class="full-box Notifications-area">
 		<div class="full-box Notifications-bg btn-Notifications-area"></div>
 		<div class="full-box Notifications-body">
@@ -266,6 +294,6 @@
     <script type="text/javascript" src="{{ URL::asset('js/main.js') }}"></script>
 	<script>
 		$.material.init();
-	</script>
+	</script>   
 </body>
 </html>

@@ -12,7 +12,7 @@ class Curso_catedratico extends Model
     
     
     protected $fillable = [
-        'id_curso',
+        'id_curso_pensum',
         'id_catedratico',
     ];
 
