@@ -5,6 +5,7 @@ namespace Tests\Unit;
 use Tests\TestCase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Illuminate\Foundation\Testing\RefreshDatabase;
+use App\Http\Controllers\PerfilGrupoController;
 
 class PerfilGrupoTest extends TestCase
 {
@@ -38,6 +39,16 @@ class PerfilGrupoTest extends TestCase
         $this->assertEquals(200, $response->getStatusCode());
     }
 
+    public function testComentarioGrupo(){
+        $response = $this->call('POST', '/login', [
+        'email' => 'willyslider@gmail.com',
+        'password' => '12345678',
+        '_token' => csrf_token()
+    ]);
+    $response = $this->get('/ComentarioGrupo');
+        $this->assertEquals(200, $response->getStatusCode());
+    }
+
     public function testGrupoDB()
     { 
         $this->assertDatabaseHas('grupo', [
@@ -48,7 +59,7 @@ class PerfilGrupoTest extends TestCase
     public function testEstudianteGrupoDB()
     { 
         $this->assertDatabaseHas('grupo', [
-            'id_Estudiante' => '3'
+            'id_Creador_Grupo' => '3'
         ]);
     }
     public function testTemaGrupoDB()
@@ -60,9 +71,22 @@ class PerfilGrupoTest extends TestCase
 
     public function testComentarioTemaDB()
     { 
-        $this->assertDatabaseHas('Comentario', [
+        $this->assertDatabaseHas('Comentario_Grupo', [
             'id_Tema_Grupo' => '1'
         ]);
+    }
+
+    
+    public function testTemaExiste()
+    {
+        $controladorGrupo=new PerfilGrupoController(); 
+        $this->assertTrue($controladorGrupo->ExisteTema(1));
+    }
+
+    public function testComentarioExiste()
+    {
+        $controladorGrupo=new PerfilGrupoController(); 
+        $this->assertTrue($controladorGrupo->ExisteComentario(1));
     }
 
 
