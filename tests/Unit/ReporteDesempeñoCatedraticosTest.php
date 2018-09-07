@@ -184,4 +184,14 @@ class ReporteDesempeñoCatedraticosTest extends TestCase
                 $this->assertEquals(200, $response->getStatusCode());
         }
 
+        public function testConsulta6(){
+                $response = $this->call('POST', '/login', [
+                'email' => 'willyslider@gmail.com',
+                'password' => '12345678',
+                '_token' => csrf_token()
+            ]);
+            $response = $this->get('/TestReporteEncuesta3/{id}/{semestre}/{catedratico}/{anio}/{curso}');
+                $this->assertEquals(200, $response->getStatusCode());
+        }
+
 }
