@@ -1,5 +1,6 @@
 <?php
 
+use Behat\Behat\Tester\Exception\PendingException;
 use Behat\Behat\Context\Context;
 use Behat\Gherkin\Node\PyStringNode;
 use Behat\Gherkin\Node\TableNode;
@@ -19,5 +20,17 @@ class FeatureContext extends MinkContext implements Context
      */
     public function __construct()
     {
+    }
+
+
+
+    
+
+    /**
+     * @Given there is a user with email: :arg1 And password: :arg2
+     */
+    public function thereIsAUserWithEmailAndPassword($arg1, $arg2)
+    {
+        //throw new PendingException();
     }
 }
