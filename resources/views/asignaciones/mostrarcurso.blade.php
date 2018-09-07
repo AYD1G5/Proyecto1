@@ -10,6 +10,14 @@
     <a href="{{ url('asignaciontemporal') }}">
     <button class="btn btn-info"> Volver al Listado </button>
     </a>
+    <div style="float:left">
+            <a href="{{ url('/curso/material/listarmaterialdeapoyo/'.$curso->id_curso_pensum.'/') }}" 
+              class="btn btn-warning btn-raised btn">
+            <span class="" aria-hidden="true"></span> 
+							Ver material de apoyo</a>
+    </div>
+  
+
     <div class="col-xs-12">
       <div class="table-responsive">
         <table class="table table-hover text-center">
