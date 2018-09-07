@@ -1,6 +1,6 @@
 <template>
     <div class="message" :class="{ 'self': message.selfMessage }">
-        <strong class="user">{{ message.user.name }}</strong>
+        <strong class="user">{{ message.user.nombre }}</strong>
         <p class="body">{{ message.body }}</p>
     </div>
 </template>

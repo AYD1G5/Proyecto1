@@ -1,16 +1,16 @@
-<template>
+<!--<template>
     <div class="col-md-4">
         <div class="card">
             <div class="card-header">Users</div>
             <div class="card-body">
                 <div class="users" v-for="user in users" :key="user.id">
-                    <a href="#">{{ user.name }}</a>
+                    <a href="#">{{ user.nombre }}</a>
                 </div>
             </div>
         </div>
     </div>
 </template>
-
+-->
 <script>
 
     import Event from '../event.js';

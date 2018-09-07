@@ -58,7 +58,7 @@ npm install
 npm i ajv
 npm i imagemin
 npm install --save laravel-echo pusher-js
-
+npm run watch
 
 // resources/assets/js/bootstrap.js
 

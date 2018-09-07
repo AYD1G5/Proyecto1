@@ -57520,7 +57520,7 @@ var normalizeComponent = __webpack_require__(2)
 /* script */
 var __vue_script__ = __webpack_require__(53)
 /* template */
-var __vue_template__ = __webpack_require__(54)
+var __vue_template__ = null
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -57677,40 +57677,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 });
 
 /***/ }),
-/* 54 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var render = function() {
-  var _vm = this
-  var _h = _vm.$createElement
-  var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "col-md-4" }, [
-    _c("div", { staticClass: "card" }, [
-      _c("div", { staticClass: "card-header" }, [_vm._v("Users")]),
-      _vm._v(" "),
-      _c(
-        "div",
-        { staticClass: "card-body" },
-        _vm._l(_vm.users, function(user) {
-          return _c("div", { key: user.id, staticClass: "users" }, [
-            _c("a", { attrs: { href: "#" } }, [_vm._v(_vm._s(user.name))])
-          ])
-        })
-      )
-    ])
-  ])
-}
-var staticRenderFns = []
-render._withStripped = true
-module.exports = { render: render, staticRenderFns: staticRenderFns }
-if (false) {
-  module.hot.accept()
-  if (module.hot.data) {
-    require("vue-hot-reload-api")      .rerender("data-v-ebaad86a", module.exports)
-  }
-}
-
-/***/ }),
+/* 54 */,
 /* 55 */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -58023,7 +57990,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 body: this.body,
                 selfMessage: true,
                 user: {
-                    name: Laravel.user.name
+                    name: Laravel.user.nombre,
+                    email: Laravel.user.email
                 }
             };
         }
@@ -58063,7 +58031,7 @@ var render = function() {
     }),
     _vm._v(" "),
     _c("span", { staticClass: "notice" }, [
-      _vm._v("\n        Hit Return to send a message\n    ")
+      _vm._v("\n        Enter para enviar un mensaje\n    ")
     ])
   ])
 }
@@ -58200,7 +58168,7 @@ var render = function() {
     { staticClass: "message", class: { self: _vm.message.selfMessage } },
     [
       _c("strong", { staticClass: "user" }, [
-        _vm._v(_vm._s(_vm.message.user.name))
+        _vm._v(_vm._s(_vm.message.user.nombre))
       ]),
       _vm._v(" "),
       _c("p", { staticClass: "body" }, [_vm._v(_vm._s(_vm.message.body))])

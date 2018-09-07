@@ -9,7 +9,7 @@
             v-model="body">
         </textarea>
         <span class="notice">
-            Hit Return to send a message
+            Enter para enviar un mensaje
         </span>
     </form>
 </template>
@@ -50,7 +50,8 @@
                     body: this.body,
                     selfMessage: true,
                     user: {
-                        name: Laravel.user.name
+                        name: Laravel.user.nombre,
+                        email: Laravel.user.email
                     }
                 }
             }
