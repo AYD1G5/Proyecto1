@@ -17,6 +17,7 @@ class Temas extends Migration
             $table->increments('tema');
             $table->string('nombre_tema');
             $table->string('descripcion');
+            $table->integer('creador_id')->unsigned();
             $table->timestamps();
         });    }
 
