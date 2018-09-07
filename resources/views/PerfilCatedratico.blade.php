@@ -28,19 +28,47 @@
 									<tr><td><h2>Apellido:</h2></td><td><h2> {{$elemento->apellido_catedratico}}</h2></td></tr>
 									<tr><td><h2>Direccion:</h2></td><td><h2> {{$elemento->direccion_catedratico}}</h2></td></tr>
 									<tr><td><h2>Email:</h2></td><td><h2> {{$elemento->email_catedratico}}</h2></td></tr>
-
 									@endforeach
-							</table>		
+							</table>
 							</div>
 					  	</div>
-                          <div class="tab-pane fade" id="list1">
+					</div>
+					<ul class="nav nav-tabs" style="margin-bottom: 15px;">
+					  	<li class="active"><a href="#list" data-toggle="tab"></a></li>
+                       
+					</ul>
+					<center><p class="lead">CURSOS IMPRATIDOS POR CATEDRATICO</p></center>
+					<ul class="nav nav-tabs" style="margin-bottom: 15px;">
+					  	<li class="active"><a href="#list" data-toggle="tab"></a></li>
+                       
+					</ul>
+					
+					<div id="myTabContent" class="tab-content">
+					  	<div class="tab-pane fade active in" id="list">
 							<div class="table-responsive">
+								<table class="table table-hover text-center">
+								<thead>
+										<tr>
+											<th class="text-center">Codigo</th>
+                                            <th class="text-center">Creditos</th>
+											<th class="text-center">Nombre</th>
+										</tr>
+								</thead>
+								<tbody>
+										@foreach ($cursosPorCatedratico as $elemento)
+                                            <td>{{$elemento->codigo_curso}}</td>
+                                            <td>{{$elemento->creditos_curso}}</td>
+	  										<td>{{$elemento->nombre_curso}}</td>                                   
+										</tr>
+                                        @endforeach
+									</tbody>
+								</table>
 							</div>
 					  	</div>
-                        
-                          
-                          <div class="tab-pane fade" id="list2">
-							<div class="table-responsive">
+                    
+
+
+						  
 							</div>
 					  	</div>
 					</div>
