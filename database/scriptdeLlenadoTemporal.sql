@@ -47,7 +47,7 @@ insert into curso_pensum(id_curso, id_pensum, categoria, creditos, laboratoriobo
 insert into curso_pensum(id_curso, id_pensum, categoria, creditos, laboratorioboolean, restriccion, semestre) values (10, 1, 'Obligatorio', 5, 'Si', 0, 4);
 insert into curso_pensum(id_curso, id_pensum, categoria, creditos, laboratorioboolean, restriccion, semestre) values (11, 1, 'Obligatorio', 5, 'Si', 0, 5);
 insert into curso_pensum(id_curso, id_pensum, categoria, creditos, laboratorioboolean, restriccion, semestre) values (12, 1, 'Obligatorio', 5, 'Si', 0, 5);
-insert into temas(nombre_tema) values ('Tema1');
+insert into temas(nombre_tema,creador_id,curso_id) values ('Tema1',"1","1");
 
 insert into users(registro_academico, nombre, apellido, id_rol, direccion, email, password) 
 	values ('201503666', 'Miguel Angel', 'Ruano Roca', 1, 'San Martin Jilotepeque', 'miguelruano35@gmail.com', 'miguel');

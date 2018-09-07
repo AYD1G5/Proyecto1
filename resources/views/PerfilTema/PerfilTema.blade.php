@@ -15,6 +15,8 @@
 			<center><p class="lead">ERROR 404</p></center>
 			@else
             <center><p class="lead">{{$tema->nombre_tema}}</p></center>
+			<div align="right"><p class="lead">Creador: [{{ $creador->registro_academico }}] {{ $creador->nombre }} {{ $creador->apellido }}</p></div>
+			<div align="right"><p class="lead">Curso:CursoX</p></div>
 			@endif
 		</div>
 
