@@ -232,6 +232,10 @@ Route::group( ['middleware' => 'auth' ], function()
     Route::get('/curso/material/listarmaterialdeapoyo/{id_curso_pensum}/','MaterialDeApoyoController@listarMaterial');
     Route::post('/curso/material/subirmaterialdeapoyo/{id_curso_pensum}/','MaterialDeApoyoController@subirArchivo');
     Route::get('/curso/material/descargarmaterialdeapoyo/{id_material}/','MaterialDeApoyoController@descargarArchivo');
+    Route::get('/PerfilGrupo', 'PerfilGrupoController@PerfilGrupo');
+    Route::get('/TemaGrupo/{id}', 'PerfilGrupoController@TemaGrupo');
+    Route::get('/ComentarioGrupo/{id}', 'PerfilGrupoController@ComentarioGrupo');
+    
 });
 
 

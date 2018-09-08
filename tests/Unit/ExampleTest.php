@@ -24,7 +24,7 @@ class ExampleTest extends TestCase
             'email' => 'willyslider@gmail.com'
         ]);
     }
-
+    
     public function testArea()
     { 
         $this->assertDatabaseHas('area', [

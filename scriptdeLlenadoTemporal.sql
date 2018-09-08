@@ -87,6 +87,7 @@ insert into curso_prerequisito(id_curso_pensum, id_curso) values (12, 5);
 
 -- crear un usuario con la pagina
 
+use proyectoayd1;   
 insert into asignacion(id_estudiante, id_ciclo, anio) values (3, 1, 2018);
 
 insert into curso_asignacion(id_curso_pensum, nota, id_asignacion, id_catedratico) values (1, 61, 1, 1);
@@ -116,3 +117,45 @@ select * from `curso_asignacion_temporal` as `ctmp` where `ctmp`.`id_codigo_pens
 
 
 
+
+
+
+
+--Script Willy
+use proyectoayd1;   
+insert into Grupo(id_Creador_Grupo, nombre) values (3,'Grupo1');
+insert into estudiante_Grupo(id_Estudiante, id_Grupo) values (3,'1');
+insert into Tema_Grupo(id_CreadorTema, id_Grupo,Titulo,Texto) values (3,'1','Tema1','Esta es una prueba de un tema');
+
+insert into comentario_Grupo(id_Tema_Grupo, id_estudiante,Texto) values (1,'2','Esta es una prueba de un comentario');
+
+
+insert into Grupo(id_Creador_Grupo, nombre) values (3,'Grupo2');
+insert into Grupo(id_Creador_Grupo, nombre) values (3,'Grupo3');
+insert into Grupo(id_Creador_Grupo, nombre) values (3,'Grupo4');
+insert into Grupo(id_Creador_Grupo, nombre) values (3,'Grupo5');
+insert into Grupo(id_Creador_Grupo, nombre) values (3,'Grupo6');
+insert into Grupo(id_Creador_Grupo, nombre) values (3,'Grupo7');
+
+
+insert into estudiante_Grupo(id_Estudiante, id_Grupo) values (3,'2');
+insert into estudiante_Grupo(id_Estudiante, id_Grupo) values (3,'3');
+insert into estudiante_Grupo(id_Estudiante, id_Grupo) values (3,'4');
+insert into estudiante_Grupo(id_Estudiante, id_Grupo) values (3,'5');
+insert into estudiante_Grupo(id_Estudiante, id_Grupo) values (3,'6');
+insert into estudiante_Grupo(id_Estudiante, id_Grupo) values (3,'7');
+
+insert into Tema_Grupo(id_CreadorTema, id_Grupo,Titulo,Texto) values (3,'1','Tema2','Esta es una prueba de un tema 2 grupo 1');
+insert into Tema_Grupo(id_CreadorTema, id_Grupo,Titulo,Texto) values (3,'1','Tema3','Esta es una prueba de un tema 3 grupo 1');
+insert into Tema_Grupo(id_CreadorTema, id_Grupo,Titulo,Texto) values (3,'1','Tema4','Esta es una prueba de un tema 4 grupo 1');
+insert into Tema_Grupo(id_CreadorTema, id_Grupo,Titulo,Texto) values (3,'1','Tema5','Esta es una prueba de un tema 5 grupo 1');
+insert into Tema_Grupo(id_CreadorTema, id_Grupo,Titulo,Texto) values (3,'1','Tema6','Esta es una prueba de un tema 6 grupo 1');
+insert into Tema_Grupo(id_CreadorTema, id_Grupo,Titulo,Texto) values (3,'1','Tema7','Esta es una prueba de un tema 7 grupo 1');
+
+
+insert into comentario_Grupo(id_Tema_Grupo, id_estudiante,Texto) values (1,'2','Esta es una prueba de un comentario 2 tema 1 grupo 1');
+insert into comentario_Grupo(id_Tema_Grupo, id_estudiante,Texto) values (1,'2','Esta es una prueba de un comentario 3 tema 1 grupo 1');
+insert into comentario_Grupo(id_Tema_Grupo, id_estudiante,Texto) values (1,'1','Esta es una prueba de un comentario 4 tema 1 grupo 1');
+insert into comentario_Grupo(id_Tema_Grupo, id_estudiante,Texto) values (1,'2','Esta es una prueba de un comentario 5 tema 1 grupo 1');
+insert into comentario_Grupo(id_Tema_Grupo, id_estudiante,Texto) values (1,'3','Esta es una prueba de un comentario 6 tema 1 grupo 1');
+insert into comentario_Grupo(id_Tema_Grupo, id_estudiante,Texto) values (1,'3','Esta es una prueba de un comentario 7 tema 1 grupo 1');
