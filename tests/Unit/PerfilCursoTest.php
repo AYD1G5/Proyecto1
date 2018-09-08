@@ -17,13 +17,14 @@ class PerfilCursoTest extends TestCase
     {
         $this->assertTrue(true);
     }
+    //Prueba a la base de datos para ver si existe en curso matematica
     public function testCurso()
     { 
         $this->assertDatabaseHas('curso', [
             'nombre_curso' => 'Matematica Basica 1'
         ]);
     }
-
+    //Prueba para verificar que exita algun curso con una nota de 61
     public function testCursoAsignacion()
     { 
         $this->assertDatabaseHas('curso_asignacion', [
@@ -31,6 +32,7 @@ class PerfilCursoTest extends TestCase
         ]);
     }
     
+    //prueba para verificar que funcione la vista perfil curso
     public function testAsignaciontemporalMostrar(){
         $response = $this->call('POST', '/login', [
         'email' => 'willyslider@gmail.com',
@@ -41,6 +43,7 @@ class PerfilCursoTest extends TestCase
         $this->assertEquals(200, $response->getStatusCode());
     }
 
+    //Prueba para verficar que funcion la vista de perfil
     public function testAsignaciontemporal(){
         $response = $this->call('POST', '/login', [
         'email' => 'willyslider@gmail.com',

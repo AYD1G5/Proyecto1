@@ -8,9 +8,11 @@ use Illuminate\Support\Facades\Redirect;
 
 class Funciones extends Controller
 {
+    //Para mostrar la encuesta
     public function encuesta($curso, $catedratico){
         return view("encuesta");
     }
+    //Para guardar las respuestas de la encuesta
     public function encuestas(Request $request,$curso, $catedratico){
         $puntual = $request->input('puntual');
         $preparacion = $request->input('preparacion');
@@ -62,6 +64,7 @@ class Funciones extends Controller
         $objeto->save();
         return Redirect::to('finalizarasignacion/');
      }
+     //PAra poder cargar un arrchivo
      public function carga($archivo) {
         $public_path = storage_path();
         $url = $public_path.'/app/'.$archivo;
@@ -146,12 +149,14 @@ class Funciones extends Controller
         }
         dd("completado");
     }}
+    //Para poder realizar la carga masiva
     public function masiva(Request $request){
         $file = $request->file('file');
         $nombre = $file->getClientOriginalName();
         \Storage::disk('local')->put($nombre,  \File::get($file));
         return \redirect("/carga/".$nombre);
     }
+    //La vista para poder realizar la carga masiva
     public function cargamasiva(){
         return view('subir');
     }
