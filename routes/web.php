@@ -10,8 +10,11 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use App\Encuesta;
+use App\ComentarioTema;
+
 Route::get('/', function () {
     return view('welcome');
 });
@@ -177,6 +180,28 @@ Route::post('/encuesta/{curso}/{catedratico}', function(Request $request,$curso,
 Route::group( ['middleware' => 'auth' ], function()
 {
 Route::get('/PerfilTema/{tema_id}', 'PerfilTemaController@PerfilTema');
+});
+Route::post('/PerfilTema/{tema_id}', function (Request $request,$tema_id){
+    $texto = $request->input('texto');
+    $objeto=new ComentarioTema();
+    $objeto->user_id =  Auth::id();
+    $objeto->tema_id=$tema_id;
+    $objeto->comentario=$texto;
+    $objeto->save();
+   // dump($texto);
+  /*  $preparacion = $request->input('preparacion');
+    $manejo = $request->input('manejo');
+    $entendible = $request->input('entendible');
+    $accesible = $request->input('accesible');
+    $responsable = $request->input('responsable');
+
+
+
+
+    $file = $request->file('file');
+    $nombre = $file->getClientOriginalName();
+    \Storage::disk('local')->put($nombre,  \File::get($file));*/
+    return \redirect("/PerfilTema/".$tema_id);
 });
 //------------------------------------------
  Route::get('/encuesta/{curso}/{catedratico}', function($curso, $catedratico){
