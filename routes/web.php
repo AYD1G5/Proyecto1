@@ -193,13 +193,22 @@ Route::group( ['middleware' => 'auth' ], function()
     Route::get('/ReporteCursosGanados', 'CursosPorSemestreController@cursosganados');
     Route::get('/ReporteCursosObligaPendientes', 'CursosPorSemestreController@pendientesobligatorios');
 
+    /*
+     *  LAS RUTAS DEBAJO DE ESTE COMENTARIO FUERON UTILIZADOS PARA EL REPORTE DE ENCUESTA
+     */
 
-    Route::get('/ReporteEncuestaCatedraticos', 'CursosPorSemestreController@encuestacatedraticos');
-    Route::get('/TestReporteEncuesta1/{id}', 'CursosPorSemestreController@encuestacatedraticos');
+    Route::get('/ReporteEncuestaCatedraticos', 'CursosPorSemestreController@Pruebaencuestacatedraticos');
+    Route::get('/REncuestaCatedraticos/{curso}/{catedratico}', 'CursosPorSemestreController@encuestacatedraticos');
+
+    /*
+    *   Estas rutas se utilizaron para poder probar las consultas que realizamos
+    *
+    */
+/*    Route::get('/TestReporteEncuesta1/{id}', 'CursosPorSemestreController@encuestacatedraticos');
     Route::get('/TestReporteEncuesta2/{id}/{semestre}', 'CursosPorSemestreController@encuestacatedraticos');
     Route::get('/TestReporteEncuesta3/{id}/{semestre}/{catedratico}', 'CursosPorSemestreController@encuestacatedraticos');
-    Route::get('/TestReporteEncuesta4/{id}/{semestre}/{catedratico}/{anio}', 'CursosPorSemestreController@encuestacatedraticos');     
-
+    Route::get('/TestReporteEncuesta4/{id}/{semestre}/{catedratico}/{anio}', 'CursosPorSemestreController@encuestacatedraticos');
+*/
 
 
     Route::get('/eliminar/{id}/{id1}', 'AsignacionTempController@desasignar');

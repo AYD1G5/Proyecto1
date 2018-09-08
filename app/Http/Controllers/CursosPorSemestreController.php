@@ -212,9 +212,29 @@ class CursosPorSemestreController extends Controller
         return $cursosCollection;
     }
 
-    public function encuestacatedraticos()
+    public function encuestacatedraticos($Id_curso, $Id_catedratico){
+      $NombreCurso = DB::select('select nombre_curso as nam from curso where id_curso = '.$Id_curso);
+      $NombreCatedratico = DB::select('select nombre from users where id = '.$Id_catedratico.' and id_rol = 1');
+      $ResultadoEncuesta =DB::select('select enc.pregunta as preg, AVG(enc.respuesta) as res FROM encuestas as enc WHERE enc.catedratico = '.$Id_catedratico.' and enc.curso = '.$Id_curso.' GROUP BY pregunta');
+      $ResultadoPromedio = DB::select('select SUM(respuesta) as sumi, AVG(respuesta) as prom FROM encuestas');
+        return view('Reportes.reporte3')
+        ->with("arreglo", $ResultadoEncuesta)
+        ->with("arreglo1", $ResultadoPromedio)
+        ->with("arreglo2", $NombreCurso)
+        ->with("arreglo3", $NombreCatedratico);
+    }
+    public function Pruebaencuestacatedraticos()
     {
-      $cursos=DB::table('encuestas')
+      // id_catedratico, id_curso
+      /*$ResultadoEncuesta = DB::table('encuestas')
+                        ->select('*')
+                        ->where('catedratico', '=', $Id_catedratico)
+                        ->where('curso', '=', $Id_curso)
+                        ->get();
+                        */
+      //se utilizo esta parte para hacer las pruebas a la base de Datos
+      //y las consultas que necesitamos
+    /*  $cursos=DB::table('encuestas')
       ->join('curso_pensum as cupe', 'cupe.id_curso', '=', 'c.id_curso')
       ->join('pensum as pe', 'cupe.id_pensum', '=', 'pe.id_pensum')
       ->select('cupe.id_curso_pensum as id_curso_pensum', 'c.codigo_curso as codigo_curso', 'c.nombre_curso as nombre_curso',
@@ -236,9 +256,7 @@ class CursosPorSemestreController extends Controller
       ->first;//pendiente recibir el parametro
 
       $cursosCollection = new Collection();// en esta collecion añadiremos el contenido de nuestra consulta
-      $str = '';
-
-
+      $str = '';*/
 
       return view('Reportes.reporte3');
     }
