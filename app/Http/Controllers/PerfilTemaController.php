@@ -76,4 +76,30 @@ class PerfilTemaController extends Controller
          return $comentarioCollection;
       //  dump($estudiante);
     }
+    public function ExistePerfil($tema_id){
+        $tema = Tema :: where(array(
+            'tema' => $tema_id,
+         ))->first();
+         if($tema==null){
+             return false;
+         }else{
+             return true;
+         }
+    }
+    public function ExisteComentario($tema_id){
+        $tema = Tema :: where(array(
+            'tema' => $tema_id,
+         ))->first();
+         if($tema==null){
+             return false;
+         }
+        $comentario = ComentarioTema:: where(array(
+            'tema_id' => $tema->tema,
+         ))->first();
+         if($comentario==null){
+            return false;
+        }else{
+            return true;
+        }
+    }
 }

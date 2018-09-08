@@ -11,7 +11,7 @@ use Tests\DuskTestCase;
 use Laravel\Dusk\Chrome;
 use App\Http\Controllers\PerfilTemaController;
 
-class PerfilTema extends TestCase
+class PerfilTemaTest extends TestCase
 {
     /**
      * Prueba basica para comprobar que se ejecuta el archivo de pruebas.
@@ -78,7 +78,7 @@ class PerfilTema extends TestCase
      */
     public function testPerfilTemaExiste(){
         $prefilTemaControlador = new PerfilTemaController();
-        $this->assertTrue($perfilTema->ExistePerfil());
+        $this->assertTrue($prefilTemaControlador->ExistePerfil(1));
     }
 
     /**
@@ -88,7 +88,7 @@ class PerfilTema extends TestCase
      */
     public function testComentarioExiste(){
         $prefilTemaControlador = new PerfilTemaController();
-        $this->assertTrue($prefilTemaControlador->ExisteComentario());
+        $this->assertTrue($prefilTemaControlador->ExisteComentario(1));
     }
 
 }
