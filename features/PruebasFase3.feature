@@ -39,8 +39,3 @@ Scenario: Ingresar a la pagina Login e ingresar e-mail correcto,
     And I fill in "password" with "12345678"
     And I press "Login"
 Then I should see "1 Semestre"
-
-
-
-
-

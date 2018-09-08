@@ -109,7 +109,7 @@
 					</a>
 					<ul class="list-unstyled full-box">
 						<li>
-							<a href="{{url('/ReporteCursosGanados')}}"><i class="zmdi zmdi-account zmdi-hc-fw"></i> Cursos Aprobados</a>
+							<a id="Prueba"  href="{{url('/ReporteCursosGanados')}}"><i class="zmdi zmdi-account zmdi-hc-fw"></i> Cursos Aprobados</a>
 						</li>
 						<li>
 							<a href="teacher.html"><i class="zmdi zmdi-male-alt zmdi-hc-fw"></i> Teacher</a>
