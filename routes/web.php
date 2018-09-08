@@ -236,6 +236,9 @@ Route::group( ['middleware' => 'auth' ], function()
     Route::get('/TemaGrupo/{id}', 'PerfilGrupoController@TemaGrupo');
     Route::get('/ComentarioGrupo/{id}', 'PerfilGrupoController@ComentarioGrupo');
     
+    Route::get('/ReporteCursosGanados', 'CursosPorSemestreController@cursosganados');
+    Route::get('/PerfilCatedratico/{idCatedratico}/', 'PerfilCatController@datosCatedratico');
+
 });
 
 
