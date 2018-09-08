@@ -27,6 +27,31 @@ Route::get('/pruebaUsuariosCursoCarrera/{id_curso}/{id_carrera}/{id_usuario}', f
     return 'Usuario: '.$id_usuario.' Curso: '.$id_curso.' Carrera: '.$id_carrera;
 });
   
+
+ //------------------ Rutas Perfil Tema ------------
+ Route::group( ['middleware' => 'auth' ], function()
+ {
+ Route::get('/PerfilTema/{tema_id}', 'PerfilTemaController@PerfilTema');
+ });
+ Route::post('/PerfilTema/{tema_id}', function (Request $request,$tema_id){
+     $texto = $request->input('texto');
+     $objeto=new ComentarioTema();
+     $objeto->user_id =  Auth::id();
+     $objeto->tema_id=$tema_id;
+     $objeto->comentario=$texto;
+     $objeto->save();
+    // dump($texto);
+   /*  $preparacion = $request->input('preparacion');
+     $manejo = $request->input('manejo');
+     $entendible = $request->input('entendible');
+     $accesible = $request->input('accesible');
+     $responsable = $request->input('responsable');
+     $file = $request->file('file');
+     $nombre = $file->getClientOriginalName();
+     \Storage::disk('local')->put($nombre,  \File::get($file));*/
+     return \redirect("/PerfilTema/".$tema_id);
+ });
+
 Route::group( ['middleware' => 'auth' ], function()
 {
     Route::resource('/asignaciontemporal', 'AsignacionTempController');
