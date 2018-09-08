@@ -40,7 +40,7 @@ class PerfilGrupoTest extends TestCase
         'password' => '12345678',
         '_token' => csrf_token()
     ]);
-    $response = $this->get('/TemaGrupo');
+    $response = $this->get('/TemaGrupo/1');
         $this->assertEquals(200, $response->getStatusCode());
     }
     /**
@@ -52,7 +52,7 @@ class PerfilGrupoTest extends TestCase
         'password' => '12345678',
         '_token' => csrf_token()
     ]);
-    $response = $this->get('/ComentarioGrupo');
+    $response = $this->get('/ComentarioGrupo/1');
         $this->assertEquals(200, $response->getStatusCode());
     }
 

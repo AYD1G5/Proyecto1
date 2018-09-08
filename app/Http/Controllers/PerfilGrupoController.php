@@ -3,6 +3,13 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use DB;
+use Auth;
+use App\Grupo;
+use App\Tema_Grupo;
+use App\Comentario_Grupo;
+
+
 
 class PerfilGrupoController extends Controller
 {
@@ -14,8 +21,13 @@ class PerfilGrupoController extends Controller
 
     public function PerfilGrupo()
     {
+        $Grupos=DB::table('grupo as G')
+        ->join('Estudiante_Grupo as EG', 'EG.id_Grupo', '=', 'G.id_Grupo')
+        ->where('EG.id_Estudiante', '=', Auth::id())->get();
 
-        return view('perfilGrupo');
+        
+
+        return view('perfilGrupo')->with("GruposVector",$Grupos)->with("contador",0);
         
     }
 
@@ -33,6 +45,33 @@ class PerfilGrupoController extends Controller
         return view('ComentarioGrupo');
         
     }
+    
+    public function ExisteTema($idGrupo)
+    {
+        $respuesta=false;
+        $Temas = Tema_Grupo::where('id_Grupo',$idGrupo)->get();
+
+        if(!$Temas->isEmpty())
+        {
+            $respuesta=true;
+        }
+
+        return $respuesta;
+    }
+
+    public function ExisteComentario($idTema)
+    {
+        $respuesta=false;
+        $Comentarios = Comentario_Grupo::where('id_Tema_Grupo',$idTema)->get();
+
+        if(!$Comentarios->isEmpty())
+        {
+            $respuesta=true;
+        }
+
+        return $respuesta;
+    }
+
 
 
 
