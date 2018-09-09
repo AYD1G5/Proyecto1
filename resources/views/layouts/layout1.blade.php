@@ -5,6 +5,7 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <link rel="stylesheet" href="{{ URL::asset('css/main.css') }}" />
+
 </head>
 <body>
     <main class="py-4">
@@ -62,7 +63,7 @@
 			<!-- SideBar Menu -->
 			<ul class="list-unstyled full-box dashboard-sideBar-Menu">
 				<li>
-					<a href="{{url('/mostrarasignaciontemporal')}}">
+					<a href="{{url('/cursosporsemestre/1/semestre')}}">
 						<i class="zmdi zmdi-view-dashboard zmdi-hc-fw"></i> VER CURSOS ASIGNADOS
 					</a>
 				</li>
@@ -109,7 +110,7 @@
 					</a>
 					<ul class="list-unstyled full-box">
 						<li>
-							<a href="{{url('/ReporteCursosGanados')}}"><i class="zmdi zmdi-account zmdi-hc-fw"></i> Cursos Aprobados</a>
+							<a id="Prueba"  href="{{url('/ReporteCursosGanados')}}"><i class="zmdi zmdi-account zmdi-hc-fw"></i> Cursos Aprobados</a>
 						</li>
 						<li>
 							<a href="teacher.html"><i class="zmdi zmdi-male-alt zmdi-hc-fw"></i> Teacher</a>

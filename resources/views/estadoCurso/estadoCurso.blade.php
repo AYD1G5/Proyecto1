@@ -19,7 +19,7 @@
 				</ul>
 			</div>
 				<div style="float:right">
-						<a href="{{url('/revisarasignacion/'.$semestre)}}" class="btn btn-info btn-raised btn">
+						<a href="{{url('/revisarasignacion/'.$semestre)}}" id="revisarasignacion" class="btn btn-info btn-raised btn">
 							Revisar Asignación
 							<span class="glyphicon glyphicon-menu-right" aria-hidden="true"></span> 
 						</a>
@@ -86,11 +86,11 @@
 											@if($elemento->estado=="GANADO")
 											<td></td>
 											@elseif($elemento->estado=="DESBLOQUEADO")
-											<td><a href="{{url('/asignaciontemporal/'.$elemento->codigo_curso.'/'.$semestre.'/create')}}" class="btn btn-success btn-raised btn-xs">Asignar</a></td>
+											<td><a href="{{url('/asignaciontemporal/'.$elemento->codigo_curso.'/'.$semestre.'/create')}}" id="{{ 'asignar'.$elemento->codigo_curso }}" class="btn btn-success btn-raised btn-xs">Asignar</a></td>
 											@elseif($elemento->estado=="ASIGNADO")
 											<td>
-													<a href="{{url('/editar/'.$semestre.'/'.$elemento->idcursoasignaciontemp)}}" class="btn btn-success btn-raised btn-xs">Editar</a>												
-													<a href="{{url('/eliminar/'.$semestre.'/'.$elemento->idcursoasignaciontemp)}}" class="btn btn-success btn-raised btn-xs">Desasignar</a>													
+													<a href="{{url('/editar/'.$semestre.'/'.$elemento->idcursoasignaciontemp)}}" id="{{ 'editar'.$elemento->codigo_curso }}" class="btn btn-success btn-raised btn-xs">Editar</a>												
+													<a href="{{url('/eliminar/'.$semestre.'/'.$elemento->idcursoasignaciontemp)}}" id="{{ 'desasignar'.$elemento->codigo_curso }}" class="btn btn-success btn-raised btn-xs">Desasignar</a>													
 											</td>
 											@else
 											<td></td>
@@ -134,15 +134,15 @@
 												@endfor
 											</td>
 
-											<td<a href="{{url('/asignaciontemporal/'.$elemento->codigo_curso.'/mostrar')}}" class="btn btn-success btn-raised btn-xs">Ver Curso</a></td>
+											<td><a href="{{url('/asignaciontemporal/'.$elemento->codigo_curso.'/mostrar')}}" class="btn btn-success btn-raised btn-xs">Ver Curso</a></td>
 											@if($elemento->estado=="GANADO")
 											<td></td>
 											@elseif($elemento->estado=="DESBLOQUEADO")
-											<td><a href="{{url('/asignaciontemporal/'.$elemento->codigo_curso.'/'.$semestre.'/create')}}" class="btn btn-success btn-raised btn-xs">Asignar</a></td>
+											<td><a href="{{url('/asignaciontemporal/'.$elemento->codigo_curso.'/'.$semestre.'/create')}}" id="{{ 'asignar'.$elemento->codigo_curso }}" class="btn btn-success btn-raised btn-xs">Asignar</a></td>
 											@elseif($elemento->estado=="ASIGNADO")
 											<td>
-													<a href="{{url('/editar/'.$semestre.'/'.$elemento->idcursoasignaciontemp)}}" class="btn btn-success btn-raised btn-xs">Editar</a>												
-													<a href="{{url('/eliminar/'.$semestre.'/'.$elemento->idcursoasignaciontemp)}}" class="btn btn-success btn-raised btn-xs">Desasignar</a>													
+													<a href="{{url('/editar/'.$semestre.'/'.$elemento->idcursoasignaciontemp)}}" id="{{ 'editar'.$elemento->codigo_curso }}" class="btn btn-success btn-raised btn-xs">Editar</a>												
+													<a href="{{url('/eliminar/'.$semestre.'/'.$elemento->idcursoasignaciontemp)}}" id="{{ 'desasignar'.$elemento->codigo_curso }}" class="btn btn-success btn-raised btn-xs">Desasignar</a>													
 											</td>
 											@else
 											<td></td>
@@ -192,11 +192,11 @@
 												@if($elemento->estado=="GANADO")
 												<td></td>
 												@elseif($elemento->estado=="DESBLOQUEADO")
-												<td><a href="{{url('/asignaciontemporal/'.$elemento->codigo_curso.'/'.$semestre.'/create')}}" class="btn btn-success btn-raised btn-xs"><i class="zmdi zmdi-refresh">Asignar</i></a></td>
+												<td><a href="{{url('/asignaciontemporal/'.$elemento->codigo_curso.'/'.$semestre.'/create')}}" id="{{ 'asignar'.$elemento->codigo_curso }}" class="btn btn-success btn-raised btn-xs"><i class="zmdi zmdi-refresh">Asignar</i></a></td>
 												@elseif($elemento->estado=="ASIGNADO")
 												<td>
-													<a href="{{url('/editar/'.$semestre.'/'.$elemento->idcursoasignaciontemp)}}" class="btn btn-success btn-raised btn-xs">Editar</a>												
-													<a href="{{url('/eliminar/'.$semestre.'/'.$elemento->idcursoasignaciontemp)}}" class="btn btn-success btn-raised btn-xs">Desasignar</a>													
+													<a href="{{url('/editar/'.$semestre.'/'.$elemento->idcursoasignaciontemp)}}" id="{{ 'editar'.$elemento->codigo_curso }}" class="btn btn-success btn-raised btn-xs">Editar</a>												
+													<a href="{{url('/eliminar/'.$semestre.'/'.$elemento->idcursoasignaciontemp)}}" id="{{ 'desasignar'.$elemento->codigo_curso }}" class="btn btn-success btn-raised btn-xs">Desasignar</a>													
 												</td>
 												@else
 												<td></td>
@@ -223,11 +223,11 @@
 												@if($elemento->estado=="GANADO")
 												<td></td>
 												@elseif($elemento->estado=="DESBLOQUEADO")
-												<td><a href="{{url('/asignaciontemporal/'.$elemento->codigo_curso.'/'.$semestre.'/create')}}" class="btn btn-success btn-raised btn-xs">Asignar</a></td>
+												<td><a href="{{url('/asignaciontemporal/'.$elemento->codigo_curso.'/'.$semestre.'/create')}}" id="{{ 'asignar'.$elemento->codigo_curso }}" class="btn btn-success btn-raised btn-xs">Asignar</a></td>
 												@elseif($elemento->estado=="ASIGNADO")
 												<td>
-													<a href="{{url('/editar/'.$semestre.'/'.$elemento->idcursoasignaciontemp)}}" class="btn btn-success btn-raised btn-xs">Editar</a>												
-													<a href="{{url('/eliminar/'.$semestre.'/'.$elemento->idcursoasignaciontemp)}}" class="btn btn-success btn-raised btn-xs">Desasignar</a>													
+													<a href="{{url('/editar/'.$semestre.'/'.$elemento->idcursoasignaciontemp)}}" id="{{ 'editar'.$elemento->codigo_curso }}" class="btn btn-success btn-raised btn-xs">Editar</a>												
+													<a href="{{url('/eliminar/'.$semestre.'/'.$elemento->idcursoasignaciontemp)}}" id="{{ 'desasignar'.$elemento->codigo_curso }}" class="btn btn-success btn-raised btn-xs">Desasignar</a>													
 												</td>
 												@else
 												<td></td>
