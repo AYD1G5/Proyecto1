@@ -53,7 +53,7 @@
                   {!! link_to('editar/'.$semestre.'/'.$curso->id_curso_asig_temp, 'Editar', ['class' => 'btn btn-success btn-raised btn-md']) !!}
                   </td>
                   <td>
-                  {!! link_to('eliminar/.$semestre./'.$curso->id_curso_asig_temp, 'Desasignar', ['class' => 'btn btn-danger btn-raised btn-md']) !!}
+                  {!! link_to('eliminar/.$semestre./'.$curso->id_curso_asig_temp, 'Desasignar', ['class' => 'btn btn-danger btn-raised btn-md', 'id' => 'desasignar'.$curso->id_curso_pensum]) !!}
                   </td>
 
               </tr>

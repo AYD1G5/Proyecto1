@@ -43,7 +43,7 @@
                                     <span class="glyphicon glyphicon-menu-left" aria-hidden="true"></span> 
 						            Revisar Asignación
                                 </a>
-                              <button type="submit" class="btn btn-info btn-raised btn">
+                              <button type="submit" class="btn btn-info btn-raised btn" id="finalizarasignacion">
                                      Finalizar Asignación
                                     <span class="glyphicon glyphicon-menu-right" aria-hidden="true"></span> 
                                </button>
@@ -79,7 +79,7 @@
                   <td> 
                       {!! Form::open(array('route' => array('notacurso', $curso->id_curso_asig_temp))) !!}
                         {!! Form::number('nota', $curso->nota, ['min'=>0,'max'=>100]) !!}
-                        {!! Form::submit('Actualizar', ['class' => 'btn btn-info btn-xs']) !!}
+                        {!! Form::submit('Actualizar', ['class' => 'btn btn-info btn-xs', 'id'=>'actualizarnota']) !!}
                       {!! Form::close() !!}
                   </td>
                   <td>
