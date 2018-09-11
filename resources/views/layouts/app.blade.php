@@ -90,7 +90,7 @@
 			<!-- SideBar Menu -->
 			<ul class="list-unstyled full-box dashboard-sideBar-Menu">
 				<li>
-					<a href="{{url('/mostrarasignaciontemporal')}}">
+				<a href="{{url('/cursosporsemestre/1/semestre')}}">
 						<i class="zmdi zmdi-view-dashboard zmdi-hc-fw"></i> VER CURSOS ASIGNADOS
 					</a>
 				</li>
