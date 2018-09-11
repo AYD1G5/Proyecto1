@@ -32,6 +32,12 @@ class CursoController extends Controller
         ->where('cuprer.id_curso_pensum', '=', $id)
         ->get();
 
+        $promedioestrellasporcurso = DB::table('curso_asignacion')
+            ->groupBy('id_curso_pensum')
+            ->where('id_curso_pensum', '=', $infocurso->id_curso_pensum)
+            ->avg('no_estrellas');
+        $infocurso->no_estrellas=$promedioestrellasporcurso;
+
         //Con esta consulta se obtienen los cursos post-requisito del curso actual
         $cursospostrequisito = DB::table('curso as c')
         ->join('curso_pensum as cupe', 'cupe.id_curso', '=', 'c.id_curso')

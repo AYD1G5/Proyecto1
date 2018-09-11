@@ -27,6 +27,7 @@
                 <th style="width: 15%"> Nombre </th>
                 <th style="width: 10%"> Categoria </th>
                 <th style="width: 10%"> Creditos </th>
+                <th style="width: 15%"> Dificultad </th>
                 <th style="width: 10%"> Restriccion </th>
                 </tr>
           </thead>
@@ -36,6 +37,16 @@
                     <td> {{ $curso->nombre_curso }} </td>
                     <td> {{ $curso->categoria }} </td>
                     <td> {{ $curso->creditos }} </td>
+                    <td>
+													<?php $tamano=5; ?>
+													@for ($i = 1; $i <= $tamano; $i++)
+														@if ($i <= $curso->no_estrellas)
+														<img src="{{ URL::asset('img/full.png') }}" alt="UserIcon">
+														@else
+														<img src="{{ URL::asset('img/empty.png') }}" alt="UserIcon">
+														@endif
+													@endfor
+												</td>
                     <td> {{ $curso->restriccion }} </td>
                 </tr>
           </tbody>
