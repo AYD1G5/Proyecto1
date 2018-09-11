@@ -23,6 +23,10 @@ Route::get("/MiguelRuano", function(){
   return 'Hola';
 });
 
+Route::get("/welcome", function(){
+    return \redirect("/cursosporsemestre/1/semestre");
+  });
+
 Route::get('/pruebaUsuariosCursoCarrera/{id_curso}/{id_carrera}/{id_usuario}', function($id_curso, $id_carrera, $id_usuario){
     return 'Usuario: '.$id_usuario.' Curso: '.$id_curso.' Carrera: '.$id_carrera;
 });
