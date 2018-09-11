@@ -160,9 +160,9 @@
 					<a href="#!" class="btn-menu-dashboard"><i class="zmdi zmdi-more-vert"></i></a>
 				</li>
 				<li>
-					<a href="#!" class="btn-Notifications-area">
+					<a href="/chat" class="btn-Notifications-area">
 						<i class="zmdi zmdi-notifications-none"></i>
-						<span class="badge">7</span>
+						<!-- <span class="badge">7</span>    Le quite esto-->
 					</a>
 				</li>
 				<li>
@@ -181,7 +181,7 @@
 	</section>
 
 	<!-- Notifications area -->
-	<section class="full-box Notifications-area">
+	<!-- <section class="full-box Notifications-area">
 		<div class="full-box Notifications-bg btn-Notifications-area"></div>
 		<div class="full-box Notifications-body">
 			<div class="Notifications-body-title text-titles text-center">
@@ -234,7 +234,7 @@
 			</div>
 
 		</div>
-	</section>
+	</section>-->
 
 	<!-- Dialog help -->
 	<div class="modal fade" tabindex="-1" role="dialog" id="Dialog-Help">
