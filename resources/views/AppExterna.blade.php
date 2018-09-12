@@ -16,5 +16,10 @@
 					</div>
 				</div>
 			</div>
+			<ul class="full-box list-unstyled text-center">
+                <li class="nav-item">Video Conferencias</li>	
+				<li class="nav-item">Calendario</li>	
+				<li class="nav-item">Chat de Messenger</li>	
+			<ol>
 		</div>
 @endsection
