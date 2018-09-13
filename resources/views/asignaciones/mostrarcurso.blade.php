@@ -6,7 +6,7 @@
           {{ Session::get('notice') }}
        </div>
     @endif
-		<h1>Nombre: {{ $curso->nombre_curso }}</h1>
+		
     <a href="{{ url('asignaciontemporal') }}">
     <button class="btn btn-info"> Volver al Listado </button>
     </a>
@@ -17,7 +17,7 @@
 							Ver material de apoyo</a>
     </div>
   
-
+    <h1>Nombre: {{ $curso->nombre_curso }}</h1>
     <div class="col-xs-12">
       <div class="table-responsive">
         <table class="table table-hover text-center">
@@ -53,6 +53,12 @@
         </table>
       </div>
     </div>
+    <h1>Descripcion Curso</h1>
+    @if($curso->descripcion==null)
+    <p>El curso aun no cuenta con una descripcion
+    @else
+    <p>{{$curso->descripcion}}
+    @endif
     @if(count($prerequisitos) > 0)
     <h1>Pre-requisitos</h1>
     <div class="col-xs-12">

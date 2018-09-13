@@ -19,7 +19,7 @@ class CursoController extends Controller
         //En esta consulta se obtiene la informacion del curso
         $infocurso = DB::table('curso as c')
         ->join('curso_pensum as cupe', 'cupe.id_curso', '=', 'c.id_curso')
-        ->select('cupe.id_curso_pensum as id_curso_pensum', 'c.codigo_curso as codigo_curso', 'c.nombre_curso as nombre_curso',
+        ->select('cupe.id_curso_pensum as id_curso_pensum', 'c.descripcion as descripcion','c.codigo_curso as codigo_curso', 'c.nombre_curso as nombre_curso',
                 'cupe.categoria as categoria', 'cupe.creditos as creditos', 'cupe.restriccion as restriccion')
         ->where('cupe.id_curso_pensum', '=', $id)
         ->first();
