@@ -25,7 +25,12 @@
 					</div>
 					<ul class="nav nav-tabs" style="margin-bottom: 15px;">
 					  	<li class="active"><a href="#list" data-toggle="tab"></a></li>
-                       
+						
+						<form action="../../form-result.php" method="post" target="_blank">
+						<p>Buscador de Catedratico: <input type="search" name="busquedacat" placeholder="Nombre Catedratico.">
+  						<input type="submit" value="Buscar">
+						</p>
+						</form>
 					
 					
 					<div id="myTabContent" class="tab-content">
