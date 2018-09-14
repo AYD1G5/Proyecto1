@@ -42,7 +42,7 @@ class BuscadorCatTest extends TestCase
     public function testBuscadorDatosCat()
     { 
         $this->assertDatabaseHas('users', [
-            'registro_academico' => '201504asdf'
+            'registro_academico' => '21'
         ]);
     }
 
