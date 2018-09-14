@@ -33,4 +33,24 @@ class BuscadorCatTest extends TestCase
     $response = $this->get('/BuscadorCatedratico');
         $this->assertEquals(200, $response->getStatusCode());
     }
+
+    /**
+     * Prueba unitaria utilizada para verificar la información del catedratico 
+     * en la base de datos.
+     */
+
+    public function testBuscadorDatosCat()
+    { 
+        $this->assertDatabaseHas('users', [
+            'registro_academico' => '201504asdf'
+        ]);
+    }
+
+
+    public function testRolCat()
+    { 
+        $this->assertDatabaseHas('rol', [
+            'id_rol' => '1'
+        ]);
+    }
 }
