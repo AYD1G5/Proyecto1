@@ -15,12 +15,14 @@
 					<ul class="nav nav-tabs" style="margin-bottom: 15px;">
 					  	<li class="active"><a href="#list" data-toggle="tab"></a></li>
 
-						  <form class="navbar-form navbar-left" role="search">
-						<div class="form-group">
-							<input type="text" class="form-control" placeholder="Catedratico...">
-						</div>
-						<button type="submit" class="btn btn-default">BUSCAR</button>
+					{!!Form::open(array('url'=>'BuscadorCatedratico','method'=>'GET','autocomplete'=>'off','role'=>'search'))!!}
+						<form class="navbar-form navbar-left" role="search">
+							<div class="form-group">
+								<input type="text" class="form-control" name = "searchText" placeholder="Catedratico..." value = "{{$searchText}}">
+							</div>
+							<button type="submit" class="btn btn-default">BUSCAR</button>
 						</form>
+					{{Form::close()}}
 					</ul>
 					<div id="myTabContent" class="tab-content">
 					  	<div class="tab-pane fade active in" id="list">
@@ -53,9 +55,9 @@
 									<tbody>
                                     
                                     
-									@foreach ($arreglo as $elemento)
+									@foreach ($catedraticos as $elemento)
                                             
-                                            <td>{{$elemento->registro_academico}}</td>
+                                            <td>{{$elemento->registro}}</td>
 	  										<td>{{$elemento->nombre_catedratico}}</td>
 											<td>{{$elemento->apellido_catedratico}}</td>
                                             <td>{{$elemento->direccion_catedratico}}</td>

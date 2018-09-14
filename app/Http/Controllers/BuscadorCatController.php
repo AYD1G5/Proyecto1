@@ -20,30 +20,21 @@ class BuscadorCatController extends Controller
 {
     //
 
-    public function BuscadorCatedratico(){
+    public function BuscadorCatedratico(Request $request){
 
-        $catedraticos=DB::table('users as u')
-        ->where('u.id_rol', '=', '1')
-        ->select('u.id as id', 'u.registro_academico as registro', 'u.nombre as nombre_catedratico',
-                'u.apellido as apellido_catedratico', 'u.direccion as direccion_catedratico', 'u.email as email_catedratico')
-                
-        ->get();
-
-        /** INICIALIZAR LA COLECCION DE SALIDA */
-        $catedraticosCollection = new Collection();
-        $str = ''; 
-
-        foreach ($catedraticos as &$catedratico) {
-
-            $objetoCatedratico = new ObjetoCatedratico();
-            $objetoCatedratico->id_catedratico = $catedratico->id;
-            $objetoCatedratico->registro_academico = $catedratico->registro;
-            $objetoCatedratico->nombre_catedratico = $catedratico->nombre_catedratico;
-            $objetoCatedratico->apellido_catedratico = $catedratico->apellido_catedratico;
-            $objetoCatedratico->direccion_catedratico = $catedratico->direccion_catedratico;
-            $objetoCatedratico->email_catedratico = $catedratico->email_catedratico;
-            $catedraticosCollection->push($objetoCatedratico);
+        if($request)
+        {     
+            $query = trim($request->get('searchText'));
+            $catedraticos=DB::table('users as u')
+            
+            ->where('u.id_rol', '=', '1')
+            ->where('u.nombre', 'LIKE', '%'.$query.'%')
+            
+            ->select('u.id as id', 'u.registro_academico as registro', 'u.nombre as nombre_catedratico',
+                    'u.apellido as apellido_catedratico', 'u.direccion as direccion_catedratico', 'u.email as email_catedratico')
+                    
+            ->get();
+            return view('BuscadorCatedratico',["catedraticos"=>$catedraticos,"searchText"=>$query]);
         }
-        return view('BuscadorCatedratico')->with("arreglo",$catedraticosCollection);
     }
 }
