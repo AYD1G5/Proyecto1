@@ -20,7 +20,7 @@ class AppExternaController extends Controller
      */
     public function index()
     {
-        //
+        return view('AppExterna');    
     }
 
     /**
@@ -41,7 +41,7 @@ class AppExternaController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        return view('AppExterna');    
     }
 
     /**
@@ -52,7 +52,7 @@ class AppExternaController extends Controller
      */
     public function show($id)
     {
-        //
+        return view('AppExterna');    
     }
 
     /**
