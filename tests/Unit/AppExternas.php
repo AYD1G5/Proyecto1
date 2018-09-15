@@ -5,6 +5,8 @@ namespace Tests\Unit;
 use Tests\TestCase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Illuminate\Foundation\Testing\RefreshDatabase;
+use App\Http\Controllers\AppExternaController;
+
 
 class AppExternas extends TestCase
 {
@@ -30,6 +32,17 @@ class AppExternas extends TestCase
         $this->assertDatabaseHas('AppExterna', [
             'nombre' => 'Facebook'
         ]);
+    }
+
+    /**
+     * Prueba creada para probar si existe alguna applicacion externa
+     * registrada en la base de Datos para saber si hay alguan aplicación aprobada
+     * para que el usuario la utilice
+     */
+    public function testAppExiste()
+    {
+        $appExternaController=new AppExternaController(); 
+        $this->assertTrue($appExternaController->ExisteApp());
     }
 
     
