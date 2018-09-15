@@ -32,4 +32,17 @@ class BuscadorPersonasTest extends TestCase
     $response = $this->get('/BuscadorPersonas');
         $this->assertEquals(200, $response->getStatusCode());
     }
+
+    public function testExistePersona()
+    { 
+        $this->assertDatabaseHas('users', [
+            'email' => 'willyslider@gmail.com'
+        ]);
+    }
+    public function testRolPersona()
+    { 
+        $this->assertDatabaseHas('rol', [
+            'nombre_rol' => 'docente'
+        ]);
+    }
 }
