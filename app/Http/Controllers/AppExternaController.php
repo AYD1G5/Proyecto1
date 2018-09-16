@@ -12,6 +12,24 @@ class AppExternaController extends Controller
         return view('AppExterna');        
     }
 
+    /**
+     * Metodo para verificar si exiten Applicaciones externas avaladas
+     * para usarse en la aplicación
+     * 
+     * */
+    public function ExisteApp()
+    {
+        $respuesta=false;
+        $App = AppExterna::get();
+
+        if(!$App->isEmpty())
+        {
+            $respuesta=true;
+        }
+        return $respuesta;
+    }
+
+
 
     /**
      * Display a listing of the resource.
