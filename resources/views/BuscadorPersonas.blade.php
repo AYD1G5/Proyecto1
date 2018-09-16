@@ -13,7 +13,12 @@
 				<div class="col-xs-12">
 					<ul class="nav nav-tabs" style="margin-bottom: 15px;">
 					  	<li class="active"><a href="#list" data-toggle="tab"></a></li>
-                       
+                          <form class="navbar-form navbar-left" role="search">
+						<div class="form-group">
+							<input type="text" class="form-control" placeholder="Persona">
+						</div>
+						<button type="submit" class="btn btn-default">BUSCAR</button>
+						</form>
 					</ul>
 					<div id="myTabContent" class="tab-content">
 					  	<div class="tab-pane fade active in" id="list">
