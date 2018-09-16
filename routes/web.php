@@ -96,12 +96,14 @@ Route::group( ['middleware' => 'auth' ], function()
     Route::get('/TemaGrupo/{id}', 'PerfilGrupoController@TemaGrupo');
     Route::get('/ComentarioGrupo/{id}', 'PerfilGrupoController@ComentarioGrupo');
     Route::get('/ReporteCursosGanados', 'CursosPorSemestreController@cursosganados');
+    Route::get('/BuscadorCurso', 'BuscadorCursoController@BuscadorCurso');
     Route::get('/PerfilCatedratico/{idCatedratico}/', 'PerfilCatController@datosCatedratico');
     Route::get('/encuesta/{curso}/{catedratico}', 'Funciones@encuesta');
     Route::post('/encuesta/{curso}/{catedratico}','Funciones@encuestas');
     Route::post('/masiva','Funciones@masiva');
     Route::get('/carga/{archivo}', 'Funciones@carga');
     Route::get('/cargamasiva', '@Funciones@cargamasiva');
+    
 });
 
 
