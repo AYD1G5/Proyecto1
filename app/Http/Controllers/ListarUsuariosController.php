@@ -6,6 +6,38 @@ use Illuminate\Http\Request;
 
 class ListarUsuariosController extends Controller
 {
+  /*
+  * Con esta funcion esperamos listar los cursos que que el usuario tenga ganado
+  *durante semestres anteriores o semestres actuales
+  */
+  public function ListarUsuarios($id){
+      $cursos = $this->semestre($id);
+      $totalCursos = 0;
+      $cursosGanados =0;
+      $cursosPendientes = 0;
+      foreach ($cursos as $curso){
+          // Code Here
+          if($curso->estado=="GANADO"){
+              $cursosGanados++;
+          }else{
+              $cursosPendientes ++;
+          }
+          $totalCursos++;
+      }
+      $tipo="";
+      if($cursosGanados>0){
+          if($cursosPendientes==0){
+              $tipo="VERDE"; //Verde No hay pendientes
+          }else{
+              $tipo="AMARILLO"; //Amarillo Faltan
+          }
+      }else{
+          $tipo = "ROJO"; //Rojo
+      }
+    //  die($cursos);
+    return $tipo;
+  }
+
     /**
      * Display a listing of the resource.
      *
