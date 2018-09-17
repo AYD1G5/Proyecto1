@@ -3,13 +3,23 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use DB;
+use Auth;
+use App\AppExterna;
 
 class AppExternaController extends Controller
 {
 
     public function AppExterna()
     {
-        return view('AppExterna');        
+        $AppExterna = [];
+        if($this->ExisteApp())
+        {
+            $AppExterna = DB::table('AppExterna')->get();
+        }
+
+        return view('AppExterna')->with("AppExternaVector",$AppExterna);    
+        
     }
 
     /**
@@ -20,9 +30,9 @@ class AppExternaController extends Controller
     public function ExisteApp()
     {
         $respuesta=false;
-        $App = AppExterna::get();
+        $AppExterna = DB::table('AppExterna')->get();
 
-        if(!$App->isEmpty())
+        if(!$AppExterna->isEmpty())
         {
             $respuesta=true;
         }

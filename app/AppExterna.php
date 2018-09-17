@@ -14,7 +14,8 @@ class AppExterna extends Model
     protected $primaryKey='id_AppExterna';
     
     protected $fillable = [
-        'nombre'
+        'nombre',
+        'ruta'
     ];
 
 }

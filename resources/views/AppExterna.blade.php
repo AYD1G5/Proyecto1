@@ -25,15 +25,13 @@
 								<div style="padding: 0% 20% 20% 20%;">
 								<table class="table table-hover text-center">
 									<tbody>
-										<tr>
-											<td><a href="{{url('/TemaGrupo/')}}" class="btn btn-success btn-raised btn-xs" style="height:50px;width: 90%; font-size: 25px;background-color: #212F3D;">Video Conferencias</a></td>
+
+  										@foreach ($AppExternaVector as $elemento)
+										  <tr>
+											<td><a href="{{url('/TemaGrupo')}}" class="btn btn-success btn-raised btn-xs" style="height:50px;width: 90%; font-size: 25px;background-color: #212F3D;">{{$elemento->nombre}}</a></td>
 										</tr>
-										<tr>
-											<td><a href="{{url('/TemaGrupo/')}}" class="btn btn-success btn-raised btn-xs" style="height:50px;width: 90%; font-size: 25px;background-color: #212F3D;">Calendario</a></td>
-										</tr>
-										<tr>
-											<td><a href="{{url('/TemaGrupo/')}}" class="btn btn-success btn-raised btn-xs" style="height:50px;width: 90%; font-size: 25px;background-color: #212F3D;">Chat de Messenger</a></td>
-										</tr>
+										@endforeach	
+
 									</tbody>
 								</table>
 								</div>

@@ -159,3 +159,11 @@ insert into comentario_Grupo(id_Tema_Grupo, id_estudiante,Texto) values (1,'1','
 insert into comentario_Grupo(id_Tema_Grupo, id_estudiante,Texto) values (1,'2','Esta es una prueba de un comentario 5 tema 1 grupo 1');
 insert into comentario_Grupo(id_Tema_Grupo, id_estudiante,Texto) values (1,'3','Esta es una prueba de un comentario 6 tema 1 grupo 1');
 insert into comentario_Grupo(id_Tema_Grupo, id_estudiante,Texto) values (1,'3','Esta es una prueba de un comentario 7 tema 1 grupo 1');
+
+
+use proyectoayd1;   
+insert into AppExterna(nombre, ruta) values ('Messenger','/img/AppExt_Messenger.png');
+insert into AppExterna(nombre, ruta) values ('Calendario','/img/AppExt_Calendario.png');
+insert into AppExterna(nombre, ruta) values ('TokBox','/img/AppExt3_TokBox.png');
+
+

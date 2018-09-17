@@ -18,9 +18,9 @@ class CrearAppExterna extends Migration
          * Base de datos
          */
         Schema::create('AppExterna', function (Blueprint $table) {
-            $table->increments('id_AppExterna');
-            
+            $table->increments('id_AppExterna');            
             $table->string('nombre');
+            $table->string('ruta');
             $table->timestamps();
         });
     }
