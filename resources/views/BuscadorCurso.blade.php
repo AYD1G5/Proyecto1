@@ -3,9 +3,9 @@
 <!-- Content page -->
 <div class="container-fluid">
 			<div class="page-header">
-			  <h1 class="text-titles"><i class="zmdi zmdi-book zmdi-hc-fw"></i> <small>CATEDRATICO</small></h1>
+			  <h1 class="text-titles"><i class="zmdi zmdi-book zmdi-hc-fw"></i> <small>CURSO</small></h1>
 			</div>
-            <center><p class="lead">BUSCADOR DE CATEDRATICO</p></center>
+            <center><p class="lead">BUSCADOR DE CURSO</p></center>
 		</div>
 
         <?php $variable = 0; ?>
@@ -14,6 +14,15 @@
 				<div class="col-xs-12">
 					<ul class="nav nav-tabs" style="margin-bottom: 15px;">
 					  	<li class="active"><a href="#list" data-toggle="tab"></a></li>
+
+					{!!Form::open(array('url'=>'BuscadorCurso','method'=>'GET','autocomplete'=>'off','role'=>'search'))!!}
+						<form class="navbar-form navbar-left" role="search">
+							<div class="form-group">
+								<input type="text" class="form-control" name = "searchText" placeholder="Catedratico..." value = "{{$searchText}}">
+							</div>
+							<button type="submit" class="btn btn-default">BUSCAR</button>
+						</form>
+					{{Form::close()}}
 					</ul>
 					<div id="myTabContent" class="tab-content">
 					  	<div class="tab-pane fade active in" id="list">
@@ -35,15 +44,28 @@
 									<thead>
 										<tr>
 											
-                                            <th class="text-center">Registro</th>
+                                            <th class="text-center">Id</th>
+											<th class="text-center">Codigo</th>
 											<th class="text-center">Nombre</th>
-											<th class="text-center">Apellido</th>
-											<th class="text-center">Direccion</th>
-											<th class="text-center">Email</th>
+											<th class="text-center">Escuela</th>
+											<th class="text-center">Area</th>
 											
 										</tr>
 									</thead>
 									<tbody>
+                                    
+                                    
+									@foreach ($cursos as $elemento)
+                                            
+                                            <td>{{$elemento->id}}</td>
+	  										<td>{{$elemento->codigo_curso}}</td>
+											<td>{{$elemento->nombre_curso}}</td>
+                                            <td>{{$elemento->escuela}}</td>
+											<td>{{$elemento->area}}</td>
+                                            
+										</tr>
+                                        @endforeach
+
                                     
 									</tbody>
 								</table>

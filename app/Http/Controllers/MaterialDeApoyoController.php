@@ -48,7 +48,7 @@ class MaterialDeApoyoController extends Controller {
         $material_curso->save();
         
         //Mover el archivo subido
-        $destinationPath = 'materialSubido/'.date("Y").'/'.date("m");
+        $destinationPath = 'materialSubido/';
         $file->move($destinationPath, $file->getClientOriginalName());
         
         return Redirect::to('/curso/material/listarmaterialdeapoyo/'.$id_curso_pensum.'/')->with('notice', 'Archivo Subido Correctamente.');

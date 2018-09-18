@@ -66,7 +66,7 @@ Route::group( ['middleware' => 'auth' ], function()
     Route::get('/cursosporsemestre/{id}/semestre', 'AsignacionTempController@semestre');
     Route::get('/ReporteCursosGanados', 'CursosPorSemestreController@cursosganados');
     Route::get('/ReporteCursosObligaPendientes', 'CursosPorSemestreController@pendientesobligatorios');
-
+    Route::get('/BuscadorCurso', 'BuscadorCursoController@BuscadorCurso');
     /*
      *  LAS RUTAS DEBAJO DE ESTE COMENTARIO FUERON UTILIZADOS PARA EL REPORTE DE ENCUESTA
      */
