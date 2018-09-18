@@ -16,7 +16,7 @@ use App\Encuesta;
 use App\ComentarioTema;
 
 Route::get('/', function () {
-    return view('welcome');
+    return \redirect("/cursosporsemestre/1/semestre");
 });
 
 Route::get("/MiguelRuano", function(){
