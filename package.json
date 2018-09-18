@@ -22,7 +22,6 @@
     "dependencies": {
         "ajv": "^6.5.3",
         "imagemin": "^6.0.0",
-        "laravel-echo": "^1.4.0",
         "pusher-js": "^4.3.1"
     }
 }

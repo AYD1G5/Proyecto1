@@ -21,6 +21,9 @@ class CrearAppExterna extends Migration
             $table->increments('id_AppExterna');            
             $table->string('nombre');
             $table->string('ruta');
+            $table->text('descripcion');
+            $table->text('linkexterno');
+            $table->text('embebido')->nullable();
             $table->timestamps();
         });
     }

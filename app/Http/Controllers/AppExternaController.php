@@ -61,6 +61,10 @@ class AppExternaController extends Controller
         //
     }
 
+    public function videochat(){        
+        return view('VideoChat');
+    }
+
     /**
      * Store a newly created resource in storage.
      *

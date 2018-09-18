@@ -28,10 +28,17 @@
 
   										@foreach ($AppExternaVector as $elemento)
 										  <tr>
-											<td><a href="{{url('/TemaGrupo')}}" class="btn btn-success btn-raised btn-xs" style="height:50px;width: 90%; font-size: 25px;background-color: #212F3D;">{{$elemento->nombre}}</a></td>
+											<td>
+												<a href="{{url('/TemaGrupo')}}" class="btn btn-success btn-raised btn-xs" style="height:50px;width: 90%; font-size: 25px;background-color: #212F3D;">{{$elemento->nombre}}</a>
+												<h4>
+													<a href="{{url($elemento->linkexterno)}}" style="height:50px;width: 90%; font-size: 25px;">{{$elemento->descripcion}}</a>
+												</h4>
+											</td>
+											<td>
+												<img src="{{URL::asset($elemento->ruta)}}" alt="profile Pic" height="200" width="200">
+											</td>
 										</tr>
 										@endforeach	
-
 									</tbody>
 								</table>
 								</div>
