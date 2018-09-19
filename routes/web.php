@@ -96,6 +96,7 @@ Route::group( ['middleware' => 'auth' ], function()
     Route::get('/TemaGrupo/{id}', 'PerfilGrupoController@TemaGrupo');
     Route::get('/ComentarioGrupo/{id}', 'PerfilGrupoController@ComentarioGrupo');
     Route::get('/ReporteCursosGanados', 'CursosPorSemestreController@cursosganados');
+    Route::get('/BuscadorCurso', 'BuscadorCursoController@BuscadorCurso');
     Route::get('/PerfilCatedratico/{idCatedratico}/', 'PerfilCatController@datosCatedratico');
     Route::get('/encuesta/{curso}/{catedratico}', 'Funciones@encuesta');
     Route::post('/encuesta/{curso}/{catedratico}','Funciones@encuestas');
@@ -109,6 +110,7 @@ Route::group( ['middleware' => 'auth' ], function()
     Route::get('/AppExterna/Videochat', 'AppExternaController@videochat');
     Route::get('/AppExterna/WhatssApp', 'AppExternaController@WhatssApp');
     Route::post('/AppExterna/WhatssApp','AppExternaController@EnviarWhatssApp');
+    
 });
 
 
