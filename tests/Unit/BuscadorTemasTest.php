@@ -32,4 +32,17 @@ class BuscadorTemasTest extends TestCase
     $response = $this->get('/BuscadorTemas');
         $this->assertEquals(200, $response->getStatusCode());
     }
+    public function testCiclo()
+    { 
+        $this->assertDatabaseHas('ciclo', [
+            'nombre_ciclo' => 'primer semestre'
+        ]);
+    }
+
+    public function testCurso()
+    { 
+        $this->assertDatabaseHas('curso', [
+            'nombre_curso' => 'Matematica Basica 1'
+        ]);
+    }
 }
