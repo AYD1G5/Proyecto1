@@ -26,12 +26,27 @@ class BuscadorCursoTest extends TestCase
     
     public function testBuscadorCurso(){
         $response = $this->call('POST', '/login', [
-        'email' => 'danielgarcia0976@gmail.com',
-        'password' => 'informatica10',
-        '_token' => csrf_token()
+            'email' => 'willyslider@gmail.com',
+            'password' => '12345678',
+            '_token' => csrf_token()
         ]);
         $response = $this->get('/BuscadorCurso');
         $this->assertEquals(200, $response->getStatusCode());
+    }
+
+     /**
+     * Prueba unitaria hacia la base de datos para
+     * verificar la relación entre la tabla de catedratico
+     * y la tabla de curso.
+     */
+    /**
+     * @group test_bd
+     */
+    public function testCursosBuscador()
+    { 
+        $this->assertDatabaseHas('curso', [
+            'id_curso' => '1'
+        ]);
     }
 
 }
