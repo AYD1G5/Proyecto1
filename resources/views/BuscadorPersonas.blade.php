@@ -13,9 +13,10 @@
 				<div class="col-xs-12">
 					<ul class="nav nav-tabs" style="margin-bottom: 15px;">
 					  	<li class="active"><a href="#list" data-toggle="tab"></a></li>
-                          <form class="navbar-form navbar-left" role="search">
+                        <form class="navbar-form navbar-left"  method="post">
+						@csrf
 						<div class="form-group">
-							<input type="text" class="form-control" placeholder="Persona">
+							<input type="text" class="form-control" placeholder="Persona" name="persona">
 						</div>
 						<button type="submit" class="btn btn-default">BUSCAR</button>
 						<input type="radio" name="busqueda" id="always" value="1" checked/>

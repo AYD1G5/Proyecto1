@@ -8,6 +8,12 @@ class BuscadorPersonasController extends Controller
 {
     //
     public function BuscadorPersonas(){
+        return view('BuscadorPersonas');
+    }
+    public function ListarPersonas(Request $request){
+        $persona = $request->input('busqueda');
+        $busqueda = $request->input('busqueda');
+        dd($persona);
         /*$personas=DB::table('users as u')
         ->where('u.id_rol', '=', '2')
         ->select('u.id as id', 'u.registro_academico as registro', 'u.nombre as nombre_persona',
@@ -30,4 +36,5 @@ class BuscadorPersonasController extends Controller
         return view('BuscadorPersonas')->with("arreglo",$personasCollection);*/
         return view('BuscadorPersonas');
     }
+
 }
