@@ -11,9 +11,10 @@
         <?php $variable = 0; ?>
 		<div class="container-fluid">
 			<div class="row">
-				<div class="col-xs-12">
-					<ul class="nav nav-tabs" style="margin-bottom: 15px;">
+			<ul class="nav nav-tabs" style="margin-bottom: 15px;">
 					  	<li class="active"><a href="#list" data-toggle="tab"></a></li>
+                       
+					</ul>	
 
 					{!!Form::open(array('url'=>'BuscadorCatedratico','method'=>'GET','autocomplete'=>'off','role'=>'search'))!!}
 						<form class="navbar-form navbar-left" role="search">
@@ -24,21 +25,10 @@
 						</form>
 					{{Form::close()}}
 					</ul>
-					<div id="myTabContent" class="tab-content">
-					  	<div class="tab-pane fade active in" id="list">
-							<div class="table-responsive">
-
-							</div>
-					  	</div>
-					</div>
 					<ul class="nav nav-tabs" style="margin-bottom: 15px;">
 					  	<li class="active"><a href="#list" data-toggle="tab"></a></li>
-						
-						
-					
-					
-						<div id="myTabContent" class="tab-content">
-					  	<div class="tab-pane fade active in" id="list">
+                       
+					</ul>
 							<div class="table-responsive">
 								<table class="table table-hover text-center">
 									<thead>
@@ -79,8 +69,6 @@
 
 
 						  
-							</div>
-					  	</div>
 					</div>
 				</div>
 			</div>
