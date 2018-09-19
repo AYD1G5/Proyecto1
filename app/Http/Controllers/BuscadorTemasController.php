@@ -11,4 +11,11 @@ class BuscadorTemasController extends Controller
         return view('BuscadorPersonas')->with("arreglo",$personasCollection);*/
         return view('BuscadorTemas');
     }
+    public function BuscadorTemas2(Request $request){
+        $tema = $request->input('tema');
+        dd($tema);
+        /*consulta temas
+        return view('BuscadorPersonas')->with("arreglo",$personasCollection);*/
+        return view('BuscadorTemas');
+    }
 }

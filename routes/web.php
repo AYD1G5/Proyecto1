@@ -103,6 +103,7 @@ Route::group( ['middleware' => 'auth' ], function()
     Route::get('/carga/{archivo}', 'Funciones@carga');
     Route::get('/cargamasiva', '@Funciones@cargamasiva');
     Route::get('/BuscadorTemas', 'BuscadorTemasController@BuscadorTemas');
+    Route::post('/BuscadorTemas', 'BuscadorTemasController@BuscadorTemas2');
 });
 
 
