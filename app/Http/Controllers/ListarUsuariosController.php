@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\User;
 
 class ListarUsuariosController extends Controller
 {
@@ -37,6 +38,15 @@ class ListarUsuariosController extends Controller
     //  die($cursos);
     return $tipo;
   }
+
+  public function ListarUsuarioOficiales(){
+    $Usuarios = User::where(array(
+        'id_rol' => 2
+      ))->get();
+    return view('ListarUsuarios')->with('Usuarios', $Usuarios);
+  }
+
+
 
     /**
      * Display a listing of the resource.

@@ -20,9 +20,7 @@ Route::get('/', function () {
 });
 
 //Se asigna esta ruta a la vista para listar usuarios, se desea ver que se le agreguen los componentes necesarios
-Route::get('/ListarUsuarios', function(){
-  return view('ListarUsuarios');
-});
+Route::get('/ListarUsuarios', 'ListarUsuariosController@ListarUsuarioOficiales');
 
 Route::get("/MiguelRuano", function(){
   return 'Hola';
