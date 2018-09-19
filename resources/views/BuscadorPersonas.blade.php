@@ -18,6 +18,10 @@
 							<input type="text" class="form-control" placeholder="Persona">
 						</div>
 						<button type="submit" class="btn btn-default">BUSCAR</button>
+						<input type="radio" name="busqueda" id="always" value="1" checked/>
+						<label for="always">Correo</label>
+						<input type="radio" name="busqueda" id="never" value="2"/>
+						<label for="never">Nombre</label>
 						</form>
 					</ul>
 					
