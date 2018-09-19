@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\URL;
 use DB;
 use Auth;
 use App\AppExterna;
@@ -41,10 +42,15 @@ class AppExternaController extends Controller
 
     public function EnviarWhatssApp(Request $request)
     {
-        $aa="https://api.whatsapp.com/send?phone=";
+        $whatssAppURL="https://api.whatsapp.com/send?phone=";
         
-        $puntual = $request->input('puntual');
-        
+        $texto0 = $request->input('texto');
+        $telefono = $request->input('Amigo');
+        $texto1=str_replace(" ", "%20", $texto0);
+
+
+return        redirect()->away($whatssAppURL.$telefono."&text=".$texto1);
+
         $AppExterna = [];
         if($this->ExisteApp())
         {
