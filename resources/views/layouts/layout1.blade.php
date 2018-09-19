@@ -140,6 +140,9 @@
 						<li>
 						<a href="{{url('/BuscadorGrupo')}}"><i class="zmdi zmdi-search"></i> Buscador Grupo</a>
 						</li>
+						<li>
+						<a href="{{url('/BuscadorTemas')}}"><i class="zmdi zmdi-search"></i> Buscador Temas</a>
+						</li>
 					</ul>
 				</li>
 				<li>
@@ -228,6 +231,15 @@
 				    </div>
 				    <div class="row-content">
 					<a href="{{url('/BuscadorGrupo')}}"><h4 class="list-group-item-heading">Buscador Grupo</h4></a>
+				    </div>
+			  	</div>
+			  	<div class="list-group-separator"></div>
+				  <div class="list-group-item">
+				    <div class="row-action-primary">
+				      	<i class="zmdi zmdi-search"></i>
+				    </div>
+				    <div class="row-content">
+					<a href="{{url('/BuscadorTemas')}}"><h4 class="list-group-item-heading">Buscador Temas</h4></a>
 				    </div>
 			  	</div>
 			  	<div class="list-group-separator"></div>
