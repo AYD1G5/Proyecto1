@@ -5,7 +5,21 @@
 			<div class="page-header">
 			  <h1 class="text-titles"><i class="zmdi zmdi-book zmdi-hc-fw"></i> <small>APP EXTERNA</small></h1>
 			</div>
-			<center><p class="lead">Listado de App</p></center>
+			<center>
+			<table style="width:70%;">
+				<tr style="width:100%;">
+					<td style="width:30%; ">
+						<img src="/img/AppExt_WhatsApp.png" alt="profile Pic" height="100" width="100">
+					</td>
+					<td style="width:35%; text-align: center;">
+						<h1 class="lead"><strong>WHATSSAPP<strong></h1>
+					</td>
+					<td style="width:30%; float: right;">
+						<img src="/img/AppExt_WhatsApp.png" alt="profile Pic" height="100" width="100">
+					</td>
+				</tr>
+			</table>
+			</center>	
 			<center> <ul class="nav nav-tabs" style="margin-bottom: 15px;width: 70%;">
 					  	    <li class="active"><a href="#list" data-toggle="tab"></a></li>                    
 					    </ul></center>
@@ -29,19 +43,19 @@
 								@csrf
 								<table class="table table-hover text-center">
 									<tbody>
-									<label>Seleccione amigo para enviar mensaje por WhatsApp</label>
-									<select name="Amigo">
+									<center><strong>Selecciona un Amigo con numero WhatsApp:</strong></center><br/>
+									<center><select name="Amigo">
 										@foreach ($usuariosVector as $elemento)
 										   <option value={{$elemento->telefono}}>{{$elemento->nombre}} {{$elemento->apellido}}</option> 
 										   @endforeach	
-									</select>
-									<br/><br/><br/>
-									<label>Mensaje</label>
+									</select></center>
+									<br/><br/>
+									<center><strong>Escribe un Mensaje:<strong></center>
 									<br/>
-									<input type="text" name="texto" id="textoID" width="500px"/>
+									<center><input type="text" name="texto" id="textoID" width="300px"/></center>
 									<br/><br/>
 									<div class="button"> 
-						            <button type="submit">Send your message</button>
+						            <center><button type="submit">Send your message</button></center>
 									</div>  
 									</tbody>
 								</table>
