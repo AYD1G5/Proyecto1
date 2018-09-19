@@ -105,7 +105,8 @@ Route::group( ['middleware' => 'auth' ], function()
     Route::post('/encuesta/{curso}/{catedratico}','Funciones@encuestas');
     Route::post('/masiva','Funciones@masiva');
     Route::get('/carga/{archivo}', 'Funciones@carga');
-    Route::get('/cargamasiva', '@Funciones@cargamasiva');
+    Route::get('/cargamasiva', 'Funciones@cargamasiva');
+    Route::get('/buscadores', 'Funciones@buscador');
 });
 
 
