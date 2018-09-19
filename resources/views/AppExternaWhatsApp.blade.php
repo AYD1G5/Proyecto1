@@ -23,22 +23,29 @@
 							</div>
 							<br>
 								<div style="padding: 0% 35% 35% 35%;">
+
+
+							<form  method="post">
+								@csrf
 								<table class="table table-hover text-center">
 									<tbody>
-  										@foreach ($AppExternaVector as $elemento)
-										  	<tr>										  	
-										  		<td>
-													<img src="{{URL::asset($elemento->ruta)}}" alt="profile Pic" height="200" width="200">
-												
-													<a href="{{url($elemento->linkexterno)}}" target="_blank" class="btn btn-success btn-raised btn-xs" style="height:50px;width: 90%; font-size: 25px;background-color: #212F3D;">{{$elemento->nombre}}</a>
-													<a href="{{url($elemento->linkexterno)}}" target="_blank" style="height:50px;width: 90%; font-size: 25px;">{{$elemento->descripcion}}</a>
-													<br/><br/><br/>
-												</td>
-											</tr>
-											
-										@endforeach	
+									<label>Seleccione amigo para enviar mensaje por WhatsApp</label>
+									<select name="Amigo">
+										@foreach ($usuariosVector as $elemento)
+										   <option value={{$elemento->telefono}}>{{$elemento->nombre}} {{$elemento->apellido}}</option> 
+										   @endforeach	
+									</select>
+									<br/><br/><br/>
+									<label>Mensaje</label>
+									<br/>
+									<input type="text" name="texto" id="textoID" width="500px"/>
+									<br/><br/>
+									<div class="button"> 
+						            <button type="submit">Send your message</button>
+									</div>  
 									</tbody>
 								</table>
+							</form>      
 								</div>
 					  	</div>
                           <div class="tab-pane fade" id="list1">

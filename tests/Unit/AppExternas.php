@@ -13,7 +13,7 @@ class AppExternas extends TestCase
     /**
      * Prueba creada para probar si esta retornando correctamente la vista \AppExterna
      */
-    public function testPerfilGrupo(){
+    public function testAppExterna(){
         $response = $this->call('POST', '/login', [
         'email' => 'willyslider@gmail.com',
         'password' => '12345678',

@@ -104,6 +104,9 @@ Route::group( ['middleware' => 'auth' ], function()
     Route::get('/cargamasiva', '@Funciones@cargamasiva');
     Route::get('/AppExterna', 'AppExternaController@AppExterna');
     Route::get('/AppExterna/Videochat', 'AppExternaController@videochat');
+    Route::get('/AppExterna/WhatssApp', 'AppExternaController@WhatssApp');
+    Route::post('/AppExterna/WhatssApp','AppExternaController@EnviarWhatssApp');
+
 });
 
 

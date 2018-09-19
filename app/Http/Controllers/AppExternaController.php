@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use DB;
 use Auth;
 use App\AppExterna;
+use App\User;
+
 
 class AppExternaController extends Controller
 {
@@ -22,6 +24,38 @@ class AppExternaController extends Controller
         
     }
 
+    public function WhatssApp()
+    {
+
+        $usuarios = [];
+       
+        $usuarios = DB::table('users')->get();
+        if($usuarios->isEmpty())
+        {
+            $usuarios = [];
+        }
+
+        return view('AppExternaWhatsApp')->with("usuariosVector",$usuarios);
+        
+    }
+
+    public function EnviarWhatssApp(Request $request)
+    {
+        $aa="https://api.whatsapp.com/send?phone=";
+        
+        $puntual = $request->input('puntual');
+        
+        $AppExterna = [];
+        if($this->ExisteApp())
+        {
+            $AppExterna = DB::table('AppExterna')->get();
+        }
+
+        return view('AppExterna')->with("AppExternaVector",$AppExterna);
+        
+    }
+
+    
     /**
      * Metodo para verificar si exiten Applicaciones externas avaladas
      * para usarse en la aplicación

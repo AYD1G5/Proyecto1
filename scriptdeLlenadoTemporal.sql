@@ -163,7 +163,7 @@ insert into comentario_Grupo(id_Tema_Grupo, id_estudiante,Texto) values (1,'3','
 
 use proyectoayd1;   
 insert into AppExterna(nombre, ruta, descripcion, linkexterno) values ('Messenger','/img/AppExt_Messenger.png', 'Envíanos un mensaje de Facebook', 'https://m.me/XYZ');
-insert into AppExterna(nombre, ruta, descripcion, linkexterno) values ('WhatsApp','/img/AppExt_WhatsApp.png', 'Envíanos un mensaje de WhatsApp', 'https://api.whatsapp.com/send?phone=50232043114');
+insert into AppExterna(nombre, ruta, descripcion, linkexterno) values ('WhatsApp','/img/AppExt_WhatsApp.png', 'Envíanos un mensaje de WhatsApp', 'https://api.whatsapp.com/send?phone=');
 insert into AppExterna(nombre, ruta, descripcion, linkexterno) values ('Google Calendario','/img/AppExt_Calendario.png', 'Calendario de Google', 'https://calendar.google.com/calendar/embed?src=ojsqf8dgos16kcrjbum79rhv0g%40group.calendar.google.com&ctz=America%2FGuatemala');
 insert into AppExterna(nombre, ruta, descripcion, linkexterno) values ('TokBox','/img/AppExt3_TokBox.png', 'Ingresa al VideoChat', '/AppExterna/Videochat');
 
