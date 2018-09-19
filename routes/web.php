@@ -102,6 +102,7 @@ Route::group( ['middleware' => 'auth' ], function()
     Route::post('/masiva','Funciones@masiva');
     Route::get('/carga/{archivo}', 'Funciones@carga');
     Route::get('/cargamasiva', '@Funciones@cargamasiva');
+    Route::get('/BuscadorTemas', 'BuscadorTemasController@BuscadorTemas');
 });
 
 
