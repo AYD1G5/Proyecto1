@@ -26,8 +26,8 @@ class BuscadorCatTest extends TestCase
     
       public function testBuscadorCatedratico(){
         $response = $this->call('POST', '/login', [
-        'email' => 'danielgarcia0976@gmail.com',
-        'password' => 'informatica10',
+        'email' => 'willyslider@gmail.com',
+        'password' => '12345678',
         '_token' => csrf_token()
         ]);
     $response = $this->get('/BuscadorCatedratico');
