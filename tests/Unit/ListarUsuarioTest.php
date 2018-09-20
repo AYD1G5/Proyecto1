@@ -64,22 +64,6 @@ class ListarUsuarioTest extends TestCase
         ]);
     }
 
-    //Test5 BD nos aseguramos que el catedratico si este asignado a dar este curso
-    public function testCatedraticoyCurso()
-    {
-        $this->assertDatabaseMissing('curso_catedratico', [
-            'id_curso_catedratico' => '1'
-        ]);
-    }
-
-    //Test6 BD nos aseguramos que los grupos tengan un usuario vigente     
-    public function testVerificarEstudianteGrupo()
-    {
-        $this->assertDatabaseHas('grupo', [
-            'id_Creador_Grupo' => '3'
-        ]);
-    }
-
 
 
 }

@@ -32,12 +32,6 @@ class ExampleTest extends TestCase
         ]);
     }
 
-    public function testExisteAsignacion()
-    { 
-        $this->assertDatabaseMissing('asignacion', [
-            'id_asignacion' => '2'
-        ]);
-    }
 
     public function testCarrera()
     { 
@@ -67,12 +61,6 @@ class ExampleTest extends TestCase
         ]);
     }
 
-    public function testCurso_catedratico()
-    { 
-        $this->assertDatabaseMissing('curso_catedratico', [
-            'id_curso_catedratico' => '1'
-        ]);
-    }
 
     public function testEscuela()
     { 

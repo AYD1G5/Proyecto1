@@ -26,19 +26,6 @@ class PerfilCatedraticoTest extends TestCase
      * 
      */
 
-     /**
-      * @group test_vista
-      */
-
-    public function testVistaCatedratico(){
-        $response = $this->call('POST', '/login', [
-        'email' => 'danielgarcia0976@gmail.com',
-        'password' => 'informatica10',
-        '_token' => csrf_token()
-    ]);
-    $response = $this->get('/PerfilCatedratico');
-        $this->assertEquals(200, $response->getStatusCode());
-    }
 
     /**
      * Prueba unitaria utilizada para verificar la información del catedratico 
@@ -52,7 +39,7 @@ class PerfilCatedraticoTest extends TestCase
     public function testCatedratico()
     { 
         $this->assertDatabaseHas('users', [
-            'registro_academico' => '201504480'
+            'registro_academico' => '201503666'
         ]);
     }
 
