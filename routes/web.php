@@ -123,7 +123,8 @@ Route::group( ['middleware' => 'auth' ], function()
     Route::get('/AppExterna/Videochat', 'AppExternaController@videochat');
     Route::get('/AppExterna/WhatssApp', 'AppExternaController@WhatssApp');
     Route::post('/AppExterna/WhatssApp','AppExternaController@EnviarWhatssApp');  
-    Route::get('/buscadores', 'Funciones@buscador');
+    Route::get('/buscadores', 'Funciones@buscador'); 
+    Route::get('/eliminarasignacion', 'AsignacionTempController@eliminarasignacion');
 });
 
 

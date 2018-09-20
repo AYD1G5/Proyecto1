@@ -428,4 +428,9 @@ class AsignacionTempController extends Controller
 
     }
 
+    public function eliminarAsignacion(){
+        Curso_asignacion::truncate();
+        Curso_asignacion_temporal::truncate();
+    }
+
 }
