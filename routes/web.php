@@ -96,7 +96,6 @@ Route::group( ['middleware' => 'auth' ], function()
     Route::get('/TemaGrupo/{id}', 'PerfilGrupoController@TemaGrupo');
     Route::get('/ComentarioGrupo/{id}', 'PerfilGrupoController@ComentarioGrupo');
     Route::get('/ReporteCursosGanados', 'CursosPorSemestreController@cursosganados');
-    Route::get('/BuscadorCurso', 'BuscadorCursoController@BuscadorCurso');
     Route::get('/PerfilCatedratico/{idCatedratico}/', 'PerfilCatController@datosCatedratico');
     Route::get('/encuesta/{curso}/{catedratico}', 'Funciones@encuesta');
     Route::post('/encuesta/{curso}/{catedratico}','Funciones@encuestas');
@@ -104,17 +103,22 @@ Route::group( ['middleware' => 'auth' ], function()
     Route::get('/carga/{archivo}', 'Funciones@carga');
     Route::get('/cargamasiva', '@Funciones@cargamasiva');
     //Buscadores
+    Route::get('/BuscadorCurso', 'BuscadorCursoController@BuscadorCurso');
     Route::get('/BuscadorPersonas', 'BuscadorPersonasController@BuscadorPersonas');
     Route::post('/BuscadorPersonas', 'BuscadorPersonasController@ListarPersonas');
     Route::get('/BuscadorCatedratico', 'BuscadorCatController@BuscadorCatedratico');
     Route::get('/BuscadorTemas', 'BuscadorTemasController@BuscadorTemas');
     Route::post('/BuscadorTemas', 'BuscadorTemasController@BuscadorTemas2');
+    Route::get('/BuscadorGrupo', 'BuscadorGrupoController@BuscadorGrupo');
+    Route::post('/BuscadorGrupo', 'BuscadorGrupoController@BuscadorGrupo2');
     //APP Externa
     Route::get('/AppExterna', 'AppExternaController@AppExterna');
     Route::get('/AppExterna/Videochat', 'AppExternaController@videochat');
     Route::get('/AppExterna/WhatssApp', 'AppExternaController@WhatssApp');
     Route::post('/AppExterna/WhatssApp','AppExternaController@EnviarWhatssApp');  
     
+
+   
 });
 
 
