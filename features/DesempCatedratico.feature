@@ -17,4 +17,4 @@ Feature: Encuesta de desempenio academico de los catedratico
       And I press "Login"
       And I am on "http://127.0.0.1:8000/encuesta/1/1"
       When I press "Send your message"
-      Then I should be on "http://127.0.0.1:8000/encuesta/1/1"
+      Then I should be on "http://127.0.0.1:8000/finalizarasignacion"
