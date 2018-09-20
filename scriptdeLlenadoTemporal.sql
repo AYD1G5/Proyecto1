@@ -49,9 +49,9 @@ insert into curso_pensum(id_curso, id_pensum, categoria, creditos, laboratoriobo
 insert into curso_pensum(id_curso, id_pensum, categoria, creditos, laboratorioboolean, restriccion, semestre) values (12, 1, 'Obligatorio', 5, 'Si', 0, 5);
 
 insert into users(registro_academico, nombre, apellido, id_rol, direccion, email, password) 
-	values ('201503666', 'Miguel Angel', 'Ruano Roca', 1, 'San Martin Jilotepeque', 'miguelruano35@gmail.com', 'miguel');
+	values ('201503666', 'Miguel Angel', 'Ruano Roca', 1, 'San Martin Jilotepeque', 'miguelruano35@gmail.com', '$2y$10$DpggUBPOq89wX7FbLN7HuOU4W1twl7Diz1hiypGYBnpMxP/1lzGPu');
 insert into users(registro_academico, nombre, apellido, id_rol, direccion, email, password) 
-	values ('201504480', 'Denilson', 'Argueta', 1, 'San Martin Jilotepeque', 'denilson3@gmail.com', 'denilson');
+	values ('201504480', 'Denilson', 'Argueta', 1, 'San Martin Jilotepeque', 'denilson3@gmail.com', '$2y$10$DpggUBPOq89wX7FbLN7HuOU4W1twl7Diz1hiypGYBnpMxP/1lzGPu');
 
 insert into curso_catedratico(id_curso_pensum, id_catedratico) values (1, 1);
 insert into curso_catedratico(id_curso_pensum, id_catedratico) values (2, 1);
@@ -159,3 +159,12 @@ insert into comentario_Grupo(id_Tema_Grupo, id_estudiante,Texto) values (1,'1','
 insert into comentario_Grupo(id_Tema_Grupo, id_estudiante,Texto) values (1,'2','Esta es una prueba de un comentario 5 tema 1 grupo 1');
 insert into comentario_Grupo(id_Tema_Grupo, id_estudiante,Texto) values (1,'3','Esta es una prueba de un comentario 6 tema 1 grupo 1');
 insert into comentario_Grupo(id_Tema_Grupo, id_estudiante,Texto) values (1,'3','Esta es una prueba de un comentario 7 tema 1 grupo 1');
+
+
+use proyectoayd1;   
+insert into AppExterna(nombre, ruta, descripcion, linkexterno) values ('Messenger','/img/AppExt_Messenger.png', 'Envíanos un mensaje de Facebook', 'https://m.me/XYZ');
+insert into AppExterna(nombre, ruta, descripcion, linkexterno) values ('WhatsApp','/img/AppExt_WhatsApp.png', 'Envíanos un mensaje de WhatsApp', 'https://api.whatsapp.com/send?phone=');
+insert into AppExterna(nombre, ruta, descripcion, linkexterno) values ('Google Calendario','/img/AppExt_Calendario.png', 'Calendario de Google', 'https://calendar.google.com/calendar/embed?src=ojsqf8dgos16kcrjbum79rhv0g%40group.calendar.google.com&ctz=America%2FGuatemala');
+insert into AppExterna(nombre, ruta, descripcion, linkexterno) values ('TokBox','/img/AppExt3_TokBox.png', 'Ingresa al VideoChat', '/AppExterna/Videochat');
+
+

@@ -17,10 +17,11 @@ class User extends Authenticatable
         'registro_academico',
         'nombre',
         'apellido',
-        'rol',
+        'id_rol',
         'direccion',
         'email', 
         'password',
+        'telefono',
     ];
 
     /**

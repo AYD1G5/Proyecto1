@@ -53,7 +53,7 @@
 											<th class="text-center">Codigo</th>
 											<th class="text-center">Nombre</th>
 											<th class="text-center">Estado</th>
-											<th class="text-center">Puntuación</th>
+											<th class="text-center">Dificultad</th>
 											<th class="text-center">Ver informacion</th>
 											<th class="text-center">Accion</th>
 										</tr>
@@ -111,7 +111,7 @@
 											<th class="text-center">Codigo</th>
 											<th class="text-center">Nombre</th>
 											<th class="text-center">Estado</th>
-											<th class="text-center">Puntuación</th>
+											<th class="text-center">Dificultad</th>
 											<th class="text-center">Ver informacion</th>
 											<th class="text-center">Accion</th>
 										</tr>
@@ -165,7 +165,7 @@
 											<th class="text-center">Codigo</th>
 											<th class="text-center">Nombre</th>
 											<th class="text-center">Estado</th>
-											<th class="text-center">Puntuación</th>
+											<th class="text-center">Dificultad</th>
 											<th class="text-center">Ver informacion</th>
 											<th class="text-center">Accion</th>
 										</tr>

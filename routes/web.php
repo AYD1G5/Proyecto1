@@ -16,17 +16,24 @@ use App\Encuesta;
 use App\ComentarioTema;
 
 Route::get('/', function () {
-    return view('welcome');
+    return \redirect("/cursosporsemestre/1/semestre");
 });
+
+//Se asigna esta ruta a la vista para listar usuarios, se desea ver que se le agreguen los componentes necesarios
+Route::get('/ListarUsuarios', 'ListarUsuariosController@ListarUsuarioOficiales');
 
 Route::get("/MiguelRuano", function(){
   return 'Hola';
 });
 
+Route::get("/welcome", function(){
+    return \redirect("/cursosporsemestre/1/semestre");
+  });
+
 Route::get('/pruebaUsuariosCursoCarrera/{id_curso}/{id_carrera}/{id_usuario}', function($id_curso, $id_carrera, $id_usuario){
     return 'Usuario: '.$id_usuario.' Curso: '.$id_curso.' Carrera: '.$id_carrera;
 });
-  
+
 
  //------------------ Rutas Perfil Tema ------------
  Route::group( ['middleware' => 'auth' ], function()
@@ -88,7 +95,7 @@ Route::group( ['middleware' => 'auth' ], function()
     Route::get('/puntearcurso/{idcurso}/{noestrellas}', 'AsignacionTempController@puntear');
     Route::get('/punteocurso/{idcurso}/{nota}', 'AsignacionTempController@punteocurso');
     Route::post('/notacurso/{id}', 'AsignacionTempController@notacurso')->name('notacurso');
-    Route::post('/terminarasignacion', 'AsignacionTempController@terminarasignacion');    
+    Route::post('/terminarasignacion', 'AsignacionTempController@terminarasignacion');
     Route::get('/curso/material/listarmaterialdeapoyo/{id_curso_pensum}/','MaterialDeApoyoController@listarMaterial');
     Route::post('/curso/material/subirmaterialdeapoyo/{id_curso_pensum}/','MaterialDeApoyoController@subirArchivo');
     Route::get('/curso/material/descargarmaterialdeapoyo/{id_material}/','MaterialDeApoyoController@descargarArchivo');
@@ -102,6 +109,21 @@ Route::group( ['middleware' => 'auth' ], function()
     Route::post('/masiva','Funciones@masiva');
     Route::get('/carga/{archivo}', 'Funciones@carga');
     Route::get('/cargamasiva', '@Funciones@cargamasiva');
+    //Buscadores
+    Route::get('/BuscadorCurso', 'BuscadorCursoController@BuscadorCurso');
+    Route::get('/BuscadorPersonas', 'BuscadorPersonasController@BuscadorPersonas');
+    Route::post('/BuscadorPersonas', 'BuscadorPersonasController@ListarPersonas');
+    Route::get('/BuscadorCatedratico', 'BuscadorCatController@BuscadorCatedratico');
+    Route::get('/BuscadorTemas', 'BuscadorTemasController@BuscadorTemas');
+    Route::post('/BuscadorTemas', 'BuscadorTemasController@BuscadorTemas2');
+    Route::get('/BuscadorGrupo', 'BuscadorGrupoController@BuscadorGrupo');
+    Route::post('/BuscadorGrupo', 'BuscadorGrupoController@BuscadorGrupo2');
+    //APP Externa
+    Route::get('/AppExterna', 'AppExternaController@AppExterna');
+    Route::get('/AppExterna/Videochat', 'AppExternaController@videochat');
+    Route::get('/AppExterna/WhatssApp', 'AppExternaController@WhatssApp');
+    Route::post('/AppExterna/WhatssApp','AppExternaController@EnviarWhatssApp');  
+    Route::get('/buscadores', 'Funciones@buscador');
 });
 
 
@@ -111,4 +133,3 @@ Route::get('/chat', 'ChatController@index')->name('chat');
 
 Route::get('/message', 'MessageController@index')->name('message');
 Route::post('/message', 'MessageController@store')->name('message.store');
-

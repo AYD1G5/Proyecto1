@@ -90,7 +90,7 @@
 			<!-- SideBar Menu -->
 			<ul class="list-unstyled full-box dashboard-sideBar-Menu">
 				<li>
-					<a href="{{url('/mostrarasignaciontemporal')}}">
+				<a href="{{url('/cursosporsemestre/1/semestre')}}">
 						<i class="zmdi zmdi-view-dashboard zmdi-hc-fw"></i> VER CURSOS ASIGNADOS
 					</a>
 				</li>
@@ -140,10 +140,10 @@
 							<a href="{{url('/ReporteCursosGanados')}}"><i class="zmdi zmdi-account zmdi-hc-fw"></i> Cursos Aprobados</a>
 						</li>
 						<li>
-							<a href="teacher.html"><i class="zmdi zmdi-male-alt zmdi-hc-fw"></i> Teacher</a>
+						<a href="{{url('/ReporteCursosObligaPendientes')}}"><i class="zmdi zmdi-account zmdi-hc-fw"></i> Cursos Obligatorios Pendientes</a>
 						</li>
 						<li>
-							<a href="student.html"><i class="zmdi zmdi-face zmdi-hc-fw"></i> Student</a>
+						<a href="{{url('/REncuestaCatedraticos/1/1')}}"><i class="zmdi zmdi-account zmdi-hc-fw"></i> Encuesta Catedraticos</a>
 						</li>
 						<li>
 							<a href="representative.html"><i class="zmdi zmdi-male-female zmdi-hc-fw"></i> Representative</a>
@@ -152,14 +152,23 @@
 				</li>
 				<li>
 					<a href="#!" class="btn-sideBar-SubMenu">
-						<i class="zmdi zmdi-card zmdi-hc-fw"></i> Payments <i class="zmdi zmdi-caret-down pull-right"></i>
+						<i class="zmdi zmdi-search"></i> Buscadores <i class="zmdi zmdi-caret-down pull-right"></i>
 					</a>
 					<ul class="list-unstyled full-box">
 						<li>
-							<a href="registration.html"><i class="zmdi zmdi-money-box zmdi-hc-fw"></i> Registration</a>
+							<a href="{{url('/BuscadorPersonas')}}"><i class="zmdi zmdi-search"></i> Buscador Personas</a>
 						</li>
 						<li>
-							<a href="payments.html"><i class="zmdi zmdi-money zmdi-hc-fw"></i> Payments</a>
+						<a href="{{url('/BuscadorCatedratico')}}"><i class="zmdi zmdi-search"></i> Buscador Catedraticos</a>
+						</li>
+						<li>
+						<a href="{{url('/BuscadorCurso')}}"><i class="zmdi zmdi-search"></i> Buscador Cursos</a>
+						</li>
+						<li>
+						<a href="{{url('/BuscadorGrupo')}}"><i class="zmdi zmdi-search"></i> Buscador Grupo</a>
+						</li>
+						<li>
+						<a href="{{url('/BuscadorTemas')}}"><i class="zmdi zmdi-search"></i> Buscador Temas</a>
 						</li>
 					</ul>
 				</li>
@@ -187,13 +196,12 @@
 					<a href="#!" class="btn-menu-dashboard"><i class="zmdi zmdi-more-vert"></i></a>
 				</li>
 				<li>
-					<a href="#!" class="btn-Notifications-area">
+					<a href="/chat" class="btn-Notifications">
 						<i class="zmdi zmdi-notifications-none"></i>
-						<span class="badge">7</span>
 					</a>
 				</li>
 				<li>
-					<a href="#!" class="btn-search">
+					<a href="#!" class="btn-Notifications-area">
 						<i class="zmdi zmdi-search"></i>
 					</a>
 				</li>
@@ -208,59 +216,62 @@
 	</section>
     </div>
 
-    <!-- Notifications area -->
+     <!--Notifications area -->
 	<section class="full-box Notifications-area">
 		<div class="full-box Notifications-bg btn-Notifications-area"></div>
 		<div class="full-box Notifications-body">
-			<div class="Notifications-body-title text-titles text-center">
-				Notifications <i class="zmdi zmdi-close btn-Notifications-area"></i>
+			<div class="Notifications-body-title text-titles text-center" style="background-color:#343a40">
+				Buscadores <i class="zmdi zmdi-close btn-Notifications-area"></i>
 			</div>
 			<div class="list-group">
 			  	<div class="list-group-item">
+				  
 				    <div class="row-action-primary">
-				      	<i class="zmdi zmdi-alert-triangle"></i>
+				      	<i class="zmdi zmdi-search"></i>
 				    </div>
 				    <div class="row-content">
-				      	<div class="least-content">17m</div>
-				      	<h4 class="list-group-item-heading">Tile with a label</h4>
-				      	<p class="list-group-item-text">Donec id elit non mi porta gravida at eget metus.</p>
-				    </div>
+					<a href="{{url('/BuscadorPersonas')}}"><h4 class="list-group-item-heading">Buscador Personas</h4></a>
+					</div>
+					
 			  	</div>
 			  	<div class="list-group-separator"></div>
 			  	<div class="list-group-item">
 				    <div class="row-action-primary">
-				      	<i class="zmdi zmdi-alert-octagon"></i>
+				      	<i class="zmdi zmdi-search"></i>
 				    </div>
 				    <div class="row-content">
-				      	<div class="least-content">15m</div>
-				      	<h4 class="list-group-item-heading">Tile with a label</h4>
-				      	<p class="list-group-item-text">Donec id elit non mi porta gravida at eget metus.</p>
+					<a href="{{url('/BuscadorCatedratico')}}"><h4 class="list-group-item-heading">Buscador Catedraticos</h4></a>
 				    </div>
 			  	</div>
 			  	<div class="list-group-separator"></div>
-				<div class="list-group-item">
+				  <div class="list-group-item">
 				    <div class="row-action-primary">
-				      	<i class="zmdi zmdi-help"></i>
+				      	<i class="zmdi zmdi-search"></i>
 				    </div>
 				    <div class="row-content">
-				      	<div class="least-content">10m</div>
-				      	<h4 class="list-group-item-heading">Tile with a label</h4>
-				      	<p class="list-group-item-text">Maecenas sed diam eget risus varius blandit.</p>
-				    </div>
-				</div>
-			  	<div class="list-group-separator"></div>
-			  	<div class="list-group-item">
-				    <div class="row-action-primary">
-				      	<i class="zmdi zmdi-info"></i>
-				    </div>
-				    <div class="row-content">
-				      	<div class="least-content">8m</div>
-				      	<h4 class="list-group-item-heading">Tile with a label</h4>
-				      	<p class="list-group-item-text">Maecenas sed diam eget risus varius blandit.</p>
+					<a href="{{url('/BuscadorCurso')}}"><h4 class="list-group-item-heading">Buscador Cursos</h4></a>
 				    </div>
 			  	</div>
+			  	<div class="list-group-separator"></div>
+				  <div class="list-group-item">
+				    <div class="row-action-primary">
+				      	<i class="zmdi zmdi-search"></i>
+				    </div>
+				    <div class="row-content">
+					<a href="{{url('/BuscadorGrupo')}}"><h4 class="list-group-item-heading">Buscador Grupo</h4></a>
+				    </div>
+			  	</div>
+			  	<div class="list-group-separator"></div>
+				  <div class="list-group-item">
+				    <div class="row-action-primary">
+				      	<i class="zmdi zmdi-search"></i>
+				    </div>
+				    <div class="row-content">
+					<a href="{{url('/BuscadorTemas')}}"><h4 class="list-group-item-heading">Buscador Temas</h4></a>
+				    </div>
+			  	</div>
+			  	<div class="list-group-separator"></div>
 			</div>
-
 		</div>
 	</section>
 

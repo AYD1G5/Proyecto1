@@ -160,4 +160,7 @@ class Funciones extends Controller
     public function cargamasiva(){
         return view('subir');
     }
+    public function buscador(){
+        return view('Buscadores');
+    }
 }

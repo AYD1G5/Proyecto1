@@ -8,6 +8,7 @@ Vue.component('chat-messages-component', require('./components/ChatMessageCompon
 Vue.component('chat-form-component', require('./components/ChatFormComponent.vue'));
 Vue.component('message-component', require('./components/MessageComponent.vue'));
 
+
 const app = new Vue({
     el: '#app'
 });
