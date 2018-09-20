@@ -83,12 +83,15 @@
                       {!! Form::close() !!}
                   </td>
                   <td>
+                    <p style="display:none;">
+                    {{$curso->no_estrellas}}estrellas
+                    </p>
                     <?php $tamano=5; ?>
                     @for ($i = 1; $i <= $tamano; $i++)
                         @if ($i <= $curso->no_estrellas)
-                          <a href="{{url('puntearcurso/'.$curso->id_curso_asig_temp.'/'.$i)}}"><img src="{{ URL::asset('img/full.png') }}" alt="UserIcon"></a>        
+                          <a href="{{url('puntearcurso/'.$curso->id_curso_asig_temp.'/'.$i)}}" id="estrellallena{{$i}}"><img src="{{ URL::asset('img/full.png') }}" id="estrellallena"></a>        
                         @else
-                          <a href="{{url('puntearcurso/'.$curso->id_curso_asig_temp.'/'.$i)}}"><img src="{{ URL::asset('img/empty.png') }}" alt="UserIcon"></a>        
+                          <a href="{{url('puntearcurso/'.$curso->id_curso_asig_temp.'/'.$i)}}" id="estrellavacia{{$i}}"><img src="{{ URL::asset('img/empty.png') }}" id="estrellavacia"></a>        
                         @endif
                     @endfor
                   </td>
