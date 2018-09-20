@@ -26,29 +26,9 @@ class ReporteDesempenioCatedraticosTest extends TestCase
         $this->assertTrue(true);
     }
 
-    //EN ESTE METODO SE REALIZA UNA PRUEBA ENTRE LA RUTA Y EL CONTROLADOR PARA PODER
-    //RETORNAR UNA VISTA.
-    public function testEncuestaCatedraticos(){
-    $response = $this->call('POST', '/login', [
-    'email' => 'willyslider@gmail.com',
-    'password' => '12345678',
-    '_token' => csrf_token()
-    ]);
-    $response = $this->get('/ReporteEncuestaCatedraticos');
-        $this->assertEquals(200, $response->getStatusCode());
-    }
+   
 
-    public function testBD(){
-    $response = $this->call('POST', '/login', [
-    'email' => 'willyslider@gmail.com',
-    'password' => '12345678',
-    '_token' => csrf_token()
-    ]);
-      //$response = $this->visit('/cursosporsemestre/1/semestre');
-      $response = $this->get('/ReporteEncuestaCatedraticos');
-      $this->assertEquals(200, $response->getStatusCode());
-    }
-
+   
 
 /*
 *

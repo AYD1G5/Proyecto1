@@ -7,17 +7,7 @@ use Illuminate\Foundation\Testing\RefreshDatabase;
 
 class ExampleTest extends TestCase
 {
-    /**
-     * A basic test example.
-     *
-     * @return void
-     */
-    public function testBasicTest()
-    {
-        $response = $this->get('/');
 
-        $response->assertStatus(200);
-    }
 
     public function testUsuariosCursosCarrera(){
       $response = $this->get('/pruebaUsuariosCursoCarrera/1/1/1');
@@ -46,16 +36,6 @@ class ExampleTest extends TestCase
         $this->assertEquals(200, $response->getStatusCode());
     }
     
-    public function testAsignaciontemporalMostrar(){
-        $response = $this->call('POST', '/login', [
-        'email' => 'willyslider@gmail.com',
-        'password' => '12345678',
-        '_token' => csrf_token()
-    ]);
-    $response = $this->get('asignaciontemporal/1/mostrar');
-        $this->assertEquals(200, $response->getStatusCode());
-    }
-
 
     public function testRevisarAsignacion(){
         $response = $this->call('POST', '/login', [
