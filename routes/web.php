@@ -16,7 +16,7 @@ use App\Encuesta;
 use App\ComentarioTema;
 
 Route::get('/', function () {
-    return view('welcome');
+    return \redirect("/cursosporsemestre/1/semestre");
 });
 
 //Se asigna esta ruta a la vista para listar usuarios, se desea ver que se le agreguen los componentes necesarios
@@ -25,6 +25,10 @@ Route::get('/ListarUsuarios', 'ListarUsuariosController@ListarUsuarioOficiales')
 Route::get("/MiguelRuano", function(){
   return 'Hola';
 });
+
+Route::get("/welcome", function(){
+    return \redirect("/cursosporsemestre/1/semestre");
+  });
 
 Route::get('/pruebaUsuariosCursoCarrera/{id_curso}/{id_carrera}/{id_usuario}', function($id_curso, $id_carrera, $id_usuario){
     return 'Usuario: '.$id_usuario.' Curso: '.$id_curso.' Carrera: '.$id_carrera;
@@ -119,9 +123,7 @@ Route::group( ['middleware' => 'auth' ], function()
     Route::get('/AppExterna/Videochat', 'AppExternaController@videochat');
     Route::get('/AppExterna/WhatssApp', 'AppExternaController@WhatssApp');
     Route::post('/AppExterna/WhatssApp','AppExternaController@EnviarWhatssApp');  
-    
-
-   
+    Route::get('/buscadores', 'Funciones@buscador');
 });
 
 

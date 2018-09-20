@@ -17,6 +17,7 @@ class CreateCursoTable extends Migration
             $table->increments('id_curso');
             $table->integer('codigo_curso')->unsigned();
             $table->string('nombre_curso');
+            $table->text('descripcion')->nullable();
             $table->integer('id_escuela')->unsigned();
             $table->foreign('id_escuela')->references('id_escuela')->on('escuela');
             $table->integer('id_area')->unsigned();

@@ -62,7 +62,7 @@
               <th style="width: 2%"> Creditos </th>
               <th style="width: 2%"> Restriccion </th>
               <th style="width: 3%"> Nota Curso </th>
-              <th style="width: 15%"> Estrellas Curso</th>
+              <th style="width: 15%"> Dificultad</th>
               <th style="width: 10%"> Catedratico </th>
 
               <th style="width: 2%"> Encuesta Profesor</th>
