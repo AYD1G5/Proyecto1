@@ -12,4 +12,11 @@ class BuscadorGrupoController extends Controller
         return view('BuscadorGrupo')->with("arreglo",$grupoCollection);*/
         return view('BuscadorGrupo');
     }
+    public function BuscadorGrupo2(Request $request){
+        $grupo = $request->input('grupo');
+        dd($grupo);
+        /*consulta Grupo
+        return view('BuscadorGrupo')->with("arreglo",$grupoCollection);*/
+        return view('BuscadorGrupo');
+    }
 }

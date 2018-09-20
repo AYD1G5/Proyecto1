@@ -104,6 +104,7 @@ Route::group( ['middleware' => 'auth' ], function()
     Route::get('/cargamasiva', '@Funciones@cargamasiva');
 
     Route::get('/BuscadorGrupo', 'BuscadorGrupoController@BuscadorGrupo');
+    Route::post('/BuscadorGrupo', 'BuscadorGrupoController@BuscadorGrupo2');
 });
 
 
