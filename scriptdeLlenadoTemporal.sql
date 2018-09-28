@@ -85,6 +85,8 @@ insert into curso_prerequisito(id_curso_pensum, id_curso) values (12, 4);
 insert into curso_prerequisito(id_curso_pensum, id_curso) values (12, 5);
 
 
+INSERT INTO `temas` ( `nombre_tema`, `descripcion`, `creador_id`, `curso_id`, `created_at`, `updated_at`) VALUES ( 'Tema #1', 'Este es el tema #1', '3', '1', '2018-09-28 00:00:00', '2018-09-28 00:00:00');
+
 -- crear un usuario con la pagina
 
 use proyectoayd1;   
