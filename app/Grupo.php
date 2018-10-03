@@ -21,6 +21,4 @@ class Grupo extends Model
 }
 
 
-
-$table->increments('');
             

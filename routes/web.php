@@ -125,6 +125,8 @@ Route::group( ['middleware' => 'auth' ], function()
     Route::post('/AppExterna/WhatssApp','AppExternaController@EnviarWhatssApp');  
     Route::get('/buscadores', 'Funciones@buscador'); 
     Route::get('/eliminarasignacion', 'AsignacionTempController@eliminarasignacion');
+    Route::get('/CrearGrupo', 'CrearGrupoController@CrearGrupo'); 
+
 });
 
 
