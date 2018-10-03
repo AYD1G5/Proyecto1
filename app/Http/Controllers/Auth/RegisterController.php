@@ -106,4 +106,54 @@ class RegisterController extends Controller
         $roles=Rol::all();
         return view('auth.register', ['pensums'=>$pensums, 'roles'=>$roles]);
     }
+
+    /**
+     * AGREGAR USUARIO DE TIPO CATEDRATICO
+     */
+    public function AgregarUsuarioCatedratico(){
+
+    }
+     /**
+      * AGREGAR USUARIO DE TIPO ESTUDIANTE
+      */
+      public function AgregarUsuarioEstudiante(){
+
+    }
+      /**
+       * VERIFICAR EXISTENCIA USUARIO EN BD
+       */
+      
+      public function ExisteUsuarioPlataforma(){
+
+    }
+   
+     
+      /**
+       * VERIFICAR SI LA CONFIRMACION DE PASSWORD COINCIDE CON EL PASSWORD INICIAL
+       */
+      public function ConfirmarPassword(){
+
+      }
+
+      /**
+       * VERIFICAR QUE EL CORREO PROPORCIONADO CUMPLA CON EL FORMATO PARA EMAIL
+       */
+      public function VerificarFormatoCorreo(){
+          
+      }
+
+      /**
+       * VERIFICAR QUE EL CORREO DE CONFIRMACION HAYA SIDO APROBADO.
+       */
+      public function VerificarConfirmacionCorreo(){
+          
+      }
+
+      /**
+       * METODO PARA ENVIAR CORREOS DE CONFIRMACION
+       */
+      public function EnviarCorreoConfirmacion(){
+          
+      }
+
 }
