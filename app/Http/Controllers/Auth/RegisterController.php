@@ -72,28 +72,12 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        $salida = User::create([
-            'registro_academico' => $data['registro_academico'],
-            'nombre' => $data['nombre'],
-            'apellido' => $data['apellido'],
-            'email' => $data['email'],
-            'id_rol' => $data['id_rol'],
-            'direccion' => $data['direccion'],      
-            'password' => Hash::make($data['password']),
-        ]);
-        if(!$salida->errors){
-            Pensum_estudiante::create([
-                'id_pensum' => $data['pensum_estudiante'],
-                'id_estudiante' =>$salida->id,
-            ]);
-            Asignacion_temporal::create([
-                'id_pensum' => $data['pensum_estudiante'],
-                'id_estudiante' =>$salida->id,
-            ]);
+        if($data['id_rol'] == 1){
+            return $this->agregarUsuarioCatedratico($data);
+        }else{
+            return $this->agregarUsuarioEstudiante($data);
         }
-        return $salida;
     }
-
 
     /**
      * Show the application registration form.
@@ -108,52 +92,80 @@ class RegisterController extends Controller
     }
 
     /**
+     * AGREGAR USUARIO GENERAL
+     */
+    public function agregarUsuario($registro_academico, $nombre, $apellido, $email, $id_rol, $direccion, $password, $pensum_estudiante){
+        $salida = User::create([
+            'registro_academico' => $registro_academico,
+            'nombre' => $nombre,
+            'apellido' => $apellido,
+            'email' => $email,
+            'id_rol' => $id_rol,
+            'direccion' => $direccion,      
+            'password' => Hash::make($password),
+        ]);
+        if(!$salida->errors){
+            Pensum_estudiante::create([
+                'id_pensum' => $pensum_estudiante,
+                'id_estudiante' =>$salida->id,
+            ]);
+            Asignacion_temporal::create([
+                'id_pensum' => $pensum_estudiante,
+                'id_estudiante' =>$salida->id,
+            ]);
+        }
+        return $salida;
+    }
+    /**
      * AGREGAR USUARIO DE TIPO CATEDRATICO
      */
-    public function AgregarUsuarioCatedratico(){
-
+    public function agregarUsuarioCatedratico(array $data){
+        return $this->agregarUsuario($data['registro_academico'], $data['nombre'], $data['apellido'], 
+            $data['email'], 1, $data['direccion'], $data['password'], $data['pensum_estudiante']);
     }
      /**
       * AGREGAR USUARIO DE TIPO ESTUDIANTE
       */
-      public function AgregarUsuarioEstudiante(){
-
+    public function agregarUsuarioEstudiante(array $data){
+        return $this->agregarUsuario($data['registro_academico'], $data['nombre'], $data['apellido'], 
+            $data['email'], 2, $data['direccion'], $data['password'], $data['pensum_estudiante']);
     }
       /**
        * VERIFICAR EXISTENCIA USUARIO EN BD
        */
       
-      public function ExisteUsuarioPlataforma(){
-
+    public function existeUsuarioPlataforma($email){
+        $usuario = DB::table('users as u')
+        ->where('u.email', '=', $email)
+        ->get();
+        if(count($usuario)>0){
+            return true;
+        }else{
+            return false;
+        }
     }
    
      
       /**
        * VERIFICAR SI LA CONFIRMACION DE PASSWORD COINCIDE CON EL PASSWORD INICIAL
        */
-      public function ConfirmarPassword(){
-
-      }
+    public function confirmarPassword($password1, $password2){
+        if($password1 == $password2){
+            return true;
+        }else{
+            return false;
+        }
+    }
 
       /**
        * VERIFICAR QUE EL CORREO PROPORCIONADO CUMPLA CON EL FORMATO PARA EMAIL
        */
-      public function VerificarFormatoCorreo(){
-          
-      }
-
-      /**
-       * VERIFICAR QUE EL CORREO DE CONFIRMACION HAYA SIDO APROBADO.
-       */
-      public function VerificarConfirmacionCorreo(){
-          
-      }
-
-      /**
-       * METODO PARA ENVIAR CORREOS DE CONFIRMACION
-       */
-      public function EnviarCorreoConfirmacion(){
-          
-      }
+    public function verificarFormatoCorreo($correo){
+        if(!filter_var($email, FILTER_VALIDATE_EMAIL)){
+            return false;
+        }else{
+            return true;
+        }
+    }
 
 }

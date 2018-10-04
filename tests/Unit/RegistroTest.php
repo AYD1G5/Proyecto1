@@ -55,13 +55,5 @@ class RegistroTest extends TestCase
       public function testVerificarFormatoCorreo(){
           
       }
-
-      /**
-       * Prueba unitaria para verificar que el usuario registrado haya
-       * confirmado el correo electronico
-       */
-      public function testVerificarConfirmacionCorreo(){
-          
-      }
     
 }
