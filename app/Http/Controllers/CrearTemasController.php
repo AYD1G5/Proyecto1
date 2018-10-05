@@ -7,4 +7,13 @@ use Illuminate\Http\Request;
 class CrearTemasController extends Controller
 {
     //
+
+    public function index()
+    {      
+
+        
+        return view('CrearTemas');
+    }
+
+
 }
