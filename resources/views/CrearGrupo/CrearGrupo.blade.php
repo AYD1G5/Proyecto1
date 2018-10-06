@@ -23,15 +23,78 @@
 							</div>
 							<br>
 								<div style="padding: 0% 35% 35% 35%;">
-								<table class="table table-hover text-center">
-									<tbody>
-									<div  class="side">
-        <form  method="post">
-            @csrf
-			<center><p class="lead">Imgresar los datos del Grupo Nuevo</p></center>
-		</form>
-									</tbody>
-								</table>
+									<table class="table table-hover text-center">
+										<thead>
+											<tr>
+												<th class="text-center">Codigo Grupo</th>
+	                      <th class="text-center">Cantidad Estudiantes</th>
+												<th class="text-center">Nombre Grupo</th>
+												<th class="text-center">Estado Grupo</th>
+											</tr>
+										</thead>
+										<tbody>
+											<tr>
+	                      <td>1</td>
+	                      <td>0</td>
+		  									<td>Grupo Prueba 1</td>
+												<td>INACTIVO</td>
+	                    </tr>
+												<tr>
+		                      <td>2</td>
+		                      <td>0</td>
+			  									<td>Grupo Prueba 2</td>
+													<td>ACTIVO</td>
+		                    </tr>
+													<tr>
+			                      <td>3</td>
+			                      <td>0</td>
+				  									<td>Grupo Prueba 3</td>
+														<td>INACTIVO</td>
+			                    </tr>
+														<tr>
+				                      <td>4</td>
+				                      <td>0</td>
+					  									<td>Grupo Prueba 4</td>
+															<td>ACTIVO</td>
+				                    </tr>
+															<tr>
+					                      <td>5</td>
+					                      <td>0</td>
+						  									<td>Grupo Prueba 5</td>
+																<td>INACTIVO</td>
+					                    </tr>
+																<tr>
+						                      <td>6</td>
+						                      <td>0</td>
+							  									<td>Grupo Prueba 6</td>
+																	<td>ACTIVO</td>
+						                    </tr>
+																	<tr>
+							                      <td>7</td>
+							                      <td>0</td>
+								  									<td>Grupo Prueba 7</td>
+																		<td>INACTIVO</td>
+							                    </tr>
+																		<tr>
+								                      <td>8</td>
+								                      <td>0</td>
+									  									<td>Grupo Prueba 8</td>
+																			<td>ACTIVO</td>
+								                    </tr>
+																			<tr>
+									                      <td>9</td>
+									                      <td>0</td>
+										  									<td>Grupo Prueba 9</td>
+																				<td>INACTIVO</td>
+									                    </tr>
+																				<tr>
+										                      <td>10</td>
+										                      <td>0</td>
+											  									<td>Grupo Prueba 10</td>
+																					<td>ACTIVO</td>
+										                    </tr>
+										</tbody>
+									</table>
 								</div>
 					  	</div>
                           <div class="tab-pane fade" id="list1">
