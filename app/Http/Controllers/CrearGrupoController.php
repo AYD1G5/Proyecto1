@@ -7,7 +7,10 @@ use Illuminate\Http\Request;
 class CrearGrupoController extends Controller
 {
     //este metodo lo utilizaremos para realizar la logica de la creacion de grupos dentro de la aplicacion
-    public function CrearGrupo(){
+    public function CrearGrupo()
+    {
+        
+        return view('CrearGrupo.CrearGrupo');
 
     }
 
@@ -18,7 +21,8 @@ class CrearGrupoController extends Controller
      */
     public function index()
     {
-        //
+        
+        
     }
 
     /**

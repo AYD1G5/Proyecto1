@@ -17,12 +17,12 @@ class CrearGrupoTest extends TestCase
      */
     public function testCrearGrupo(){
         $user=new User();
-        $user->registro_academico='55555';
+        $user->registro_academico='55555-1';
         $user->nombre='Name';
         $user->apellido='LastName';
         $user->id_rol='1';
         $user->direccion='Guatemala';
-        $user->email='Name@gmail.com';
+        $user->email='Name1@gmail.com';
         $user->password=Hash::make('12345678');
         $user->telefono='777777';
         $user->save();
@@ -44,12 +44,12 @@ class CrearGrupoTest extends TestCase
      */
     public function testVerTextoCrearGrupo(){
         $user=new User();
-        $user->registro_academico='55555';
+        $user->registro_academico='55555-2';
         $user->nombre='Name';
         $user->apellido='LastName';
         $user->id_rol='1';
         $user->direccion='Guatemala';
-        $user->email='Name@gmail.com';
+        $user->email='Name2@gmail.com';
         $user->password=Hash::make('12345678');
         $user->telefono='777777';
         $user->save();
@@ -72,12 +72,12 @@ class CrearGrupoTest extends TestCase
     public function testCrearGrupoDB()
     {
         $user=new User();
-        $user->registro_academico='55555';
+        $user->registro_academico='55555-3';
         $user->nombre='Name';
         $user->apellido='LastName';
         $user->id_rol='1';
         $user->direccion='Guatemala';
-        $user->email='Name@gmail.com';
+        $user->email='Name3@gmail.com';
         $user->password=Hash::make('12345678');
         $user->telefono='777777';
         $user->save();
@@ -106,7 +106,7 @@ class CrearGrupoTest extends TestCase
         $user->apellido='LastName';
         $user->id_rol='1';
         $user->direccion='Guatemala';
-        $user->email='Name@gmail.com';
+        $user->email='Name4@gmail.com';
         $user->password=Hash::make('12345678');
         $user->telefono='777777';
         $user->save();
@@ -117,7 +117,7 @@ class CrearGrupoTest extends TestCase
         $user1->apellido='LastName';
         $user1->id_rol='1';
         $user1->direccion='Guatemala';
-        $user1->email='Name@gmail.com';
+        $user1->email='Name5@gmail.com';
         $user1->password=Hash::make('12345678');
         $user1->telefono='12345678';
         $user1->save();
@@ -128,7 +128,7 @@ class CrearGrupoTest extends TestCase
         $user2->apellido='LastName';
         $user2->id_rol='1';
         $user2->direccion='Guatemala';
-        $user2->email='Name@gmail.com';
+        $user2->email='Name6@gmail.com';
         $user2->password=Hash::make('12345678');
         $user2->telefono='12345678';
         $user2->save();
@@ -159,7 +159,7 @@ class CrearGrupoTest extends TestCase
        $user->apellido='LastName';
        $user->id_rol='1';
        $user->direccion='Guatemala';
-       $user->email='Name@gmail.com';
+       $user->email='Name7@gmail.com';
        $user->password=Hash::make('12345678');
        $user->telefono='777777';
        $user->save();
@@ -189,7 +189,7 @@ class CrearGrupoTest extends TestCase
        $user->apellido='LastName';
        $user->id_rol='1';
        $user->direccion='Guatemala';
-       $user->email='Name@gmail.com';
+       $user->email='Name8@gmail.com';
        $user->password=Hash::make('12345678');
        $user->telefono='777777';
        $user->save();

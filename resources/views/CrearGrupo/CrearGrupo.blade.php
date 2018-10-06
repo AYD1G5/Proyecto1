@@ -3,9 +3,9 @@
 <!-- Content page -->
 <div class="container-fluid">
 			<div class="page-header">
-			  <h1 class="text-titles"><i class="zmdi zmdi-book zmdi-hc-fw"></i> <small>APP EXTERNA</small></h1>
+			  <h1 class="text-titles"><i class="zmdi zmdi-book zmdi-hc-fw"></i> <small>Grupo</small></h1>
 			</div>
-			<center><p class="lead">Listado de App</p></center>
+			<center><p class="lead">Crear Nuevo Grupo</p></center>
 			<center> <ul class="nav nav-tabs" style="margin-bottom: 15px;width: 70%;">
 					  	    <li class="active"><a href="#list" data-toggle="tab"></a></li>
 					    </ul></center>
@@ -25,7 +25,11 @@
 								<div style="padding: 0% 35% 35% 35%;">
 								<table class="table table-hover text-center">
 									<tbody>
-                    
+									<div  class="side">
+        <form  method="post">
+            @csrf
+			<center><p class="lead">Imgresar los datos del Grupo Nuevo</p></center>
+		</form>
 									</tbody>
 								</table>
 								</div>
@@ -35,7 +39,7 @@
 							</div>
 					  	</div>
                         <ul class="nav nav-tabs" style="margin-bottom: 15px;">
-					  	    <li class="active"><a href="#list" data-toggle="tab">Aplicaciones Externas</a></li>
+					  	    <li class="active"><a href="#list" data-toggle="tab">Nuevo Grupo</a></li>
 
 					    </ul>
 
