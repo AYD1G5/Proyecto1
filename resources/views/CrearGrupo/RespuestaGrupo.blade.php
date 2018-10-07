@@ -5,7 +5,7 @@
 			<div class="page-header">
 			  <h1 class="text-titles"><i class="zmdi zmdi-book zmdi-hc-fw"></i> <small>Grupo</small></h1>
 			</div>
-			<center><p class="lead">Crear Nuevo Grupo</p></center>
+			<center><p class="lead">Nuevo Grupo</p></center>
 			<center> <ul class="nav nav-tabs" style="margin-bottom: 15px;width: 70%;">
 					  	    <li class="active"><a href="#list" data-toggle="tab"></a></li>
 					    </ul></center>
@@ -22,9 +22,12 @@
 							<div class="table-responsive">
 							</div>
 							<br>
+							<center><h2>Utilice el siguiente Codigo para que sus amigos se puedan unir al grupo</h2></center>
 								<div style="padding: 0% 35% 35% 35%;">
 									<table class="table table-hover text-center">
 									<div  class="side">
+									<center><h1>{{ $Respuesta }}</h1></center>
+
 
 									</table>
 								</div>

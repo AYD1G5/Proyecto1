@@ -2,7 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\Redirect;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use App\Grupo;
 
 class CrearGrupoController extends Controller
 {
@@ -13,6 +16,40 @@ class CrearGrupoController extends Controller
         return view('CrearGrupo.CrearGrupo');
 
     }
+
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    //este metodo lo utilizaremos para guardar el nuevo grupo que se ha creado
+    public function GuardarGrupo(Request $request)
+    {
+        $grupo=new Grupo();
+        $grupo->nombre=$request->input('nombre');
+        $grupo->id_Creador_Grupo=Auth::id();
+        $grupo->save();
+        
+        return Redirect::to('/CodigoGrupo/'.$grupo->id_Grupo.'/');
+
+    }
+
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    //Metodo para devolver el codigo del grupo creado
+    public function CodigoGrupo($id)
+    {
+        $grupo=Grupo::where('id_grupo',$id)->first();
+        $respuesta=$grupo->nombre .'-' .$grupo->id_Grupo;
+        return view('CrearGrupo.RespuestaGrupo')->with('Respuesta',$respuesta);
+    }
+
+
 
     /**
      * Display a listing of the resource.

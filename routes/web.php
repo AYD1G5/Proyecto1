@@ -127,7 +127,8 @@ Route::group( ['middleware' => 'auth' ], function()
     Route::get('/eliminarasignacion', 'AsignacionTempController@eliminarasignacion');
     Route::get('/CrearGrupo', 'CrearGrupoController@CrearGrupo'); 
     Route::post('/CrearGrupo', 'CrearGrupoController@GuardarGrupo'); 
-
+    Route::get('/CodigoGrupo/{id}', 'CrearGrupoController@CodigoGrupo'); 
+    
 });
 
 
