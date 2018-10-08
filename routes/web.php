@@ -134,4 +134,5 @@ Route::get('/chat', 'ChatController@index')->name('chat');
 
 Route::get('/message', 'MessageController@index')->name('message');
 Route::post('/message', 'MessageController@store')->name('message.store');
-Route::get('/CrearTemas', 'CrearTemasController@index');
+Route::get('/CrearTemas/{id}', 'CrearTemasController@index');
+Route::post('/CrearTemas/{id}', 'CrearTemasController@guardar');

@@ -16,22 +16,15 @@
                         <form class="navbar-form navbar-left"  method="post">
                         </ul>
 					   
-
                             <input type="hidden" name="_token" value="{{ csrf_token() }}">
 
                             <div class="form-group">
-                            <label class="col-form-label" for="inputDefault">TITULO DEL TEMA:</label>
-                            <input name="titulo" type="text" class="form-control" placeholder="Nombre" id="inputDefault">
+                            <label class="col-form-label" for="inputDefault">NOMBRE DEL TEMA:</label>
+                            <input name="nombre" type="text" class="form-control" placeholder="Nombre" id="inputDefault">
                             </div>
 
                             <div class="form-group">
                             <label class="col-form-label" for="inputDefault">DESCRIPCIÓN DEL TEMA: </label>
-                            <input name="desc" type="text" class="form-control" placeholder="Descripción" id="inputDefault">
-                            </div>
-
-                            
-                            <div class="form-group">
-                            <label class="col-form-label" for="inputDefault">GRUPO: </label>
                             <input name="desc" type="text" class="form-control" placeholder="Descripción" id="inputDefault">
                             </div>
 
