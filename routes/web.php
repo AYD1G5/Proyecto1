@@ -128,6 +128,7 @@ Route::group( ['middleware' => 'auth' ], function()
     Route::get('/CrearGrupo', 'CrearGrupoController@CrearGrupo'); 
     Route::post('/CrearGrupo', 'CrearGrupoController@GuardarGrupo'); 
     Route::get('/CodigoGrupo/{id}', 'CrearGrupoController@CodigoGrupo'); 
+    Route::get('/GruposCreados', 'CrearGrupoController@GruposCreados');
     
 });
 
