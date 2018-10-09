@@ -105,7 +105,7 @@ class RegisterController extends Controller
             'direccion' => $direccion,      
             'password' => Hash::make($password),
         ]);
-      /*  if(!$salida->errors){
+        if(!$salida->errors){
             Pensum_estudiante::create([
                 'id_pensum' => $pensum_estudiante,
                 'id_estudiante' =>$salida->id,
@@ -114,9 +114,7 @@ class RegisterController extends Controller
                 'id_pensum' => $pensum_estudiante,
                 'id_estudiante' =>$salida->id,
             ]);
-        }else{
-            $salida = null;
-        }*/
+        }
         return $salida;
         
     }

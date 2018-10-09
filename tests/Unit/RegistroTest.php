@@ -8,6 +8,7 @@ use Illuminate\Foundation\Testing\RefreshDatabase;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Asignacion_temporal;
 use App\Pensum_estudiante;
+use DB;
 
 class RegistroTest extends TestCase
 {
@@ -37,7 +38,12 @@ class RegistroTest extends TestCase
 
         $control = new RegisterController();
         $usuario = $control->agregarUsuarioCatedratico($info);
-        $this->assertEquals(true, $control->existeUsuarioPlataforma($usuario->email));
+
+        /*** BORRAR LAS TABLAS */
+        DB::table('pensum_estudiante')->where('id_estudiante', $usuario->id)->delete();
+        DB::table('asignacion_temporal')->where('id_estudiante', $usuario->id)->delete();
+
+        $this->assertEquals($usuario ->id_rol, 1);
         $usuario->delete();
     }
 
@@ -54,8 +60,13 @@ class RegistroTest extends TestCase
         '12345678',
         '1'  
         );
-    $controlador=new RegisterController(); 
+      $controlador=new RegisterController(); 
       $usuario = $controlador ->agregarUsuarioEstudiante($data);
+
+      /*** BORRAR LAS TABLAS */
+      DB::table('pensum_estudiante')->where('id_estudiante', $usuario->id)->delete();
+      DB::table('asignacion_temporal')->where('id_estudiante', $usuario->id)->delete();
+
       $this->assertEquals($usuario ->id_rol, 2);
       $usuario ->delete();
     }
@@ -65,7 +76,7 @@ class RegistroTest extends TestCase
       * en la plataforma.
       */
       public function testExisteUsuarioPlataforma(){
-        $data = array('20201352',
+        $data = array('20201355',
         'Elmer',
         'Real',
         'elmerrealprueba@correo.com',
@@ -76,8 +87,13 @@ class RegistroTest extends TestCase
         $controlador=new RegisterController(); 
         $usuario = $controlador ->agregarUsuarioEstudiante($data);
         $exiteUsuario = $controlador->existeUsuarioPlataforma($data[3]);
-       $this->assertTrue($exiteUsuario);
-       $usuario ->delete();
+
+        /*** BORRAR LAS TABLAS */
+        DB::table('pensum_estudiante')->where('id_estudiante', $usuario->id)->delete();
+        DB::table('asignacion_temporal')->where('id_estudiante', $usuario->id)->delete();
+
+        $this->assertTrue($exiteUsuario);
+        $usuario ->delete();
       }
       /**
        * Prueba unitaria para verificar si dos password coinciden
