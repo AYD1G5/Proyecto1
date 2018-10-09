@@ -163,7 +163,7 @@ class RegisterController extends Controller
        * VERIFICAR QUE EL CORREO PROPORCIONADO CUMPLA CON EL FORMATO PARA EMAIL
        */
     public function verificarFormatoCorreo($correo){
-        if(!filter_var($email, FILTER_VALIDATE_EMAIL)){
+        if(!filter_var($correo, FILTER_VALIDATE_EMAIL)){
             return false;
         }else{
             return true;

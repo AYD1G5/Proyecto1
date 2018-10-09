@@ -99,7 +99,9 @@ class RegistroTest extends TestCase
        * Prueba unitaria para verificar si dos password coinciden
        */
       public function testConfirmarPassword(){
-        $this->assertTrue(true);
+        $controlador=new RegisterController(); 
+        $respuesta = $controlador ->confirmarPassword("Password123","Password123");
+        $this->assertTrue($respuesta);
       }
 
       /**
@@ -107,7 +109,9 @@ class RegistroTest extends TestCase
        * el formato requerido es decir nombre@ example.com
        */
       public function testVerificarFormatoCorreo(){
-        $this->assertTrue(true);
+        $controlador=new RegisterController(); 
+        $respuesta = $controlador ->verificarFormatoCorreo("elmer@correo.com");
+        $this->assertTrue($respuesta);
       }
     
 }
