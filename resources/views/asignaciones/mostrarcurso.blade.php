@@ -16,6 +16,12 @@
             <span class="" aria-hidden="true"></span> 
 							Ver material de apoyo</a>
     </div>
+    <div style="float:left">
+            <a href="{{ url('/CrearTemas/'.$curso->id_curso_pensum.'/') }}" 
+              class="btn btn-warning btn-raised btn">
+            <span class="" aria-hidden="true"></span> 
+							Crear Tema</a>
+    </div>
   
     <h1>Nombre: {{ $curso->nombre_curso }}</h1>
     <div class="col-xs-12">
