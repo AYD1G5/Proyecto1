@@ -24,9 +24,27 @@ class AutenticacionTest extends TestCase
     /**
      * Esta prueba es para ver si el usuario esta en la base de datos
      */
-    public function testExisteUsuario(){
+    public function testExisteUsuario(){        
 
+        /*** CREAR UN USUARIO NUEVO **/
+        $data = array('20201352',
+        'Elmer',
+        'Real',
+        'elmerrealprueba@correo.com',
+        'Zona 20',
+        '12345678',
+        '1'  
+        );
+        $controlador=new RegisterController(); 
+        $usuario = $controlador ->agregarUsuarioEstudiante($data);
 
+        /** EJECUTAR EL TEST ***/
+        $this->assertEquals('elmerrealprueba@correo.com', $usuario->email);
+
+        /*** BORRAR LAS TABLAS ***/
+        DB::table('pensum_estudiante')->where('id_estudiante', $usuario->id)->delete();
+        DB::table('asignacion_temporal')->where('id_estudiante', $usuario->id)->delete();
+        $usuario ->delete();
     }
 
     /**
@@ -34,7 +52,7 @@ class AutenticacionTest extends TestCase
      * ingresar una nueva contrasena
      */
     public function testRecuperarContrasena(){
-
+        
     }
     
     /**
@@ -50,6 +68,33 @@ class AutenticacionTest extends TestCase
      * logueo correctamente
      */
     public function testLoginCorrecto(){
+        /*** CREAR USUARIO ***/
+        $data = array('20201355',
+        'Elmeromero',
+        'Fake',
+        'elmerrealprueba@correo.com',
+        'Zona 20',
+        '12345678',
+        '1'  
+        );
+        $controlador=new RegisterController(); 
+        $usuario = $controlador ->agregarUsuarioEstudiante($data);
+
+        
+        /*** LOGUEARSE DESDE LA PAGINA ****/
+        $response = $this->call('POST', '/login', [
+            'email' => 'willyslider@gmail.com',
+            'password' => '12345678',
+            '_token' => csrf_token()
+        ]);
+        $response = $this->get('/cursosporsemestre/1/semestre');
+        /*** EJECUTAR EL TEST ****/
+        $this->assertEquals(200, $response->getStatusCode());
+
+        /*** BORRAR LAS TABLAS ***/
+        DB::table('pensum_estudiante')->where('id_estudiante', $usuario->id)->delete();
+        DB::table('asignacion_temporal')->where('id_estudiante', $usuario->id)->delete();
+        $usuario ->delete();
 
     }
 
