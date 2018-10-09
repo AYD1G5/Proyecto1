@@ -46,7 +46,18 @@ class RegistroTest extends TestCase
      * usuario de tipo estudiante
      */
     public function testRegistroUsuarioEstudiante(){
-        $this->assertTrue(true);
+        $data = array('20201352',
+        'Elmer',
+        'Real',
+        'elmerrealprueba@correo.com',
+        'Zona 20',
+        '12345678',
+        '1'  
+        );
+    $controlador=new RegisterController(); 
+      $usuario = $controlador ->agregarUsuarioEstudiante($data);
+      $this->assertEquals($usuario ->id_rol, 2);
+      $usuario ->delete();
     }
 
      /**
@@ -54,7 +65,19 @@ class RegistroTest extends TestCase
       * en la plataforma.
       */
       public function testExisteUsuarioPlataforma(){
-        $this->assertTrue(true);
+        $data = array('20201352',
+        'Elmer',
+        'Real',
+        'elmerrealprueba@correo.com',
+        'Zona 20',
+        '12345678',
+        '1'  
+        );
+        $controlador=new RegisterController(); 
+        $usuario = $controlador ->agregarUsuarioEstudiante($data);
+        $exiteUsuario = $controlador->existeUsuarioPlataforma($data[3]);
+       $this->assertTrue($exiteUsuario);
+       $usuario ->delete();
       }
       /**
        * Prueba unitaria para verificar si dos password coinciden
