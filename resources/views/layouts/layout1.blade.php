@@ -169,6 +169,11 @@
 					<a href="#!" class="btn-menu-dashboard"><i class="zmdi zmdi-more-vert"></i></a>
 				</li>
 				<li>
+					<a href="/solicitudes/listar" class="btn-Notifications1">
+						<i class="zmdi zmdi-account-add zmdi-hc-fw"></i>
+					</a>
+				</li>
+				<li>
 					<a href="/chat" class="btn-Notifications">
 						<i class="zmdi zmdi-notifications-none"></i>
 					</a>
