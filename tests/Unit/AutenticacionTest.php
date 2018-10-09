@@ -6,9 +6,12 @@ use Tests\TestCase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use App\Http\Controllers\Auth\RegisterController;
+use App\Http\Controllers\Auth\LoginController;
 use App\Asignacion_temporal;
 use App\Pensum_estudiante;
 use DB;
+use Illuminate\Support\Facades\Hash;
+
 
 class AutenticacionTest extends TestCase
 {
@@ -30,19 +33,30 @@ class AutenticacionTest extends TestCase
     }
 
     /**
-     * Esta prueba envia un mensaje al usuario con un link para 
-     * ingresar una nueva contrasena
-     */
-    public function testRecuperarContrasena(){
-
-    }
-    
-    /**
      * Verifica si la contrasena es correcta para iniciar sesion
      */
 
     public function testCredencialesCorrectas(){
-        
+        $data = array('202013524',
+        'Elmer',
+        'Real',
+        'elmerrealprueba4@correo.com',
+        'Zona 20',
+        '12345678',
+        '1'  
+        );
+      $controlador=new RegisterController(); 
+      $usuario = $controlador ->agregarUsuarioEstudiante($data);
+
+    $controlador=new LoginController(); 
+    $password = "12345678";
+    $usuario = $controlador->ObtenerUsuario('elmerrealprueba4@correo.com');
+    $this->assertEquals( password_verify($password, $usuario -> password),true);
+
+    /*** BORRAR LAS TABLAS */
+    DB::table('pensum_estudiante')->where('id_estudiante', $usuario->id)->delete();
+    DB::table('asignacion_temporal')->where('id_estudiante', $usuario->id)->delete();
+    $usuario ->delete();
     }
 
     /** 
@@ -58,7 +72,26 @@ class AutenticacionTest extends TestCase
      * verifica si ha cambiado
      */
     public function testResetearPassword(){
+        $data = array('202013524',
+        'Elmer',
+        'Real',
+        'elmerrealprueba4@correo.com',
+        'Zona 20',
+        '12345678',
+        '1'  
+        );
+      $controlador=new RegisterController(); 
+      $usuario = $controlador ->agregarUsuarioEstudiante($data);
 
+    $controlador=new LoginController(); 
+    $password = "123456789";
+   $usuario = $controlador->RestablecerPassword('elmerrealprueba4@correo.com',$password);
+    $this->assertEquals( password_verify($password, $usuario -> password),true);
+
+    /*** BORRAR LAS TABLAS */
+    DB::table('pensum_estudiante')->where('id_estudiante', $usuario->id)->delete();
+    DB::table('asignacion_temporal')->where('id_estudiante', $usuario->id)->delete();
+    $usuario ->delete();
     }
     
 }
