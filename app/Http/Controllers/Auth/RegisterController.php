@@ -11,6 +11,7 @@ use App\Rol;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
+use DB;
 
 class RegisterController extends Controller
 {
@@ -72,28 +73,12 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        $salida = User::create([
-            'registro_academico' => $data['registro_academico'],
-            'nombre' => $data['nombre'],
-            'apellido' => $data['apellido'],
-            'email' => $data['email'],
-            'id_rol' => $data['id_rol'],
-            'direccion' => $data['direccion'],      
-            'password' => Hash::make($data['password']),
-        ]);
-        if(!$salida->errors){
-            Pensum_estudiante::create([
-                'id_pensum' => $data['pensum_estudiante'],
-                'id_estudiante' =>$salida->id,
-            ]);
-            Asignacion_temporal::create([
-                'id_pensum' => $data['pensum_estudiante'],
-                'id_estudiante' =>$salida->id,
-            ]);
+        if($data['id_rol'] == 1){
+            return $this->agregarUsuarioCatedratico($data);
+        }else{
+            return $this->agregarUsuarioEstudiante($data);
         }
-        return $salida;
     }
-
 
     /**
      * Show the application registration form.
@@ -106,4 +91,83 @@ class RegisterController extends Controller
         $roles=Rol::all();
         return view('auth.register', ['pensums'=>$pensums, 'roles'=>$roles]);
     }
+
+    /**
+     * AGREGAR USUARIO GENERAL
+     */
+    public function agregarUsuario($registro_academico, $nombre, $apellido, $email, $id_rol, $direccion, $password, $pensum_estudiante){
+        $salida = User::create([
+            'registro_academico' => $registro_academico,
+            'nombre' => $nombre,
+            'apellido' => $apellido,
+            'email' => $email,
+            'id_rol' => $id_rol,
+            'direccion' => $direccion,      
+            'password' => Hash::make($password),
+        ]);
+        if(!$salida->errors){
+            Pensum_estudiante::create([
+                'id_pensum' => $pensum_estudiante,
+                'id_estudiante' =>$salida->id,
+            ]);
+            Asignacion_temporal::create([
+                'id_pensum' => $pensum_estudiante,
+                'id_estudiante' =>$salida->id,
+            ]);
+        }
+        return $salida;
+        
+    }
+    /**
+     * AGREGAR USUARIO DE TIPO CATEDRATICO
+     */
+    public function agregarUsuarioCatedratico(array $data){
+        return $this->agregarUsuario($data[0], $data[1], $data[2], 
+            $data[3], 1, $data[4], $data[5], $data[6]);
+    }
+     /**
+      * AGREGAR USUARIO DE TIPO ESTUDIANTE
+      */
+    public function agregarUsuarioEstudiante(array $data){
+        return $this->agregarUsuario($data[0], $data[1], $data[2], 
+            $data[3], 2, $data[4], $data[5], $data[6]);
+    }
+      /**
+       * VERIFICAR EXISTENCIA USUARIO EN BD
+       */
+      
+    public function existeUsuarioPlataforma($email){
+        $usuario =User::where(array(
+            'email' => $email
+        ))->first();
+        if($usuario!=null){
+            return true;
+        }else{
+            return false;
+        }
+    }
+   
+     
+      /**
+       * VERIFICAR SI LA CONFIRMACION DE PASSWORD COINCIDE CON EL PASSWORD INICIAL
+       */
+    public function confirmarPassword($password1, $password2){
+        if($password1 == $password2){
+            return true;
+        }else{
+            return false;
+        }
+    }
+
+      /**
+       * VERIFICAR QUE EL CORREO PROPORCIONADO CUMPLA CON EL FORMATO PARA EMAIL
+       */
+    public function verificarFormatoCorreo($correo){
+        if(!filter_var($correo, FILTER_VALIDATE_EMAIL)){
+            return false;
+        }else{
+            return true;
+        }
+    }
+
 }
