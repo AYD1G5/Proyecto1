@@ -104,7 +104,7 @@ class RegisterController extends Controller
             'direccion' => $direccion,      
             'password' => Hash::make($password),
         ]);
-        if(!$salida->errors){
+      /*  if(!$salida->errors){
             Pensum_estudiante::create([
                 'id_pensum' => $pensum_estudiante,
                 'id_estudiante' =>$salida->id,
@@ -113,7 +113,9 @@ class RegisterController extends Controller
                 'id_pensum' => $pensum_estudiante,
                 'id_estudiante' =>$salida->id,
             ]);
-        }
+        }else{
+            $salida = null;
+        }*/
         return $salida;
     }
     /**
@@ -127,18 +129,18 @@ class RegisterController extends Controller
       * AGREGAR USUARIO DE TIPO ESTUDIANTE
       */
     public function agregarUsuarioEstudiante(array $data){
-        return $this->agregarUsuario($data['registro_academico'], $data['nombre'], $data['apellido'], 
-            $data['email'], 2, $data['direccion'], $data['password'], $data['pensum_estudiante']);
+        return $this->agregarUsuario($data[0], $data[1], $data[2], 
+            $data[3], 2, $data[4], $data[5], $data[6]);
     }
       /**
        * VERIFICAR EXISTENCIA USUARIO EN BD
        */
       
     public function existeUsuarioPlataforma($email){
-        $usuario = DB::table('users as u')
-        ->where('u.email', '=', $email)
-        ->get();
-        if(count($usuario)>0){
+        $usuario =User::where(array(
+            'email' => $email
+        ))->first();
+        if($usuario!=null){
             return true;
         }else{
             return false;
