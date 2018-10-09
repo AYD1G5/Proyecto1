@@ -49,4 +49,36 @@ class ListarTemasTest extends TestCase
             'creador_id' => '1',
         ]);
     }
+
+     /**
+     * Prueba para saber si el curso del tema tiene id 1
+     *
+     * @return void
+     */
+    public function testTablaTemaCurso()
+    { 
+        $this->assertDatabaseHas('temas', [
+            'curso_id' => '1',
+        ]);
+    }
+    
+    /**
+     * Prueba al controlador Perfil tema para saber si un tema existe.
+     *
+     * @return void
+     */
+    public function testPerfilTemaExiste(){
+        $prefilTemaControlador = new PerfilTemaController();
+        $this->assertTrue($prefilTemaControlador->ExistePerfil(1));
+    }
+
+    /**
+     * Prueba para saber si el tema tiene comentarios existentes
+     *
+     * @return void
+     */
+    public function testComentarioExiste(){
+        $prefilTemaControlador = new PerfilTemaController();
+        $this->assertTrue($prefilTemaControlador->ExisteComentario(1));
+    }
 }
