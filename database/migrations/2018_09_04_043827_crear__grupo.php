@@ -17,7 +17,7 @@ class CrearGrupo extends Migration
             $table->increments('id_Grupo');
             
             $table->integer('id_Creador_Grupo')->unsigned();
-            $table->foreign('id_Creador_Grupo')->references('id')->on('users'); 
+            $table->foreign('id_Creador_Grupo')->references('id')->on('users')->onDelete('cascade'); 
             
             $table->string('nombre');
             $table->timestamps();

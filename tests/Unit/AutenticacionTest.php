@@ -49,19 +49,8 @@ class AutenticacionTest extends TestCase
         DB::table('asignacion_temporal')->where('id_estudiante', $usuario->id)->delete();
         $usuario ->delete();
     }
-
-    /**
-<<<<<<< HEAD
-=======
-     * Esta prueba envia un mensaje al usuario con un link para 
-     * ingresar una nueva contrasena
-     */
-    public function testRecuperarContrasena(){
-        
-    }
     
     /**
->>>>>>> 7993994097009419094c16a85bbee60a2da2c356
      * Verifica si la contrasena es correcta para iniciar sesion
      */
 

@@ -17,10 +17,10 @@ class CrearComentarioGrupo extends Migration
             $table->increments('id_Comentario');
 
             $table->integer('id_Tema_Grupo')->unsigned();
-            $table->foreign('id_Tema_Grupo')->references('id_Tema_Grupo')->on('Tema_Grupo'); 
+            $table->foreign('id_Tema_Grupo')->references('id_Tema_Grupo')->on('Tema_Grupo')->onDelete('cascade'); ; 
         
             $table->integer('id_estudiante')->unsigned();
-            $table->foreign('id_estudiante')->references('id')->on('users'); 
+            $table->foreign('id_estudiante')->references('id')->on('users')->onDelete('cascade'); ; 
         
             $table->string('Texto');
             $table->timestamps();
