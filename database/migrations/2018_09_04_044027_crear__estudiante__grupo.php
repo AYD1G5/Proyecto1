@@ -17,10 +17,10 @@ class CrearEstudianteGrupo extends Migration
             $table->increments('id_Estudiante_Grupo');
             
             $table->integer('id_Estudiante')->unsigned();
-            $table->foreign('id_Estudiante')->references('id')->on('users'); 
+            $table->foreign('id_Estudiante')->references('id')->on('users')->onDelete('cascade'); 
 
             $table->integer('id_Grupo')->unsigned();
-            $table->foreign('id_Grupo')->references('id_Grupo')->on('Grupo'); 
+            $table->foreign('id_Grupo')->references('id_Grupo')->on('Grupo')->onDelete('cascade'); 
             
             $table->timestamps();
         });

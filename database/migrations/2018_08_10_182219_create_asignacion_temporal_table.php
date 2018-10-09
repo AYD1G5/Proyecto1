@@ -16,7 +16,7 @@ class CreateAsignacionTemporalTable extends Migration
         Schema::create('asignacion_temporal', function (Blueprint $table) {
             $table->increments('id_asignacion_temporal');
             $table->integer('id_estudiante')->unsigned();
-            $table->foreign('id_estudiante')->references('id')->on('users'); 
+            $table->foreign('id_estudiante')->references('id')->on('users')->onDelete('cascade'); 
             $table->integer('id_pensum')->unsigned();
             $table->foreign('id_pensum')->references('id_pensum')->on('pensum'); 
             $table->timestamps();

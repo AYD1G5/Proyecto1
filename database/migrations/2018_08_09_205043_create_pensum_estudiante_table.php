@@ -16,7 +16,7 @@ class CreatePensumEstudianteTable extends Migration
         Schema::create('pensum_estudiante', function (Blueprint $table) {
             $table->increments('id_pensum_estudiante');
             $table->integer('id_estudiante')->unsigned();
-            $table->foreign('id_estudiante')->references('id')->on('users'); 
+            $table->foreign('id_estudiante')->references('id')->on('users')->onDelete('cascade'); 
             $table->integer('id_pensum')->unsigned();
             $table->foreign('id_pensum')->references('id_pensum')->on('pensum'); 
             $table->timestamps();
