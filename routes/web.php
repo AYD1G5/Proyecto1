@@ -128,6 +128,9 @@ Route::group( ['middleware' => 'auth' ], function()
     Route::get('/chat', 'ChatController@index')->name('chat');
     Route::get('/message', 'MessageController@index')->name('message');
     Route::post('/message', 'MessageController@store')->name('message.store');
+    Route::get('/solicitudes/listar', 'SolicitudesController@listarSolicitudes');
+    Route::get('/solicitudes/crear/{amigoid}', 'SolicitudesController@crearSolicitudPagina');
+    Route::get('/solicitudes/cambiarestado/{solicitudid}/{noestado}', 'SolicitudesController@cambiarEstadoSolicitud');
 });
 
 
