@@ -38,6 +38,20 @@
 								@else
 									<center><h1>{{$NoTemas}}</h1></center>
 								@endif
+
+									<form  method="post">
+										@csrf
+										<center>
+										<br><strong>Comentar:<strong><br>
+										<input type="text" name="texto" id="textoID" width="300px"/>
+										<div class="button">
+										<button type="submit">Crear</button></div>
+										</center>
+									</form>
+
+									<br>
+									<br>
+
 								</div>
 					  	</div>
                           <div class="tab-pane fade" id="list1">

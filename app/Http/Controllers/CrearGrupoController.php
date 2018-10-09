@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Redirect;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Grupo;
+use DB;
 
 class CrearGrupoController extends Controller
 {
@@ -49,6 +50,28 @@ class CrearGrupoController extends Controller
         return view('CrearGrupo.RespuestaGrupo')->with('Respuesta',$respuesta);
     }
 
+
+
+
+
+
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    /**
+     * En este método se retornara la vista con el listado de grupos creados por el usuario
+     * */
+    public function GruposCreados()
+    {
+        $Grupos=DB::table('grupo as G')
+        ->where('G.id_creador_grupo', '=', Auth::id())->get();
+        /**
+         * retorno de la vista de grupos que ha creado el usuario
+         * */        
+        return view('CrearGrupo.GruposCreados')->with("GruposVector",$Grupos)->with("contador",0);                
+    }
 
 
     /**

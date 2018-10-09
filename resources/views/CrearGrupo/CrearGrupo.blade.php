@@ -32,6 +32,7 @@
 										<center><input type="text" name="nombre" id="textoID" width="300px"/></center>
 										<div class="button"> <br>
 						            	<center><button type="submit">Crear</button></center>
+										</div>
 
 									</form>
 
