@@ -11,6 +11,7 @@ use App\Rol;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
+use DB;
 
 class RegisterController extends Controller
 {
@@ -104,7 +105,7 @@ class RegisterController extends Controller
             'direccion' => $direccion,      
             'password' => Hash::make($password),
         ]);
-        if(!$salida->errors){
+      /*  if(!$salida->errors){
             Pensum_estudiante::create([
                 'id_pensum' => $pensum_estudiante,
                 'id_estudiante' =>$salida->id,
@@ -114,14 +115,16 @@ class RegisterController extends Controller
                 'id_estudiante' =>$salida->id,
             ]);
         }
+        */
         return $salida;
+        
     }
     /**
      * AGREGAR USUARIO DE TIPO CATEDRATICO
      */
     public function agregarUsuarioCatedratico(array $data){
-        return $this->agregarUsuario($data['registro_academico'], $data['nombre'], $data['apellido'], 
-            $data['email'], 1, $data['direccion'], $data['password'], $data['pensum_estudiante']);
+        return $this->agregarUsuario($data[0], $data[1], $data[2], 
+            $data[3], 1, $data[4], $data[5], $data[6]);
     }
      /**
       * AGREGAR USUARIO DE TIPO ESTUDIANTE

@@ -6,6 +6,8 @@ use Tests\TestCase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use App\Http\Controllers\Auth\RegisterController;
+use App\Asignacion_temporal;
+use App\Pensum_estudiante;
 
 class RegistroTest extends TestCase
 {
@@ -23,7 +25,20 @@ class RegistroTest extends TestCase
      * usuario de tipo catedratico
     */
     public function testRegistroUsuarioCatedratico(){
+        $info = array(
+            '9018224',
+            'Jeremias',
+            'Azurres',
+            'tengo_sueno@gmail.com',
+            'Guatemala',
+            'holamundo',
+            '1'
+            );
 
+        $control = new RegisterController();
+        $usuario = $control->agregarUsuarioCatedratico($info);
+        $this->assertEquals(true, $control->existeUsuarioPlataforma($usuario->email));
+        $usuario->delete();
     }
 
     /**
@@ -31,7 +46,7 @@ class RegistroTest extends TestCase
      * usuario de tipo estudiante
      */
     public function testRegistroUsuarioEstudiante(){
-
+        $this->assertTrue(true);
     }
 
      /**
@@ -39,13 +54,13 @@ class RegistroTest extends TestCase
       * en la plataforma.
       */
       public function testExisteUsuarioPlataforma(){
-
+        $this->assertTrue(true);
       }
       /**
        * Prueba unitaria para verificar si dos password coinciden
        */
       public function testConfirmarPassword(){
-
+        $this->assertTrue(true);
       }
 
       /**
@@ -53,7 +68,7 @@ class RegistroTest extends TestCase
        * el formato requerido es decir nombre@ example.com
        */
       public function testVerificarFormatoCorreo(){
-          
+        $this->assertTrue(true);
       }
     
 }
