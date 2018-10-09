@@ -73,10 +73,19 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
+        $info = array(
+            $data['registro_academico'],
+            $data['nombre'],
+            $data['apellido'],
+            $data['email'],
+            $data['direccion'],
+            $data['password'],
+            1
+             );
         if($data['id_rol'] == 1){
-            return $this->agregarUsuarioCatedratico($data);
+            return $this->agregarUsuarioCatedratico($info);
         }else{
-            return $this->agregarUsuarioEstudiante($data);
+            return $this->agregarUsuarioEstudiante($info);
         }
     }
 
