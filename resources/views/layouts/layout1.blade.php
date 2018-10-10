@@ -147,16 +147,23 @@
 				</li>
 				<li>
 					<a href="#!" class="btn-sideBar-SubMenu">
-						<i class="zmdi zmdi-shield-security zmdi-hc-fw"></i> Settings School <i class="zmdi zmdi-caret-down pull-right"></i>
+						<i class="zmdi zmdi-shield-security zmdi-hc-fw"></i> Grupos <i class="zmdi zmdi-caret-down pull-right"></i>
 					</a>
 					<ul class="list-unstyled full-box">
 						<li>
-							<a href="school.html"><i class="zmdi zmdi-balance zmdi-hc-fw"></i> School Data</a>
+							<a href="{{url('/PerfilGrupo')}}"><i class="zmdi zmdi-balance zmdi-hc-fw"></i> Mis Grupos </a>
+						</li>
+						<li>
+							<a href="{{url('/CrearGrupo')}}"><i class="zmdi zmdi-balance zmdi-hc-fw"></i> Crear Grupo </a>
+						</li>
+						<li>
+							<a href="{{url('/GruposCreados')}}"><i class="zmdi zmdi-balance zmdi-hc-fw"></i> Mis Grupos Creados </a>
+						</li>
+						<li>
+							<a href="{{url('/BuscadorGrupo')}}"><i class="zmdi zmdi-search"></i> Buscador Grupo</a>
 						</li>
 					</ul>
-				</li>
-				
-
+				</li>				
 			</ul>
 		</div>
 	</section>

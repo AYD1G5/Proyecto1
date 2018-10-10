@@ -6,6 +6,22 @@
 			  <h1 class="text-titles"><i class="zmdi zmdi-book zmdi-hc-fw"></i> <small>TEMA GRUPO</small></h1>
 			</div>
 			<center><p class="lead">Grupo: {{$GrupoName}}</p></center>
+
+									<form  method="post">
+										@csrf
+										<center>
+										<strong>Titulo del nuevo Tema:<strong><br>
+										<input type="text" name="titulo" id="textoID" width="300px"/>
+										<br><strong>Texto:<strong><br>
+										<input type="text" name="texto" id="textoID" width="300px"/>
+										<div class="button">
+										<button type="submit">Crear</button></div>
+										</center>
+									</form>
+
+									<br>
+									<br>
+
 			<center><p class="lead">Listado de Temas que pertenecen al Grupo</p></center>
 			<center> <ul class="nav nav-tabs" style="margin-bottom: 15px;width: 70%;">
 					  	    <li class="active"><a href="#list" data-toggle="tab"></a></li>                    
