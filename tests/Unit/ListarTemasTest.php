@@ -10,6 +10,7 @@ use Illuminate\Foundation\Testing\DatabaseTransactions;
 use Tests\DuskTestCase;
 use Laravel\Dusk\Chrome;
 use App\Http\Controllers\ListarTemasController;
+use App\Http\Controllers\PerfilTemaController;
 
 class ListarTemasTest extends TestCase
 {
