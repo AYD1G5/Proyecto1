@@ -7,7 +7,7 @@
 			</div>
 			<div class="alert alert-dismissible alert-info">
 			  <button type="button" class="close" data-dismiss="alert">&times;</button>
-			  <strong>SALUDE A SUS AMIGOS!!!</strong> Se muestran todo sus amigos <a href="#" class="alert-link">a los cuales les podra enviar un saludo </a>, simplemente presionando el boton de saludar.
+			  <strong>ENCUENTRE A SUS AMIGOS!!!</strong> Se muestran todas las <a href="#" class="alert-link">personas a las cuales se les puede enviar la solicitud </a>, simplemente presionando el boton de enviar.
 			</div>
 			<div class="progress">
 			  <div class="progress-bar progress-bar-striped" role="progressbar" style="width: 10%" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"></div>
@@ -44,7 +44,7 @@
 							          <td>{{ $usuario->apellido }}</td>
 							          <td>{{ $usuario->direccion }}</td>
 							          <td>{{ $usuario->email }}</td>
-												<td>{!! link_to('/ListarUsuarios', 'SALUDAR', ['class' => 'btn btn-warning']) !!}</td>
+												<td>{!! link_to('/solicitudes/crear/'.$usuario->id, 'Enviar Solicitud', ['class' => 'btn btn-warning']) !!}</td>
 							        </tr>
 							      @endforeach
 									</tbody>

@@ -4,6 +4,8 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use App\User;
+use Illuminate\Support\Facades\Hash;
 
 class LoginController extends Controller
 {
@@ -35,5 +37,28 @@ class LoginController extends Controller
     public function __construct()
     {
         $this->middleware('guest')->except('logout');
+    }
+
+    /**
+     * Este metodo sirve para restablecer el password dado un email especifico. 
+     */
+    public function RestablecerPassword($email,$password){
+        $usuario =User::where(array(
+            'email' => $email
+        ))->first();
+
+        $pass = Hash::make($password);
+        $usuario -> password = $pass;
+        return $usuario;
+    }
+
+    /**
+     * Este metodo es para obtener a un usuario dado el correo
+     */
+    public function ObtenerUsuario($email){
+        $usuario =User::where(array(
+            'email' => $email
+        ))->first();
+        return $usuario;
     }
 }

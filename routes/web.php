@@ -118,6 +118,7 @@ Route::group( ['middleware' => 'auth' ], function()
     Route::post('/BuscadorTemas', 'BuscadorTemasController@BuscadorTemas2');
     Route::get('/BuscadorGrupo', 'BuscadorGrupoController@BuscadorGrupo');
     Route::post('/BuscadorGrupo', 'BuscadorGrupoController@BuscadorGrupo2');
+    Route::get('/BuscadorGrupo/{id}', 'BuscadorGrupoController@BuscadorGrupo3');
     //APP Externa
     Route::get('/AppExterna', 'AppExternaController@AppExterna');
     Route::get('/AppExterna/Videochat', 'AppExternaController@videochat');
@@ -126,12 +127,28 @@ Route::group( ['middleware' => 'auth' ], function()
     Route::get('/buscadores', 'Funciones@buscador'); 
     Route::get('/eliminarasignacion', 'AsignacionTempController@eliminarasignacion');
     Route::get('/ListarTemas', 'ListarTemasController@index');
+    Route::get('/chat', 'ChatController@index')->name('chat');
+    Route::get('/message', 'MessageController@index')->name('message');
+    Route::post('/message', 'MessageController@store')->name('message.store');
+    Route::get('/CrearGrupo', 'CrearGrupoController@CrearGrupo'); 
+    Route::post('/CrearGrupo', 'CrearGrupoController@GuardarGrupo'); 
+    Route::get('/CodigoGrupo/{id}', 'CrearGrupoController@CodigoGrupo'); 
+    Route::get('/GruposCreados', 'CrearGrupoController@GruposCreados');
+    //CREAR
+    Route::post('/TemaGrupo/{id}', 'PerfilGrupoController@TemaGrupoCrear'); 
+    Route::post('/ComentarioGrupo/{id}', 'PerfilGrupoController@comentarioGrupoCrear'); 
+    Route::get('/CrearTemas/{id}', 'CrearTemasController@index');
+    Route::post('/CrearTemas/{id}', 'CrearTemasController@guardar');
+    
+    Route::get('/solicitudes/listar', 'SolicitudesController@listarSolicitudes');
+    Route::get('/solicitudes/crear/{amigoid}', 'SolicitudesController@crearSolicitudPagina');
+    Route::get('/solicitudes/cambiarestado/{solicitudid}/{noestado}', 'SolicitudesController@cambiarEstadoSolicitud');
 });
-
 
 Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
-Route::get('/chat', 'ChatController@index')->name('chat');
 
 Route::get('/message', 'MessageController@index')->name('message');
 Route::post('/message', 'MessageController@store')->name('message.store');
+
+

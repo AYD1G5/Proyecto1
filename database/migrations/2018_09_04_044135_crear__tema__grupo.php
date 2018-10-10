@@ -17,10 +17,10 @@ class CrearTemaGrupo extends Migration
             $table->increments('id_Tema_Grupo');
 
             $table->integer('id_CreadorTema')->unsigned();
-            $table->foreign('id_CreadorTema')->references('id')->on('users'); 
+            $table->foreign('id_CreadorTema')->references('id')->on('users')->onDelete('cascade'); 
 
             $table->integer('id_Grupo')->unsigned();
-            $table->foreign('id_Grupo')->references('id_Grupo')->on('Grupo'); 
+            $table->foreign('id_Grupo')->references('id_Grupo')->on('Grupo')->onDelete('cascade'); 
 
             $table->string('Titulo');
             $table->string('Texto');
