@@ -133,17 +133,17 @@ Route::group( ['middleware' => 'auth' ], function()
     Route::post('/CrearGrupo', 'CrearGrupoController@GuardarGrupo'); 
     Route::get('/CodigoGrupo/{id}', 'CrearGrupoController@CodigoGrupo'); 
     Route::get('/GruposCreados', 'CrearGrupoController@GruposCreados');
+    //CREAR
     Route::post('/TemaGrupo/{id}', 'PerfilGrupoController@TemaGrupoCrear'); 
     Route::post('/ComentarioGrupo/{id}', 'PerfilGrupoController@comentarioGrupoCrear'); 
-    
+    Route::get('/CrearTemas/{id}', 'CrearTemasController@index');
+    Route::post('/CrearTemas/{id}', 'CrearTemasController@guardar');
 });
-
 
 Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/message', 'MessageController@index')->name('message');
 Route::post('/message', 'MessageController@store')->name('message.store');
-Route::get('/CrearTemas/{id}', 'CrearTemasController@index');
-Route::post('/CrearTemas/{id}', 'CrearTemasController@guardar');
+
 
