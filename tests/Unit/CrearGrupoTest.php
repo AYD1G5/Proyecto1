@@ -87,6 +87,7 @@ class CrearGrupoTest extends TestCase
         $Grupo=new Grupo();
         $Grupo->id_Creador_Grupo=$user->id;
         $Grupo->nombre='GrupoTest';
+        $Grupo->save();
 
         $this->assertDatabaseHas('grupo', [
             'nombre' => 'GrupoTest'
@@ -101,7 +102,7 @@ class CrearGrupoTest extends TestCase
     */
     public function testUsuarioGrupo(){
         $user=new User();
-        $user->registro_academico='55555';
+        $user->registro_academico='55555-4';
         $user->nombre='Name';
         $user->apellido='LastName';
         $user->id_rol='1';
@@ -154,7 +155,7 @@ class CrearGrupoTest extends TestCase
    public function testVerificarExistenciaGrupo(){
      //se crea el usuario para luego verificar que exista
        $user=new User();
-       $user->registro_academico='55555';
+       $user->registro_academico='55555-5';
        $user->nombre='Name';
        $user->apellido='LastName';
        $user->id_rol='1';
@@ -172,7 +173,7 @@ class CrearGrupoTest extends TestCase
    //$response = $this->get('/ExisteUsuario');
    $response = $this->get('/CrearGrupo');
    $user->delete();
-   $response->assertSeeText('Usuario Existente');
+   $response->assertSeeText('Crear Nuevo Grupo');
    }
 
 
@@ -184,7 +185,7 @@ class CrearGrupoTest extends TestCase
    {
      // se crea un usario temporal para comprobar que este ligado en la BD
        $user=new User();
-       $user->registro_academico='55555';
+       $user->registro_academico='55555-6';
        $user->nombre='Name';
        $user->apellido='LastName';
        $user->id_rol='1';
@@ -199,6 +200,7 @@ class CrearGrupoTest extends TestCase
        $Grupo=new Grupo();
        $Grupo->id_Creador_Grupo=$user->id;
        $Grupo->nombre='GrupoTest';
+       $Grupo->save();
 
        $this->assertDatabaseHas('grupo', [
            'nombre' => 'GrupoTest'

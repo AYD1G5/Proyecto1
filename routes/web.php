@@ -118,6 +118,7 @@ Route::group( ['middleware' => 'auth' ], function()
     Route::post('/BuscadorTemas', 'BuscadorTemasController@BuscadorTemas2');
     Route::get('/BuscadorGrupo', 'BuscadorGrupoController@BuscadorGrupo');
     Route::post('/BuscadorGrupo', 'BuscadorGrupoController@BuscadorGrupo2');
+    Route::get('/BuscadorGrupo/{id}', 'BuscadorGrupoController@BuscadorGrupo3');
     //APP Externa
     Route::get('/AppExterna', 'AppExternaController@AppExterna');
     Route::get('/AppExterna/Videochat', 'AppExternaController@videochat');

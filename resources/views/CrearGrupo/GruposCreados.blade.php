@@ -25,7 +25,9 @@
 									<tbody>
 										@foreach ($GruposVector as $elemento)	
 										<tr>
-											<td><a href="{{url('/TemaGrupo/'.$elemento->id_Grupo.'')}}" class="btn btn-success btn-raised btn-xs" style="height:50px;width: 90%; font-size: 25px;background-color: #212F3D;">{{$elemento->nombre}} ( {{$elemento->nombre.'-'.$elemento->id_Grupo}} )</a></td>
+											<td><a href="{{url('/TemaGrupo/'.$elemento->id_Grupo.'')}}" class="btn btn-success btn-raised btn-xs" style="height:50px;width: 90%; font-size: 25px;background-color: #212F3D;">{{$elemento->nombre}} </a>
+												<h2>{{$elemento->nombre.'-'.$elemento->id_Grupo}}</h2>
+											</td>
 										</tr>
 										@endforeach
 									</tbody>

@@ -23,22 +23,13 @@
 					</ul>					
 				</div>
 				<table class="table table-hover text-center">
-						<thead>
-						<tr>
-							<th>
-								Nombre										  	
-					  		</th>
-							<th>
-								Agregar										  	
-					  		</th>
-						</tr>
 						</thead>
 									<tbody>
   										@foreach ($grupos as $elemento)
 										  	<tr>										  	
-										  		<td>	
-												  {{ $elemento->nombre }}	
-												  <input type="submit" class="btn btn-default" value="{{ $elemento->nombre}}" name="opcion"></input>
+										  		<td>	<h1>
+												  {{ $elemento->nombre }}	</h1>
+												  <td><a href="{{url('/BuscadorGrupo/'.$elemento->id_Grupo.'')}}" class="btn btn-success btn-raised btn-xs" style="height:50px;width: 30%; font-size: 25px;background-color: #212F3D;">Agregar</a></td>
 												  
 												</td>
 											</tr>
