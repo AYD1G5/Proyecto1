@@ -136,6 +136,9 @@ Route::group( ['middleware' => 'auth' ], function()
     Route::post('/TemaGrupo/{id}', 'PerfilGrupoController@TemaGrupoCrear'); 
     Route::post('/ComentarioGrupo/{id}', 'PerfilGrupoController@comentarioGrupoCrear'); 
     
+    Route::get('/solicitudes/listar', 'SolicitudesController@listarSolicitudes');
+    Route::get('/solicitudes/crear/{amigoid}', 'SolicitudesController@crearSolicitudPagina');
+    Route::get('/solicitudes/cambiarestado/{solicitudid}/{noestado}', 'SolicitudesController@cambiarEstadoSolicitud');
 });
 
 
