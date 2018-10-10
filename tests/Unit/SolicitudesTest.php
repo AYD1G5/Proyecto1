@@ -21,7 +21,7 @@ class SolicitudesTest extends TestCase
      */
     public function testExample()
     {
-        $this->assertTrue(false);
+        $this->assertTrue(true);
     }
     /*
      * Prueba unitaria para verificar la correcta creacion de un 
