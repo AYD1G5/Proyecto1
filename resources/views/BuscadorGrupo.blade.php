@@ -18,33 +18,35 @@
                             <div class="form-group">
                             <input type="text" class="form-control" placeholder="Grupo" name="grupo">
                             </div>
-                            <button type="submit" class="btn btn-default">BUSCAR</button>
+                            <input type="submit" class="btn btn-default" value="BUSCAR" name="opcion"></input>
 						</form> 
 					</ul>					
 				</div>
-                <table class="table table-hover text-center">
-									<thead>
-										<tr>
-											
-                                            <th class="text-center">Grupo</th>
-											<th class="text-center">Creador</th>
-											<th class="text-center">Nombre</th>
-										</tr>
-									</thead>
+				<table class="table table-hover text-center">
+						<thead>
+						<tr>
+							<th>
+								Nombre										  	
+					  		</th>
+							<th>
+								Agregar										  	
+					  		</th>
+						</tr>
+						</thead>
 									<tbody>
-                                    
-                                    {{--
-										@foreach ($arreglo as $elemento)
-                                            
-                                            <td>{{$elemento->registro_academico}}</td>
-	  										<td>{{$elemento->nombre_catedratico}}</td>
-											<td>{{$elemento->apellido_catedratico}}</td>
-                                            
-										</tr>
-                                        @endforeach
-										--}}
+  										@foreach ($grupos as $elemento)
+										  	<tr>										  	
+										  		<td>	
+												  {{ $elemento->nombre }}	
+												  <input type="submit" class="btn btn-default" value="{{ $elemento->nombre}}" name="opcion"></input>
+												  
+												</td>
+											</tr>
+											
+										@endforeach	
 									</tbody>
 								</table>
+
 			</div>
 		</div>
 @endsection
