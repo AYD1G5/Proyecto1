@@ -46,7 +46,7 @@ class ListarTemasTest extends TestCase
     public function testTablaTemaCreador()
     { 
         $this->assertDatabaseHas('temas', [
-            'creador_id' => '1',
+            'creador_id' => '3',
         ]);
     }
 
