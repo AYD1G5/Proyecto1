@@ -145,6 +145,11 @@ Route::group( ['middleware' => 'auth' ], function()
     Route::get('/solicitudes/cambiarestado/{solicitudid}/{noestado}', 'SolicitudesController@cambiarEstadoSolicitud');
     Route::get('/PerfilUsuario/{idusuario}/', 'PerfilUsuarioController@PerfilUsuario');
 
+    Route::get('/FormNuevoPensum', 'FormNuevoPensumController@FormNuevoPensum'); 
+    Route::post('/FormNuevoPensum', 'FormNuevoPensumController@FormNuevoPensumGuardar'); 
+    Route::get('/FormNuevoPensumConfir', 'FormNuevoPensumController@FormNuevoPensumConfir'); 
+
+
 });
 
 Auth::routes();
