@@ -143,7 +143,7 @@ Route::group( ['middleware' => 'auth' ], function()
     Route::get('/solicitudes/listar', 'SolicitudesController@listarSolicitudes');
     Route::get('/solicitudes/crear/{amigoid}', 'SolicitudesController@crearSolicitudPagina');
     Route::get('/solicitudes/cambiarestado/{solicitudid}/{noestado}', 'SolicitudesController@cambiarEstadoSolicitud');
-    Route::get('/PerfilUsuario', 'PerfilUsuarioController@PerfilUsuario');
+    Route::get('/PerfilUsuario/{idusuario}/', 'PerfilUsuarioController@PerfilUsuario');
 
 });
 
