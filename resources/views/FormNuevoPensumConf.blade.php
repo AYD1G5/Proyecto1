@@ -22,10 +22,10 @@
 							<div class="table-responsive">
 							</div>
 							<br>
+							<h1>Se ha Enviado tu Solicitud de Apertura de un Nuevo Pensum</h1>
 								<div style="padding: 0% 35% 35% 35%;">
 									<table class="table table-hover text-center">
 									<div  class="side">
-										<h1>Se ha Enviado tu Solicitud de Apertura de un Nuevo Pensum</h1>
 									</table>
 								</div>
 					  	</div>

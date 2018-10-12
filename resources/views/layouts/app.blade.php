@@ -191,7 +191,11 @@
 						</li>
 					</ul>
 				</li>
-				
+				<li>
+					<a href="{{url('/FormNuevoPensum')}}" class="btn-sideBar-SubMenu">
+						<i class="zmdi zmdi-shield-security zmdi-hc-fw"></i> Nuevo Pensum <i class="zmdi zmdi-caret-down pull-right"></i>
+					</a>
+				</li>				
 
 			</ul>
 		</div>

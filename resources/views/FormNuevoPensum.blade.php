@@ -28,14 +28,14 @@
 									<form  method="post">
 										@csrf
 										<center><strong>Nombre:<strong></center>
-										<br/>
 										<center><input type="text" name="nombre" id="textoID" width="300px"/></center>
+										<br/>
 										<center><strong>Codigo:<strong></center>
-										<br/>
 										<center><input type="text" name="codigo" id="textoID" width="300px"/></center>
-										<center><strong>Identificador de Carrera:<strong></center>
 										<br/>
+										<center><strong>Identificador de Carrera:<strong></center>
 										<center><input type="text" name="idcarrera" id="textoID" width="300px"/></center>
+										<br/>
 
 
 										<div class="button"> <br>
