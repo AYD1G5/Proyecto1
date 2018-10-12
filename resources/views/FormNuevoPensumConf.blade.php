@@ -22,28 +22,10 @@
 							<div class="table-responsive">
 							</div>
 							<br>
+							<h1>Se ha Enviado tu Solicitud de Apertura de un Nuevo Pensum</h1>
 								<div style="padding: 0% 35% 35% 35%;">
 									<table class="table table-hover text-center">
 									<div  class="side">
-									<form  method="post">
-										@csrf
-										<center><strong>Nombre:<strong></center>
-										<center><input type="text" name="nombre" id="textoID" width="300px"/></center>
-										<br/>
-										<center><strong>Codigo:<strong></center>
-										<center><input type="text" name="codigo" id="textoID" width="300px"/></center>
-										<br/>
-										<center><strong>Identificador de Carrera:<strong></center>
-										<center><input type="text" name="idcarrera" id="textoID" width="300px"/></center>
-										<br/>
-
-
-										<div class="button"> <br>
-						            	<center><button type="submit">Crear</button></center>
-										</div>
-
-									</form>
-
 									</table>
 								</div>
 					  	</div>
