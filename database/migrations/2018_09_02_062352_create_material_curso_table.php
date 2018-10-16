@@ -14,6 +14,7 @@ class CreateMaterialCursoTable extends Migration
     public function up()
     {
         Schema::create('material_curso', function (Blueprint $table) {
+            $table->integer('reportado')->default(0);
             $table->increments('id_material_curso');
             $table->integer('id_curso_pensum')->unsigned();
             $table->foreign('id_curso_pensum')->references('id_curso_pensum')->on('curso_pensum'); 
