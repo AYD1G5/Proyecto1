@@ -44,17 +44,6 @@ class CatalogoCursoTest extends TestCase
         $user1->telefono='12345678';
         $user1->save();
 
-        $user2=new User();
-        $user2->registro_academico='99999';
-        $user2->nombre='Name';
-        $user2->apellido='LastName';
-        $user2->id_rol='1';
-        $user2->direccion='Guatemala';
-        $user2->email='Name6@gmail.com';
-        $user2->password=Hash::make('12345678');
-        $user2->telefono='12345678';
-        $user2->save();
-
         $response = $this->call('POST', '/login', [
         'email' => $user->email,
         'password' => '12345678',
@@ -66,10 +55,19 @@ class CatalogoCursoTest extends TestCase
     //se eliminan los usuarios para no afectar a los datos dentro de la BD
     $user->delete();
     $user1->delete();
-    $user2->delete();
         $this->assertEquals(200, $response->getStatusCode());
     }
 
+    public function testBuscadorCatalogo(){
+        $response = $this->call('POST', '/login', [
+        'email' => 'willyslider@gmail.com',
+        'password' => '12345678',
+        '_token' => csrf_token()
+        ]);
+        //$response = $this->get('/BuscadorCatalogo');
+    $response = $this->get('/BuscadorGrupo');
+        $this->assertEquals(200, $response->getStatusCode());
+    }
 
 
 }
