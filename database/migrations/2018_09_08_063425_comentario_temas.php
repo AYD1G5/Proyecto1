@@ -17,6 +17,7 @@ class ComentarioTemas extends Migration
             $table->increments('comentariotema_id');
             $table->integer('user_id')->unsigned();
             $table->integer('tema_id')->unsigned();
+            $table->integer('reportado')->default(0);
             $table->string('comentario');
             $table->timestamps();
         });    

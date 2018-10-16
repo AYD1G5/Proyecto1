@@ -79,4 +79,38 @@ class MaterialDeApoyoController extends Controller {
 
         return Response::download($file, $nombre_archivo, $headers);
     }
+
+
+    public function CrearMaterial($id_curso_pensum, $nombre){
+        $curso_pensum = Curso_pensum::findOrFail($id_curso_pensum);   
+        $material = new Material();
+        $material->nombre_archivo = $nombre;
+        $material->extension_archivo = "JPG";
+        $material->ruta_real_archivo = 'ruta';
+        $material->tamano_archivo ="300";
+        $material->save();
+
+        $material_curso = new Material_curso();   
+        $material_curso->id_curso_pensum = $id_curso_pensum;
+        $material_curso->id_material = $material->id_material;
+        $material_curso->save();
+
+        return $material_curso;
+    }
+    public function ReportarMaterial($idMaterial){
+
+        $MaterialTemp1 = Material_curso::where(array(
+            'id_material_curso' =>$idMaterial
+            ))->first();
+        $MaterialTemp1-> reportado=1;
+        $MaterialTemp1->save();
+    }
+    public function QuitarReporteMaterial($idMaterial){
+
+        $MaterialTemp1 = Material_curso::where(array(
+            'id_material_curso' =>$idMaterial
+            ))->first();
+        $MaterialTemp1-> reportado=0;
+        $MaterialTemp1->save();
+    }
 }
