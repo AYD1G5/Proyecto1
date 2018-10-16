@@ -6,5 +6,6 @@ use Illuminate\Database\Eloquent\Model;
 
 class Tema extends Model
 {
-    //
+    protected $table = 'temas';
+    protected $primaryKey='tema';
 }

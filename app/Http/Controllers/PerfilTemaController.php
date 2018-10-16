@@ -102,4 +102,29 @@ class PerfilTemaController extends Controller
             return true;
         }
     }
+    public function CrearTema($curso,$creador,$titulo,$descripcion){
+        $tema = new Tema();
+        $tema->curso_id = $curso;
+        $tema->creador_id = $creador;
+        $tema->nombre_tema = $titulo;
+        $tema->descripcion = $descripcion;
+        $tema->reportado = 0;
+        $tema->save();
+        return $tema;
+    }
+    public function ReportarTema($idTema){
+        $Tema1 = Tema::where(array(
+            'tema' => $idTema
+            ))->first();
+        $Tema1->reportado = 1;
+        $Tema1->save();
+    }
+    public function QuitarReporteTema($idTema){
+        $Tema1 = Tema::where(array(
+            'tema' => $idTema
+            ))->first();
+        $Tema1->reportado = 0;
+        $Tema1->save();
+    }
+  
 }
