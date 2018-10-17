@@ -12,7 +12,7 @@ use Illuminate\Support\Facades\Hash;
 
 class CrearGrupoTest extends TestCase
 {
-        /**
+     /**
      * Prueba creada para probar si esta retornando correctamente la vista \CrearGrupo
      */
     public function testCrearGrupo(){
