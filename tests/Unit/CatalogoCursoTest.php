@@ -69,5 +69,27 @@ class CatalogoCursoTest extends TestCase
         $this->assertEquals(200, $response->getStatusCode());
     }
 
+    public function testCatalogoCursosoPorCiclo()
+    { 
+        $this->assertDatabaseHas('ciclo', [
+            'nombre_ciclo' => 'primer semestre'
+        ]);
+    }
 
+    public function testCatalogosCursosExistentes()
+    { 
+        $this->assertDatabaseHas('curso', [
+            'nombre_curso' => 'Matematica Basica 1'
+        ]);
+    }
+
+    public function CrearTemaView(){
+        $response = $this->call('POST', '/login', [
+        'email' => 'willyslider@gmail.com',
+        'password' => '12345678',
+        '_token' => csrf_token()
+    ]);
+    $response = $this->get('/CrearTemas');
+    }
+       
 }
