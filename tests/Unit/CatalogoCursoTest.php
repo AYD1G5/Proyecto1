@@ -83,13 +83,20 @@ class CatalogoCursoTest extends TestCase
         ]);
     }
 
-    public function CrearTemaView(){
+    public function CrearCatalogo(){
         $response = $this->call('POST', '/login', [
         'email' => 'willyslider@gmail.com',
         'password' => '12345678',
         '_token' => csrf_token()
     ]);
+    //$response = $this->get('/CrearCatalogo');
     $response = $this->get('/CrearTemas');
     }
        
+    public function testCarrera()
+    { 
+        $this->assertDatabaseHas('carrera', [
+            'nombre_carrera' => 'Civil'
+        ]);
+    }
 }
