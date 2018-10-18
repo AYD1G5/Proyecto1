@@ -5,7 +5,7 @@
 			<div class="page-header">
 			  <h1 class="text-titles"><i class="zmdi zmdi-book zmdi-hc-fw"></i> <small>Carreras</small></h1>
 			</div>
-			<center><p class="lead">Catalogo Carrera</p></center>
+			<center><p class="lead">Crear Nueva Carrera</p></center>
 			<center> <ul class="nav nav-tabs" style="margin-bottom: 15px;width: 70%;">
 					  	    <li class="active"><a href="#list" data-toggle="tab"></a></li>
 					    </ul></center>
@@ -20,7 +20,7 @@
 							<div class="table-responsive">
 							</div>
 							<br>
-								<div style="padding: 0% 35% 35% 35%;">
+								<div style="padding: 0% 35% 0% 35%;">
 									<table class="table table-hover text-center">
 									<div  class="side">
 									<form  method="post">
@@ -37,8 +37,31 @@
 						            	<center><button type="submit">Crear</button></center>
 										</div>
 									</form>
-									</table>
+									</table>									
 								</div>
+
+								<center> <ul class="nav nav-tabs" style="margin-bottom: 15px;width: 70%;">
+					  	    <li class="active"><a href="#list" data-toggle="tab"></a></li>
+					    </ul></center>
+						<center><p class="lead">Catalogo Carrera</p></center>
+									<table class="table table-hover text-center">
+									<thead>
+										<tr>
+											<th class="text-center">Codigo</th>
+											<th class="text-center">Nombre</th>											
+										</tr>
+									</thead>
+									<tbody>
+										@foreach ($Carreras as $elemento)
+                                            <td>{{$elemento->codigo_carrera}}</td>
+	  										<td>{{$elemento->nombre_carrera}}</td>                                           
+										</tr>
+                                        @endforeach
+
+                                    
+									</tbody>
+								</table>
+
 					  	</div>
                           <div class="tab-pane fade" id="list1">
 							<div class="table-responsive">
