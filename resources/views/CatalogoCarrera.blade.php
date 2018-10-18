@@ -31,7 +31,7 @@
 										<br/>
 										<center><strong>Codigo:<strong></center>
 										<br/>
-										<center><input type="number" name="codigo" id="textoID" width="300px"/></center>
+										<center><input type="number" name="codigo" id="codigo" width="300px"/></center>
 										<div class="button"> 
 										<br/>
 						            	<center><button type="submit">Crear</button></center>
