@@ -165,10 +165,24 @@
 					</ul>
 				</li>				
 				<li>
-					<a href="{{url('/FormNuevoPensum')}}" class="btn-sideBar-SubMenu">
-						<i class="zmdi zmdi-shield-security zmdi-hc-fw"></i> Nuevo Pensum <i class="zmdi zmdi-caret-down pull-right"></i>
+					<a href="#!" class="btn-sideBar-SubMenu">
+						<i class="zmdi zmdi-shield-security zmdi-hc-fw"></i> Carreras <i class="zmdi zmdi-caret-down pull-right"></i>
 					</a>
-				</li>				
+					<ul class="list-unstyled full-box">
+						<li>
+							<a href="{{url('/FormNuevoPensum')}}"><i class="zmdi zmdi-balance zmdi-hc-fw"></i> Solicitud Nuevo Pensum </a>
+						</li>
+						<li>
+							<a href="{{url('/CatalogoCarrera')}}"><i class="zmdi zmdi-balance zmdi-hc-fw"></i> Catalogo Carrera </a>
+						</li>
+						<li>
+							<a href="{{url('/CatalogoPensum')}}"><i class="zmdi zmdi-balance zmdi-hc-fw"></i> Catalogo Pensum </a>
+						</li>
+						<li>
+							<a href="{{url('/BuscadorGrupo')}}"><i class="zmdi zmdi-search"></i> Buscador Grupo</a>
+						</li>
+					</ul>
+				</li>
 
 			</ul>
 		</div>

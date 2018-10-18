@@ -38,7 +38,7 @@
 										<br/>
 										<center><strong>Codigo:<strong></center>
 										<br/>
-										<center><input type="number" name="codigo" id="textoID" width="300px"/></center>
+										<center><input type="number" name="codigo" id="codigo" width="300px"/></center>
 										<div class="button"> 
 										<br/>
 						            	<center><button type="submit">Crear</button></center>
@@ -54,12 +54,14 @@
 									<table class="table table-hover text-center">
 									<thead>
 										<tr>
+											<th class="text-center">Carrera</th>
 											<th class="text-center">Codigo</th>
 											<th class="text-center">Nombre</th>											
 										</tr>
 									</thead>
 									<tbody>
 										@foreach ($Pensums as $elemento)
+											<td>{{$elemento->nombre_carrera}}</td>
                                             <td>{{$elemento->codigo_pensum}}</td>
 	  										<td>{{$elemento->nombre_pensum}}</td>                                           
 										</tr>
@@ -75,7 +77,7 @@
 							</div>
 					  	</div>
                         <ul class="nav nav-tabs" style="margin-bottom: 15px;">
-					  	    <li class="active"><a href="#list" data-toggle="tab">Carreras</a></li>
+					  	    <li class="active"><a href="#list" data-toggle="tab">Pensum</a></li>
 
 					    </ul>
 

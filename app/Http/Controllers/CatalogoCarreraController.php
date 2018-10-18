@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\URL;
 use DB;
 use Auth;
 use App\Carrera;
+use App\Pensum;
 use App\User;
 
 class CatalogoCarreraController extends Controller
@@ -25,7 +26,10 @@ class CatalogoCarreraController extends Controller
     public function CatalogoPensum()
     {   
         $carreras=DB::table('Carrera')->get();
-        $pensums=DB::table('pensum')->get();
+        $pensums=DB::table('pensum')
+        ->join('Carrera', 'pensum.id_carrera', '=', 'Carrera.id_carrera')
+        ->get();
+
         return view('CatalogoPensum')->with('Carreras',$carreras)->with('Pensums',$pensums);
 
     }
@@ -60,8 +64,17 @@ class CatalogoCarreraController extends Controller
 
     public function CatalogoPensum2(Request $request)
     {   
-        $carreras=DB::table('Carrera')->get();
-        $pensums=DB::table('pensum')->get();
+        $pensum=new Pensum();
+        $pensum->nombre_pensum=$request->input('nombre');
+        $pensum->codigo_pensum=$request->input('codigo');
+        $pensum->id_carrera=$request->input('Carrera');
+        $pensum->save();
+
+        $carreras=DB::table('carrera')->get();
+        $pensums=DB::table('pensum')
+            ->join('Carrera', 'pensum.id_carrera', '=', 'Carrera.id_carrera')
+            ->get();
+
         return view('CatalogoPensum')->with('Carreras',$carreras)->with('Pensums',$pensums);
 
     }
