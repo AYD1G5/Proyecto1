@@ -23,20 +23,6 @@
 								<div style="padding: 0% 35% 35% 35%;">
 									<table class="table table-hover text-center">
 									<div  class="side">
-									<form  method="post">
-										@csrf
-										<center><strong>Nombre:<strong></center>
-										<br/>
-										<center><input type="text" name="nombre" id="textoID" width="300px"/></center>
-										<br/>
-										<center><strong>Codigo:<strong></center>
-										<br/>
-										<center><input type="number" name="codigo" id="textoID" width="300px"/></center>
-										<div class="button"> 
-										<br/>
-						            	<center><button type="submit">Crear</button></center>
-										</div>
-									</form>
 									</table>
 								</div>
 					  	</div>

@@ -150,6 +150,7 @@ Route::group( ['middleware' => 'auth' ], function()
     Route::get('/FormNuevoPensumConfir', 'FormNuevoPensumController@FormNuevoPensumConfir'); 
 
     Route::get('/CatalogoCarrera', 'CatalogoCarreraController@CatalogoCarrera');
+    Route::get('/CatalogoPensum', 'CatalogoCarreraController@CatalogoPensum');
 
 });
 

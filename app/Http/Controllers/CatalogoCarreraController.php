@@ -13,4 +13,12 @@ class CatalogoCarreraController extends Controller
         return view('CatalogoCarrera');
 
     }
+
+    //este metodo lo utilizaremos para realizar la logica de la creacion de catalogo de carreras
+    // dentro de la aplicacion
+    public function CatalogoPensum()
+    {        
+        return view('CatalogoPensum');
+
+    }
 }
