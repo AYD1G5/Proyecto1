@@ -18,6 +18,30 @@
 					<div id="myTabContent" class="tab-content">
 					  	<div class="tab-pane fade active in" id="list">
 							<div class="table-responsive">
+							<table class="table table-hover text-center">
+									<thead>
+										<tr>
+											<th class="text-center">Codigo_Pensum</th>
+                                            <th class="text-center">Nombre_Pensum</th>
+											<th class="text-center">Id_Carrera</th>
+											
+										</tr>
+									</thead>
+									<tbody>
+                                    
+                                    
+										@foreach ($Solicitudes as $elemento)
+                                            <td>{{$elemento->codigo_pensum}}</td>
+                                            <td>{{$elemento->nombre_pensum}}</td>
+	  										<td>{{$elemento->id_carrera}}</td>
+                                            
+										</tr>
+                                        @endforeach
+
+                                    
+									</tbody>
+								</table>
+
 							</div>
 							<br>
 								<div style="padding: 0% 35% 0% 35%;">

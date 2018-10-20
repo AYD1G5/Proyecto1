@@ -206,7 +206,7 @@
 							<a href="{{url('/CatalogoPensum')}}"><i class="zmdi zmdi-balance zmdi-hc-fw"></i> Catalogo Pensum </a>
 						</li>
 						<li>
-							<a href="{{url('/VerSolicitudes')}}"><i class="zmdi zmdi-search"></i> Ver Solicitudes</a>
+							<a href="{{url('/VerSolicitudes')}}"><i class="zmdi zmdi-search"></i> Ver Solicitudes Pensum</a>
 						</li>
 					</ul>
 				</li>

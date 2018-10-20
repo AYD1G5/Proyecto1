@@ -9,6 +9,7 @@ use Auth;
 use App\Carrera;
 use App\Pensum;
 use App\User;
+use App\Solicitud;
 
 class CatalogoCarreraController extends Controller
 {
@@ -79,6 +80,17 @@ class CatalogoCarreraController extends Controller
 
     }
 
+
+    //este metodo lo utilizaremos para crear la vista de las solicitudes que han hecho los usuaro
+    //para la apertura de nuevas carreras
+
+    public function VerSolicitudes()
+    {   
+        $solicitudes=DB::table('form_nuevo_pensum')->get();
+
+        return view('VerSolicitudes')->with('Solicitudes',$solicitudes);
+
+    }
 
 
 }
