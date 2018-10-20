@@ -5,6 +5,12 @@ namespace Tests\Unit;
 use Tests\TestCase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Illuminate\Foundation\Testing\RefreshDatabase;
+use App\Http\Controllers\BuscadorCursoController;
+use App\Asignacion_temporal;
+use App\Pensum_estudiante;
+use App\Curso;
+use DB;
+
 
 class CatalogoCursoTest extends TestCase
 {
@@ -19,61 +25,67 @@ class CatalogoCursoTest extends TestCase
     }
 
     /*
-    *   Esta prueba servira para agregar cursos al catalogo
+    *   Prueba para probar la correcta creacion de un curso y
+    *   que su informacion se vea en el catalogo de cursos 
     */
-    public function testADDCatalogoCurso(){
-        $user=new User();
-        $user->registro_academico='55555-4';
-        $user->nombre='Name';
-        $user->apellido='LastName';
-        $user->id_rol='1';
-        $user->direccion='Guatemala';
-        $user->email='Name4@gmail.com';
-        $user->password=Hash::make('12345678');
-        $user->telefono='777777';
-        $user->save();
+    public function testBaseDatosCatalogoCurso(){
+        /***Crear un curso en la base de datos*/
+        $codigoCurso = 19;
+        $cursoController=new BuscadorCursoController();
+        $nuevoCurso = $cursoController->agregarCurso($codigoCurso, 'Quimica General 2', 1, 1, 1, 'Obligatorio', '10', 'Si', 0, 1);
+        
+        /** Retornar True si existe el curso */
+        $validacionCurso = $cursoController->existeCurso($codigoCurso);
 
-        $user1=new User();
-        $user1->registro_academico='88888';
-        $user1->nombre='Name';
-        $user1->apellido='LastName';
-        $user1->id_rol='1';
-        $user1->direccion='Guatemala';
-        $user1->email='Name5@gmail.com';
-        $user1->password=Hash::make('12345678');
-        $user1->telefono='12345678';
-        $user1->save();
+        /** Borrar el curso para no afectar la base de datos */
+        DB::table('curso_pensum')->where('id_curso_pensum', $nuevoCurso->id_curso_pensum)->delete();
+        DB::table('curso')->where('codigo_curso', $codigoCurso)->delete();
 
-        $response = $this->call('POST', '/login', [
-        'email' => $user->email,
-        'password' => '12345678',
-        '_token' => csrf_token()
-    ]);
-
-    //$response = $this->get('/CrearUsuario');
-    $response = $this->get('/CrearGrupo');
-    //se eliminan los usuarios para no afectar a los datos dentro de la BD
-    $user->delete();
-    $user1->delete();
-        $this->assertEquals(200, $response->getStatusCode());
+        $this->assertEquals(true, $validacionCurso);
     }
 
-    public function testBuscadorCatalogo(){
+
+    /** 
+     * Este Test Probara si existe la pagina catalogo de cursos
+     * Es decir la pagina principal
+     */
+    public function testPaginaCatalogo(){
+        /*** Iniciar sesion en la pagina */
         $response = $this->call('POST', '/login', [
         'email' => 'willyslider@gmail.com',
         'password' => '12345678',
         '_token' => csrf_token()
         ]);
-        //$response = $this->get('/BuscadorCatalogo');
-    $response = $this->get('/BuscadorGrupo');
+
+        /*** dirigirse a la pagina */
+        $response = $this->get('/CatalogoCurso');
         $this->assertEquals(200, $response->getStatusCode());
     }
 
-    public function testCatalogoCursosoPorCiclo()
+    /*** 
+     * Ingresara un curso a la base de datos y comprobara que 
+     * se ha creado su pagina de detalles
+     */
+    public function testCatalogoCursosoPaginaCurso()
     { 
-        $this->assertDatabaseHas('ciclo', [
-            'nombre_ciclo' => 'primer semestre'
+        /*** Agregar un curso para prueba */
+        $cursoController=new BuscadorCursoController();
+        $codigoCurso = 53;
+        $nuevoCurso = $cursoController->agregarCurso($codigoCurso, 'Quimica General 2', 1, 1, 1, 'Obligatorio', '10', 'Si', 0, 1);
+
+        /** Iniciar sesion en la pagina */
+        $response = $this->call('POST', '/login', [
+            'email' => 'willyslider@gmail.com',
+            'password' => '12345678',
+            '_token' => csrf_token()
         ]);
+
+        /*** Consultar la pagina del curso */
+        $response = $this->get('/asignaciontemporal/'.$nuevoCurso->id_curso_pensum.'/mostrar');
+            $this->assertEquals(200, $response->getStatusCode());
+        DB::table('curso_pensum')->where('id_curso_pensum', $nuevoCurso->id_curso_pensum)->delete();
+        DB::table('curso')->where('codigo_curso', $codigoCurso)->delete();
+        
     }
 
     public function testCatalogosCursosExistentes()
