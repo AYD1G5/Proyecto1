@@ -16,35 +16,19 @@ class BuscadorCursoController extends Controller
             $query = trim($request->get('searchText'));
             $cursos=DB::table('curso as c')
             ->join('area as a', 'a.id_area', '=', 'c.id_area')
+            ->join('curso_pensum as cp', 'cp.id_curso', '=', 'c.id_curso')
             ->join('escuela as e', 'e.id_escuela', '=', 'c.id_escuela')
             ->where('c.nombre_curso', 'LIKE', '%'.$query.'%')
             
             
             ->select('c.id_curso as id', 'c.codigo_curso as codigo_curso', 'c.nombre_curso as nombre_curso',
-                    'e.nombre_escuela as escuela', 'a.nombre_area as area')
+                    'cp.id_curso_pensum as id_curso_pensum', 'e.nombre_escuela as escuela', 'a.nombre_area as area')
                     
             ->get();
             return view('BuscadorCurso',["cursos"=>$cursos,"searchText"=>$query]);
         }
     }
 
-    public function CatalogoCurso(Request $request){
-        if($request)
-        {     
-            $query = trim($request->get('searchText'));
-            $cursos=DB::table('curso as c')
-            ->join('area as a', 'a.id_area', '=', 'c.id_area')
-            ->join('escuela as e', 'e.id_escuela', '=', 'c.id_escuela')
-            ->where('c.nombre_curso', 'LIKE', '%'.$query.'%')
-            
-            
-            ->select('c.id_curso as id', 'c.codigo_curso as codigo_curso', 'c.nombre_curso as nombre_curso',
-                    'e.nombre_escuela as escuela', 'a.nombre_area as area')
-                    
-            ->get();
-            return view('BuscadorCurso',["cursos"=>$cursos,"searchText"=>$query]);
-        }
-    }
 
     public function agregarCurso($codigo, $nombre, $id_escuela, $id_area, $id_pensum, $categoria, $creditos, $lab, $restriccion, $semestre){
         $curso=new Curso();

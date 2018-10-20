@@ -81,7 +81,7 @@ class CatalogoCursoTest extends TestCase
         ]);
 
         /*** Consultar la pagina del curso */
-        $response = $this->get('/asignaciontemporal/'.$nuevoCurso->id_curso_pensum.'/mostrar');
+        $response = $this->get('/mostrarinfocurso/'.$nuevoCurso->id_curso_pensum);
             $this->assertEquals(200, $response->getStatusCode());
         DB::table('curso_pensum')->where('id_curso_pensum', $nuevoCurso->id_curso_pensum)->delete();
         DB::table('curso')->where('codigo_curso', $codigoCurso)->delete();
@@ -92,23 +92,6 @@ class CatalogoCursoTest extends TestCase
     { 
         $this->assertDatabaseHas('curso', [
             'nombre_curso' => 'Matematica Basica 1'
-        ]);
-    }
-
-    public function CrearCatalogo(){
-        $response = $this->call('POST', '/login', [
-        'email' => 'willyslider@gmail.com',
-        'password' => '12345678',
-        '_token' => csrf_token()
-    ]);
-    //$response = $this->get('/CrearCatalogo');
-    $response = $this->get('/CrearTemas');
-    }
-       
-    public function testCarrera()
-    { 
-        $this->assertDatabaseHas('carrera', [
-            'nombre_carrera' => 'Civil'
         ]);
     }
 }

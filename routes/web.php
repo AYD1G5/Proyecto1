@@ -65,6 +65,7 @@ Route::group( ['middleware' => 'auth' ], function()
     Route::get('asignaciontemporal/{id}/{idsemestre}/create', 'AsignacionTempController@create');
     Route::get('asignaciontemporal/guardar', 'AsignacionTempController@guardar');
     Route::get('asignaciontemporal/{id}/mostrar', 'CursoController@mostrarcurso');
+    Route::get('mostrarinfocurso/{id}', 'CursoController@mostrarcurso');
     Route::get('editar/{idsemestre}/{id}', 'AsignacionTempController@edit');
     Route::get('revisarasignacion/{id}', 'AsignacionTempController@revision');
     Route::get('finalizarasignacion/', 'AsignacionTempController@finalizar');
@@ -111,7 +112,7 @@ Route::group( ['middleware' => 'auth' ], function()
     Route::get('/cargamasiva', '@Funciones@cargamasiva');
     //Buscadores
     Route::get('/BuscadorCurso', 'BuscadorCursoController@BuscadorCurso');
-    Route::get('/CatalogoCurso', 'BuscadorCursoController@CatalogoCurso');
+    Route::get('/CatalogoCurso', 'BuscadorCursoController@BuscadorCurso');
     Route::get('/BuscadorPersonas', 'BuscadorPersonasController@BuscadorPersonas');
     Route::post('/BuscadorPersonas', 'BuscadorPersonasController@ListarPersonas');
     Route::get('/BuscadorCatedratico', 'BuscadorCatController@BuscadorCatedratico');
