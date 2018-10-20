@@ -153,6 +153,7 @@ Route::group( ['middleware' => 'auth' ], function()
     Route::get('/CatalogoPensum', 'CatalogoCarreraController@CatalogoPensum');
     Route::post('/CatalogoCarrera', 'CatalogoCarreraController@CatalogoCarrera2');
     Route::post('/CatalogoPensum', 'CatalogoCarreraController@CatalogoPensum2');
+    Route::get('/VerSolicitudes', 'CatalogoCarreraController@VerSolicitudes');
 
 });
 
