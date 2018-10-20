@@ -179,7 +179,7 @@
 							<a href="{{url('/CatalogoPensum')}}"><i class="zmdi zmdi-balance zmdi-hc-fw"></i> Catalogo Pensum </a>
 						</li>
 						<li>
-							<a href="{{url('/BuscadorGrupo')}}"><i class="zmdi zmdi-search"></i> Buscador Grupo</a>
+							<a href="{{url('/VerSolicitudes')}}"><i class="zmdi zmdi-search"></i> Ver Solicitudes</a>
 						</li>
 					</ul>
 				</li>
