@@ -85,22 +85,73 @@ class ReporteRepitenciaTest extends TestCase
       $nuevasolic->delete();
     }
 
+//    public function testCambiarEstadoSolicitud(){
+//      /*** CREAR REGISTRO */
+//      $no_estado  = 0;
+//      $controlador = new SolicitudesController();
+//      $nuevasolic = $controlador->crearSolicitud($no_estado, 3, 4);
+//      if(!$nuevasolic){
+//        $this->assertEquals(false);  
+//      }
+//      
+//      $estadoAnterior = $nuevasolic->no_estado;
+//      /** CAMBIAR ESTADO */
+//      $nuevasolic->no_estado = 2;
+//      $nuevasolic->save();
+//      $estadoActual = $nuevasolic->no_estado;
+//      /** EJECUTAR LA PRUEBA */
+//     $this->assertEquals($estadoActual, 2);
+//      $nuevasolic->delete();
+//    }
+
+
+    //se realizaron cambio sobre el anterior metodo y se veran reflejados en este
     public function testCambiarEstadoSolicitud(){
       /*** CREAR REGISTRO */
       $no_estado  = 0;
       $controlador = new SolicitudesController();
-      $nuevasolic = $controlador->crearSolicitud($no_estado, 3, 4);
+      $nuevasolic = $controlador->crearSolicitud($no_estado, 1, 4);
+      $no_estado  = 0;
+      $controlador = new SolicitudesController();
+      $nuevasolic1 = $controlador->crearSolicitud($no_estado, 2, 4);
+      $no_estado  = 0;
+      $controlador = new SolicitudesController();
+      $nuevasolic2 = $controlador->crearSolicitud($no_estado, 3, 4);
+      $no_estado  = 0;
+      $controlador = new SolicitudesController();
+      $nuevasolic3 = $controlador->crearSolicitud($no_estado, 4, 4);
       if(!$nuevasolic){
         $this->assertEquals(false);  
       }
       
       $estadoAnterior = $nuevasolic->no_estado;
+      $estadoAnterior1 = $nuevasolic1->no_estado;
+      $estadoAnterior2 = $nuevasolic2->no_estado;
+      $estadoAnterior3 = $nuevasolic3->no_estado;
       /** CAMBIAR ESTADO */
       $nuevasolic->no_estado = 2;
       $nuevasolic->save();
       $estadoActual = $nuevasolic->no_estado;
+      /** CAMBIAR ESTADO */
+      $nuevasolic1->no_estado = 2;
+      $nuevasolic1->save();
+      $estadoActual1 = $nuevasolic1->no_estado;
+      /** CAMBIAR ESTADO */
+      $nuevasolic2->no_estado = 2;
+      $nuevasolic2->save();
+      $estadoActual2 = $nuevasolic2->no_estado;
+      /** CAMBIAR ESTADO */
+      $nuevasolic3->no_estado = 2;
+      $nuevasolic3->save();
+      $estadoActual3 = $nuevasolic3->no_estado;
       /** EJECUTAR LA PRUEBA */
       $this->assertEquals($estadoActual, 2);
+      $this->assertEquals($estadoActual1, 2);
+      $this->assertEquals($estadoActual2, 2);
+      $this->assertEquals($estadoActual3, 2);
       $nuevasolic->delete();
+      $nuevasolic1->delete();
+      $nuevasolic2->delete();
+      $nuevasolic3->delete();
     }
 }
