@@ -149,7 +149,9 @@ class LlenarBdTable extends Migration
         619818, 'Tarea 201503666')");
         DB::insert("insert into material_curso(id_curso_pensum, id_material) values (1, 1)");
         DB::insert("insert into asignacion(id_estudiante, id_ciclo, anio) values (1, 1, 2018)");
+        DB::insert("insert into asignacion(id_estudiante, id_ciclo, anio) values (1, 2, 2018)");
         DB::insert("insert into curso_asignacion(id_curso_pensum, nota, id_asignacion, id_catedratico) values (1, 61, 1, 1)");
+        DB::insert("insert into curso_asignacion(id_curso_pensum, nota, id_asignacion, id_catedratico) values (1, 41, 2, 1)");
         DB::insert("insert into curso_asignacion(id_curso_pensum, nota, id_asignacion, id_catedratico) values (6, 70, 1, 1)");
         DB::insert("insert into curso_asignacion(id_curso_pensum, nota, id_asignacion, id_catedratico) values (7, 64, 1, 1)");
         DB::insert("insert into temas(tema, nombre_tema, descripcion, creador_id, curso_id) values (1, 'tema1', 'tema1', 3, 1)");

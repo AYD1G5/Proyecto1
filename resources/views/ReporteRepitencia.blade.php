@@ -5,7 +5,7 @@
 			<div class="page-header">
 			  <h1 class="text-titles"><i class="zmdi zmdi-book zmdi-hc-fw"></i> <small>CURSO</small></h1>
 			</div>
-            <center><p class="lead">BUSCADOR DE CURSO</p></center>
+            <center><p class="lead">REPITENCIA DE CURSOS</p></center>
 		</div>
 
         <?php $variable = 0; ?>
@@ -16,7 +16,7 @@
 					  	<li class="active"><a href="#list" data-toggle="tab"></a></li>
                        
 					</ul>
-					{!!Form::open(array('url'=>'BuscadorCurso','method'=>'GET','autocomplete'=>'off','role'=>'search'))!!}
+					{!!Form::open(array('url'=>'ReportePlanRepitencia','method'=>'GET','autocomplete'=>'off','role'=>'search'))!!}
 						<form class="navbar-form navbar-left" role="search">
 							<div class="form-group">
 								<input type="text" class="form-control" name = "searchText" placeholder="Curso..." value = "{{$searchText}}">
@@ -38,7 +38,7 @@
 										<th class="text-center">Nombre</th>
 										<th class="text-center">Escuela</th>
 										<th class="text-center">Area</th>
-										
+										<th class="text-center">No Veces</th>
 									</tr>
 								</thead>
 								<tbody>
@@ -51,7 +51,7 @@
 										<td>{{$elemento->nombre_curso}}</td>
 										<td>{{$elemento->escuela}}</td>
 										<td>{{$elemento->area}}</td>
-										
+										<td>{{$elemento->conteo}}</td>
 									</tr>
 									@endforeach
 

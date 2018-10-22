@@ -111,6 +111,7 @@ Route::group( ['middleware' => 'auth' ], function()
     Route::get('/cargamasiva', '@Funciones@cargamasiva');
     //Buscadores
     Route::get('/BuscadorCurso', 'BuscadorCursoController@BuscadorCurso');
+    Route::get('/ReportePlanRepitencia', 'BuscadorCursoController@PlanRepitencia');
     Route::get('/BuscadorPersonas', 'BuscadorPersonasController@BuscadorPersonas');
     Route::post('/BuscadorPersonas', 'BuscadorPersonasController@ListarPersonas');
     Route::get('/BuscadorCatedratico', 'BuscadorCatController@BuscadorCatedratico');
@@ -161,5 +162,3 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/message', 'MessageController@index')->name('message');
 Route::post('/message', 'MessageController@store')->name('message.store');
-
-
