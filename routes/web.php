@@ -149,6 +149,9 @@ Route::group( ['middleware' => 'auth' ], function()
     Route::post('/FormNuevoPensum', 'FormNuevoPensumController@FormNuevoPensumGuardar'); 
     Route::get('/FormNuevoPensumConfir', 'FormNuevoPensumController@FormNuevoPensumConfir'); 
 
+    Route::get('/ListarUsuarios2', 'BloquearUsuariosController@Listar');
+    Route::get('/bloquear/{id}', 'BloquearUsuariosController@Bloquear');
+    Route::get('/desbloquear/{id}', 'BloquearUsuariosController@Desbloquear');
 
 });
 
