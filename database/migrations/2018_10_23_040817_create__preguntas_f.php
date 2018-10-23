@@ -18,7 +18,6 @@ class CreatePreguntasF extends Migration
                         
             $table->string('pregunta');
             $table->string('respuesta');
-            $table->string('estado');
             $table->timestamps();
         });
     }

@@ -22,11 +22,25 @@
 							<br>
 								<div style="padding: 0% 35% 0% 35%;">
 								
-								@foreach ($Preguntas as $elemento)
-                                            <h2>{{$elemento->pregunta}}</h2>
-	  										<p>{{$elemento->respuesta}}</p>                                           
-										</tr>
-                                        @endforeach
+								<table class="table table-hover text-center">
+									<div  class="side">
+									<form  method="post">
+										@csrf
+										<center><strong>Pregunta:<strong></center>
+										<br/>
+										<center><input type="text" name="pregunta" id="pregunta" width="300px"/></center>
+										<br/>
+										<center><strong>Respuesta:<strong></center>
+										<br/>
+										<center><input type="text" name="respuesta" id="respuesta" width="300px"/></center>
+										<br/>
+
+										<div class="button"> 
+										<br/>
+						            	<center><button type="submit">Crear</button></center>
+										</div>
+									</form>
+									</table>
 
 
 

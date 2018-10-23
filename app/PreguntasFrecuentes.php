@@ -12,8 +12,7 @@ class PreguntasFrecuentes extends Model
     
     protected $fillable = [
         'pregunta', 
-        'respuesta',
-        'estado'
+        'respuesta'
     ];
 
     protected $guarded = [

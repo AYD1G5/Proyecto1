@@ -158,6 +158,8 @@ Route::group( ['middleware' => 'auth' ], function()
     Route::post('/CatalogoPensum', 'CatalogoCarreraController@CatalogoPensum2');
     Route::get('/VerSolicitudes', 'CatalogoCarreraController@VerSolicitudes');
     Route::get('/PreguntasFrecuentes', 'PreguntasFrecuentesController@PreguntasFrecuentes');
+    Route::get('/CrearPreguntasFrecuentes', 'PreguntasFrecuentesController@CrearPreguntasFrecuentes');
+    Route::post('/CrearPreguntasFrecuentes', 'PreguntasFrecuentesController@CrearPreguntasFrecuentes2');
 
 });
 
