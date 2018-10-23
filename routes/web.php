@@ -157,6 +157,7 @@ Route::group( ['middleware' => 'auth' ], function()
     Route::post('/CatalogoCarrera', 'CatalogoCarreraController@CatalogoCarrera2');
     Route::post('/CatalogoPensum', 'CatalogoCarreraController@CatalogoPensum2');
     Route::get('/VerSolicitudes', 'CatalogoCarreraController@VerSolicitudes');
+    Route::get('/PreguntasFrecuentes', 'PreguntasFrecuentesController@PreguntasFrecuentes');
 
 });
 
