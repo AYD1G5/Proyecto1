@@ -122,5 +122,5 @@ class ReportarBloquearUsuariosTest extends TestCase
         DB::table('asignacion_temporal')->where('id_estudiante', $usuario->id)->delete();
         $usuario ->delete(); 
     }
-  
+  /*** YA PASARON TODAS LAS PRUEBAS ***/
 }

@@ -160,6 +160,9 @@ Route::group( ['middleware' => 'auth' ], function()
     Route::get('/PreguntasFrecuentes', 'PreguntasFrecuentesController@PreguntasFrecuentes');
     Route::get('/CrearPreguntasFrecuentes', 'PreguntasFrecuentesController@CrearPreguntasFrecuentes');
     Route::post('/CrearPreguntasFrecuentes', 'PreguntasFrecuentesController@CrearPreguntasFrecuentes2');
+    Route::get('/ListarUsuarios2', 'BloquearUsuariosController@Listar');
+    Route::get('/bloquear/{id}', 'BloquearUsuariosController@Bloquear');
+    Route::get('/desbloquear/{id}', 'BloquearUsuariosController@Desbloquear');
 
 });
 
