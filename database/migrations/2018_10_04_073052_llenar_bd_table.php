@@ -87,6 +87,7 @@ class LlenarBdTable extends Migration
         $this->agregarUsuario('201504480', 'Denilson', 'Argueta', 'denilson3@gmail.com', '1', 'Guatemala', '12345678', '1');
         $this->agregarUsuario('201504483', 'Lic. Willy', 'Lopez', 'willyslider@gmail.com', '1', 'Guatemala', '12345678', '1');
         $this->agregarUsuario('201504489', 'Elmer', 'Real', 'elmerreal2@gmail.com', '1', 'Guatemala', '12345678', '1');
+        $this->agregarUsuario('201504200', 'Denis', 'Argueta', 'deahtom123@gmail.com', '2', 'Guatemala', '12345678', '1');
         DB::insert("insert into curso_catedratico(id_curso_pensum, id_catedratico) values (1, 1)");
         DB::insert("insert into curso_catedratico(id_curso_pensum, id_catedratico) values (2, 1)");
         DB::insert("insert into curso_catedratico(id_curso_pensum, id_catedratico) values (3, 1)");
