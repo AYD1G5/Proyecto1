@@ -39,6 +39,10 @@ Route::get('/pruebaUsuariosCursoCarrera/{id_curso}/{id_carrera}/{id_usuario}', f
  Route::group( ['middleware' => 'auth' ], function()
  {
  Route::get('/PerfilTema/{tema_id}', 'PerfilTemaController@PerfilTema');
+ Route::get('/ReportarTema/{tema_id}', 'PerfilTemaController@ReportarTema');
+ Route::get('/QuitarReporteTema/{tema_id}', 'PerfilTemaController@QuitarReporteTema');
+ Route::get('/ReportarComentario/{id}', 'ComentarioTemaController@ReportarComentario');
+ Route::get('/QuitarReporteComentario/{id}', 'ComentarioTemaController@QuitarReporteComentario');
  });
  Route::post('/PerfilTema/{tema_id}', function (Request $request,$tema_id){
      $texto = $request->input('texto');
@@ -100,6 +104,8 @@ Route::group( ['middleware' => 'auth' ], function()
     Route::get('/curso/material/listarmaterialdeapoyo/{id_curso_pensum}/','MaterialDeApoyoController@listarMaterial');
     Route::post('/curso/material/subirmaterialdeapoyo/{id_curso_pensum}/','MaterialDeApoyoController@subirArchivo');
     Route::get('/curso/material/descargarmaterialdeapoyo/{id_material}/','MaterialDeApoyoController@descargarArchivo');
+    Route::get('/curso/material/reportarmaterialdeapoyo/{id_material_curso}/','MaterialDeApoyoController@ReportarMaterial');
+    Route::get('/curso/material/quitarreportematerialdeapoyo/{id_material_curso}/','MaterialDeApoyoController@QuitarReporteMaterial');
     Route::get('/PerfilGrupo', 'PerfilGrupoController@PerfilGrupo');
     Route::get('/TemaGrupo/{id}', 'PerfilGrupoController@TemaGrupo');
     Route::get('/ComentarioGrupo/{id}', 'PerfilGrupoController@ComentarioGrupo');

@@ -17,6 +17,7 @@
                                         <th class="text-center">creador</th>
                                         <th class="text-center">Curso</th>
                                         <th class="text-center">Ver Perfil</th>
+                                        <th class="text-center">Acciones</th>
 									</tr>
 									</thead>
 								<tbody>
@@ -27,7 +28,16 @@
                                     <td>{{ $usuario->descripcion }}</td>
                                     <td>{{ $usuario->nombre_user }}</td>
                                     <td>{{ $usuario->nombre_curso }}</td>
-                                    <td>{!! link_to('/PerfilTema/'.$usuario->tema, 'Ver Perfil', ['class' => 'btn btn-warning']) !!}</td>
+                                    <td> 
+                                    @if($usuario->reportado==0)
+                                        {!! link_to('/PerfilTema/'.$usuario->tema, 'Ver Perfil', ['class' => 'btn btn-success btn-raised']) !!}
+                                     @endif
+                                    </td>
+                                    @if($usuario->reportado==0)
+                                        <td> {!! link_to('/ReportarTema/'.$usuario->tema, 'Reportar', ['class' => 'btn btn-success btn-raised']) !!}</td>
+                                    @else
+                                    <td> {!! link_to('/QuitarReporteTema/'.$usuario->tema, 'Quitar Reportar', ['class' => 'btn btn-danger btn-raised']) !!}</td>
+                                    @endif
                                 </tr>
                                 @endforeach
 									</tbody>

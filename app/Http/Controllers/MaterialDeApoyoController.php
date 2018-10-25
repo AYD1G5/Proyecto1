@@ -24,7 +24,7 @@ class MaterialDeApoyoController extends Controller {
         ->join('curso as cu', 'cu.id_curso', '=', 'cupe.id_curso')
         ->select('mat.id_material as id_material', 'mat.nombre_archivo as nombre_archivo',
                 'mat.tamano_archivo as tamano_archivo', 'mat.descripcion_archivo as descripcion_archivo',
-                'cu.codigo_curso as codigo_curso', 'cu.nombre_curso as nombre_curso' )
+                'cu.codigo_curso as codigo_curso', 'cu.nombre_curso as nombre_curso','matxcurso.id_material_curso as id_material_curso','matxcurso.reportado as reportado' )
         ->where('matxcurso.id_curso_pensum', '=', $id_curso_pensum)
         ->orderByRaw('mat.id_material DESC')
         ->get();
@@ -104,6 +104,7 @@ class MaterialDeApoyoController extends Controller {
             ))->first();
         $MaterialTemp1-> reportado=1;
         $MaterialTemp1->save();
+        return Redirect::to('/curso/material/listarmaterialdeapoyo/'. $MaterialTemp1->id_curso_pensum.'/');
     }
     public function QuitarReporteMaterial($idMaterial){
 
@@ -112,5 +113,6 @@ class MaterialDeApoyoController extends Controller {
             ))->first();
         $MaterialTemp1-> reportado=0;
         $MaterialTemp1->save();
+        return Redirect::to('/curso/material/listarmaterialdeapoyo/'. $MaterialTemp1->id_curso_pensum.'/');
     }
 }

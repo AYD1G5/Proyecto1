@@ -41,6 +41,7 @@
                     <th style="width: 15%"> Tamano de archivo </th>
                     <th style="width: 30%"> Descripcion </th>
                     <th style="width: 20%"> Descargar </th>
+                    <th style="width: 20%"> Acciones </th>
                 </tr>
             </thead>
             <tbody>
@@ -51,8 +52,15 @@
                     <td> {{ $material->tamano_archivo }} Bytes </td>
                     <td> {{ $material->descripcion_archivo }} </td>
                     <td> 
-                        <a href="/curso/material/descargarmaterialdeapoyo/{{ $material->id_material }}/" class="btn btn-warning btn-raised btn"><i class="icon-download-alt"> </i> Descargar archivo</a>                
+                    @if($material->reportado==0)
+                    <a href="/curso/material/descargarmaterialdeapoyo/{{ $material->id_material }}/" class="btn btn-warning btn-raised btn"><i class="icon-download-alt"> </i> Descargar archivo</a>                
+                   @endif
                     </td>
+                    @if($material->reportado==0)
+                        <td>{!! link_to('/curso/material/reportarmaterialdeapoyo/'.$material->id_material_curso, 'Reportar', ['class' => 'btn btn-success btn-raised']) !!}</td>
+                     @else
+                     <td>{!! link_to('/curso/material/quitarreportematerialdeapoyo/'.$material->id_material_curso, 'Quitar Reporte', ['class' => 'btn btn-danger btn-raised']) !!}</td>
+                    @endif
                 </tr>
                 @endforeach
             </tbody>

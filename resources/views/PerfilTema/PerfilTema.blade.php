@@ -69,14 +69,20 @@
 										</tr>
 									</thead>
 									<tbody>
-									@if(!empty($comentarios))
-										@foreach ($comentarios as $comentario)
-										<tr>
-											<td>{{$comentario->autor->registro_academico}}</td>
-											<td>{{$comentario->comentario->comentario}}</td>
-											</tr>										
-											@endforeach
-										@endif
+												@if(!empty($comentarios))
+													@foreach ($comentarios as $comentario)
+													<tr>
+														<td>{{$comentario->autor->registro_academico}}</td>
+														@if($comentario->comentario->reportado==0)
+														<td>{{$comentario->comentario->comentario}}</td>
+														<td>{!! link_to('/ReportarComentario/'.$comentario->comentario->comentariotema_id, 'Reportar', ['class' => 'btn btn-success btn-raised']) !!}</td>
+														@else
+														<td>Mensaje reportado por contenido inadecuado</td>
+														<td>{!! link_to('/QuitarReporteComentario/'.$comentario->comentario->comentariotema_id, 'Quitar Reporte', ['class' => 'btn btn-danger btn-raised']) !!}</td>
+														@endif
+													</tr>										
+													@endforeach
+												@endif
 									<tr><td width="5%"></td><td></td></tr>
 									</tbody>
 								</table>

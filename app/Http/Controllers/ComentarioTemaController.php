@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\ComentarioTema;
+use Illuminate\Support\Facades\Redirect;
 
 class ComentarioTemaController extends Controller
 {
@@ -23,7 +24,7 @@ class ComentarioTemaController extends Controller
         ))->first();
         $comentario->reportado=1;
         $comentario->save();
-        return  $comentario;
+        return Redirect::to('/PerfilTema/'.$comentario->tema_id);
     }
 
     public function QuitarReporteComentario($id)
@@ -33,6 +34,6 @@ class ComentarioTemaController extends Controller
         ))->first();
         $comentario->reportado=0;
         $comentario->save();
-        return  $comentario;
+        return Redirect::to('/PerfilTema/'.$comentario->tema_id);
     }
 }
