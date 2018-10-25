@@ -118,6 +118,7 @@ class PerfilTemaController extends Controller
             ))->first();
         $Tema1->reportado = 1;
         $Tema1->save();
+        return Redirect::to('/ListarTemas');
     }
     public function QuitarReporteTema($idTema){
         $Tema1 = Tema::where(array(
@@ -125,6 +126,7 @@ class PerfilTemaController extends Controller
             ))->first();
         $Tema1->reportado = 0;
         $Tema1->save();
+        return Redirect::to('/ListarTemas');
     }
   
 }

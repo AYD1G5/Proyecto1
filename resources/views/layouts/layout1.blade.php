@@ -68,6 +68,14 @@
 					</a>
 				</li>
 				<li>
+					<a href="{{url('/ListarTemas')}}">
+						<i class="zmdi zmdi-view-dashboard zmdi-hc-fw"></i> LISTAR TEMAS
+					</a>
+					<a href="{{url('/curso/material/listarmaterialdeapoyo/1')}}">
+						<i class="zmdi zmdi-view-dashboard zmdi-hc-fw"></i> MATERIAL DE APOYO
+					</a>
+				</li>
+				<li>
 					<a href="#!" class="btn-sideBar-SubMenu">
 						<i class="zmdi zmdi-case zmdi-hc-fw"></i> SEMESTRES <i class="zmdi zmdi-caret-down pull-right"></i>
 					</a>
